@@ -3,8 +3,8 @@ import {User} from "@entities/User.entity";
 import {UserRole} from "@entities/UserRole.entity";
 import dotEnv from 'dotenv';
 import {Connection, createConnection, getConnection} from 'typeorm';
-import {Recipes} from "@entities/Recipes.entity";
-import {Restaurant} from "@entities/Restaurant.entity";
+import {Recipes} from "@entities/FormResponses.entity";
+import {Restaurant} from "@entities/Category.entity";
 
 dotEnv.config();
 
@@ -20,12 +20,12 @@ export const testConn = async (drop: boolean = false): Promise<Connection> => {
       synchronize: drop,
       dropSchema: drop,
       entities: [
-        __dirname + '/../entities/Recipes.entity.ts',
-        __dirname + '/../entities/Reservation.entity.ts',
-        __dirname + '/../entities/Restaurant.entity.ts',
+        __dirname + '/../entities/FormResponses.entity.ts',
+        __dirname + '/../entities/Question.entity.ts',
+        __dirname + '/../entities/Category.entity.ts',
         __dirname + '/../entities/User.entity.ts',
         __dirname + '/../entities/UserRole.entity.ts',
-        __dirname + '/../entities/Companion.entity.ts',
+        __dirname + '/../entities/Form.entity.ts',
       ],
     });
   }

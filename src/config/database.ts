@@ -9,14 +9,17 @@ const config: ConnectionOptions = {
     rejectUnauthorized: false,
   },
   synchronize: true,
-  // logging: CONFIG_ENVIROMENT === 'development' ? true : false || false,
+  logging: CONFIG_ENVIROMENT === 'development',
   entities: [
-    'src/entities/Recipes.entity.ts',
-    'src/entities/Reservation.entity.ts',
-    'src/entities/Restaurant.entity.ts',
+    'src/entities/FormResponses.entity.ts',
+    'src/entities/Question.entity.ts',
+    'src/entities/Category.entity.ts',
     'src/entities/User.entity.ts',
-    'src/entities/UserRole.entity.ts',
-    'src/entities/Companion.entity.ts',
+    'src/entities/Form.entity.ts',
+    'src/entities/Section.entity.ts',
+    'src/entities/SubSection.entity.ts',
+    'src/entities/QuestionImages.entity.ts',
+    'src/entities/QuestionItems.entity.ts',
   ],
 };
 export const getDBConfig = async () => await createConnection(config);

@@ -7,7 +7,6 @@ import cors from 'cors';
 import express from 'express';
 import { GraphQLError } from 'graphql';
 import { createServer } from 'http';
-import logger from './utils/logger';
 
 export const server = express();
 export const runServer = async () => {
@@ -32,9 +31,9 @@ export const runServer = async () => {
   apolloServer.installSubscriptionHandlers(httpServer);
   server.use(cookieParser());
   server.use(cors());
-  server.get('/', (_req, res) => res.send('Hello From MoonShot Server'));
+  server.get('/', (_req, res) => res.send('Hello From Nona Analytics Server'));
   apolloServer.applyMiddleware({ app: server });
   httpServer.listen(CONFIG_SERVER_PORT, () => {
-    logger.info(`Server Started at ${CONFIG_SERVER_PORT}`);
+    console.log(`Server Started at ${CONFIG_SERVER_PORT}`);
   });
 };

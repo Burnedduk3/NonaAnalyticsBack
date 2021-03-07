@@ -1,21 +1,14 @@
-import { CONFIG_BCRYPT_SALT_ROUNDS } from '@config/variables';
-import { Restaurant } from '@entities/Restaurant.entity';
-import { UserRole } from '@entities/UserRole.entity';
-import * as bcrypt from 'bcrypt';
 import { IsEmail, MinLength } from 'class-validator';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
-  BeforeInsert,
   Column,
   CreateDateColumn,
-  Entity,
-  ManyToOne,
-  OneToMany, OneToOne,
+  Entity, OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Reservation } from './Reservation.entity';
+import { Form } from '@entities/Form.entity';
 
 @ObjectType()
 @Entity()
@@ -28,7 +21,7 @@ export class User extends BaseEntity {
 
   @Field()
   @Column({ nullable: false, unique: true })
-  userID: string;
+  CognitoPoolId: string;
 
   @Field()
   @Column({ nullable: false, unique: true })
@@ -53,16 +46,8 @@ export class User extends BaseEntity {
   firstName: string;
 
   @Field()
-  @Column({ default: '' })
-  secondName: string;
-
-  @Field()
   @Column({ nullable: false })
   firstLastname: string;
-
-  @Field()
-  @Column({ default: '' })
-  secondLastname: string;
 
   @Field()
   @Column({ nullable: true })
@@ -85,24 +70,8 @@ export class User extends BaseEntity {
 
   // Relations
 
-  // ManyToOne
-  @Field(() => UserRole, { nullable: false })
-  @ManyToOne(() => UserRole, (userRole) => userRole.users)
-  role: UserRole;
-
   // OneToMany
-  @Field(() => Restaurant, { nullable: true })
-  @OneToOne(() => Restaurant, (restaurant) => restaurant.owner)
-  restaurant: Restaurant;
-
-  // OneToMany
-  @Field(() => [Reservation], { nullable: true })
-  @OneToMany(() => Reservation, (reservation) => reservation.owner)
-  reservations: Reservation[];
-
-  // Before insertion
-  @BeforeInsert()
-  async encryptPassword() {
-    this.password = await bcrypt.hash(this.password, CONFIG_BCRYPT_SALT_ROUNDS ? CONFIG_BCRYPT_SALT_ROUNDS : 10);
-  }
+  @Field(() => [Form], { nullable: true })
+  @OneToMany(() => Form, (form) => form.userId)
+  forms: Form[];
 }
