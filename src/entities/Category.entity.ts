@@ -15,7 +15,7 @@ export class Category extends BaseEntity {
   // Fields & Columns
 
   @Field(() => ID)
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({zerofill: true})
   id: number;
 
   @Field()
