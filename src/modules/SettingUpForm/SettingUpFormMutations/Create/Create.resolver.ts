@@ -20,7 +20,7 @@ import { Arg, FieldResolver, Resolver } from 'type-graphql';
 import { getConnection } from 'typeorm';
 
 @Resolver(() => CreateTypes)
-export class SettingUpFormMutationsResolver {
+export class CreateFormMutationsResolver {
   @FieldResolver(() => CreateTypes)
   async createSection(@Arg('SectionData') data: CreateSectionInput): Promise<CreateSectionResponse> {
     try {

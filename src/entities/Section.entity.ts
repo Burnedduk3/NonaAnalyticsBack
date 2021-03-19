@@ -1,13 +1,14 @@
+import { SubSection } from '@entities/SubSection.entity';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, OneToMany,
+  Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { SubSection } from '@entities/SubSection.entity';
 
 @ObjectType()
 @Entity()
@@ -38,6 +39,6 @@ export class Section extends BaseEntity {
 
   // OneToMany
   @Field(() => [SubSection], { nullable: true })
-  @OneToMany(() => SubSection, (subSection) => subSection.section)
+  @OneToMany(() => SubSection, (subSection) => subSection.section, { onDelete: 'CASCADE' })
   subSections: SubSection[];
 }

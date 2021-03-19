@@ -49,7 +49,7 @@ export class Form extends BaseEntity {
   // Relations
   // OneToMany
   @Field(() => [FormResponses], { nullable: true })
-  @OneToMany(() => FormResponses, (question) => question.form)
+  @OneToMany(() => FormResponses, (question) => question.form, { cascade: true })
   responses: FormResponses[];
 
   // ManyToOne
