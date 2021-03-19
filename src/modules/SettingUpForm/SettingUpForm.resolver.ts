@@ -12,6 +12,7 @@ export class SettingUpFormResolver {
   }
 
   @Mutation(/* istanbul ignore next */ () => SettingUpFormMutationsTypes)
+  @FieldResolver()
   SettingUpFormMutation(): SettingUpFormMutationsTypes {
     return new SettingUpFormMutationsTypes();
   }
