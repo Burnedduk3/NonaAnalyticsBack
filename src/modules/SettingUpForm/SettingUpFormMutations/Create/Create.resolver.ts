@@ -14,7 +14,8 @@ import {
   CreateCategoryResponse,
   CreateQuestionResponse,
   CreateSectionResponse,
-  CreateSubSectionResponse, CreateTypes,
+  CreateSubSectionResponse,
+  CreateTypes,
 } from '@modules/SettingUpForm/SettingUpFormMutations/Create/Create.types';
 import { Arg, FieldResolver, Resolver } from 'type-graphql';
 import { getConnection } from 'typeorm';
@@ -152,15 +153,18 @@ export class CreateFormMutationsResolver {
         throw new Error('unable to create Sub-Section');
       }
 
-      await getConnection().createQueryBuilder().relation(SubSection, 'section').of(newQuestion).set(subSection);
-      await getConnection().createQueryBuilder().relation(Category, 'category').of(newQuestion).set(category);
-
+      await getConnection().createQueryBuilder().relation(Question, 'subSection').of(newQuestion).set(subSection);
+      newQuestion.subSection = subSection;
+      await getConnection().createQueryBuilder().relation(Question, 'category').of(newQuestion).set(category);
+      newQuestion.category = category;
       for (const item of itemsToAdd) {
-        await getConnection().createQueryBuilder().relation(QuestionItems, 'items').of(newQuestion).add(item);
+        await getConnection().createQueryBuilder().relation(Question, 'items').of(newQuestion).add(item);
+        newQuestion.items.push(item)
       }
 
       for (const image of imagesToAdd) {
-        await getConnection().createQueryBuilder().relation(QuestionImages, 'imagesPath').of(newQuestion).add(image);
+        await getConnection().createQueryBuilder().relation(Question, 'imagesPath').of(newQuestion).add(image);
+        newQuestion.imagesPath.push(image);
       }
 
       return {

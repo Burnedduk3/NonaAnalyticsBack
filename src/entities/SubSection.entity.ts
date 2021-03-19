@@ -41,7 +41,7 @@ export class SubSection extends BaseEntity {
 
   // OneToMany
   @Field(() => [Question], { nullable: true })
-  @OneToMany(() => Question, (question) => question.category, { cascade: true })
+  @OneToMany(() => Question, (question) => question.subSection)
   questions: Question[];
 
   // ManyToOne

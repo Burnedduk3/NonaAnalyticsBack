@@ -2,6 +2,8 @@ import dotEnv from 'dotenv';
 
 dotEnv.config();
 
+// docker run --name nona-Analytics-DB -e POSTGRES_PASSWORD=Patipuna1  -d -p 5432:5432 postgres
+
 // Enviroment
 export const CONFIG_ENVIROMENT = process.env.ENVIROMENT || 'development';
 
