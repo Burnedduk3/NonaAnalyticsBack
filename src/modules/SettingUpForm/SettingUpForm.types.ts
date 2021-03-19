@@ -1,5 +1,6 @@
-import { Field, ObjectType } from 'type-graphql';
+import { SettingUpFormMutationsTypes } from '@modules/SettingUpForm/SettingUpFormMutations/SettingUpFormMutations.types';
 import { SettingUpFormQueriesTypes } from '@modules/SettingUpForm/SettingUpFormQueries/SettingUpFormQueries.types';
+import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType({ description: 'SettingUpForm Functions' })
 export class SettingUpFormTypes {
@@ -7,5 +8,5 @@ export class SettingUpFormTypes {
   SettingUpFormQueries: SettingUpFormQueriesTypes;
 
   @Field({ nullable: false })
-  SettingUpFormMutation: string;
+  SettingUpFormMutation: SettingUpFormMutationsTypes;
 }

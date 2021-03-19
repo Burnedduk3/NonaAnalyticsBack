@@ -1,65 +1,65 @@
-import { FieldResolver, Resolver } from 'type-graphql';
-import {
-  SettingUpFormQueriesTypes,
-  SettingUpFormQueriesResponse,
-  byeWorldResponse,
-} from '@modules/SettingUpForm/SettingUpFormQueries/SettingUpFormQueries.types';
 import { Category } from '@entities/Category.entity';
+import {
+  byeWorldResponse,
+  SettingUpFormQueriesResponse,
+  SettingUpFormQueriesTypes,
+} from '@modules/SettingUpForm/SettingUpFormQueries/SettingUpFormQueries.types';
+import { FieldResolver, Resolver } from 'type-graphql';
 
 @Resolver(() => SettingUpFormQueriesTypes)
 export class SettingUpFormQueriesResolver {
   @FieldResolver(/* istanbul ignore next */ () => SettingUpFormQueriesTypes) // without args
   async helloWorld(): Promise<SettingUpFormQueriesResponse> {
     return {
-      data: "hello world",
+      data: 'hello world',
       error: false,
-      message: "hello nico"
-    }
+      message: 'hello nico',
+    };
   }
 
-  @FieldResolver(()=> SettingUpFormQueriesTypes)
-  async byeWorld(): Promise<byeWorldResponse>{
-    let category = await Category.create({
-      name: "testWithCa4t",
+  @FieldResolver(() => SettingUpFormQueriesTypes)
+  async byeWorld(): Promise<byeWorldResponse> {
+    const category = await Category.create({
+      name: 'testWithCa4t',
     }).save();
 
-    if(!category){
-      throw new Error ("could not create category")
+    if (!category) {
+      throw new Error('could not create category');
     }
 
-    let createdCategory = await Category.find();
+    const createdCategory = await Category.find();
 
-    if(!createdCategory){
-      throw new Error ("could not create category")
+    if (!createdCategory) {
+      throw new Error('could not create category');
     }
 
     return {
-      message: "bye nico",
+      message: 'bye nico',
       error: true,
-      data: createdCategory
-    }
+      data: createdCategory,
+    };
   }
 
   @FieldResolver(/* istanbul ignore next */ () => SettingUpFormQueriesTypes) // without args
   async TestingDifferent(): Promise<SettingUpFormQueriesResponse> {
-    let category = await Category.create({
-      name: "testWithCa5t",
+    const category = await Category.create({
+      name: 'testWithCa5t',
     }).save();
 
-    if(!category){
-      throw new Error ("could not create category")
+    if (!category) {
+      throw new Error('could not create category');
     }
 
-    let createdCategory = await Category.find();
+    const createdCategory = await Category.find();
 
-    if(!createdCategory){
-      throw new Error ("could not create category")
+    if (!createdCategory) {
+      throw new Error('could not create category');
     }
 
     return {
-      message: "bye nico",
+      message: 'bye nico',
       error: true,
-      data: JSON.stringify(createdCategory)
-    }
+      data: JSON.stringify(createdCategory),
+    };
   }
 }

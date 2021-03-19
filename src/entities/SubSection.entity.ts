@@ -1,14 +1,16 @@
+import { Question } from '@entities/Question.entity';
+import { Section } from '@entities/Section.entity';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, ManyToOne, OneToMany,
+  Entity,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Question } from '@entities/Question.entity';
-import { Section } from '@entities/Section.entity';
 
 @ObjectType()
 @Entity()

@@ -85,14 +85,4 @@ export class Question extends BaseEntity {
   @Field(() => SubSection, { nullable: false })
   @ManyToOne(() => SubSection, (subSection) => subSection.questions)
   subSection: Category;
-
-  // // ManyToOne
-  // @Field(() => User, { nullable: false })
-  // @ManyToOne(() => User, (user) => user.reservations)
-  // owner: User;
-
-  // // ManyToOne
-  // @Field(() => User, { nullable: false })
-  // @ManyToOne(() => User, (user) => user.reservations)
-  // owner: User;
 }

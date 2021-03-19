@@ -11,7 +11,7 @@ import { Question } from '@entities/Question.entity';
 
 @ObjectType()
 @Entity()
-export class QuestionImages extends BaseEntity {
+export class  QuestionImages extends BaseEntity {
   // Fields & Columns
 
   @Field(() => ID)
