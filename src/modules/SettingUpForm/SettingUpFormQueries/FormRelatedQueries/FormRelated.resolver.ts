@@ -11,9 +11,8 @@ export class FormRelatedResolver {
     @Arg('Parameters') data: GetSubSectionQuestionsInputs,
   ): Promise<MultipleQuestionResponse> {
     try {
-      console.log('STARTING QUERIE');
       const questions = await Question.find({
-        relations:['imagesPath', 'items', 'category'],
+        relations: ['imagesPath', 'items', 'category'],
         join: {
           alias: 'question',
           leftJoinAndSelect: {
@@ -24,6 +23,9 @@ export class FormRelatedResolver {
           qb.where('subSection.name = :name', { name: data.subSectionName })
             .andWhere('subSection.name = :name', { name: data.subSectionName })
             .andWhere('question.stack = :stack', { stack: data.stackNumber });
+        },
+        order: {
+          order: 'ASC',
         },
       });
 

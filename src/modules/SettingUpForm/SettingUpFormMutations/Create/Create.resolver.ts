@@ -82,7 +82,7 @@ export class CreateFormMutationsResolver {
   async createQuestion(@Arg('QuestionData') data: CreateQuestionInput): Promise<CreateQuestionResponse> {
     try {
       const itemsToAdd: QuestionItems[] = [];
-      const imagesToAdd: QuestionImages[] = [];
+      const imagesToUse: QuestionImages[] = [];
       const {
         inputConfirmation,
         order,
@@ -130,13 +130,13 @@ export class CreateFormMutationsResolver {
 
       for (const [index, imageItem] of imagesPath.entries()) {
         const possibleImage = await QuestionImages.findOne({
-          where: { name: imageItem, order: index, alt: imageItem },
+          where: { src: imageItem, order: index, alt: imageItem },
         });
         if (possibleImage) {
-          imagesToAdd.push(possibleImage);
+          imagesToUse.push(possibleImage);
         } else {
-          const imageToAdd = await QuestionImages.create({ src: imageItem }).save();
-          imagesToAdd.push(imageToAdd);
+          const imageToAdd = await QuestionImages.create({ src: imageItem, alt: imageItem, order: index }).save();
+          imagesToUse.push(imageToAdd);
         }
       }
 
@@ -159,13 +159,16 @@ export class CreateFormMutationsResolver {
       newQuestion.category = category;
       for (const item of itemsToAdd) {
         await getConnection().createQueryBuilder().relation(Question, 'items').of(newQuestion).add(item);
-        newQuestion.items.push(item)
       }
 
-      for (const image of imagesToAdd) {
+      newQuestion.items = itemsToAdd;
+
+
+      for (const image of imagesToUse) {
         await getConnection().createQueryBuilder().relation(Question, 'imagesPath').of(newQuestion).add(image);
-        newQuestion.imagesPath.push(image);
       }
+
+      newQuestion.imagesPath = imagesToUse;
 
       return {
         error: false,
