@@ -1,18 +1,18 @@
 import {
-  MultipleFormResponse,
+  SingleAnswerResponse,
+  SingleFormResponse,
   SingleUserResponse,
 } from '@modules/UserInteraction/UserInteractionQueries/UserInteractionQueries.types';
 import { Field, ObjectType } from 'type-graphql';
 
 
-// TODO create the mutations of the user interaction
-@ObjectType({ description: 'SettingUpForm Functions' })
+@ObjectType({ description: 'User Interaction mutations' })
 export class UserInteractionMutationsTypes {
   @Field({ nullable: false })
-  createForm: MultipleFormResponse;
+  startForm: SingleFormResponse;
 
   @Field({ nullable: false })
-  createResponse: SingleUserResponse;
+  createResponse: SingleAnswerResponse;
 
   @Field({ nullable: false })
   createUser: SingleUserResponse;

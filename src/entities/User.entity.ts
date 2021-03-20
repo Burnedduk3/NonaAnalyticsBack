@@ -1,14 +1,15 @@
+import { Form } from '@entities/Form.entity';
 import { IsEmail, MinLength } from 'class-validator';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, OneToMany,
+  Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Form } from '@entities/Form.entity';
 
 @ObjectType()
 @Entity()
@@ -50,15 +51,8 @@ export class User extends BaseEntity {
   firstLastname: string;
 
   @Field()
-  @Column({ nullable: true })
-  confirmationCode: number;
-
-  @Field()
   @Column('bool', { default: false })
   confirmed: boolean;
-
-  @Column('int', { default: 0 })
-  tokenVersion: number;
 
   @Field()
   @UpdateDateColumn({ type: 'timestamp' })

@@ -1,4 +1,5 @@
 import { Form } from '@entities/Form.entity';
+import { FormResponses } from '@entities/FormResponses.entity';
 import { User } from '@entities/User.entity';
 import { Field, ObjectType } from 'type-graphql';
 
@@ -12,6 +13,16 @@ export class MultipleFormResponse {
   data?: Form[];
 }
 
+@ObjectType({ description: 'returns a created form of a user in the database' })
+export class SingleFormResponse {
+  @Field()
+  error: boolean;
+  @Field()
+  message: string | '';
+  @Field({ nullable: true })
+  data?: Form;
+}
+
 @ObjectType({ description: 'returns the user info in the database' })
 export class SingleUserResponse {
   @Field()
@@ -20,6 +31,16 @@ export class SingleUserResponse {
   message: string | '';
   @Field({ nullable: true })
   data?: User;
+}
+
+@ObjectType({ description: 'return the answer of the question' })
+export class SingleAnswerResponse {
+  @Field()
+  error: boolean;
+  @Field()
+  message: string | '';
+  @Field()
+  data?: FormResponses;
 }
 
 @ObjectType({ description: 'SettingUpForm Functions' })

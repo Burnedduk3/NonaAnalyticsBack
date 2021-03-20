@@ -1,18 +1,45 @@
+import { Form } from '@entities/Form.entity';
+import { FormResponses } from '@entities/FormResponses.entity';
+import { Question } from '@entities/Question.entity';
+import { User } from '@entities/User.entity';
+import {
+  CreateResponse,
+  CreateUser,
+} from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.inputs';
 import { UserInteractionMutationsTypes } from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.types';
 import {
-  MultipleFormResponse,
+  SingleAnswerResponse,
+  SingleFormResponse,
   SingleUserResponse,
 } from '@modules/UserInteraction/UserInteractionQueries/UserInteractionQueries.types';
-import { FieldResolver, Resolver } from 'type-graphql';
+import { Arg, FieldResolver, Resolver } from 'type-graphql';
+import { getConnection } from 'typeorm';
 
 @Resolver(() => UserInteractionMutationsTypes)
 export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
-  async createForm(): Promise<MultipleFormResponse> {
+  async startForm(@Arg('userID') userId: number): Promise<SingleFormResponse> {
     try {
+      if (!userId) {
+        throw new Error('unable to locate the specified user, id not provided');
+      }
+      const user = await User.findOne({ where: { CognitoPoolId: userId } });
+      if (!user) {
+        throw new Error('Unable to locate the specified user, try signing up or try again later');
+      }
+      const createdForm = await Form.create().save();
+
+      await getConnection().createQueryBuilder().relation(Form, 'user').of(createdForm).set(user);
+      createdForm.user = user;
+
+      if (!createdForm) {
+        throw new Error('Could not create form, try again later');
+      }
+
       return {
         error: false,
         message: '',
+        data: createdForm,
       };
     } catch (e) {
       return {
@@ -23,11 +50,28 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
-  async createResponse(): Promise<SingleUserResponse> {
+  async createUser(@Arg('UserData') data: CreateUser): Promise<SingleUserResponse> {
     try {
+      const { CognitoPoolId, email, firstLastname, firstName, password, phone, username } = data;
+
+      if (!CognitoPoolId || !email || !firstLastname || !firstName || !password || !phone || !username) {
+        throw new Error('Unable to create user, missing information');
+      }
+
+      const newUser = await User.create({
+        CognitoPoolId,
+        email,
+        firstLastname,
+        firstName,
+        password,
+        phone,
+        username,
+      }).save();
+
       return {
         error: false,
         message: '',
+        data: newUser,
       };
     } catch (e) {
       return {
@@ -38,11 +82,40 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
-  async createUser(): Promise<SingleUserResponse> {
+  async createResponse(@Arg('createResponseInputs') data: CreateResponse): Promise<SingleAnswerResponse> {
     try {
+      const { formId, questionId, response } = data;
+      if (!formId || !questionId || !response) {
+        throw new Error('Missing Data to create the response');
+      }
+
+      const currentForm = await Form.findOne({ where: { id: formId } });
+
+      if (!currentForm) {
+        throw new Error('Unable to find the form');
+      }
+
+      const respondedQuestion = await Question.findOne({ where: { id: questionId } });
+
+      if (!respondedQuestion) {
+        throw new Error('unable to find corresponding question');
+      }
+
+      const answer = await FormResponses.create({ response }).save();
+
+      if (!answer) {
+        throw new Error('Unable to create the answer, try again later');
+      }
+
+      await getConnection().createQueryBuilder().relation(FormResponses, 'form').of(answer).set(currentForm);
+      answer.form = currentForm;
+      await getConnection().createQueryBuilder().relation(FormResponses, 'question').of(answer).set(respondedQuestion);
+      answer.question = respondedQuestion;
+
       return {
         error: false,
         message: '',
+        data: answer,
       };
     } catch (e) {
       return {

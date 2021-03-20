@@ -27,7 +27,7 @@ export class Form extends BaseEntity {
   finished: boolean;
 
   @Field()
-  @Column({ nullable: false })
+  @Column({ nullable: false, default: 0 })
   percentage: number;
 
   @Field()
@@ -55,5 +55,5 @@ export class Form extends BaseEntity {
   // ManyToOne
   @Field(() => User, { nullable: false })
   @ManyToOne(() => User, (user) => user.forms)
-  userId: User;
+  user: User;
 }
