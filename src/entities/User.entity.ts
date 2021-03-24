@@ -66,6 +66,6 @@ export class User extends BaseEntity {
 
   // OneToMany
   @Field(() => [Form], { nullable: true })
-  @OneToMany(() => Form, (form) => form.userId)
+  @OneToMany(() => Form, (form) => form.user)
   forms: Form[];
 }

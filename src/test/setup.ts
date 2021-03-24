@@ -1,7 +1,9 @@
 import 'module-alias/register';
-import { boilerPlate, testConn } from './testCon';
+import { boilerplateData } from './../utils/setupdevDB';
+import 'module-alias/register';
+import { testConn } from './testCon';
 
 testConn(true).then(async () => {
-  await boilerPlate();
+  await boilerplateData();
   process.exit();
 });

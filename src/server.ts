@@ -1,6 +1,6 @@
 import { CONFIG_SERVER_PORT } from '@config/variables';
 import { createSchema } from '@utils/createSchema';
-import { boilerplateData, connectSqlDB } from '@utils/setupdevDB';
+import { connectSqlDB } from '@utils/setupdevDB';
 import { ApolloServer } from 'apollo-server-express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -11,7 +11,6 @@ import { createServer } from 'http';
 export const server = express();
 export const runServer = async () => {
   await connectSqlDB();
-  await boilerplateData();
   const schema = await createSchema();
   const apolloServer = new ApolloServer({
     schema,
