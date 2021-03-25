@@ -5,6 +5,7 @@ import { User } from '@entities/User.entity';
 import {
   CreateResponse,
   CreateUser,
+  UpdateResponse,
 } from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.inputs';
 import { UserInteractionMutationsTypes } from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.types';
 import {
@@ -77,6 +78,40 @@ export class UserInteractionMutationsResolver {
       return {
         error: true,
         message: e.message,
+      };
+    }
+  }
+
+  @FieldResolver(() => UserInteractionMutationsTypes)
+  async updateQuestionResponse(@Arg('updateResponse') data: UpdateResponse): Promise<SingleAnswerResponse> {
+    try {
+      const { newResponse, questionId } = data;
+
+      const response = await FormResponses.findOne(questionId);
+
+      if (!response) {
+        throw new Error('Unable to find question by given identifier');
+      }
+
+      await getConnection()
+        .createQueryBuilder()
+        .update(FormResponses)
+        .set({
+          response: newResponse,
+        })
+        .where('id = :id', { id: questionId })
+        .execute();
+      response.response = newResponse;
+
+      return {
+        error: false,
+        message: '',
+        data: response,
+      };
+    } catch (err) {
+      return {
+        error: true,
+        message: err.message,
       };
     }
   }

@@ -41,3 +41,12 @@ export class CreateResponse {
   @Field({ nullable: false })
   response: string;
 }
+
+@InputType({ description: 'Input for updating a response of the form' })
+export class UpdateResponse {
+  @Field({ nullable: false })
+  questionId: string;
+
+  @Field({ nullable: false })
+  newResponse: string;
+}
