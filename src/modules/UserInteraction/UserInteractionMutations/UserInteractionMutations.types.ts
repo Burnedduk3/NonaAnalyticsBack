@@ -18,4 +18,10 @@ export class UserInteractionMutationsTypes {
 
   @Field({ nullable: false })
   updateQuestionResponse: SingleAnswerResponse;
+
+  @Field({ nullable: false })
+  updateFormProgress: SingleFormResponse;
+
+  @Field({ nullable: false })
+  updateFormConsent: SingleFormResponse;
 }

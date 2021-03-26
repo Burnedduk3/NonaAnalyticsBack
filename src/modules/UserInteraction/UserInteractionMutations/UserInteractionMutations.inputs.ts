@@ -42,6 +42,21 @@ export class CreateResponse {
   response: string;
 }
 
+@InputType({ description: 'Input to update the form progress' })
+export class UpdateFormInputs {
+  @Field({ nullable: false })
+  formId: string;
+
+  @Field({ nullable: false })
+  progress: number;
+}
+
+@InputType({ description: 'Input to update the form consent' })
+export class UpdateFormConsentInputs {
+  @Field({ nullable: false })
+  formId: string;
+}
+
 @InputType({ description: 'Input for updating a response of the form' })
 export class UpdateResponse {
   @Field({ nullable: false })
