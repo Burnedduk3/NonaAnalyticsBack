@@ -12,8 +12,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-// formQuestions: [FormQuestion] @connection(name: "FormQuestions")
-
 @ObjectType()
 @Entity()
 export class Form extends BaseEntity {

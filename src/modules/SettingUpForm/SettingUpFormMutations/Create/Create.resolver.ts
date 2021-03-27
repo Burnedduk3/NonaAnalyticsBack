@@ -119,25 +119,13 @@ export class CreateFormMutationsResolver {
       }
 
       for (const [index, comboItem] of comboItems.entries()) {
-        const possibleItem = await QuestionItems.findOne({ where: { name: comboItem } });
-        if (possibleItem) {
-          itemsToAdd.push(possibleItem);
-        } else {
-          const itemToAdd = await QuestionItems.create({ name: comboItem, order: index }).save();
-          itemsToAdd.push(itemToAdd);
-        }
+        const itemToAdd = await QuestionItems.create({ name: comboItem, order: index }).save();
+        itemsToAdd.push(itemToAdd);
       }
 
       for (const [index, imageItem] of imagesPath.entries()) {
-        const possibleImage = await QuestionImages.findOne({
-          where: { src: imageItem, order: index, alt: imageItem },
-        });
-        if (possibleImage) {
-          imagesToUse.push(possibleImage);
-        } else {
-          const imageToAdd = await QuestionImages.create({ src: imageItem, alt: imageItem, order: index }).save();
-          imagesToUse.push(imageToAdd);
-        }
+        const imageToAdd = await QuestionImages.create({ src: imageItem, alt: imageItem, order: index }).save();
+        imagesToUse.push(imageToAdd);
       }
 
       const newQuestion = await Question.create({
@@ -162,7 +150,6 @@ export class CreateFormMutationsResolver {
       }
 
       newQuestion.items = itemsToAdd;
-
 
       for (const image of imagesToUse) {
         await getConnection().createQueryBuilder().relation(Question, 'imagesPath').of(newQuestion).add(image);

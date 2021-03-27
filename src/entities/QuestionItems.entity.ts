@@ -39,18 +39,4 @@ export class QuestionItems extends BaseEntity {
   @Field(() => Question, { nullable: false })
   @ManyToOne(() => Question, (question) => question.questionResponses)
   question: Question;
-  // ManyToOne
-  // @Field(() => User, { nullable: false })
-  // @ManyToOne(() => User, (user) => user.restaurant)
-  // owner: User;
-  //
-  // // OneToMany
-  // @Field(() => [Recipes], { nullable: true })
-  // @OneToMany(() => Recipes, (recipe) => recipe.restaurantMenu)
-  // recipes: Recipes[];
-  //
-  // // OneToMany
-  // @Field(() => [Reservation], { nullable: true })
-  // @OneToMany(() => Reservation, (reservations) => reservations.restaurant)
-  // reservations: Reservation[];
 }

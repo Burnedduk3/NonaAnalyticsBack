@@ -1,5 +1,5 @@
 import { Form } from '@entities/Form.entity';
-import { IsEmail, MinLength } from 'class-validator';
+import { IsEmail } from 'class-validator';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
@@ -31,11 +31,6 @@ export class User extends BaseEntity {
   @Field()
   @Column({ nullable: false, unique: true })
   username: string;
-
-  @Field()
-  @Column({ nullable: false })
-  @MinLength(8, { message: 'Less than 8' })
-  password: string;
 
   @Field()
   @Column({ nullable: false, unique: true })
