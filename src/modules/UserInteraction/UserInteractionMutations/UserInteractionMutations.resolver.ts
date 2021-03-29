@@ -4,7 +4,9 @@ import { Question } from '@entities/Question.entity';
 import { User } from '@entities/User.entity';
 import {
   CreateResponse,
-  CreateUser,
+  CreateUser, UpdateFormConsentInputs,
+  UpdateFormInputs,
+  UpdateResponse,
 } from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.inputs';
 import { UserInteractionMutationsTypes } from '@modules/UserInteraction/UserInteractionMutations/UserInteractionMutations.types';
 import {
@@ -77,6 +79,113 @@ export class UserInteractionMutationsResolver {
       return {
         error: true,
         message: e.message,
+      };
+    }
+  }
+
+  @FieldResolver(() => UserInteractionMutationsTypes)
+  async updateQuestionResponse(@Arg('updateResponse') data: UpdateResponse): Promise<SingleAnswerResponse> {
+    try {
+      const { newResponse, questionId } = data;
+
+      const response = await FormResponses.findOne(questionId);
+
+      if (!response) {
+        throw new Error('Unable to find question by given identifier');
+      }
+
+      await getConnection()
+        .createQueryBuilder()
+        .update(FormResponses)
+        .set({
+          response: newResponse,
+        })
+        .where('id = :id', { id: response.id })
+        .execute();
+      response.response = newResponse;
+
+      return {
+        error: false,
+        message: '',
+        data: response,
+      };
+    } catch (err) {
+      return {
+        error: true,
+        message: err.message,
+      };
+    }
+  }
+
+  @FieldResolver(() => UserInteractionMutationsTypes)
+  async updateFormProgress(@Arg('UpdateProgress') data: UpdateFormInputs): Promise<SingleFormResponse> {
+    try {
+      const { formId, progress } = data;
+      if (!formId || !progress) {
+        throw new Error('Unable to process the query, missing data');
+      }
+      const form = await Form.findOne(formId);
+
+      if (!form) {
+        throw new Error('Specified form does not exist');
+      }
+      await getConnection()
+        .createQueryBuilder()
+        .update(Form)
+        .set({
+          percentage: progress,
+        })
+        .where('id = :id', { id: form.id })
+        .execute();
+      form.percentage = progress;
+
+
+      return {
+        error: false,
+        message: '',
+        data: form,
+      };
+    } catch (err) {
+      return {
+        error: true,
+        message: err.message,
+      };
+    }
+  }
+
+  @FieldResolver(() => UserInteractionMutationsTypes)
+  async updateFormConsent(@Arg('UpdateProgress') data: UpdateFormConsentInputs): Promise<SingleFormResponse> {
+    try {
+      const { formId } = data;
+      if (!formId) {
+        throw new Error('Unable to process the query, missing data');
+      }
+      const form = await Form.findOne(formId);
+
+      if (!form) {
+        throw new Error('Specified form does not exist');
+      }
+
+      await getConnection()
+        .createQueryBuilder()
+        .update(Form)
+        .set({
+          consent: true,
+        })
+        .where('id = :id', { id: form.id })
+        .execute();
+      form.consent = true;
+
+
+      return {
+        error: false,
+        message: '',
+        data: form,
+      };
+    } catch (err) {
+      return {
+        error: true,
+        message: err.message,
       };
     }
   }

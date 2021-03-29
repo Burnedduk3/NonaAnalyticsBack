@@ -1,17 +1,16 @@
+import { FormResponses } from '@entities/FormResponses.entity';
+import { User } from '@entities/User.entity';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, ManyToOne,
+  Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { FormResponses } from '@entities/FormResponses.entity';
-import { User } from '@entities/User.entity';
-
-// formQuestions: [FormQuestion] @connection(name: "FormQuestions")
 
 @ObjectType()
 @Entity()
@@ -27,15 +26,15 @@ export class Form extends BaseEntity {
   finished: boolean;
 
   @Field()
-  @Column({ nullable: false, default: 0 })
+  @Column({ nullable: false, default: 0.0, type: 'float4' })
   percentage: number;
 
   @Field()
-  @Column({ nullable: false, default: false  })
+  @Column({ nullable: false, default: false })
   consent: boolean;
 
   @Field()
-  @Column({ nullable: false, default: false  })
+  @Column({ nullable: false, default: false })
   sentEmail: boolean;
 
   @Field()
