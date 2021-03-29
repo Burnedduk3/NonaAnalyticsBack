@@ -87,6 +87,27 @@ export const boilerplateData = async () => {
     .of(YourHealthSubSection)
     .set(HealthSection);
 
+  let ScreeningsSubSection = await SubSection.findOne({ name: 'Screenings Vaccinations and Beliefs' });
+  if (!ScreeningsSubSection) {
+    ScreeningsSubSection = await SubSection.create({ name: 'Screenings Vaccinations and Beliefs', order: 3 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(ScreeningsSubSection)
+    .set(HealthSection);
+
+  let HealthcareSubSection = await SubSection.findOne({ name: 'Health care info and health care access' });
+  if (!HealthcareSubSection) {
+    HealthcareSubSection = await SubSection.create({ name: 'Health care info and health care access', order: 4 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(HealthcareSubSection)
+    .set(HealthSection);
+
+
   // LAKE NONA QUESTIONS
   let LakeNonaFirstQuestion = await Question.findOne({ question: 'Do you live in lake nona?' });
   if (!LakeNonaFirstQuestion) {
@@ -771,9 +792,9 @@ export const boilerplateData = async () => {
   if (!Demographics5aQuestionItem81) {
     Demographics5aQuestionItem81 = await QuestionItems.create({ name: "Europa Island", order:80}).save();
   }
-  let Demographics5aQuestionItem82 = await QuestionItems.findOne({ name: "Falkland Islands (IslasMalvinas)"});
+  let Demographics5aQuestionItem82 = await QuestionItems.findOne({ name: "Falkland Islands (Islas Malvinas)"});
   if (!Demographics5aQuestionItem82) {
-    Demographics5aQuestionItem82 = await QuestionItems.create({ name: "Falkland Islands (IslasMalvinas)", order:81}).save();
+    Demographics5aQuestionItem82 = await QuestionItems.create({ name: "Falkland Islands (Islas Malvinas)", order:81}).save();
   }
   let Demographics5aQuestionItem83 = await QuestionItems.findOne({ name: "Faroe Islands"});
   if (!Demographics5aQuestionItem83) {
@@ -2704,7 +2725,7 @@ export const boilerplateData = async () => {
   let Demographics22Question = await Question.findOne({ question: 'For all members living in your household, what is the combined annual income (the total pre-tax income from all sources earned in the past year)? ' });
   if (!Demographics22Question) {
     Demographics22Question = await Question.create({
-      question: 'For all members living in your household, what is the combined annual income (the total pre-tax income from all sources earned in the past year)? ',
+      question: 'For all members living in your household, what is the combined annual income (the total pre-tax income from all sources earned in the past year)?',
 
       stack: 0,
 
@@ -3941,6 +3962,1413 @@ export const boilerplateData = async () => {
     .relation(Question, 'subSection')
     .of(YourHealth15Question)
     .set(YourHealthSubSection);
+
+  let Screenings1aQuestion = await Question.findOne({ question: 'Human Papilloma (HPV) Vaccine'});
+  if (!Screenings1aQuestion){
+    Screenings1aQuestion = await Question.create({
+      question: 'Human Papilloma (HPV) Vaccine',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1aQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1aQuestionItem1) {
+    Screenings1aQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1aQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1aQuestionItem2) {
+    Screenings1aQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1aQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1aQuestionItem3) {
+    Screenings1aQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1aQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1aQuestionItem4) {
+    Screenings1aQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1aQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1aQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1aQuestion).add(Screenings1aQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1aQuestion).add(Screenings1aQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1aQuestion).add(Screenings1aQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1aQuestion).add(Screenings1aQuestionItem4);
+
+  let Screenings1bQuestion = await Question.findOne({ question: 'Pneumococcal Vaccine (participants 65 and older and/or diabetes, cancer, heart, lung, or immune disease)'});
+  if (!Screenings1bQuestion){
+    Screenings1bQuestion = await Question.create({
+      question: 'Pneumococcal Vaccine (participants 65 and older and/or diabetes, cancer, heart, lung, or immune disease)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1bQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1bQuestionItem1) {
+    Screenings1bQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1bQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1bQuestionItem2) {
+    Screenings1bQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1bQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1bQuestionItem3) {
+    Screenings1bQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1bQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1bQuestionItem4) {
+    Screenings1bQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1bQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1bQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1bQuestion).add(Screenings1bQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1bQuestion).add(Screenings1bQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1bQuestion).add(Screenings1bQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1bQuestion).add(Screenings1bQuestionItem4);
+
+  let Screenings1cQuestion = await Question.findOne({ question: 'Tetanus /Diphtheria//Pertussis Vaccine (Tdap or Tp)'});
+  if (!Screenings1cQuestion){
+    Screenings1cQuestion = await Question.create({
+      question: 'Tetanus /Diphtheria//Pertussis Vaccine (Tdap or Tp)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1cQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1cQuestionItem1) {
+    Screenings1cQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1cQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1cQuestionItem2) {
+    Screenings1cQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1cQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1cQuestionItem3) {
+    Screenings1cQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1cQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1cQuestionItem4) {
+    Screenings1cQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1cQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1cQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1cQuestion).add(Screenings1cQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1cQuestion).add(Screenings1cQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1cQuestion).add(Screenings1cQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1cQuestion).add(Screenings1cQuestionItem4);
+
+  let Screenings1dQuestion = await Question.findOne({ question: 'Varicella Zoster Vaccine (for Shingles) (Participants 50 and older)'});
+  if (!Screenings1dQuestion){
+    Screenings1dQuestion = await Question.create({
+      question: 'Varicella Zoster Vaccine (for Shingles) (Participants 50 and older)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1dQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1dQuestionItem1) {
+    Screenings1dQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1dQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1dQuestionItem2) {
+    Screenings1dQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1dQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1dQuestionItem3) {
+    Screenings1dQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1dQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1dQuestionItem4) {
+    Screenings1dQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1dQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1dQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1dQuestion).add(Screenings1dQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1dQuestion).add(Screenings1dQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1dQuestion).add(Screenings1dQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1dQuestion).add(Screenings1dQuestionItem4);
+
+  let Screenings1eQuestion = await Question.findOne({ question: 'Hepatitis A'});
+  if (!Screenings1eQuestion){
+    Screenings1eQuestion = await Question.create({
+      question: 'Hepatitis A',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1eQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1eQuestionItem1) {
+    Screenings1eQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1eQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1eQuestionItem2) {
+    Screenings1eQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1eQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1eQuestionItem3) {
+    Screenings1eQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1eQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1eQuestionItem4) {
+    Screenings1eQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1eQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1eQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1eQuestion).add(Screenings1eQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1eQuestion).add(Screenings1eQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1eQuestion).add(Screenings1eQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1eQuestion).add(Screenings1eQuestionItem4);
+
+  let Screenings1fQuestion = await Question.findOne({ question: 'Hepatitis B'});
+  if (!Screenings1fQuestion){
+    Screenings1fQuestion = await Question.create({
+      question: 'Hepatitis B',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1fQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1fQuestionItem1) {
+    Screenings1fQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1fQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1fQuestionItem2) {
+    Screenings1fQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1fQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1fQuestionItem3) {
+    Screenings1fQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1fQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1fQuestionItem4) {
+    Screenings1fQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1fQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1fQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1fQuestion).add(Screenings1fQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1fQuestion).add(Screenings1fQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1fQuestion).add(Screenings1fQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1fQuestion).add(Screenings1fQuestionItem4);
+
+  let Screenings1gQuestion = await Question.findOne({ question: 'Meningococcal (Meningitis)'});
+  if (!Screenings1gQuestion){
+    Screenings1gQuestion = await Question.create({
+      question: 'Meningococcal (Meningitis)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings1gQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings1gQuestionItem1) {
+    Screenings1gQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings1gQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings1gQuestionItem2) {
+    Screenings1gQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings1gQuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings1gQuestionItem3) {
+    Screenings1gQuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings1gQuestionItem4 = await QuestionItems.findOne({ name: 'Not applicable'});
+  if (!Screenings1gQuestionItem4) {
+    Screenings1gQuestionItem4 = await QuestionItems.create({ name: 'Not applicable', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings1gQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings1gQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1gQuestion).add(Screenings1gQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1gQuestion).add(Screenings1gQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1gQuestion).add(Screenings1gQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings1gQuestion).add(Screenings1gQuestionItem4);
+
+  let Screenings2Question = await Question.findOne({ question: 'Do you get the Influenza (Flu) Vaccine annually?'});
+  if (!Screenings2Question){
+    Screenings2Question = await Question.create({
+      question: 'Do you get the Influenza (Flu) Vaccine annually?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings2QuestionItem1 = await QuestionItems.findOne({ name: 'Yes - every year'});
+  if (!Screenings2QuestionItem1) {
+    Screenings2QuestionItem1 = await QuestionItems.create({ name: 'Yes - every year', order:0}).save();
+  }
+  let Screenings2QuestionItem2 = await QuestionItems.findOne({ name: 'Yes - some years'});
+  if (!Screenings2QuestionItem2) {
+    Screenings2QuestionItem2 = await QuestionItems.create({ name: 'Yes - some years', order:1}).save();
+  }
+  let Screenings2QuestionItem3 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings2QuestionItem3) {
+    Screenings2QuestionItem3 = await QuestionItems.create({ name: 'No', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings2Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings2Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings2Question).add(Screenings2QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings2Question).add(Screenings2QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings2Question).add(Screenings2QuestionItem3);
+
+  let Screenings3Question = await Question.findOne({ question: 'Have you received a COVID-19 vaccine?'});
+  if (!Screenings3Question){
+    Screenings3Question = await Question.create({
+      question: 'Have you received a COVID-19 vaccine?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings3Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings3Question)
+    .set(ScreeningsSubSection);
+
+  let Screenings4Question = await Question.findOne({ question: 'How likely are you to get the COVID-19 vaccine when it becomes available to you?'});
+  if (!Screenings4Question){
+    Screenings4Question = await Question.create({
+      question: 'How likely are you to get the COVID-19 vaccine when it becomes available to you?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 9,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+
+  let Screenings4QuestionItem1 = await QuestionItems.findOne({ name: 'Very Likely'});
+  if (!Screenings4QuestionItem1) {
+    Screenings4QuestionItem1 = await QuestionItems.create({ name: 'Very Likely', order:0}).save();
+  }
+  let Screenings4QuestionItem2 = await QuestionItems.findOne({ name: 'Likely'});
+  if (!Screenings4QuestionItem2) {
+    Screenings4QuestionItem2 = await QuestionItems.create({ name: 'Likely', order:1}).save();
+  }
+  let Screenings4QuestionItem3 = await QuestionItems.findOne({ name: 'Neutral'});
+  if (!Screenings4QuestionItem3) {
+    Screenings4QuestionItem3 = await QuestionItems.create({ name: 'Neutral', order:2}).save();
+  }
+  let Screenings4QuestionItem4 = await QuestionItems.findOne({ name: 'Not Likely'});
+  if (!Screenings4QuestionItem4) {
+    Screenings4QuestionItem4 = await QuestionItems.create({ name: 'Not Likely', order:3}).save();
+  }
+  let Screenings4QuestionItem5 = await QuestionItems.findOne({ name: 'Very Unlikely'});
+  if (!Screenings4QuestionItem5) {
+    Screenings4QuestionItem5 = await QuestionItems.create({ name: 'Very Unlikely', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings4Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings4Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings4Question).add(Screenings4QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings4Question).add(Screenings4QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings4Question).add(Screenings4QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings4Question).add(Screenings4QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings4Question).add(Screenings4QuestionItem5);
+
+  let Screenings5Question = await Question.findOne({ question: 'Have you ever delayed having your child get a vaccine for reasons other than illness or allergy?'});
+  if (!Screenings5Question){
+    Screenings5Question = await Question.create({
+      question: 'Have you ever delayed having your child get a vaccine for reasons other than illness or allergy?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 10,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings5QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings5QuestionItem1) {
+    Screenings5QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings5QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings5QuestionItem2) {
+    Screenings5QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings5QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings5QuestionItem3) {
+    Screenings5QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings5Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings5Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings5Question).add(Screenings5QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings5Question).add(Screenings5QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings5Question).add(Screenings5QuestionItem3);
+
+  let Screenings6Question = await Question.findOne({ question: 'Have you ever decided not to have your child get a vaccine for reasons other than illness or allergy? '});
+  if (!Screenings6Question){
+    Screenings6Question = await Question.create({
+      question: 'Have you ever decided not to have your child get a vaccine for reasons other than illness or allergy? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 11,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings6QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings6QuestionItem1) {
+    Screenings6QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings6QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings6QuestionItem2) {
+    Screenings6QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings6QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings6QuestionItem3) {
+    Screenings6QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings6Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings6Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings6Question).add(Screenings6QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings6Question).add(Screenings6QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings6Question).add(Screenings6QuestionItem3);
+
+  let Screenings7Question = await Question.findOne({ question: 'Including yourself, please select all the people age 45 or below in your immediate family that have been vaccinated against HPV. Mark all that apply.'});
+  if (!Screenings7Question){
+    Screenings7Question = await Question.create({
+      question: 'Including yourself, please select all the people age 45 or below in your immediate family that have been vaccinated against HPV. Mark all that apply.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 12,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings7QuestionItem1 = await QuestionItems.findOne({ name: 'Me'});
+  if (!Screenings7QuestionItem1) {
+    Screenings7QuestionItem1 = await QuestionItems.create({ name: 'Me', order:0}).save();
+  }
+  let Screenings7QuestionItem2 = await QuestionItems.findOne({ name: 'My spouse/partner'});
+  if (!Screenings7QuestionItem2) {
+    Screenings7QuestionItem2 = await QuestionItems.create({ name: 'My spouse/partner', order:1}).save();
+  }
+  let Screenings7QuestionItem3 = await QuestionItems.findOne({ name: 'My male children'});
+  if (!Screenings7QuestionItem3) {
+    Screenings7QuestionItem3 = await QuestionItems.create({ name: 'My male children', order:2}).save();
+  }
+  let Screenings7QuestionItem4 = await QuestionItems.findOne({ name: 'My female children'});
+  if (!Screenings7QuestionItem4) {
+    Screenings7QuestionItem4 = await QuestionItems.create({ name: 'My female children', order:3}).save();
+  }
+  let Screenings7QuestionItem5 = await QuestionItems.findOne({ name: 'No one has been vaccinated for HPV'});
+  if (!Screenings7QuestionItem5) {
+    Screenings7QuestionItem5 = await QuestionItems.create({ name: 'No one has been vaccinated for HPV', order:4}).save();
+  }
+  let Screenings7QuestionItem6 = await QuestionItems.findOne({ name: 'Do not Know'});
+  if (!Screenings7QuestionItem6) {
+    Screenings7QuestionItem6 = await QuestionItems.create({ name: 'Do not Know', order:5}).save();
+  }
+  let Screenings7QuestionItem7 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Screenings7QuestionItem7) {
+    Screenings7QuestionItem7 = await QuestionItems.create({ name: 'Prefer not to answer', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings7Question)
+    .set(multiselectionQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings7Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings7Question).add(Screenings7QuestionItem7);
+
+  let Screenings8Question = await Question.findOne({ question: 'A blood stool test is a test that may use a special kit at home to determine whether the stool contains blood. Have you ever had this test using a home kit?'});
+  if (!Screenings8Question){
+    Screenings8Question = await Question.create({
+      question: 'A blood stool test is a test that may use a special kit at home to determine whether the stool contains blood. Have you ever had this test using a home kit?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 13,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings8QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings8QuestionItem1) {
+    Screenings8QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings8QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings8QuestionItem2) {
+    Screenings8QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings8QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings8QuestionItem3) {
+    Screenings8QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings8Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings8Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings8Question).add(Screenings8QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings8Question).add(Screenings8QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings8Question).add(Screenings8QuestionItem3);
+
+  let Screenings9Question = await Question.findOne({ question: 'How long has it been since you had your last blood stool test using a home kit?'});
+  if (!Screenings9Question){
+    Screenings9Question = await Question.create({
+      question: 'How long has it been since you had your last blood stool test using a home kit?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 14,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings9QuestionItem1 = await QuestionItems.findOne({ name: 'Within the past year (anytime less than 12 months ago)'});
+  if (!Screenings9QuestionItem1) {
+    Screenings9QuestionItem1 = await QuestionItems.create({ name: 'Within the past year (anytime less than 12 months ago)', order:0}).save();
+  }
+  let Screenings9QuestionItem2 = await QuestionItems.findOne({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)'});
+  if (!Screenings9QuestionItem2) {
+    Screenings9QuestionItem2 = await QuestionItems.create({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)', order:1}).save();
+  }
+  let Screenings9QuestionItem3 = await QuestionItems.findOne({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)'});
+  if (!Screenings9QuestionItem3) {
+    Screenings9QuestionItem3 = await QuestionItems.create({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)', order:2}).save();
+  }
+  let Screenings9QuestionItem4 = await QuestionItems.findOne({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)'});
+  if (!Screenings9QuestionItem4) {
+    Screenings9QuestionItem4 = await QuestionItems.create({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)', order:3}).save();
+  }
+  let Screenings9QuestionItem5 = await QuestionItems.findOne({ name: '5 or more years ago'});
+  if (!Screenings9QuestionItem5) {
+    Screenings9QuestionItem5 = await QuestionItems.create({ name: '5 or more years ago', order:4}).save();
+  }
+  let Screenings9QuestionItem6 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings9QuestionItem6) {
+    Screenings9QuestionItem6 = await QuestionItems.create({ name: 'Do not know', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings9Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings9Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9Question).add(Screenings9QuestionItem6);
+
+  let Screenings10Question = await Question.findOne({ question: 'Sigmoidoscopy and colonoscopy are exams in which a tube is inserted in the rectum to view the colon for signs of cancer or other health problems. Have you ever had either of these exams?'});
+  if (!Screenings10Question){
+    Screenings10Question = await Question.create({
+      question: 'Sigmoidoscopy and colonoscopy are exams in which a tube is inserted in the rectum to view the colon for signs of cancer or other health problems. Have you ever had either of these exams?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 15,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings10QuestionItem1 = await QuestionItems.findOne({ name: 'Yes, sigmoidoscopy'});
+  if (!Screenings10QuestionItem1) {
+    Screenings10QuestionItem1 = await QuestionItems.create({ name: 'Yes, sigmoidoscopy', order:0}).save();
+  }
+  let Screenings10QuestionItem2 = await QuestionItems.findOne({ name: 'Yes, colonoscopy (usually includes medication through a needle in your arm to make you sleepy)'});
+  if (!Screenings10QuestionItem2) {
+    Screenings10QuestionItem2 = await QuestionItems.create({ name: 'Yes, colonoscopy (usually includes medication through a needle in your arm to make you sleepy)', order:1}).save();
+  }
+  let Screenings10QuestionItem3 = await QuestionItems.findOne({ name: 'Yes, both'});
+  if (!Screenings10QuestionItem3) {
+    Screenings10QuestionItem3 = await QuestionItems.create({ name: 'Yes, both', order:2}).save();
+  }
+  let Screenings10QuestionItem4 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings10QuestionItem4) {
+    Screenings10QuestionItem4 = await QuestionItems.create({ name: 'No', order:3}).save();
+  }
+  let Screenings10QuestionItem5 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings10QuestionItem5) {
+    Screenings10QuestionItem5 = await QuestionItems.create({ name: 'Do not know', order:4}).save();
+  }
+  let Screenings10QuestionItem6 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Screenings10QuestionItem6) {
+    Screenings10QuestionItem6 = await QuestionItems.create({ name: 'Prefer not to answer', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings10Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings10Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings10Question).add(Screenings10QuestionItem6);
+
+  let Screenings9aQuestion = await Question.findOne({ question: 'When was your MOST RECENT sigmoidoscopy?'});
+  if (!Screenings9aQuestion){
+    Screenings9aQuestion = await Question.create({
+      question: 'When was your MOST RECENT sigmoidoscopy?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 16,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings9aQuestionItem1 = await QuestionItems.findOne({ name: 'Within the past year (anytime less than 12 months ago)'});
+  if (!Screenings9aQuestionItem1) {
+    Screenings9aQuestionItem1 = await QuestionItems.create({ name: 'Within the past year (anytime less than 12 months ago)', order:0}).save();
+  }
+  let Screenings9aQuestionItem2 = await QuestionItems.findOne({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)'});
+  if (!Screenings9aQuestionItem2) {
+    Screenings9aQuestionItem2 = await QuestionItems.create({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)', order:1}).save();
+  }
+  let Screenings9aQuestionItem3 = await QuestionItems.findOne({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)'});
+  if (!Screenings9aQuestionItem3) {
+    Screenings9aQuestionItem3 = await QuestionItems.create({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)', order:2}).save();
+  }
+  let Screenings9aQuestionItem4 = await QuestionItems.findOne({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)'});
+  if (!Screenings9aQuestionItem4) {
+    Screenings9aQuestionItem4 = await QuestionItems.create({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)', order:3}).save();
+  }
+  let Screenings9aQuestionItem5 = await QuestionItems.findOne({ name: 'Within the past 10 years (at least 5 years but less than 10 years ago)'});
+  if (!Screenings9aQuestionItem5) {
+    Screenings9aQuestionItem5 = await QuestionItems.create({ name: 'Within the past 10 years (at least 5 years but less than 10 years ago)', order:4}).save();
+  }
+  let Screenings9aQuestionItem6 = await QuestionItems.findOne({ name: '10 or more years ago'});
+  if (!Screenings9aQuestionItem6) {
+    Screenings9aQuestionItem6 = await QuestionItems.create({ name: '10 or more years ago', order:5}).save();
+  }
+  let Screenings9aQuestionItem7 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings9aQuestionItem7) {
+    Screenings9aQuestionItem7 = await QuestionItems.create({ name: 'Do not know', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings9aQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings9aQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9aQuestion).add(Screenings9aQuestionItem7);
+
+  let Screenings9bQuestion = await Question.findOne({ question: 'When was your MOST RECENT colonoscopy'});
+  if (!Screenings9bQuestion){
+    Screenings9bQuestion = await Question.create({
+      question: 'When was your MOST RECENT colonoscopy',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 17,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings9bQuestionItem1 = await QuestionItems.findOne({ name: 'Within the past year (anytime less than 12 months ago)'});
+  if (!Screenings9bQuestionItem1) {
+    Screenings9bQuestionItem1 = await QuestionItems.create({ name: 'Within the past year (anytime less than 12 months ago)', order:0}).save();
+  }
+  let Screenings9bQuestionItem2 = await QuestionItems.findOne({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)'});
+  if (!Screenings9bQuestionItem2) {
+    Screenings9bQuestionItem2 = await QuestionItems.create({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)', order:1}).save();
+  }
+  let Screenings9bQuestionItem3 = await QuestionItems.findOne({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)'});
+  if (!Screenings9bQuestionItem3) {
+    Screenings9bQuestionItem3 = await QuestionItems.create({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)', order:2}).save();
+  }
+  let Screenings9bQuestionItem4 = await QuestionItems.findOne({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)'});
+  if (!Screenings9bQuestionItem4) {
+    Screenings9bQuestionItem4 = await QuestionItems.create({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago)', order:3}).save();
+  }
+  let Screenings9bQuestionItem5 = await QuestionItems.findOne({ name: 'Within the past 10 years (at least 5 years but less than 10 years ago)'});
+  if (!Screenings9bQuestionItem5) {
+    Screenings9bQuestionItem5 = await QuestionItems.create({ name: 'Within the past 10 years (at least 5 years but less than 10 years ago)', order:4}).save();
+  }
+  let Screenings9bQuestionItem6 = await QuestionItems.findOne({ name: '10 or more years ago'});
+  if (!Screenings9bQuestionItem6) {
+    Screenings9bQuestionItem6 = await QuestionItems.create({ name: '10 or more years ago', order:5}).save();
+  }
+  let Screenings9bQuestionItem7 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings9bQuestionItem7) {
+    Screenings9bQuestionItem7 = await QuestionItems.create({ name: 'Do not know', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings9bQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings9bQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings9bQuestion).add(Screenings9bQuestionItem7);
+
+  let Screenings11Question = await Question.findOne({ question: 'Annually, do you have a digital rectal exam (DRE) and/or prostate specific antigen (PSA) test?'});
+  if (!Screenings11Question){
+    Screenings11Question = await Question.create({
+      question: 'Annually, do you have a digital rectal exam (DRE) and/or prostate specific antigen (PSA) test?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 18,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings11QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings11QuestionItem1) {
+    Screenings11QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings11QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings11QuestionItem2) {
+    Screenings11QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings11QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings11QuestionItem3) {
+    Screenings11QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings11Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings11Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings11Question).add(Screenings11QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings11Question).add(Screenings11QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings11Question).add(Screenings11QuestionItem3);
+
+  let Screenings12Question = await Question.findOne({ question: 'A mammogram is an x-ray of each breast to look for breast cancer. Have you ever had a mammogram? [Female over the age of 40]'});
+  if (!Screenings12Question){
+    Screenings12Question = await Question.create({
+      question: 'A mammogram is an x-ray of each breast to look for breast cancer. Have you ever had a mammogram? [Female over the age of 40]',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 19,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings12QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings12QuestionItem1) {
+    Screenings12QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings12QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings12QuestionItem2) {
+    Screenings12QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings12QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings12QuestionItem3) {
+    Screenings12QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings12QuestionItem4 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Screenings12QuestionItem4) {
+    Screenings12QuestionItem4 = await QuestionItems.create({ name: 'Prefer not to answer', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings12Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings12Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings12Question).add(Screenings12QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings12Question).add(Screenings12QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings12Question).add(Screenings12QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings12Question).add(Screenings12QuestionItem4);
+
+  let Screenings13Question = await Question.findOne({ question: 'A pap smear test (pap smear) is a test that is done by your doctor to check your cervix for cells that are not normal and could eventually cause cervical cancer. Have you ever had a Pap test? '});
+  if (!Screenings13Question){
+    Screenings13Question = await Question.create({
+      question: 'A pap smear test (pap smear) is a test that is done by your doctor to check your cervix for cells that are not normal and could eventually cause cervical cancer. Have you ever had a Pap test? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 20,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings13QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings13QuestionItem1) {
+    Screenings13QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings13QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings13QuestionItem2) {
+    Screenings13QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Screenings13QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Screenings13QuestionItem3) {
+    Screenings13QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Screenings13QuestionItem4 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Screenings13QuestionItem4) {
+    Screenings13QuestionItem4 = await QuestionItems.create({ name: 'Prefer not to answer', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings13Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings13Question)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13Question).add(Screenings13QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13Question).add(Screenings13QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13Question).add(Screenings13QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13Question).add(Screenings13QuestionItem4);
+
+  let Screenings13aQuestion = await Question.findOne({ question: 'Do you have the pap test annually? '});
+  if (!Screenings13aQuestion){
+    Screenings13aQuestion = await Question.create({
+      question: 'Do you have the pap test annually? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 21,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Screenings13aQuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Screenings13aQuestionItem1) {
+    Screenings13aQuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Screenings13aQuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Screenings13aQuestionItem2) {
+    Screenings13aQuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Screenings13aQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Screenings13aQuestion)
+    .set(ScreeningsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13aQuestion).add(Screenings13aQuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Screenings13aQuestion).add(Screenings13aQuestionItem2);
+
+
+  let Healthcare1Question = await Question.findOne({ question: 'Overall, how confident are you that you could get advice or information about health or medical topics if you needed it? '});
+  if (!Healthcare1Question){
+    Healthcare1Question = await Question.create({
+      question: 'Overall, how confident are you that you could get advice or information about health or medical topics if you needed it? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare1QuestionItem1 = await QuestionItems.findOne({ name: 'Completely confident'});
+  if (!Healthcare1QuestionItem1) {
+    Healthcare1QuestionItem1 = await QuestionItems.create({ name: 'Completely confident', order:0}).save();
+  }
+  let Healthcare1QuestionItem2 = await QuestionItems.findOne({ name: 'Very confident'});
+  if (!Healthcare1QuestionItem2) {
+    Healthcare1QuestionItem2 = await QuestionItems.create({ name: 'Very confident', order:1}).save();
+  }
+  let Healthcare1QuestionItem3 = await QuestionItems.findOne({ name: 'Somewhat confident'});
+  if (!Healthcare1QuestionItem3) {
+    Healthcare1QuestionItem3 = await QuestionItems.create({ name: 'Somewhat confident', order:2}).save();
+  }
+  let Healthcare1QuestionItem4 = await QuestionItems.findOne({ name: 'A little confident'});
+  if (!Healthcare1QuestionItem4) {
+    Healthcare1QuestionItem4 = await QuestionItems.create({ name: 'A little confident', order:3}).save();
+  }
+  let Healthcare1QuestionItem5 = await QuestionItems.findOne({ name: 'Not confident at all'});
+  if (!Healthcare1QuestionItem5) {
+    Healthcare1QuestionItem5 = await QuestionItems.create({ name: 'Not confident at all', order:4}).save();
+  }
+  let Healthcare1QuestionItem6 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Healthcare1QuestionItem6) {
+    Healthcare1QuestionItem6 = await QuestionItems.create({ name: 'Do not know', order:5}).save();
+  }
+  let Healthcare1QuestionItem7 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Healthcare1QuestionItem7) {
+    Healthcare1QuestionItem7 = await QuestionItems.create({ name: 'Prefer not to answer', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare1Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare1Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare1Question).add(Healthcare1QuestionItem7);
+
+  let Healthcare2Question = await Question.findOne({ question: 'Which place do you go most often when you are sick or need professional advice about your health? Mark only one'});
+  if (!Healthcare2Question){
+    Healthcare2Question = await Question.create({
+      question: 'Which place do you go most often when you are sick or need professional advice about your health? Mark only one',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare2QuestionItem1 = await QuestionItems.findOne({ name: 'Clinic or health center'});
+  if (!Healthcare2QuestionItem1) {
+    Healthcare2QuestionItem1 = await QuestionItems.create({ name: 'Clinic or health center', order:0}).save();
+  }
+  let Healthcare2QuestionItem2 = await QuestionItems.findOne({ name: 'Doctor office or HMO'});
+  if (!Healthcare2QuestionItem2) {
+    Healthcare2QuestionItem2 = await QuestionItems.create({ name: 'Doctor office or HMO', order:1}).save();
+  }
+  let Healthcare2QuestionItem3 = await QuestionItems.findOne({ name: 'Urgent care'});
+  if (!Healthcare2QuestionItem3) {
+    Healthcare2QuestionItem3 = await QuestionItems.create({ name: 'Urgent care', order:2}).save();
+  }
+  let Healthcare2QuestionItem4 = await QuestionItems.findOne({ name: 'Hospital emergency room'});
+  if (!Healthcare2QuestionItem4) {
+    Healthcare2QuestionItem4 = await QuestionItems.create({ name: 'Hospital emergency room', order:3}).save();
+  }
+  let Healthcare2QuestionItem5 = await QuestionItems.findOne({ name: 'Hospital outpatient department'});
+  if (!Healthcare2QuestionItem5) {
+    Healthcare2QuestionItem5 = await QuestionItems.create({ name: 'Hospital outpatient department', order:4}).save();
+  }
+  let Healthcare2QuestionItem6 = await QuestionItems.findOne({ name: 'Some other place'});
+  if (!Healthcare2QuestionItem6) {
+    Healthcare2QuestionItem6 = await QuestionItems.create({ name: 'Some other place', order:5}).save();
+  }
+  let Healthcare2QuestionItem7 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Healthcare2QuestionItem7) {
+    Healthcare2QuestionItem7 = await QuestionItems.create({ name: 'Do not know', order:6}).save();
+  }
+  let Healthcare2QuestionItem8 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Healthcare2QuestionItem8) {
+    Healthcare2QuestionItem8 = await QuestionItems.create({ name: 'Prefer not to answer', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare2Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare2Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare2Question).add(Healthcare2QuestionItem8);
+
+  let Healthcare3Question = await Question.findOne({ question: 'Was there a time in the past 12 months when you needed medical care but did not get the care you needed?'});
+  if (!Healthcare3Question){
+    Healthcare3Question = await Question.create({
+      question: 'Was there a time in the past 12 months when you needed medical care but did not get the care you needed?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare3QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Healthcare3QuestionItem1) {
+    Healthcare3QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Healthcare3QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Healthcare3QuestionItem2) {
+    Healthcare3QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Healthcare3QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Healthcare3QuestionItem3) {
+    Healthcare3QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let Healthcare3QuestionItem4 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!Healthcare3QuestionItem4) {
+    Healthcare3QuestionItem4 = await QuestionItems.create({ name: 'Prefer not to answer', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare3Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare3Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare3Question).add(Healthcare3QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare3Question).add(Healthcare3QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare3Question).add(Healthcare3QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare3Question).add(Healthcare3QuestionItem4);
+
+  let Healthcare4Question = await Question.findOne({ question: 'What is the main reason you didn’t get the medical care you needed? Mark only one'});
+  if (!Healthcare4Question){
+    Healthcare4Question = await Question.create({
+      question: 'What is the main reason you didn’t get the medical care you needed? Mark only one',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare4QuestionItem1 = await QuestionItems.findOne({ name: 'Can not afford it / costs too much'});
+  if (!Healthcare4QuestionItem1) {
+    Healthcare4QuestionItem1 = await QuestionItems.create({ name: 'Can not afford it / costs too much', order:0}).save();
+  }
+  let Healthcare4QuestionItem2 = await QuestionItems.findOne({ name: 'Do not have insurance'});
+  if (!Healthcare4QuestionItem2) {
+    Healthcare4QuestionItem2 = await QuestionItems.create({ name: 'Do not have insurance', order:1}).save();
+  }
+  let Healthcare4QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know where to go'});
+  if (!Healthcare4QuestionItem3) {
+    Healthcare4QuestionItem3 = await QuestionItems.create({ name: 'Do not know where to go', order:2}).save();
+  }
+  let Healthcare4QuestionItem4 = await QuestionItems.findOne({ name: 'Trouble getting appointment'});
+  if (!Healthcare4QuestionItem4) {
+    Healthcare4QuestionItem4 = await QuestionItems.create({ name: 'Trouble getting appointment', order:3}).save();
+  }
+  let Healthcare4QuestionItem5 = await QuestionItems.findOne({ name: 'Unable to take time off work to go to appointment'});
+  if (!Healthcare4QuestionItem5) {
+    Healthcare4QuestionItem5 = await QuestionItems.create({ name: 'Unable to take time off work to go to appointment', order:4}).save();
+  }
+  let Healthcare4QuestionItem6 = await QuestionItems.findOne({ name: 'Other'});
+  if (!Healthcare4QuestionItem6) {
+    Healthcare4QuestionItem6 = await QuestionItems.create({ name: 'Other', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare4Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare4Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare4Question).add(Healthcare4QuestionItem6);
+
+  let Healthcare5Question = await Question.findOne({ question: 'Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, and/or government plans such as Medicare, Medicaid, or Indian Health Service?'});
+  if (!Healthcare5Question){
+    Healthcare5Question = await Question.create({
+      question: 'Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, and/or government plans such as Medicare, Medicaid, or Indian Health Service?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare5QuestionItem1 = await QuestionItems.findOne({ name: 'Yes'});
+  if (!Healthcare5QuestionItem1) {
+    Healthcare5QuestionItem1 = await QuestionItems.create({ name: 'Yes', order:0}).save();
+  }
+  let Healthcare5QuestionItem2 = await QuestionItems.findOne({ name: 'No'});
+  if (!Healthcare5QuestionItem2) {
+    Healthcare5QuestionItem2 = await QuestionItems.create({ name: 'No', order:1}).save();
+  }
+  let Healthcare5QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Healthcare5QuestionItem3) {
+    Healthcare5QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare5Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare5Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare5Question).add(Healthcare5QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare5Question).add(Healthcare5QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare5Question).add(Healthcare5QuestionItem3);
+
+  let Healthcare6Question = await Question.findOne({ question: 'What is the primary source of your health care coverage?'});
+  if (!Healthcare6Question){
+    Healthcare6Question = await Question.create({
+      question: 'What is the primary source of your health care coverage?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Healthcare6QuestionItem1 = await QuestionItems.findOne({ name: 'A plan purchased through an employer or union (including plans purchased through another persons employer)'});
+  if (!Healthcare6QuestionItem1) {
+    Healthcare6QuestionItem1 = await QuestionItems.create({ name: 'A plan purchased through an employer or union (including plans purchased through another persons employer)', order:0}).save();
+  }
+  let Healthcare6QuestionItem2 = await QuestionItems.findOne({ name: 'A plan that you or another family member buys on your own'});
+  if (!Healthcare6QuestionItem2) {
+    Healthcare6QuestionItem2 = await QuestionItems.create({ name: 'A plan that you or another family member buys on your own', order:1}).save();
+  }
+  let Healthcare6QuestionItem3 = await QuestionItems.findOne({ name: 'Medicare'});
+  if (!Healthcare6QuestionItem3) {
+    Healthcare6QuestionItem3 = await QuestionItems.create({ name: 'Medicare', order:2}).save();
+  }
+  let Healthcare6QuestionItem4 = await QuestionItems.findOne({ name: 'Medicaid or other state program'});
+  if (!Healthcare6QuestionItem4) {
+    Healthcare6QuestionItem4 = await QuestionItems.create({ name: 'Medicaid or other state program', order:3}).save();
+  }
+  let Healthcare6QuestionItem5 = await QuestionItems.findOne({ name: 'TRICARE (formerly CHAMPUS), VA, or Military'});
+  if (!Healthcare6QuestionItem5) {
+    Healthcare6QuestionItem5 = await QuestionItems.create({ name: 'TRICARE (formerly CHAMPUS), VA, or Military', order:4}).save();
+  }
+  let Healthcare6QuestionItem6 = await QuestionItems.findOne({ name: 'Alaska Native, Indian Health Service, Tribal Health Services'});
+  if (!Healthcare6QuestionItem6) {
+    Healthcare6QuestionItem6 = await QuestionItems.create({ name: 'Alaska Native, Indian Health Service, Tribal Health Services', order:5}).save();
+  }
+  let Healthcare6QuestionItem7 = await QuestionItems.findOne({ name: 'Other source (please specify) [OPEN END TEXT BOX; ALLOW MAX 50 CHARACTERS]'});
+  if (!Healthcare6QuestionItem7) {
+    Healthcare6QuestionItem7 = await QuestionItems.create({ name: 'Other source (please specify) [OPEN END TEXT BOX; ALLOW MAX 50 CHARACTERS]', order:6}).save();
+  }
+  let Healthcare6QuestionItem8 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!Healthcare6QuestionItem8) {
+    Healthcare6QuestionItem8 = await QuestionItems.create({ name: 'Do not know', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Healthcare6Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Healthcare6Question)
+    .set(HealthcareSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem8);
 
 
 };
