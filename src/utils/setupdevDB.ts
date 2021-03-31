@@ -9038,6 +9038,4 @@ export const boilerplateData2 = async () => {
   await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem5);
 
   await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem6);
-
-
 };

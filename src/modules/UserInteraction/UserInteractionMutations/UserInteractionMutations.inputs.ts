@@ -18,9 +18,6 @@ export class CreateUser {
   username: string;
 
   @Field({ nullable: false })
-  password: string;
-
-  @Field({ nullable: false })
   email: string;
 
   @Field({ nullable: false })
