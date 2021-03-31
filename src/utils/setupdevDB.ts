@@ -9,15 +9,17 @@ import { getConnection } from 'typeorm';
 export const connectSqlDB = async () => await getDBConfig();
 
 export const boilerplateData = async () => {
-  let openQuestionCategory = await Category.findOne({ name: 'Open' });
-  if (!openQuestionCategory) {
-    openQuestionCategory = await Category.create({ name: 'Open' }).save();
-  }
 
   let comboQuestionCategory = await Category.findOne({ name: 'Combo' });
   if (!comboQuestionCategory) {
     comboQuestionCategory = await Category.create({ name: 'Combo' }).save();
   }
+
+  let openQuestionCategory = await Category.findOne({ name: 'Open' });
+  if (!openQuestionCategory) {
+    openQuestionCategory = await Category.create({ name: 'Open' }).save();
+  }
+
   let ladderQuestionCategory = await Category.findOne({ name: 'Ladder' });
   if (!ladderQuestionCategory) {
     ladderQuestionCategory = await Category.create({ name: 'Ladder' }).save();
@@ -56,6 +58,7 @@ export const boilerplateData = async () => {
   if (!HealthSection) {
     HealthSection = await Section.create({ name: 'Health', order: 1 }).save();
   }
+
 
   let DemographicsSubSection = await SubSection.findOne({ name: 'Demographics' });
   if (!DemographicsSubSection) {
@@ -106,6 +109,71 @@ export const boilerplateData = async () => {
     .relation(SubSection, 'section')
     .of(HealthcareSubSection)
     .set(HealthSection);
+
+  let UtilizationSubSection = await SubSection.findOne({ name: 'Health care utilization' });
+  if (!UtilizationSubSection) {
+    UtilizationSubSection = await SubSection.create({ name: 'Health care utilization', order: 5 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(UtilizationSubSection)
+    .set(HealthSection);
+
+  let MoodSection = await Section.findOne({ name: 'Mood' });
+  if (!MoodSection) {
+    MoodSection = await Section.create({ name: 'Mood', order: 2 }).save();
+  }
+
+  let OralHealthSubSection = await SubSection.findOne({ name: 'Oral health' });
+  if (!OralHealthSubSection) {
+    OralHealthSubSection = await SubSection.create({ name: 'Oral health', order: 0 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(OralHealthSubSection)
+    .set(MoodSection);
+
+  let HealthBehaviorsSubSection = await SubSection.findOne({ name: 'Health Behaviors' });
+  if (!HealthBehaviorsSubSection) {
+    HealthBehaviorsSubSection = await SubSection.create({ name: 'Health Behaviors', order: 1 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(HealthBehaviorsSubSection)
+    .set(MoodSection);
+
+  let TimeUseSubSection = await SubSection.findOne({ name: 'Time Use' });
+  if (!TimeUseSubSection) {
+    TimeUseSubSection = await SubSection.create({ name: 'Time Use', order: 2 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(TimeUseSubSection)
+    .set(MoodSection);
+
+  let LowMoodSubSection = await SubSection.findOne({ name: 'Low Mood and Anxiety' });
+  if (!LowMoodSubSection) {
+    LowMoodSubSection = await SubSection.create({ name: 'Low Mood and Anxiety', order: 3 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(LowMoodSubSection)
+    .set(MoodSection);
+
+  let SelfCompassionSubSection = await SubSection.findOne({ name: 'Self-Compassion' });
+  if (!SelfCompassionSubSection) {
+    SelfCompassionSubSection = await SubSection.create({ name: 'Self-Compassion', order: 4 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(SelfCompassionSubSection)
+    .set(MoodSection);
 
 
   // LAKE NONA QUESTIONS
@@ -5369,6 +5437,3606 @@ export const boilerplateData = async () => {
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem7);
 
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Healthcare6Question).add(Healthcare6QuestionItem8);
+
+  let Utilization1Question = await Question.findOne({ question: 'Do you have a regular doctor or regular practice you usually go to for health care?'});
+  if (!Utilization1Question){
+    Utilization1Question = await Question.create({
+      question: 'Do you have a regular doctor or regular practice you usually go to for health care?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Utilization1QuestionItem1 = await QuestionItems.findOne({ name: 'Yes, a regular doctor'});
+  if (!Utilization1QuestionItem1) {
+    Utilization1QuestionItem1 = await QuestionItems.create({ name: 'Yes, a regular doctor', order:0}).save();
+  }
+  let Utilization1QuestionItem2 = await QuestionItems.findOne({ name: 'A regular practice, but not a regular doctor'});
+  if (!Utilization1QuestionItem2) {
+    Utilization1QuestionItem2 = await QuestionItems.create({ name: 'A regular practice, but not a regular doctor', order:1}).save();
+  }
+  let Utilization1QuestionItem3 = await QuestionItems.findOne({ name: 'No regular doctor or regular practice'});
+  if (!Utilization1QuestionItem3) {
+    Utilization1QuestionItem3 = await QuestionItems.create({ name: 'No regular doctor or regular practice', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization1Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization1Question)
+    .set(UtilizationSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization1Question).add(Utilization1QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization1Question).add(Utilization1QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization1Question).add(Utilization1QuestionItem3);
+
+  let Utilization2Question = await Question.findOne({ question: 'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem?'});
+  if (!Utilization2Question){
+    Utilization2Question = await Question.create({
+      question: 'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization2Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization2Question)
+    .set(UtilizationSubSection);
+
+  let Utilization3Question = await Question.findOne({ question: 'How many different prescription medications do you take in a typical day for chronic health problems?'});
+  if (!Utilization3Question){
+    Utilization3Question = await Question.create({
+      question: 'How many different prescription medications do you take in a typical day for chronic health problems?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization3Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization3Question)
+    .set(UtilizationSubSection);
+
+  let Utilization4Question = await Question.findOne({ question: 'Do you take birth control?'});
+  if (!Utilization4Question){
+    Utilization4Question = await Question.create({
+      question: 'Do you take birth control?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization4Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization4Question)
+    .set(UtilizationSubSection);
+
+
+  let Utilization5Question = await Question.findOne({ question: 'Have you been prescribed opioid medication or placed on opioid therapy for a temporary (short term) condition in the past 24 months? Note: Opioid medications include OxyContin, hydrocodone, methadone, Demerol, Percocet, Hydromorphone'});
+  if (!Utilization5Question){
+    Utilization5Question = await Question.create({
+      question: 'Have you been prescribed opioid medication or placed on opioid therapy for a temporary (short term) condition in the past 24 months? Note: Opioid medications include OxyContin, hydrocodone, methadone, Demerol, Percocet, Hydromorphone',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization5Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization5Question)
+    .set(UtilizationSubSection);
+
+  let Utilization6Question = await Question.findOne({ question: 'Have you been prescribed benzodiazepines or placed on benzodiazepine therapy for a temporary (short term) condition in the past 24 months? Note: Benzodiazepine medications include midazolam, alprazolam, diazepam'});
+  if (!Utilization6Question){
+    Utilization6Question = await Question.create({
+      question: 'Have you been prescribed benzodiazepines or placed on benzodiazepine therapy for a temporary (short term) condition in the past 24 months? Note: Benzodiazepine medications include midazolam, alprazolam, diazepam',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization6Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization6Question)
+    .set(UtilizationSubSection);
+
+  let Utilization7Question = await Question.findOne({ question: 'Do you take vitamins or dietary supplements on a daily basis? '});
+  if (!Utilization7Question){
+    Utilization7Question = await Question.create({
+      question: 'Do you take vitamins or dietary supplements on a daily basis? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization7Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization7Question)
+    .set(UtilizationSubSection);
+
+  let Utilization8Question = await Question.findOne({ question: 'Take the medication at the exact time of day you’re told?'});
+  if (!Utilization8Question){
+    Utilization8Question = await Question.create({
+      question: 'Take the medication at the exact time of day you’re told?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Utilization8QuestionItem1 = await QuestionItems.findOne({ name: 'None of the time'});
+  if (!Utilization8QuestionItem1) {
+    Utilization8QuestionItem1 = await QuestionItems.create({ name: 'None of the time', order:0}).save();
+  }
+  let Utilization8QuestionItem2 = await QuestionItems.findOne({ name: 'A little of the time'});
+  if (!Utilization8QuestionItem2) {
+    Utilization8QuestionItem2 = await QuestionItems.create({ name: 'A little of the time', order:1}).save();
+  }
+  let Utilization8QuestionItem3 = await QuestionItems.findOne({ name: 'Some of the time'});
+  if (!Utilization8QuestionItem3) {
+    Utilization8QuestionItem3 = await QuestionItems.create({ name: 'Some of the time', order:2}).save();
+  }
+  let Utilization8QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!Utilization8QuestionItem4) {
+    Utilization8QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let Utilization8QuestionItem5 = await QuestionItems.findOne({ name: 'All or almost all of the time'});
+  if (!Utilization8QuestionItem5) {
+    Utilization8QuestionItem5 = await QuestionItems.create({ name: 'All or almost all of the time', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization8Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization8Question)
+    .set(UtilizationSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization8Question).add(Utilization8QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization8Question).add(Utilization8QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization8Question).add(Utilization8QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization8Question).add(Utilization8QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization8Question).add(Utilization8QuestionItem5);
+
+
+  let Utilization9Question = await Question.findOne({ question: 'Take the medication for exactly the number of days you’re told'});
+  if (!Utilization9Question){
+    Utilization9Question = await Question.create({
+      question: 'Take the medication for exactly the number of days you’re told',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Utilization9QuestionItem1 = await QuestionItems.findOne({ name: 'None of the time'});
+  if (!Utilization9QuestionItem1) {
+    Utilization9QuestionItem1 = await QuestionItems.create({ name: 'None of the time', order:0}).save();
+  }
+  let Utilization9QuestionItem2 = await QuestionItems.findOne({ name: 'A little of the time'});
+  if (!Utilization9QuestionItem2) {
+    Utilization9QuestionItem2 = await QuestionItems.create({ name: 'A little of the time', order:1}).save();
+  }
+  let Utilization9QuestionItem3 = await QuestionItems.findOne({ name: 'Some of the time'});
+  if (!Utilization9QuestionItem3) {
+    Utilization9QuestionItem3 = await QuestionItems.create({ name: 'Some of the time', order:2}).save();
+  }
+  let Utilization9QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!Utilization9QuestionItem4) {
+    Utilization9QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let Utilization9QuestionItem5 = await QuestionItems.findOne({ name: 'All or almost all of the time'});
+  if (!Utilization9QuestionItem5) {
+    Utilization9QuestionItem5 = await QuestionItems.create({ name: 'All or almost all of the time', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization9Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization9Question)
+    .set(UtilizationSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization9Question).add(Utilization9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization9Question).add(Utilization9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization9Question).add(Utilization9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization9Question).add(Utilization9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization9Question).add(Utilization9QuestionItem5);
+
+  let Utilization10Question = await Question.findOne({ question: 'Forget to take a dose?'});
+  if (!Utilization10Question){
+    Utilization10Question = await Question.create({
+      question: 'Forget to take a dose?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 9,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Utilization10QuestionItem1 = await QuestionItems.findOne({ name: 'None of the time'});
+  if (!Utilization10QuestionItem1) {
+    Utilization10QuestionItem1 = await QuestionItems.create({ name: 'None of the time', order:0}).save();
+  }
+  let Utilization10QuestionItem2 = await QuestionItems.findOne({ name: 'A little of the time'});
+  if (!Utilization10QuestionItem2) {
+    Utilization10QuestionItem2 = await QuestionItems.create({ name: 'A little of the time', order:1}).save();
+  }
+  let Utilization10QuestionItem3 = await QuestionItems.findOne({ name: 'Some of the time'});
+  if (!Utilization10QuestionItem3) {
+    Utilization10QuestionItem3 = await QuestionItems.create({ name: 'Some of the time', order:2}).save();
+  }
+  let Utilization10QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!Utilization10QuestionItem4) {
+    Utilization10QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let Utilization10QuestionItem5 = await QuestionItems.findOne({ name: 'All or almost all of the time'});
+  if (!Utilization10QuestionItem5) {
+    Utilization10QuestionItem5 = await QuestionItems.create({ name: 'All or almost all of the time', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization10Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization10Question)
+    .set(UtilizationSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization10Question).add(Utilization10QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization10Question).add(Utilization10QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization10Question).add(Utilization10QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization10Question).add(Utilization10QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization10Question).add(Utilization10QuestionItem5);
+
+  let Utilization11Question = await Question.findOne({ question: 'Stop taking it when you feel better even if the doctor told you to continue until the medication ran out?'});
+  if (!Utilization11Question){
+    Utilization11Question = await Question.create({
+      question: 'Stop taking it when you feel better even if the doctor told you to continue until the medication ran out?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 10,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let Utilization11QuestionItem1 = await QuestionItems.findOne({ name: 'None of the time'});
+  if (!Utilization11QuestionItem1) {
+    Utilization11QuestionItem1 = await QuestionItems.create({ name: 'None of the time', order:0}).save();
+  }
+  let Utilization11QuestionItem2 = await QuestionItems.findOne({ name: 'A little of the time'});
+  if (!Utilization11QuestionItem2) {
+    Utilization11QuestionItem2 = await QuestionItems.create({ name: 'A little of the time', order:1}).save();
+  }
+  let Utilization11QuestionItem3 = await QuestionItems.findOne({ name: 'Some of the time'});
+  if (!Utilization11QuestionItem3) {
+    Utilization11QuestionItem3 = await QuestionItems.create({ name: 'Some of the time', order:2}).save();
+  }
+  let Utilization11QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!Utilization11QuestionItem4) {
+    Utilization11QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let Utilization11QuestionItem5 = await QuestionItems.findOne({ name: 'All or almost all of the time'});
+  if (!Utilization11QuestionItem5) {
+    Utilization11QuestionItem5 = await QuestionItems.create({ name: 'All or almost all of the time', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Utilization11Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Utilization11Question)
+    .set(UtilizationSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization11Question).add(Utilization11QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization11Question).add(Utilization11QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization11Question).add(Utilization11QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization11Question).add(Utilization11QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Utilization11Question).add(Utilization11QuestionItem5);
+
+  let OralHealth1Question = await Question.findOne({ question: 'Brush your teeth? '});
+  if (!OralHealth1Question){
+    OralHealth1Question = await Question.create({
+      question: 'Brush your teeth? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth1QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!OralHealth1QuestionItem1) {
+    OralHealth1QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let OralHealth1QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!OralHealth1QuestionItem2) {
+    OralHealth1QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let OralHealth1QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!OralHealth1QuestionItem3) {
+    OralHealth1QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let OralHealth1QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!OralHealth1QuestionItem4) {
+    OralHealth1QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let OralHealth1QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!OralHealth1QuestionItem5) {
+    OralHealth1QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let OralHealth1QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!OralHealth1QuestionItem6) {
+    OralHealth1QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  let OralHealth1QuestionItem7 = await QuestionItems.findOne({ name: '6'});
+  if (!OralHealth1QuestionItem7) {
+    OralHealth1QuestionItem7 = await QuestionItems.create({ name: '6', order:6}).save();
+  }
+  let OralHealth1QuestionItem8 = await QuestionItems.findOne({ name: '7'});
+  if (!OralHealth1QuestionItem8) {
+    OralHealth1QuestionItem8 = await QuestionItems.create({ name: '7', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth1Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth1Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth1Question).add(OralHealth1QuestionItem8);
+
+  let OralHealth2Question = await Question.findOne({ question: 'Use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?'});
+  if (!OralHealth2Question){
+    OralHealth2Question = await Question.create({
+      question: 'Use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth2QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!OralHealth2QuestionItem1) {
+    OralHealth2QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let OralHealth2QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!OralHealth2QuestionItem2) {
+    OralHealth2QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let OralHealth2QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!OralHealth2QuestionItem3) {
+    OralHealth2QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let OralHealth2QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!OralHealth2QuestionItem4) {
+    OralHealth2QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let OralHealth2QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!OralHealth2QuestionItem5) {
+    OralHealth2QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let OralHealth2QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!OralHealth2QuestionItem6) {
+    OralHealth2QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  let OralHealth2QuestionItem7 = await QuestionItems.findOne({ name: '6'});
+  if (!OralHealth2QuestionItem7) {
+    OralHealth2QuestionItem7 = await QuestionItems.create({ name: '6', order:6}).save();
+  }
+  let OralHealth2QuestionItem8 = await QuestionItems.findOne({ name: '7'});
+  if (!OralHealth2QuestionItem8) {
+    OralHealth2QuestionItem8 = await QuestionItems.create({ name: '7', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth2Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth2Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth2Question).add(OralHealth2QuestionItem8);
+
+  let OralHealth3Question = await Question.findOne({ question: 'Use mouthwash or mouth rinse?'});
+  if (!OralHealth3Question){
+    OralHealth3Question = await Question.create({
+      question: 'Use mouthwash or mouth rinse?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth3QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!OralHealth3QuestionItem1) {
+    OralHealth3QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let OralHealth3QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!OralHealth3QuestionItem2) {
+    OralHealth3QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let OralHealth3QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!OralHealth3QuestionItem3) {
+    OralHealth3QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let OralHealth3QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!OralHealth3QuestionItem4) {
+    OralHealth3QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let OralHealth3QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!OralHealth3QuestionItem5) {
+    OralHealth3QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let OralHealth3QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!OralHealth3QuestionItem6) {
+    OralHealth3QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  let OralHealth3QuestionItem7 = await QuestionItems.findOne({ name: '6'});
+  if (!OralHealth3QuestionItem7) {
+    OralHealth3QuestionItem7 = await QuestionItems.create({ name: '6', order:6}).save();
+  }
+  let OralHealth3QuestionItem8 = await QuestionItems.findOne({ name: '7'});
+  if (!OralHealth3QuestionItem8) {
+    OralHealth3QuestionItem8 = await QuestionItems.create({ name: '7', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth3Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth3Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth3Question).add(OralHealth3QuestionItem8);
+
+  let OralHealth4Question = await Question.findOne({ question: 'How many times per day do you usually brush your teeth?'});
+  if (!OralHealth4Question){
+    OralHealth4Question = await Question.create({
+      question: 'How many times per day do you usually brush your teeth?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth4Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth4Question)
+    .set(OralHealthSubSection);
+
+
+  let OralHealth5Question = await Question.findOne({ question: 'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem? '});
+  if (!OralHealth5Question){
+    OralHealth5Question = await Question.create({
+      question: 'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem? ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth5QuestionItem1 = await QuestionItems.findOne({ name: 'Always use a tooth cleaning agent'});
+  if (!OralHealth5QuestionItem1) {
+    OralHealth5QuestionItem1 = await QuestionItems.create({ name: 'Always use a tooth cleaning agent', order:0}).save();
+  }
+  let OralHealth5QuestionItem2 = await QuestionItems.findOne({ name: 'Most of the time use a tooth cleaning agent'});
+  if (!OralHealth5QuestionItem2) {
+    OralHealth5QuestionItem2 = await QuestionItems.create({ name: 'Most of the time use a tooth cleaning agent', order:1}).save();
+  }
+  let OralHealth5QuestionItem3 = await QuestionItems.findOne({ name: 'About half the time use a tooth cleaning agent'});
+  if (!OralHealth5QuestionItem3) {
+    OralHealth5QuestionItem3 = await QuestionItems.create({ name: 'About half the time use a tooth cleaning agent', order:2}).save();
+  }
+  let OralHealth5QuestionItem4 = await QuestionItems.findOne({ name: 'Sometimes use a tooth cleaning agent'});
+  if (!OralHealth5QuestionItem4) {
+    OralHealth5QuestionItem4 = await QuestionItems.create({ name: 'Sometimes use a tooth cleaning agent', order:3}).save();
+  }
+  let OralHealth5QuestionItem5 = await QuestionItems.findOne({ name: 'Never use a tooth cleaning agent (i.e., always use only water)'});
+  if (!OralHealth5QuestionItem5) {
+    OralHealth5QuestionItem5 = await QuestionItems.create({ name: 'Never use a tooth cleaning agent (i.e., always use only water)', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth5Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth5Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth5Question).add(OralHealth5QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth5Question).add(OralHealth5QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth5Question).add(OralHealth5QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth5Question).add(OralHealth5QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth5Question).add(OralHealth5QuestionItem5);
+
+  let OralHealth6Question = await Question.findOne({ question: 'On the days you use them, how; ALL OTHERS: How] many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?'});
+  if (!OralHealth6Question){
+    OralHealth6Question = await Question.create({
+      question: 'On the days you use them, how; ALL OTHERS: How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth6Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth6Question)
+    .set(OralHealthSubSection);
+
+  let OralHealth7Question = await Question.findOne({ question: 'On the days you use it, how; ALL OTHERS: How many times a day do you usually use mouthwash or mouth rinse?'});
+  if (!OralHealth7Question){
+    OralHealth7Question = await Question.create({
+      question: 'On the days you use it, how; ALL OTHERS: How many times a day do you usually use mouthwash or mouth rinse?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 6,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth7Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth7Question)
+    .set(OralHealthSubSection);
+
+  let OralHealth8Question = await Question.findOne({ question: 'Do you have a regular dentist or regular practice you usually go to for oral health?'});
+  if (!OralHealth8Question){
+    OralHealth8Question = await Question.create({
+      question: 'Do you have a regular dentist or regular practice you usually go to for oral health?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth8QuestionItem1 = await QuestionItems.findOne({ name: 'Yes, a regular dentist'});
+  if (!OralHealth8QuestionItem1) {
+    OralHealth8QuestionItem1 = await QuestionItems.create({ name: 'Yes, a regular dentist', order:0}).save();
+  }
+  let OralHealth8QuestionItem2 = await QuestionItems.findOne({ name: 'A regular practice, but not a regular dentist'});
+  if (!OralHealth8QuestionItem2) {
+    OralHealth8QuestionItem2 = await QuestionItems.create({ name: 'A regular practice, but not a regular dentist', order:1}).save();
+  }
+  let OralHealth8QuestionItem3 = await QuestionItems.findOne({ name: 'No regular doctor or regular practice'});
+  if (!OralHealth8QuestionItem3) {
+    OralHealth8QuestionItem3 = await QuestionItems.create({ name: 'No regular doctor or regular practice', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth8Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth8Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth8Question).add(OralHealth8QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth8Question).add(OralHealth8QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth8Question).add(OralHealth8QuestionItem3);
+
+  let OralHealth9Question = await Question.findOne({ question: 'How often do you get a cleaning?'});
+  if (!OralHealth9Question){
+    OralHealth9Question = await Question.create({
+      question: 'How often do you get a cleaning?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let OralHealth9QuestionItem1 = await QuestionItems.findOne({ name: 'Twice a year'});
+  if (!OralHealth9QuestionItem1) {
+    OralHealth9QuestionItem1 = await QuestionItems.create({ name: 'Twice a year', order:0}).save();
+  }
+  let OralHealth9QuestionItem2 = await QuestionItems.findOne({ name: 'Once a year'});
+  if (!OralHealth9QuestionItem2) {
+    OralHealth9QuestionItem2 = await QuestionItems.create({ name: 'Once a year', order:1}).save();
+  }
+  let OralHealth9QuestionItem3 = await QuestionItems.findOne({ name: 'Every other year'});
+  if (!OralHealth9QuestionItem3) {
+    OralHealth9QuestionItem3 = await QuestionItems.create({ name: 'Every other year', order:2}).save();
+  }
+  let OralHealth9QuestionItem4 = await QuestionItems.findOne({ name: 'Rarely'});
+  if (!OralHealth9QuestionItem4) {
+    OralHealth9QuestionItem4 = await QuestionItems.create({ name: 'Rarely', order:3}).save();
+  }
+  let OralHealth9QuestionItem5 = await QuestionItems.findOne({ name: 'Never'});
+  if (!OralHealth9QuestionItem5) {
+    OralHealth9QuestionItem5 = await QuestionItems.create({ name: 'Never', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(OralHealth9Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(OralHealth9Question)
+    .set(OralHealthSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth9Question).add(OralHealth9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth9Question).add(OralHealth9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth9Question).add(OralHealth9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth9Question).add(OralHealth9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(OralHealth9Question).add(OralHealth9QuestionItem5);
+
+  let HealthBehaviors1Question = await Question.findOne({ question: ' Have you ever used any tobacco products (such as cigarettes, e-cigarettes, cigars, pipes, smokeless tobacco, or hookah?)'});
+  if (!HealthBehaviors1Question){
+    HealthBehaviors1Question = await Question.create({
+      question: ' Have you ever used any tobacco products (such as cigarettes, e-cigarettes, cigars, pipes, smokeless tobacco, or hookah?)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors1Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors1Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors2Question = await Question.findOne({ question: 'Have you smoked at least 100 cigarettes in your entire life?'});
+  if (!HealthBehaviors2Question){
+    HealthBehaviors2Question = await Question.create({
+      question: 'Have you smoked at least 100 cigarettes in your entire life?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors2Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors2Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors3Question = await Question.findOne({ question: 'Do you now smoke cigarettes every day, some days, or not at all?'});
+  if (!HealthBehaviors3Question){
+    HealthBehaviors3Question = await Question.create({
+      question: 'Do you now smoke cigarettes every day, some days, or not at all?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors3QuestionItem1 = await QuestionItems.findOne({ name: 'Every day'});
+  if (!HealthBehaviors3QuestionItem1) {
+    HealthBehaviors3QuestionItem1 = await QuestionItems.create({ name: 'Every day', order:0}).save();
+  }
+  let HealthBehaviors3QuestionItem2 = await QuestionItems.findOne({ name: 'Some days'});
+  if (!HealthBehaviors3QuestionItem2) {
+    HealthBehaviors3QuestionItem2 = await QuestionItems.create({ name: 'Some days', order:1}).save();
+  }
+  let HealthBehaviors3QuestionItem3 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!HealthBehaviors3QuestionItem3) {
+    HealthBehaviors3QuestionItem3 = await QuestionItems.create({ name: 'Not at all', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors3Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors3Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors3Question).add(HealthBehaviors3QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors3Question).add(HealthBehaviors3QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors3Question).add(HealthBehaviors3QuestionItem3);
+
+  let HealthBehaviors4Question = await Question.findOne({ question: 'How long have you smoked cigarettes?'});
+  if (!HealthBehaviors4Question){
+    HealthBehaviors4Question = await Question.create({
+      question: 'How long have you smoked cigarettes?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors4QuestionItem1 = await QuestionItems.findOne({ name: 'Years'});
+  if (!HealthBehaviors4QuestionItem1) {
+    HealthBehaviors4QuestionItem1 = await QuestionItems.create({ name: 'Years', order:0}).save();
+  }
+  let HealthBehaviors4QuestionItem2 = await QuestionItems.findOne({ name: 'Months'});
+  if (!HealthBehaviors4QuestionItem2) {
+    HealthBehaviors4QuestionItem2 = await QuestionItems.create({ name: 'Months', order:1}).save();
+  }
+  let HealthBehaviors4QuestionItem3 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!HealthBehaviors4QuestionItem3) {
+    HealthBehaviors4QuestionItem3 = await QuestionItems.create({ name: 'Do not know', order:2}).save();
+  }
+  let HealthBehaviors4QuestionItem4 = await QuestionItems.findOne({ name: 'Prefer not to answer'});
+  if (!HealthBehaviors4QuestionItem4) {
+    HealthBehaviors4QuestionItem4 = await QuestionItems.create({ name: 'Prefer not to answer', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors4Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors4Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors4Question).add(HealthBehaviors4QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors4Question).add(HealthBehaviors4QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors4Question).add(HealthBehaviors4QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors4Question).add(HealthBehaviors4QuestionItem4);
+
+  let HealthBehaviors5Question = await Question.findOne({ question: 'Have you EVER used any tobacco product other than regular cigarettes and E-cigarettes (such as a regular cigar or cigarillo, a regular pipe filled with tobacco, a water pipe or hookah pipe filled with tobacco, smokeless or dissolvable tobacco) EVEN ONE TIME?'});
+  if (!HealthBehaviors5Question){
+    HealthBehaviors5Question = await Question.create({
+      question: 'Have you EVER used any tobacco product other than regular cigarettes and E-cigarettes (such as a regular cigar or cigarillo, a regular pipe filled with tobacco, a water pipe or hookah pipe filled with tobacco, smokeless or dissolvable tobacco) EVEN ONE TIME?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors5Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors5Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors6Question = await Question.findOne({ question: 'Do you now use any tobacco product other than regular cigarettes and E-cigarettes every day, some days, or not at all?'});
+  if (!HealthBehaviors6Question){
+    HealthBehaviors6Question = await Question.create({
+      question: 'Do you now use any tobacco product other than regular cigarettes and E-cigarettes every day, some days, or not at all?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors6QuestionItem1 = await QuestionItems.findOne({ name: 'Every day'});
+  if (!HealthBehaviors6QuestionItem1) {
+    HealthBehaviors6QuestionItem1 = await QuestionItems.create({ name: 'Every day', order:0}).save();
+  }
+  let HealthBehaviors6QuestionItem2 = await QuestionItems.findOne({ name: 'Some days'});
+  if (!HealthBehaviors6QuestionItem2) {
+    HealthBehaviors6QuestionItem2 = await QuestionItems.create({ name: 'Some days', order:1}).save();
+  }
+  let HealthBehaviors6QuestionItem3 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!HealthBehaviors6QuestionItem3) {
+    HealthBehaviors6QuestionItem3 = await QuestionItems.create({ name: 'Not at all', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors6Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors6Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors6Question).add(HealthBehaviors6QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors6Question).add(HealthBehaviors6QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors6Question).add(HealthBehaviors6QuestionItem3);
+
+  let HealthBehaviors7Question = await Question.findOne({ question: 'Have you EVER used E-cigarettes EVEN ONE TIME?'});
+  if (!HealthBehaviors7Question){
+    HealthBehaviors7Question = await Question.create({
+      question: 'Have you EVER used E-cigarettes EVEN ONE TIME?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors7Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors7Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors8Question = await Question.findOne({ question: 'Do you now use E-cigarettes every day, some days, or not at all?'});
+  if (!HealthBehaviors8Question){
+    HealthBehaviors8Question = await Question.create({
+      question: 'Do you now use E-cigarettes every day, some days, or not at all?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors8QuestionItem1 = await QuestionItems.findOne({ name: 'Every day'});
+  if (!HealthBehaviors8QuestionItem1) {
+    HealthBehaviors8QuestionItem1 = await QuestionItems.create({ name: 'Every day', order:0}).save();
+  }
+  let HealthBehaviors8QuestionItem2 = await QuestionItems.findOne({ name: 'Some days'});
+  if (!HealthBehaviors8QuestionItem2) {
+    HealthBehaviors8QuestionItem2 = await QuestionItems.create({ name: 'Some days', order:1}).save();
+  }
+  let HealthBehaviors8QuestionItem3 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!HealthBehaviors8QuestionItem3) {
+    HealthBehaviors8QuestionItem3 = await QuestionItems.create({ name: 'Not at all', order:2}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors8Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors8Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors8Question).add(HealthBehaviors8QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors8Question).add(HealthBehaviors8QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors8Question).add(HealthBehaviors8QuestionItem3);
+
+  let HealthBehaviors9Question = await Question.findOne({ question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?'});
+  if (!HealthBehaviors9Question){
+    HealthBehaviors9Question = await Question.create({
+      question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors9QuestionItem1 = await QuestionItems.findOne({ name: 'Never'});
+  if (!HealthBehaviors9QuestionItem1) {
+    HealthBehaviors9QuestionItem1 = await QuestionItems.create({ name: 'Never', order:0}).save();
+  }
+  let HealthBehaviors9QuestionItem2 = await QuestionItems.findOne({ name: 'Less than one day a week'});
+  if (!HealthBehaviors9QuestionItem2) {
+    HealthBehaviors9QuestionItem2 = await QuestionItems.create({ name: 'Less than one day a week', order:1}).save();
+  }
+  let HealthBehaviors9QuestionItem3 = await QuestionItems.findOne({ name: '1-2 days a week'});
+  if (!HealthBehaviors9QuestionItem3) {
+    HealthBehaviors9QuestionItem3 = await QuestionItems.create({ name: '1-2 days a week', order:2}).save();
+  }
+  let HealthBehaviors9QuestionItem4 = await QuestionItems.findOne({ name: '3-4 days a week'});
+  if (!HealthBehaviors9QuestionItem4) {
+    HealthBehaviors9QuestionItem4 = await QuestionItems.create({ name: '3-4 days a week', order:3}).save();
+  }
+  let HealthBehaviors9QuestionItem5 = await QuestionItems.findOne({ name: '5-6 days a week'});
+  if (!HealthBehaviors9QuestionItem5) {
+    HealthBehaviors9QuestionItem5 = await QuestionItems.create({ name: '5-6 days a week', order:4}).save();
+  }
+  let HealthBehaviors9QuestionItem6 = await QuestionItems.findOne({ name: 'Every day'});
+  if (!HealthBehaviors9QuestionItem6) {
+    HealthBehaviors9QuestionItem6 = await QuestionItems.create({ name: 'Every day', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors9Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors9Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors9Question).add(HealthBehaviors9QuestionItem6);
+
+  let HealthBehaviors10Question = await Question.findOne({ question: 'On the days you drink, about how many drinks do you usually have? One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot (1.5 ounces) of liquor.'});
+  if (!HealthBehaviors10Question){
+    HealthBehaviors10Question = await Question.create({
+      question: 'On the days you drink, about how many drinks do you usually have? One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot (1.5 ounces) of liquor.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 9,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors10Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors10Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors11Question = await Question.findOne({ question: 'Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks (men) or 4 or more drinks (women) on a single occasion?'});
+  if (!HealthBehaviors11Question){
+    HealthBehaviors11Question = await Question.create({
+      question: 'Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks (men) or 4 or more drinks (women) on a single occasion?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 10,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors11Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors11Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors12Question = await Question.findOne({ question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?'});
+  if (!HealthBehaviors12Question){
+    HealthBehaviors12Question = await Question.create({
+      question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 11,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors12QuestionItem1 = await QuestionItems.findOne({ name: 'Repeated sunburns'});
+  if (!HealthBehaviors12QuestionItem1) {
+    HealthBehaviors12QuestionItem1 = await QuestionItems.create({ name: 'Repeated sunburns', order:0}).save();
+  }
+  let HealthBehaviors12QuestionItem2 = await QuestionItems.findOne({ name: 'No change in your skin'});
+  if (!HealthBehaviors12QuestionItem2) {
+    HealthBehaviors12QuestionItem2 = await QuestionItems.create({ name: 'No change in your skin', order:1}).save();
+  }
+  let HealthBehaviors12QuestionItem3 = await QuestionItems.findOne({ name: 'Only freckles'});
+  if (!HealthBehaviors12QuestionItem3) {
+    HealthBehaviors12QuestionItem3 = await QuestionItems.create({ name: 'Only freckles', order:2}).save();
+  }
+  let HealthBehaviors12QuestionItem4 = await QuestionItems.findOne({ name: 'Mild tan'});
+  if (!HealthBehaviors12QuestionItem4) {
+    HealthBehaviors12QuestionItem4 = await QuestionItems.create({ name: 'Mild tan', order:3}).save();
+  }
+  let HealthBehaviors12QuestionItem5 = await QuestionItems.findOne({ name: 'Moderate tan'});
+  if (!HealthBehaviors12QuestionItem5) {
+    HealthBehaviors12QuestionItem5 = await QuestionItems.create({ name: 'Moderate tan', order:4}).save();
+  }
+  let HealthBehaviors12QuestionItem6 = await QuestionItems.findOne({ name: 'Very dark and deep tan'});
+  if (!HealthBehaviors12QuestionItem6) {
+    HealthBehaviors12QuestionItem6 = await QuestionItems.create({ name: 'Very dark and deep tan', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors12Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors12Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors12Question).add(HealthBehaviors12QuestionItem6);
+
+  let HealthBehaviors13Question = await Question.findOne({ question: 'Avoid the sun by staying in the shade?'});
+  if (!HealthBehaviors13Question){
+    HealthBehaviors13Question = await Question.create({
+      question: 'Avoid the sun by staying in the shade?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 12,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors13QuestionItem1 = await QuestionItems.findOne({ name: 'Never'});
+  if (!HealthBehaviors13QuestionItem1) {
+    HealthBehaviors13QuestionItem1 = await QuestionItems.create({ name: 'Never', order:0}).save();
+  }
+  let HealthBehaviors13QuestionItem2 = await QuestionItems.findOne({ name: 'Rarely'});
+  if (!HealthBehaviors13QuestionItem2) {
+    HealthBehaviors13QuestionItem2 = await QuestionItems.create({ name: 'Rarely', order:1}).save();
+  }
+  let HealthBehaviors13QuestionItem3 = await QuestionItems.findOne({ name: 'Sometimes'});
+  if (!HealthBehaviors13QuestionItem3) {
+    HealthBehaviors13QuestionItem3 = await QuestionItems.create({ name: 'Sometimes', order:2}).save();
+  }
+  let HealthBehaviors13QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!HealthBehaviors13QuestionItem4) {
+    HealthBehaviors13QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let HealthBehaviors13QuestionItem5 = await QuestionItems.findOne({ name: 'Always'});
+  if (!HealthBehaviors13QuestionItem5) {
+    HealthBehaviors13QuestionItem5 = await QuestionItems.create({ name: 'Always', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors13Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors13Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors13Question).add(HealthBehaviors13QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors13Question).add(HealthBehaviors13QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors13Question).add(HealthBehaviors13QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors13Question).add(HealthBehaviors13QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors13Question).add(HealthBehaviors13QuestionItem5);
+
+  let HealthBehaviors14Question = await Question.findOne({ question: 'Wear protective clothing (e.g., wide-brimmed hat, long-sleeved shirt)?'});
+  if (!HealthBehaviors14Question){
+    HealthBehaviors14Question = await Question.create({
+      question: 'Wear protective clothing (e.g., wide-brimmed hat, long-sleeved shirt)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 13,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors14QuestionItem1 = await QuestionItems.findOne({ name: 'Never'});
+  if (!HealthBehaviors14QuestionItem1) {
+    HealthBehaviors14QuestionItem1 = await QuestionItems.create({ name: 'Never', order:0}).save();
+  }
+  let HealthBehaviors14QuestionItem2 = await QuestionItems.findOne({ name: 'Rarely'});
+  if (!HealthBehaviors14QuestionItem2) {
+    HealthBehaviors14QuestionItem2 = await QuestionItems.create({ name: 'Rarely', order:1}).save();
+  }
+  let HealthBehaviors14QuestionItem3 = await QuestionItems.findOne({ name: 'Sometimes'});
+  if (!HealthBehaviors14QuestionItem3) {
+    HealthBehaviors14QuestionItem3 = await QuestionItems.create({ name: 'Sometimes', order:2}).save();
+  }
+  let HealthBehaviors14QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!HealthBehaviors14QuestionItem4) {
+    HealthBehaviors14QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let HealthBehaviors14QuestionItem5 = await QuestionItems.findOne({ name: 'Always'});
+  if (!HealthBehaviors14QuestionItem5) {
+    HealthBehaviors14QuestionItem5 = await QuestionItems.create({ name: 'Always', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors14Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors14Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors14Question).add(HealthBehaviors14QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors14Question).add(HealthBehaviors14QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors14Question).add(HealthBehaviors14QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors14Question).add(HealthBehaviors14QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors14Question).add(HealthBehaviors14QuestionItem5);
+
+  let HealthBehaviors15Question = await Question.findOne({ question: 'Use sunscreen, lotions, or foundations SPF 15 or higher?'});
+  if (!HealthBehaviors15Question){
+    HealthBehaviors15Question = await Question.create({
+      question: 'Use sunscreen, lotions, or foundations SPF 15 or higher?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 14,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors15QuestionItem1 = await QuestionItems.findOne({ name: 'Never'});
+  if (!HealthBehaviors15QuestionItem1) {
+    HealthBehaviors15QuestionItem1 = await QuestionItems.create({ name: 'Never', order:0}).save();
+  }
+  let HealthBehaviors15QuestionItem2 = await QuestionItems.findOne({ name: 'Rarely'});
+  if (!HealthBehaviors15QuestionItem2) {
+    HealthBehaviors15QuestionItem2 = await QuestionItems.create({ name: 'Rarely', order:1}).save();
+  }
+  let HealthBehaviors15QuestionItem3 = await QuestionItems.findOne({ name: 'Sometimes'});
+  if (!HealthBehaviors15QuestionItem3) {
+    HealthBehaviors15QuestionItem3 = await QuestionItems.create({ name: 'Sometimes', order:2}).save();
+  }
+  let HealthBehaviors15QuestionItem4 = await QuestionItems.findOne({ name: 'Most of the time'});
+  if (!HealthBehaviors15QuestionItem4) {
+    HealthBehaviors15QuestionItem4 = await QuestionItems.create({ name: 'Most of the time', order:3}).save();
+  }
+  let HealthBehaviors15QuestionItem5 = await QuestionItems.findOne({ name: 'Always'});
+  if (!HealthBehaviors15QuestionItem5) {
+    HealthBehaviors15QuestionItem5 = await QuestionItems.create({ name: 'Always', order:4}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors15Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors15Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors15Question).add(HealthBehaviors15QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors15Question).add(HealthBehaviors15QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors15Question).add(HealthBehaviors15QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors15Question).add(HealthBehaviors15QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors15Question).add(HealthBehaviors15QuestionItem5);
+
+  let HealthBehaviors16Question = await Question.findOne({ question: 'How many times in the past 12 months have you used a tanning bed or booth?'});
+  if (!HealthBehaviors16Question){
+    HealthBehaviors16Question = await Question.create({
+      question: 'How many times in the past 12 months have you used a tanning bed or booth?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 15,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors16Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors16Question)
+    .set(HealthBehaviorsSubSection);
+
+
+  let HealthBehaviors17Question = await Question.findOne({ question: 'Have you ever seen a dermatologist or other healthcare provider for a skin exam to look for skin cancer or other abnormalities?'});
+  if (!HealthBehaviors17Question){
+    HealthBehaviors17Question = await Question.create({
+      question: 'Have you ever seen a dermatologist or other healthcare provider for a skin exam to look for skin cancer or other abnormalities?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 16,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors17Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors17Question)
+    .set(HealthBehaviorsSubSection);
+
+
+  let HealthBehaviors18Question = await Question.findOne({ question: 'When was your MOST RECENT skin exam?'});
+  if (!HealthBehaviors18Question){
+    HealthBehaviors18Question = await Question.create({
+      question: 'When was your MOST RECENT skin exam?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 17,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors18QuestionItem1 = await QuestionItems.findOne({ name: 'Within the past year (anytime less than 12 months ago)'});
+  if (!HealthBehaviors18QuestionItem1) {
+    HealthBehaviors18QuestionItem1 = await QuestionItems.create({ name: 'Within the past year (anytime less than 12 months ago)', order:0}).save();
+  }
+  let HealthBehaviors18QuestionItem2 = await QuestionItems.findOne({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)'});
+  if (!HealthBehaviors18QuestionItem2) {
+    HealthBehaviors18QuestionItem2 = await QuestionItems.create({ name: 'Within the past 2 years (at least 1 year but less than 2 years ago)', order:1}).save();
+  }
+  let HealthBehaviors18QuestionItem3 = await QuestionItems.findOne({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)'});
+  if (!HealthBehaviors18QuestionItem3) {
+    HealthBehaviors18QuestionItem3 = await QuestionItems.create({ name: 'Within the past 3 years (at least 2 years but less than 3 years ago)', order:2}).save();
+  }
+  let HealthBehaviors18QuestionItem4 = await QuestionItems.findOne({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago'});
+  if (!HealthBehaviors18QuestionItem4) {
+    HealthBehaviors18QuestionItem4 = await QuestionItems.create({ name: 'Within the past 5 years (at least 3 years but less than 5 years ago', order:3}).save();
+  }
+  let HealthBehaviors18QuestionItem5 = await QuestionItems.findOne({ name: 'Within the past 10 years (5 years but less than 10 years ago)'});
+  if (!HealthBehaviors18QuestionItem5) {
+    HealthBehaviors18QuestionItem5 = await QuestionItems.create({ name: 'Within the past 10 years (5 years but less than 10 years ago)', order:4}).save();
+  }
+  let HealthBehaviors18QuestionItem6 = await QuestionItems.findOne({ name: '10 years ago or more'});
+  if (!HealthBehaviors18QuestionItem6) {
+    HealthBehaviors18QuestionItem6 = await QuestionItems.create({ name: '10 years ago or more', order:5}).save();
+  }
+  let HealthBehaviors18QuestionItem7 = await QuestionItems.findOne({ name: 'Do not know'});
+  if (!HealthBehaviors18QuestionItem7) {
+    HealthBehaviors18QuestionItem7 = await QuestionItems.create({ name: 'Do not know', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors18Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors18Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors18Question).add(HealthBehaviors18QuestionItem7);
+
+  let HealthBehaviors19Question = await Question.findOne({ question: 'How many times in the past 12 months have you used a tanning bed or booth?'});
+  if (!HealthBehaviors19Question){
+    HealthBehaviors19Question = await Question.create({
+      question: 'How many times in the past 12 months have you used a tanning bed or booth?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 18,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors19Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors19Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors20Question = await Question.findOne({ question: 'How much time did you usually spend doing vigorous physical activities on one of those days?'});
+  if (!HealthBehaviors20Question){
+    HealthBehaviors20Question = await Question.create({
+      question: 'How much time did you usually spend doing vigorous physical activities on one of those days?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 19,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors20Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors20Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors21Question = await Question.findOne({ question: 'During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.'});
+  if (!HealthBehaviors21Question){
+    HealthBehaviors21Question = await Question.create({
+      question: 'During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 20,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors21Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors21Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors22Question = await Question.findOne({ question: 'How much time did you usually spend doing moderate physical activities on one of those days?'});
+  if (!HealthBehaviors22Question){
+    HealthBehaviors22Question = await Question.create({
+      question: 'How much time did you usually spend doing moderate physical activities on one of those days?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 21,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors22Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors22Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors23Question = await Question.findOne({ question: 'During the last 7 days, on how many days did you walk for at least 10 minutes at a time?'});
+  if (!HealthBehaviors23Question){
+    HealthBehaviors23Question = await Question.create({
+      question: 'During the last 7 days, on how many days did you walk for at least 10 minutes at a time?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 22,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors23Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors23Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors24Question = await Question.findOne({ question: 'How much time did you usually spend walking on one of those days?'});
+  if (!HealthBehaviors24Question){
+    HealthBehaviors24Question = await Question.create({
+      question: 'How much time did you usually spend walking on one of those days?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 23,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors24Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors24Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors25Question = await Question.findOne({ question: 'During the last 7 days, how much time did you spend sitting on a week day?'});
+  if (!HealthBehaviors25Question){
+    HealthBehaviors25Question = await Question.create({
+      question: 'During the last 7 days, how much time did you spend sitting on a week day?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 24,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors25Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors25Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors26Question = await Question.findOne({ question: 'Which of the following describes how you do your exercise?'});
+  if (!HealthBehaviors26Question){
+    HealthBehaviors26Question = await Question.create({
+      question: 'Which of the following describes how you do your exercise?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 25,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors26QuestionItem1 = await QuestionItems.findOne({ name: 'You exercise at home with interactive gaming video (e.g., Wii, Xbox, Online Gaming)'});
+  if (!HealthBehaviors26QuestionItem1) {
+    HealthBehaviors26QuestionItem1 = await QuestionItems.create({ name: 'You exercise at home with interactive gaming video (e.g., Wii, Xbox, Online Gaming)', order:0}).save();
+  }
+  let HealthBehaviors26QuestionItem2 = await QuestionItems.findOne({ name: 'You exercise outdoors, including walk, jog, cycle, etc.'});
+  if (!HealthBehaviors26QuestionItem2) {
+    HealthBehaviors26QuestionItem2 = await QuestionItems.create({ name: 'You exercise outdoors, including walk, jog, cycle, etc.', order:1}).save();
+  }
+  let HealthBehaviors26QuestionItem3 = await QuestionItems.findOne({ name: 'You exercise at the gym or health club'});
+  if (!HealthBehaviors26QuestionItem3) {
+    HealthBehaviors26QuestionItem3 = await QuestionItems.create({ name: 'You exercise at the gym or health club', order:2}).save();
+  }
+  let HealthBehaviors26QuestionItem4 = await QuestionItems.findOne({ name: 'You exercise with one or more friends or in a group (e.g., exercise classes, yoga classes)'});
+  if (!HealthBehaviors26QuestionItem4) {
+    HealthBehaviors26QuestionItem4 = await QuestionItems.create({ name: 'You exercise with one or more friends or in a group (e.g., exercise classes, yoga classes)', order:3}).save();
+  }
+  let HealthBehaviors26QuestionItem5 = await QuestionItems.findOne({ name: 'You exercise at home with a live or recorded group over the internet (e.g., Aerobics, Yoga, Peloton)'});
+  if (!HealthBehaviors26QuestionItem5) {
+    HealthBehaviors26QuestionItem5 = await QuestionItems.create({ name: 'You exercise at home with a live or recorded group over the internet (e.g., Aerobics, Yoga, Peloton)', order:4}).save();
+  }
+  let HealthBehaviors26QuestionItem6 = await QuestionItems.findOne({ name: 'You exercise some OTHER way NOT mentioned in this list'});
+  if (!HealthBehaviors26QuestionItem6) {
+    HealthBehaviors26QuestionItem6 = await QuestionItems.create({ name: 'You exercise some OTHER way NOT mentioned in this list', order:5}).save();
+  }
+  let HealthBehaviors26QuestionItem7 = await QuestionItems.findOne({ name: 'You do not exercise'});
+  if (!HealthBehaviors26QuestionItem7) {
+    HealthBehaviors26QuestionItem7 = await QuestionItems.create({ name: 'You do not exercise', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors26Question)
+    .set(multiselectionQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors26Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors26Question).add(HealthBehaviors26QuestionItem7);
+
+  let HealthBehaviors27Question = await Question.findOne({ question: 'How many days per week do you perform muscle strengthening exercises, such as body weight exercises or resistance training?'});
+  if (!HealthBehaviors27Question){
+    HealthBehaviors27Question = await Question.create({
+      question: 'How many days per week do you perform muscle strengthening exercises, such as body weight exercises or resistance training?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 26,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors27Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors27Question)
+    .set(HealthBehaviorsSubSection);
+
+  let HealthBehaviors28Question = await Question.findOne({ question: 'On average, about how many cups of bottled or tap water do you drink each day? (8 oz. of water is equal to one cup. One standard 16 oz. bottle of water equals 2 cups.)'});
+  if (!HealthBehaviors28Question){
+    HealthBehaviors28Question = await Question.create({
+      question: 'On average, about how many cups of bottled or tap water do you drink each day? (8 oz. of water is equal to one cup. One standard 16 oz. bottle of water equals 2 cups.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 27,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors28QuestionItem1 = await QuestionItems.findOne({ name: 'None'});
+  if (!HealthBehaviors28QuestionItem1) {
+    HealthBehaviors28QuestionItem1 = await QuestionItems.create({ name: 'None', order:0}).save();
+  }
+  let HealthBehaviors28QuestionItem2 = await QuestionItems.findOne({ name: '1-3 cups'});
+  if (!HealthBehaviors28QuestionItem2) {
+    HealthBehaviors28QuestionItem2 = await QuestionItems.create({ name: '1-3 cups', order:1}).save();
+  }
+  let HealthBehaviors28QuestionItem3 = await QuestionItems.findOne({ name: '4-7 cups'});
+  if (!HealthBehaviors28QuestionItem3) {
+    HealthBehaviors28QuestionItem3 = await QuestionItems.create({ name: '4-7 cups', order:2}).save();
+  }
+  let HealthBehaviors28QuestionItem4 = await QuestionItems.findOne({ name: '8 or more cups'});
+  if (!HealthBehaviors28QuestionItem4) {
+    HealthBehaviors28QuestionItem4 = await QuestionItems.create({ name: '8 or more cups', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors28Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors28Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors28Question).add(HealthBehaviors28QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors28Question).add(HealthBehaviors28QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors28Question).add(HealthBehaviors28QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors28Question).add(HealthBehaviors28QuestionItem4);
+
+  let HealthBehaviors29Question = await Question.findOne({ question: 'During the past 7 days, how many times did you drink 100% fruit juices such as orange juice, apple juice, or grape juice? (Do not count punch, Kool-Aid, sports drinks, or other fruit-flavored drinks.)'});
+  if (!HealthBehaviors29Question){
+    HealthBehaviors29Question = await Question.create({
+      question: 'During the past 7 days, how many times did you drink 100% fruit juices such as orange juice, apple juice, or grape juice? (Do not count punch, Kool-Aid, sports drinks, or other fruit-flavored drinks.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 28,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors29QuestionItem1 = await QuestionItems.findOne({ name: 'I did not drink 100% fruit juice during the past 7 days'});
+  if (!HealthBehaviors29QuestionItem1) {
+    HealthBehaviors29QuestionItem1 = await QuestionItems.create({ name: 'I did not drink 100% fruit juice during the past 7 days', order:0}).save();
+  }
+  let HealthBehaviors29QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors29QuestionItem2) {
+    HealthBehaviors29QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors29QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors29QuestionItem3) {
+    HealthBehaviors29QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors29QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors29QuestionItem4) {
+    HealthBehaviors29QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors29QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors29QuestionItem5) {
+    HealthBehaviors29QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors29QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors29QuestionItem6) {
+    HealthBehaviors29QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors29QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors29QuestionItem7) {
+    HealthBehaviors29QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors29Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors29Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors29Question).add(HealthBehaviors29QuestionItem7);
+
+  let HealthBehaviors30Question = await Question.findOne({ question: 'During the past 7 days, how many times did you eat fruit? (Do not count fruit juice.)'});
+  if (!HealthBehaviors30Question){
+    HealthBehaviors30Question = await Question.create({
+      question: 'During the past 7 days, how many times did you eat fruit? (Do not count fruit juice.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 29,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors30QuestionItem1 = await QuestionItems.findOne({ name: 'I did not eat fruit during the past 7 days '});
+  if (!HealthBehaviors30QuestionItem1) {
+    HealthBehaviors30QuestionItem1 = await QuestionItems.create({ name: 'I did not eat fruit during the past 7 days ', order:0}).save();
+  }
+  let HealthBehaviors30QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors30QuestionItem2) {
+    HealthBehaviors30QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors30QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors30QuestionItem3) {
+    HealthBehaviors30QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors30QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors30QuestionItem4) {
+    HealthBehaviors30QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors30QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors30QuestionItem5) {
+    HealthBehaviors30QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors30QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors30QuestionItem6) {
+    HealthBehaviors30QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors30QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors30QuestionItem7) {
+    HealthBehaviors30QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors30Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors30Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors30Question).add(HealthBehaviors30QuestionItem7);
+
+  let HealthBehaviors31Question = await Question.findOne({ question: 'During the past 7 days, how many times did you eat green salad, potatoes, carrots, or other vegetables? (Do not count french fries, fried potatoes, or potato chips.)'});
+  if (!HealthBehaviors31Question){
+    HealthBehaviors31Question = await Question.create({
+      question: 'During the past 7 days, how many times did you eat green salad, potatoes, carrots, or other vegetables? (Do not count french fries, fried potatoes, or potato chips.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 30,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors31QuestionItem1 = await QuestionItems.findOne({ name: 'I did not eat vegetables during the past 7 days '});
+  if (!HealthBehaviors31QuestionItem1) {
+    HealthBehaviors31QuestionItem1 = await QuestionItems.create({ name: 'I did not eat vegetables during the past 7 days ', order:0}).save();
+  }
+  let HealthBehaviors31QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors31QuestionItem2) {
+    HealthBehaviors31QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors31QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors31QuestionItem3) {
+    HealthBehaviors31QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors31QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors31QuestionItem4) {
+    HealthBehaviors31QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors31QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors31QuestionItem5) {
+    HealthBehaviors31QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors31QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors31QuestionItem6) {
+    HealthBehaviors31QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors31QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors31QuestionItem7) {
+    HealthBehaviors31QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors31Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors31Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors31Question).add(HealthBehaviors31QuestionItem7);
+
+  let HealthBehaviors32Question = await Question.findOne({ question: 'During the past 7 days, on how many days did you eat breakfast?'});
+  if (!HealthBehaviors32Question){
+    HealthBehaviors32Question = await Question.create({
+      question: 'During the past 7 days, on how many days did you eat breakfast?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 31,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors32QuestionItem1 = await QuestionItems.findOne({ name: '0 days'});
+  if (!HealthBehaviors32QuestionItem1) {
+    HealthBehaviors32QuestionItem1 = await QuestionItems.create({ name: '0 days', order:0}).save();
+  }
+  let HealthBehaviors32QuestionItem2 = await QuestionItems.findOne({ name: '1 day'});
+  if (!HealthBehaviors32QuestionItem2) {
+    HealthBehaviors32QuestionItem2 = await QuestionItems.create({ name: '1 day', order:1}).save();
+  }
+  let HealthBehaviors32QuestionItem3 = await QuestionItems.findOne({ name: '2 days'});
+  if (!HealthBehaviors32QuestionItem3) {
+    HealthBehaviors32QuestionItem3 = await QuestionItems.create({ name: '2 days', order:2}).save();
+  }
+  let HealthBehaviors32QuestionItem4 = await QuestionItems.findOne({ name: '3 days'});
+  if (!HealthBehaviors32QuestionItem4) {
+    HealthBehaviors32QuestionItem4 = await QuestionItems.create({ name: '3 days', order:3}).save();
+  }
+  let HealthBehaviors32QuestionItem5 = await QuestionItems.findOne({ name: '4 days'});
+  if (!HealthBehaviors32QuestionItem5) {
+    HealthBehaviors32QuestionItem5 = await QuestionItems.create({ name: '4 days', order:4}).save();
+  }
+  let HealthBehaviors32QuestionItem6 = await QuestionItems.findOne({ name: '5 days'});
+  if (!HealthBehaviors32QuestionItem6) {
+    HealthBehaviors32QuestionItem6 = await QuestionItems.create({ name: '5 days', order:5}).save();
+  }
+  let HealthBehaviors32QuestionItem7 = await QuestionItems.findOne({ name: '6 days'});
+  if (!HealthBehaviors32QuestionItem7) {
+    HealthBehaviors32QuestionItem7 = await QuestionItems.create({ name: '6 days', order:6}).save();
+  }
+  let HealthBehaviors32QuestionItem8 = await QuestionItems.findOne({ name: '7 days'});
+  if (!HealthBehaviors32QuestionItem8) {
+    HealthBehaviors32QuestionItem8 = await QuestionItems.create({ name: '7 days', order:7}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors32Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors32Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors32Question).add(HealthBehaviors32QuestionItem8);
+
+  let HealthBehaviors33Question = await Question.findOne({ question: 'During the past 7 days, how many times did you eat from a fast food restaurant, including carry out or delivery?'});
+  if (!HealthBehaviors33Question){
+    HealthBehaviors33Question = await Question.create({
+      question: 'During the past 7 days, how many times did you eat from a fast food restaurant, including carry out or delivery?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 32,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors33QuestionItem1 = await QuestionItems.findOne({ name: 'I did not eat fast food during the past 7 days '});
+  if (!HealthBehaviors33QuestionItem1) {
+    HealthBehaviors33QuestionItem1 = await QuestionItems.create({ name: 'I did not eat fast food during the past 7 days ', order:0}).save();
+  }
+  let HealthBehaviors33QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors33QuestionItem2) {
+    HealthBehaviors33QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors33QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors33QuestionItem3) {
+    HealthBehaviors33QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors33QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors33QuestionItem4) {
+    HealthBehaviors33QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors33QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors33QuestionItem5) {
+    HealthBehaviors33QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors33QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors33QuestionItem6) {
+    HealthBehaviors33QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors33QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors33QuestionItem7) {
+    HealthBehaviors33QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors33Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors33Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors33Question).add(HealthBehaviors33QuestionItem7);
+
+  let HealthBehaviors34Question = await Question.findOne({ question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of soda or pop, such as Coke, Pepsi, or Sprite? (Do not count diet soda or diet pop.) '});
+  if (!HealthBehaviors34Question){
+    HealthBehaviors34Question = await Question.create({
+      question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of soda or pop, such as Coke, Pepsi, or Sprite? (Do not count diet soda or diet pop.) ',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 33,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors34QuestionItem1 = await QuestionItems.findOne({ name: 'I did not drink soda or pop during the past 7 days'});
+  if (!HealthBehaviors34QuestionItem1) {
+    HealthBehaviors34QuestionItem1 = await QuestionItems.create({ name: 'I did not drink soda or pop during the past 7 days', order:0}).save();
+  }
+  let HealthBehaviors34QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors34QuestionItem2) {
+    HealthBehaviors34QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors34QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors34QuestionItem3) {
+    HealthBehaviors34QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors34QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors34QuestionItem4) {
+    HealthBehaviors34QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors34QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors34QuestionItem5) {
+    HealthBehaviors34QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors34QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors34QuestionItem6) {
+    HealthBehaviors34QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors34QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors34QuestionItem7) {
+    HealthBehaviors34QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors34Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors34Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors34Question).add(HealthBehaviors34QuestionItem7);
+
+  let HealthBehaviors35Question = await Question.findOne({ question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of a sports drink such as Gatorade or Powerade? (Do not count low-calorie sports drinks such as Propel or G2.)'});
+  if (!HealthBehaviors35Question){
+    HealthBehaviors35Question = await Question.create({
+      question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of a sports drink such as Gatorade or Powerade? (Do not count low-calorie sports drinks such as Propel or G2.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 34,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let HealthBehaviors35QuestionItem1 = await QuestionItems.findOne({ name: 'I did not drink sports drinks during the past 7 days'});
+  if (!HealthBehaviors35QuestionItem1) {
+    HealthBehaviors35QuestionItem1 = await QuestionItems.create({ name: 'I did not drink sports drinks during the past 7 days', order:0}).save();
+  }
+  let HealthBehaviors35QuestionItem2 = await QuestionItems.findOne({ name: '1 to 3 times during the past 7 days'});
+  if (!HealthBehaviors35QuestionItem2) {
+    HealthBehaviors35QuestionItem2 = await QuestionItems.create({ name: '1 to 3 times during the past 7 days', order:1}).save();
+  }
+  let HealthBehaviors35QuestionItem3 = await QuestionItems.findOne({ name: '4 to 6 times during the past 7 days'});
+  if (!HealthBehaviors35QuestionItem3) {
+    HealthBehaviors35QuestionItem3 = await QuestionItems.create({ name: '4 to 6 times during the past 7 days', order:2}).save();
+  }
+  let HealthBehaviors35QuestionItem4 = await QuestionItems.findOne({ name: '1 time per day'});
+  if (!HealthBehaviors35QuestionItem4) {
+    HealthBehaviors35QuestionItem4 = await QuestionItems.create({ name: '1 time per day', order:3}).save();
+  }
+  let HealthBehaviors35QuestionItem5 = await QuestionItems.findOne({ name: '2 times per day'});
+  if (!HealthBehaviors35QuestionItem5) {
+    HealthBehaviors35QuestionItem5 = await QuestionItems.create({ name: '2 times per day', order:4}).save();
+  }
+  let HealthBehaviors35QuestionItem6 = await QuestionItems.findOne({ name: '3 times per day'});
+  if (!HealthBehaviors35QuestionItem6) {
+    HealthBehaviors35QuestionItem6 = await QuestionItems.create({ name: '3 times per day', order:5}).save();
+  }
+  let HealthBehaviors35QuestionItem7 = await QuestionItems.findOne({ name: '4 or more times per day'});
+  if (!HealthBehaviors35QuestionItem7) {
+    HealthBehaviors35QuestionItem7 = await QuestionItems.create({ name: '4 or more times per day', order:6}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(HealthBehaviors35Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(HealthBehaviors35Question)
+    .set(HealthBehaviorsSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(HealthBehaviors35Question).add(HealthBehaviors35QuestionItem7);
+
+  let TimeUse1Question = await Question.findOne({ question: 'Work, school, housework, or childcare?'});
+  if (!TimeUse1Question){
+    TimeUse1Question = await Question.create({
+      question: 'Work, school, housework, or childcare?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse1Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse1Question)
+    .set(TimeUseSubSection);
+
+  let TimeUse2Question = await Question.findOne({ question: 'Volunteer work or meetings of voluntary groups (e.g., religious, political, civic, social, etc.)?'});
+  if (!TimeUse2Question){
+    TimeUse2Question = await Question.create({
+      question: 'Volunteer work or meetings of voluntary groups (e.g., religious, political, civic, social, etc.)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse2Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse2Question)
+    .set(TimeUseSubSection);
+
+  let TimeUse3Question = await Question.findOne({ question: 'Time available for relaxation, exercise, or leisure?'});
+  if (!TimeUse3Question){
+    TimeUse3Question = await Question.create({
+      question: 'Time available for relaxation, exercise, or leisure?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse3Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse3Question)
+    .set(TimeUseSubSection);
+
+  let TimeUse4Question = await Question.findOne({ question: 'Face to face time with your close loved ones?'});
+  if (!TimeUse4Question){
+    TimeUse4Question = await Question.create({
+      question: 'Face to face time with your close loved ones?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse4Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse4Question)
+    .set(TimeUseSubSection);
+
+
+  let TimeUse5Question = await Question.findOne({ question: 'Face to face time with friends or neighbors?'});
+  if (!TimeUse5Question){
+    TimeUse5Question = await Question.create({
+      question: 'Face to face time with friends or neighbors?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Numerical',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse5Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse5Question)
+    .set(TimeUseSubSection);
+
+  let TimeUse6Question = await Question.findOne({ question: 'Time using technology (e.g., on social media, texting, email, watching TV, on the phone)?'});
+  if (!TimeUse6Question){
+    TimeUse6Question = await Question.create({
+      question: 'Time using technology (e.g., on social media, texting, email, watching TV, on the phone)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Numerical',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse6Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse6Question)
+    .set(TimeUseSubSection);
+
+  let TimeUse7Question = await Question.findOne({ question: 'Time spent not using technology (e.g., reading, exercising, relaxing)?'});
+  if (!TimeUse7Question){
+    TimeUse7Question = await Question.create({
+      question: 'Time spent not using technology (e.g., reading, exercising, relaxing)?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(TimeUse7Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(TimeUse7Question)
+    .set(TimeUseSubSection);
+
+  let LowMood1Question = await Question.findOne({ question: 'Little interest or pleasure in doing things'});
+  if (!LowMood1Question){
+    LowMood1Question = await Question.create({
+      question: 'Little interest or pleasure in doing things',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood1QuestionItem1 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!LowMood1QuestionItem1) {
+    LowMood1QuestionItem1 = await QuestionItems.create({ name: 'Not at all', order:0}).save();
+  }
+  let LowMood1QuestionItem2 = await QuestionItems.findOne({ name: 'Several days'});
+  if (!LowMood1QuestionItem2) {
+    LowMood1QuestionItem2 = await QuestionItems.create({ name: 'Several days', order:1}).save();
+  }
+  let LowMood1QuestionItem3 = await QuestionItems.findOne({ name: 'More than half the days'});
+  if (!LowMood1QuestionItem3) {
+    LowMood1QuestionItem3 = await QuestionItems.create({ name: 'More than half the days', order:2}).save();
+  }
+  let LowMood1QuestionItem4 = await QuestionItems.findOne({ name: 'Nearly every day'});
+  if (!LowMood1QuestionItem4) {
+    LowMood1QuestionItem4 = await QuestionItems.create({ name: 'Nearly every day', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood1Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood1Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood1Question).add(LowMood1QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood1Question).add(LowMood1QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood1Question).add(LowMood1QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood1Question).add(LowMood1QuestionItem4);
+
+  let LowMood2Question = await Question.findOne({ question: 'Feeling down, depressed, or hopeless'});
+  if (!LowMood2Question){
+    LowMood2Question = await Question.create({
+      question: 'Feeling down, depressed, or hopeless',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood2QuestionItem1 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!LowMood2QuestionItem1) {
+    LowMood2QuestionItem1 = await QuestionItems.create({ name: 'Not at all', order:0}).save();
+  }
+  let LowMood2QuestionItem2 = await QuestionItems.findOne({ name: 'Several days'});
+  if (!LowMood2QuestionItem2) {
+    LowMood2QuestionItem2 = await QuestionItems.create({ name: 'Several days', order:1}).save();
+  }
+  let LowMood2QuestionItem3 = await QuestionItems.findOne({ name: 'More than half the days'});
+  if (!LowMood2QuestionItem3) {
+    LowMood2QuestionItem3 = await QuestionItems.create({ name: 'More than half the days', order:2}).save();
+  }
+  let LowMood2QuestionItem4 = await QuestionItems.findOne({ name: 'Nearly every day'});
+  if (!LowMood2QuestionItem4) {
+    LowMood2QuestionItem4 = await QuestionItems.create({ name: 'Nearly every day', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood2Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood2Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood2Question).add(LowMood2QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood2Question).add(LowMood2QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood2Question).add(LowMood2QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood2Question).add(LowMood2QuestionItem4);
+
+  let LowMood3Question = await Question.findOne({ question: 'Feeling nervous, anxious, or on edge'});
+  if (!LowMood3Question){
+    LowMood3Question = await Question.create({
+      question: 'Feeling nervous, anxious, or on edge',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood3QuestionItem1 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!LowMood3QuestionItem1) {
+    LowMood3QuestionItem1 = await QuestionItems.create({ name: 'Not at all', order:0}).save();
+  }
+  let LowMood3QuestionItem2 = await QuestionItems.findOne({ name: 'Several days'});
+  if (!LowMood3QuestionItem2) {
+    LowMood3QuestionItem2 = await QuestionItems.create({ name: 'Several days', order:1}).save();
+  }
+  let LowMood3QuestionItem3 = await QuestionItems.findOne({ name: 'More than half the days'});
+  if (!LowMood3QuestionItem3) {
+    LowMood3QuestionItem3 = await QuestionItems.create({ name: 'More than half the days', order:2}).save();
+  }
+  let LowMood3QuestionItem4 = await QuestionItems.findOne({ name: 'Nearly every day'});
+  if (!LowMood3QuestionItem4) {
+    LowMood3QuestionItem4 = await QuestionItems.create({ name: 'Nearly every day', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood3Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood3Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood3Question).add(LowMood3QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood3Question).add(LowMood3QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood3Question).add(LowMood3QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood3Question).add(LowMood3QuestionItem4);
+
+
+  let LowMood4Question = await Question.findOne({ question: 'Not being able to stop or control worrying'});
+  if (!LowMood4Question){
+    LowMood4Question = await Question.create({
+      question: 'Not being able to stop or control worrying',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood4QuestionItem1 = await QuestionItems.findOne({ name: 'Not at all'});
+  if (!LowMood4QuestionItem1) {
+    LowMood4QuestionItem1 = await QuestionItems.create({ name: 'Not at all', order:0}).save();
+  }
+  let LowMood4QuestionItem2 = await QuestionItems.findOne({ name: 'Several days'});
+  if (!LowMood4QuestionItem2) {
+    LowMood4QuestionItem2 = await QuestionItems.create({ name: 'Several days', order:1}).save();
+  }
+  let LowMood4QuestionItem3 = await QuestionItems.findOne({ name: 'More than half the days'});
+  if (!LowMood4QuestionItem3) {
+    LowMood4QuestionItem3 = await QuestionItems.create({ name: 'More than half the days', order:2}).save();
+  }
+  let LowMood4QuestionItem4 = await QuestionItems.findOne({ name: 'Nearly every day'});
+  if (!LowMood4QuestionItem4) {
+    LowMood4QuestionItem4 = await QuestionItems.create({ name: 'Nearly every day', order:3}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood4Question)
+    .set(radiogroupQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood4Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood4Question).add(LowMood4QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood4Question).add(LowMood4QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood4Question).add(LowMood4QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood4Question).add(LowMood4QuestionItem4);
+
+  let LowMood5Question = await Question.findOne({ question: ' Earlier in the interview you mentioned that a health professional once diagnosed you with depression. About how old were you the very first time you had problems with depression for at least one month? (Your best estimate is fine if you cannot remember your exact age.)'});
+  if (!LowMood5Question){
+    LowMood5Question = await Question.create({
+      question: ' Earlier in the interview you mentioned that a health professional once diagnosed you with depression. About how old were you the very first time you had problems with depression for at least one month? (Your best estimate is fine if you cannot remember your exact age.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood5Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood5Question)
+    .set(LowMoodSubSection);
+
+  let LowMood6Question = await Question.findOne({ question: 'About how many years in your life did you have problems with depression or low mood for at least one month?  (Your best estimate is fine if you cannot remember the exact number.)'});
+  if (!LowMood6Question){
+    LowMood6Question = await Question.create({
+      question: 'About how many years in your life did you have problems with depression or low mood for at least one month?  (Your best estimate is fine if you cannot remember the exact number.)',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood6Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood6Question)
+    .set(LowMoodSubSection);
+
+  await boilerplateData2();
+
+};
+
+export const boilerplateData2 = async () => {
+
+  let comboQuestionCategory = await Category.findOne({ name: 'Combo' });
+  if (!comboQuestionCategory) {
+    comboQuestionCategory = await Category.create({ name: 'Combo' }).save();
+  }
+
+  let openQuestionCategory = await Category.findOne({ name: 'Open' });
+  if (!openQuestionCategory) {
+    openQuestionCategory = await Category.create({ name: 'Open' }).save();
+  }
+
+  let ladderQuestionCategory = await Category.findOne({ name: 'Ladder' });
+  if (!ladderQuestionCategory) {
+    ladderQuestionCategory = await Category.create({ name: 'Ladder' }).save();
+  }
+  let multiselectionQuestionCategory = await Category.findOne({ name: 'MultiSelection' });
+  if (!multiselectionQuestionCategory) {
+    multiselectionQuestionCategory = await Category.create({ name: 'MultiSelection' }).save();
+  }
+  let yesnoQuestionCategory = await Category.findOne({ name: 'YesNo' });
+  if (!yesnoQuestionCategory) {
+    yesnoQuestionCategory = await Category.create({ name: 'YesNo' }).save();
+  }
+  let radiogroupQuestionCategory = await Category.findOne({ name: 'RadioGroup' });
+  if (!radiogroupQuestionCategory) {
+    radiogroupQuestionCategory = await Category.create({ name: 'RadioGroup' }).save();
+  }
+
+  let MoodSection = await Section.findOne({ name: 'Mood' });
+  if (!MoodSection) {
+    MoodSection = await Section.create({ name: 'Mood', order: 2 }).save();
+  }
+  let LowMoodSubSection = await SubSection.findOne({ name: 'Low Mood and Anxiety' });
+  if (!LowMoodSubSection) {
+    LowMoodSubSection = await SubSection.create({ name: 'Low Mood and Anxiety', order: 3 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(LowMoodSubSection)
+    .set(MoodSection);
+
+  let SelfCompassionSubSection = await SubSection.findOne({ name: 'Self-Compassion' });
+  if (!SelfCompassionSubSection) {
+    SelfCompassionSubSection = await SubSection.create({ name: 'Self-Compassion', order: 4 }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(SubSection, 'section')
+    .of(SelfCompassionSubSection)
+    .set(MoodSection);
+
+
+  let LowMood7Question = await Question.findOne({ question: 'About how many months out of the past 24 months (in the past 2 years) did you have problems with depression or low mood?'});
+  if (!LowMood7Question){
+    LowMood7Question = await Question.create({
+      question: 'About how many months out of the past 24 months (in the past 2 years) did you have problems with depression or low mood?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood7Question)
+    .set(openQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood7Question)
+    .set(LowMoodSubSection);
+
+
+  let LowMood8Question = await Question.findOne({ question: 'Have you ever done something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?'});
+  if (!LowMood8Question){
+    LowMood8Question = await Question.create({
+      question: 'Have you ever done something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'Yes/No',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood8Question)
+    .set(yesnoQuestionCategory);
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood8Question)
+    .set(LowMoodSubSection);
+
+  let LowMood9Question = await Question.findOne({ question: 'During the last 12 months, how many times did you do something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?'});
+  if (!LowMood9Question){
+    LowMood9Question = await Question.create({
+      question: 'During the last 12 months, how many times did you do something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood9QuestionItem1 = await QuestionItems.findOne({ name: '0 times'});
+  if (!LowMood9QuestionItem1) {
+    LowMood9QuestionItem1 = await QuestionItems.create({ name: '0 times', order:0}).save();
+  }
+  let LowMood9QuestionItem2 = await QuestionItems.findOne({ name: '1 to 2 times'});
+  if (!LowMood9QuestionItem2) {
+    LowMood9QuestionItem2 = await QuestionItems.create({ name: '1 to 2 times', order:1}).save();
+  }
+  let LowMood9QuestionItem3 = await QuestionItems.findOne({ name: '3 to 5 times'});
+  if (!LowMood9QuestionItem3) {
+    LowMood9QuestionItem3 = await QuestionItems.create({ name: '3 to 5 times', order:2}).save();
+  }
+  let LowMood9QuestionItem4 = await QuestionItems.findOne({ name: '6 to 9 times'});
+  if (!LowMood9QuestionItem4) {
+    LowMood9QuestionItem4 = await QuestionItems.create({ name: '6 to 9 times', order:3}).save();
+  }
+  let LowMood9QuestionItem5 = await QuestionItems.findOne({ name: '10 to 19 times'});
+  if (!LowMood9QuestionItem5) {
+    LowMood9QuestionItem5 = await QuestionItems.create({ name: '10 to 19 times', order:4}).save();
+  }
+  let LowMood9QuestionItem6 = await QuestionItems.findOne({ name: '20 or more times'});
+  if (!LowMood9QuestionItem6) {
+    LowMood9QuestionItem6 = await QuestionItems.create({ name: '20 or more times', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood9Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood9Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood9Question).add(LowMood9QuestionItem6);
+
+  let LowMood10Question = await Question.findOne({ question: 'How many separate times in the past 12 months have you had thoughts of killing yourself?'});
+  if (!LowMood10Question){
+    LowMood10Question = await Question.create({
+      question: 'How many separate times in the past 12 months have you had thoughts of killing yourself?',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 9,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let LowMood10QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!LowMood10QuestionItem1) {
+    LowMood10QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let LowMood10QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!LowMood10QuestionItem2) {
+    LowMood10QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let LowMood10QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!LowMood10QuestionItem3) {
+    LowMood10QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let LowMood10QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!LowMood10QuestionItem4) {
+    LowMood10QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let LowMood10QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!LowMood10QuestionItem5) {
+    LowMood10QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let LowMood10QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!LowMood10QuestionItem6) {
+    LowMood10QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  let LowMood10QuestionItem7 = await QuestionItems.findOne({ name: '6'});
+  if (!LowMood10QuestionItem7) {
+    LowMood10QuestionItem7 = await QuestionItems.create({ name: '6', order:6}).save();
+  }
+  let LowMood10QuestionItem8 = await QuestionItems.findOne({ name: '7'});
+  if (!LowMood10QuestionItem8) {
+    LowMood10QuestionItem8 = await QuestionItems.create({ name: '7', order:7}).save();
+  }
+  let LowMood10QuestionItem9 = await QuestionItems.findOne({ name: '8'});
+  if (!LowMood10QuestionItem9) {
+    LowMood10QuestionItem9 = await QuestionItems.create({ name: '8', order:8}).save();
+  }
+  let LowMood10QuestionItem10 = await QuestionItems.findOne({ name: '9'});
+  if (!LowMood10QuestionItem10) {
+    LowMood10QuestionItem10 = await QuestionItems.create({ name: '9', order:9}).save();
+  }
+  let LowMood10QuestionItem11 = await QuestionItems.findOne({ name: '10 or more'});
+  if (!LowMood10QuestionItem11) {
+    LowMood10QuestionItem11 = await QuestionItems.create({ name: '10 or more', order:10}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(LowMood10Question)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(LowMood10Question)
+    .set(LowMoodSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem6);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem7);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem8);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem9);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem10);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(LowMood10Question).add(LowMood10QuestionItem11);
+
+  let SelfCompassion1Question = await Question.findOne({ question: 'When I fail at something important to me I become consumed by feelings of inadequacy.'});
+  if (!SelfCompassion1Question){
+    SelfCompassion1Question = await Question.create({
+      question: 'When I fail at something important to me I become consumed by feelings of inadequacy.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 0,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion1QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion1QuestionItem1) {
+    SelfCompassion1QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion1QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion1QuestionItem2) {
+    SelfCompassion1QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion1QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion1QuestionItem3) {
+    SelfCompassion1QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion1QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion1QuestionItem4) {
+    SelfCompassion1QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion1QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion1QuestionItem5) {
+    SelfCompassion1QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion1QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion1QuestionItem6) {
+    SelfCompassion1QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion1Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion1Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion1Question).add(SelfCompassion1QuestionItem6);
+
+  let SelfCompassion2Question = await Question.findOne({ question: 'I try to be understanding and patient towards those aspects of my personality I don’t like.'});
+  if (!SelfCompassion2Question){
+    SelfCompassion2Question = await Question.create({
+      question: 'I try to be understanding and patient towards those aspects of my personality I don’t like.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion2QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion2QuestionItem1) {
+    SelfCompassion2QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion2QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion2QuestionItem2) {
+    SelfCompassion2QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion2QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion2QuestionItem3) {
+    SelfCompassion2QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion2QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion2QuestionItem4) {
+    SelfCompassion2QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion2QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion2QuestionItem5) {
+    SelfCompassion2QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion2QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion2QuestionItem6) {
+    SelfCompassion2QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion2Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion2Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion2Question).add(SelfCompassion2QuestionItem6);
+
+  let SelfCompassion3Question = await Question.findOne({ question: 'When something painful happens I try to take a balanced view of the situation.'});
+  if (!SelfCompassion3Question){
+    SelfCompassion3Question = await Question.create({
+      question: 'When something painful happens I try to take a balanced view of the situation.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion3QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion3QuestionItem1) {
+    SelfCompassion3QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion3QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion3QuestionItem2) {
+    SelfCompassion3QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion3QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion3QuestionItem3) {
+    SelfCompassion3QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion3QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion3QuestionItem4) {
+    SelfCompassion3QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion3QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion3QuestionItem5) {
+    SelfCompassion3QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion3QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion3QuestionItem6) {
+    SelfCompassion3QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion3Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion3Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion3Question).add(SelfCompassion3QuestionItem6);
+
+  let SelfCompassion4Question = await Question.findOne({ question: 'When I’m feeling down, I tend to feel like most other people are probably happier than I am.'});
+  if (!SelfCompassion4Question){
+    SelfCompassion4Question = await Question.create({
+      question: 'When I’m feeling down, I tend to feel like most other people are probably happier than I am.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 3,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion4QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion4QuestionItem1) {
+    SelfCompassion4QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion4QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion4QuestionItem2) {
+    SelfCompassion4QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion4QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion4QuestionItem3) {
+    SelfCompassion4QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion4QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion4QuestionItem4) {
+    SelfCompassion4QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion4QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion4QuestionItem5) {
+    SelfCompassion4QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion4QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion4QuestionItem6) {
+    SelfCompassion4QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion4Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion4Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion4Question).add(SelfCompassion4QuestionItem6);
+
+  let SelfCompassion5Question = await Question.findOne({ question: 'I try to see my failings as part of the human condition.'});
+  if (!SelfCompassion5Question){
+    SelfCompassion5Question = await Question.create({
+      question: 'I try to see my failings as part of the human condition.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 4,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion5QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion5QuestionItem1) {
+    SelfCompassion5QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion5QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion5QuestionItem2) {
+    SelfCompassion5QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion5QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion5QuestionItem3) {
+    SelfCompassion5QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion5QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion5QuestionItem4) {
+    SelfCompassion5QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion5QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion5QuestionItem5) {
+    SelfCompassion5QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion5QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion5QuestionItem6) {
+    SelfCompassion5QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion5Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion5Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion5Question).add(SelfCompassion5QuestionItem6);
+
+  let SelfCompassion6Question = await Question.findOne({ question: 'When I’m going through a very hard time, I give myself the caring and tenderness I need.'});
+  if (!SelfCompassion6Question){
+    SelfCompassion6Question = await Question.create({
+      question: 'When I’m going through a very hard time, I give myself the caring and tenderness I need.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 5,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion6QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion6QuestionItem1) {
+    SelfCompassion6QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion6QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion6QuestionItem2) {
+    SelfCompassion6QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion6QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion6QuestionItem3) {
+    SelfCompassion6QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion6QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion6QuestionItem4) {
+    SelfCompassion6QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion6QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion6QuestionItem5) {
+    SelfCompassion6QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion6QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion6QuestionItem6) {
+    SelfCompassion6QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion6Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion6Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion6Question).add(SelfCompassion6QuestionItem6);
+
+  let SelfCompassion7Question = await Question.findOne({ question: 'When something upsets me I try to keep my emotions in balance.'});
+  if (!SelfCompassion7Question){
+    SelfCompassion7Question = await Question.create({
+      question: 'When something upsets me I try to keep my emotions in balance.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 6,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion7QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion7QuestionItem1) {
+    SelfCompassion7QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion7QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion7QuestionItem2) {
+    SelfCompassion7QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion7QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion7QuestionItem3) {
+    SelfCompassion7QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion7QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion7QuestionItem4) {
+    SelfCompassion7QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion7QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion7QuestionItem5) {
+    SelfCompassion7QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion7QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion7QuestionItem6) {
+    SelfCompassion7QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion7Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion7Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion7Question).add(SelfCompassion7QuestionItem6);
+
+  let SelfCompassion8Question = await Question.findOne({ question: 'When I fail at something that’s important to me, I tend to feel alone in my failure.'});
+  if (!SelfCompassion8Question){
+    SelfCompassion8Question = await Question.create({
+      question: 'When I fail at something that’s important to me, I tend to feel alone in my failure.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 7,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion8QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion8QuestionItem1) {
+    SelfCompassion8QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion8QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion8QuestionItem2) {
+    SelfCompassion8QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion8QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion8QuestionItem3) {
+    SelfCompassion8QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion8QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion8QuestionItem4) {
+    SelfCompassion8QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion8QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion8QuestionItem5) {
+    SelfCompassion8QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion8QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion8QuestionItem6) {
+    SelfCompassion8QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion8Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion8Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion8Question).add(SelfCompassion8QuestionItem6);
+
+  let SelfCompassion9Question = await Question.findOne({ question: 'When I’m feeling down I tend to obsess and fixate on everything that’s wrong.'});
+  if (!SelfCompassion9Question){
+    SelfCompassion9Question = await Question.create({
+      question: 'When I’m feeling down I tend to obsess and fixate on everything that’s wrong.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 8,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion9QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion9QuestionItem1) {
+    SelfCompassion9QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion9QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion9QuestionItem2) {
+    SelfCompassion9QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion9QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion9QuestionItem3) {
+    SelfCompassion9QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion9QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion9QuestionItem4) {
+    SelfCompassion9QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion9QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion9QuestionItem5) {
+    SelfCompassion9QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion9QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion9QuestionItem6) {
+    SelfCompassion9QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion9Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion9Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion9Question).add(SelfCompassion9QuestionItem6);
+
+  let SelfCompassion10Question = await Question.findOne({ question: 'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.'});
+  if (!SelfCompassion10Question){
+    SelfCompassion10Question = await Question.create({
+      question: 'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 9,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion10QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion10QuestionItem1) {
+    SelfCompassion10QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion10QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion10QuestionItem2) {
+    SelfCompassion10QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion10QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion10QuestionItem3) {
+    SelfCompassion10QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion10QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion10QuestionItem4) {
+    SelfCompassion10QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion10QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion10QuestionItem5) {
+    SelfCompassion10QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion10QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion10QuestionItem6) {
+    SelfCompassion10QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion10Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion10Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion10Question).add(SelfCompassion10QuestionItem6);
+
+  let SelfCompassion11Question = await Question.findOne({ question: 'I’m disapproving and judgmental about my own flaws and inadequacies.'});
+  if (!SelfCompassion11Question){
+    SelfCompassion11Question = await Question.create({
+      question: 'I’m disapproving and judgmental about my own flaws and inadequacies.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 10,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion11QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion11QuestionItem1) {
+    SelfCompassion11QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion11QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion11QuestionItem2) {
+    SelfCompassion11QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion11QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion11QuestionItem3) {
+    SelfCompassion11QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion11QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion11QuestionItem4) {
+    SelfCompassion11QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion11QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion11QuestionItem5) {
+    SelfCompassion11QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion11QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion11QuestionItem6) {
+    SelfCompassion11QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion11Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion11Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion11Question).add(SelfCompassion11QuestionItem6);
+
+  let SelfCompassion12Question = await Question.findOne({ question: 'I’m intolerant and impatient towards those aspects of my personality I don’t like.'});
+  if (!SelfCompassion12Question){
+    SelfCompassion12Question = await Question.create({
+      question: 'I’m intolerant and impatient towards those aspects of my personality I don’t like.',
+      stack: 0,
+      stackPhrase: 'Whatever phrase',
+      placeHolder: 'NONE',
+      order: 11,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  let SelfCompassion12QuestionItem1 = await QuestionItems.findOne({ name: '0'});
+  if (!SelfCompassion12QuestionItem1) {
+    SelfCompassion12QuestionItem1 = await QuestionItems.create({ name: '0', order:0}).save();
+  }
+  let SelfCompassion12QuestionItem2 = await QuestionItems.findOne({ name: '1'});
+  if (!SelfCompassion12QuestionItem2) {
+    SelfCompassion12QuestionItem2 = await QuestionItems.create({ name: '1', order:1}).save();
+  }
+  let SelfCompassion12QuestionItem3 = await QuestionItems.findOne({ name: '2'});
+  if (!SelfCompassion12QuestionItem3) {
+    SelfCompassion12QuestionItem3 = await QuestionItems.create({ name: '2', order:2}).save();
+  }
+  let SelfCompassion12QuestionItem4 = await QuestionItems.findOne({ name: '3'});
+  if (!SelfCompassion12QuestionItem4) {
+    SelfCompassion12QuestionItem4 = await QuestionItems.create({ name: '3', order:3}).save();
+  }
+  let SelfCompassion12QuestionItem5 = await QuestionItems.findOne({ name: '4'});
+  if (!SelfCompassion12QuestionItem5) {
+    SelfCompassion12QuestionItem5 = await QuestionItems.create({ name: '4', order:4}).save();
+  }
+  let SelfCompassion12QuestionItem6 = await QuestionItems.findOne({ name: '5'});
+  if (!SelfCompassion12QuestionItem6) {
+    SelfCompassion12QuestionItem6 = await QuestionItems.create({ name: '5', order:5}).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(SelfCompassion12Question)
+    .set(ladderQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(SelfCompassion12Question)
+    .set(SelfCompassionSubSection);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem1);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem2);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem3);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem4);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem5);
+
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem6);
 
 
 };
