@@ -1,22 +1,25 @@
+import { Category } from '@entities/Category.entity';
+import { FormResponses } from '@entities/FormResponses.entity';
+import { QuestionImages } from '@entities/QuestionImages.entity';
+import { QuestionItems } from '@entities/QuestionItems.entity';
+import { SubSection } from '@entities/SubSection.entity';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, ManyToOne, OneToMany,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { FormResponses } from '@entities/FormResponses.entity';
-import { QuestionItems } from '@entities/QuestionItems.entity';
-import { QuestionImages } from '@entities/QuestionImages.entity';
-import { Category } from '@entities/Category.entity';
-import { SubSection } from '@entities/SubSection.entity';
 
 // usedForms: [FormQuestion] @connection(name: "QuestionsString")
 // category: Category @connection(name: "Category")
 // subSection: SubSection @connection(name: "SubSectionQuestions")
-
 
 @ObjectType()
 @Entity()
@@ -66,9 +69,10 @@ export class Question extends BaseEntity {
   @OneToMany(() => FormResponses, (response) => response.question)
   questionResponses: FormResponses[];
 
-  // OneToMany
-  @Field(() => [QuestionItems], { nullable: true })
-  @OneToMany(() => QuestionItems, (items) => items.question)
+  // ManyToMany
+  @Field(() => [QuestionItems], { nullable: false })
+  @ManyToMany(() => QuestionItems, (items) => items.questions)
+  @JoinTable()
   items: QuestionItems[];
 
   // OneToMany

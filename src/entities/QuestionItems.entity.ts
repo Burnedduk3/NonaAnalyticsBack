@@ -1,13 +1,13 @@
+import { Question } from '@entities/Question.entity';
 import { Field, ID, ObjectType } from 'type-graphql';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  Entity, ManyToOne,
+  Entity, ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Question } from '@entities/Question.entity';
 
 @ObjectType()
 @Entity()
@@ -36,7 +36,7 @@ export class QuestionItems extends BaseEntity {
 
   // Relations
   // ManyToOne
-  @Field(() => Question, { nullable: false })
-  @ManyToOne(() => Question, (question) => question.questionResponses)
-  question: Question;
+  @Field(() => [Question], { nullable: false })
+  @ManyToMany(() => Question, (questions) => questions.items)
+  questions: Question[];
 }

@@ -536,1577 +536,1578 @@ export const boilerplateData = async () => {
       inputConfirmation: 'Alpha',
     }).save();
   }
-  let Demographics5aQuestionItem1 = await QuestionItems.findOne({ name: "Canada"});
-  if (!Demographics5aQuestionItem1) {
-    Demographics5aQuestionItem1 = await QuestionItems.create({ name: "Canada", order:0}).save();
-  }
-  let Demographics5aQuestionItem2 = await QuestionItems.findOne({ name: "Cuba"});
-  if (!Demographics5aQuestionItem2) {
-    Demographics5aQuestionItem2 = await QuestionItems.create({ name: "Cuba", order:1}).save();
-  }
-  let Demographics5aQuestionItem3 = await QuestionItems.findOne({ name: "Mexico"});
-  if (!Demographics5aQuestionItem3) {
-    Demographics5aQuestionItem3 = await QuestionItems.create({ name: "Mexico", order:2}).save();
-  }
-  let Demographics5aQuestionItem4 = await QuestionItems.findOne({ name: "Puerto Rico"});
-  if (!Demographics5aQuestionItem4) {
-    Demographics5aQuestionItem4 = await QuestionItems.create({ name: "Puerto Rico", order:3}).save();
-  }
-  let Demographics5aQuestionItem5 = await QuestionItems.findOne({ name: "Afghanistan"});
-  if (!Demographics5aQuestionItem5) {
-    Demographics5aQuestionItem5 = await QuestionItems.create({ name: "Afghanistan", order:4}).save();
-  }
-  let Demographics5aQuestionItem6 = await QuestionItems.findOne({ name: "Akrotiri"});
-  if (!Demographics5aQuestionItem6) {
-    Demographics5aQuestionItem6 = await QuestionItems.create({ name: "Akrotiri", order:5}).save();
-  }
-  let Demographics5aQuestionItem7 = await QuestionItems.findOne({ name: "Albania"});
-  if (!Demographics5aQuestionItem7) {
-    Demographics5aQuestionItem7 = await QuestionItems.create({ name: "Albania", order:6}).save();
-  }
-  let Demographics5aQuestionItem8 = await QuestionItems.findOne({ name: "Algeria"});
-  if (!Demographics5aQuestionItem8) {
-    Demographics5aQuestionItem8 = await QuestionItems.create({ name: "Algeria", order:7}).save();
-  }
-  let Demographics5aQuestionItem9 = await QuestionItems.findOne({ name: "American Samoa"});
-  if (!Demographics5aQuestionItem9) {
-    Demographics5aQuestionItem9 = await QuestionItems.create({ name: "American Samoa", order:8}).save();
-  }
-  let Demographics5aQuestionItem10 = await QuestionItems.findOne({ name: "Andorra"});
-  if (!Demographics5aQuestionItem10) {
-    Demographics5aQuestionItem10 = await QuestionItems.create({ name: "Andorra", order:9}).save();
-  }
-  let Demographics5aQuestionItem11 = await QuestionItems.findOne({ name: "Angola"});
-  if (!Demographics5aQuestionItem11) {
-    Demographics5aQuestionItem11 = await QuestionItems.create({ name: "Angola", order:10}).save();
-  }
-  let Demographics5aQuestionItem12 = await QuestionItems.findOne({ name: "Anguilla"});
-  if (!Demographics5aQuestionItem12) {
-    Demographics5aQuestionItem12 = await QuestionItems.create({ name: "Anguilla", order:11}).save();
-  }
-  let Demographics5aQuestionItem13 = await QuestionItems.findOne({ name: "Antarctica"});
-  if (!Demographics5aQuestionItem13) {
-    Demographics5aQuestionItem13 = await QuestionItems.create({ name: "Antarctica", order:12}).save();
-  }
-  let Demographics5aQuestionItem14 = await QuestionItems.findOne({ name: "Antiguaand Barbuda"});
-  if (!Demographics5aQuestionItem14) {
-    Demographics5aQuestionItem14 = await QuestionItems.create({ name: "Antiguaand Barbuda", order:13}).save();
-  }
-  let Demographics5aQuestionItem15 = await QuestionItems.findOne({ name: "Argentina"});
-  if (!Demographics5aQuestionItem15) {
-    Demographics5aQuestionItem15 = await QuestionItems.create({ name: "Argentina", order:14}).save();
-  }
-  let Demographics5aQuestionItem16 = await QuestionItems.findOne({ name: "Armenia"});
-  if (!Demographics5aQuestionItem16) {
-    Demographics5aQuestionItem16 = await QuestionItems.create({ name: "Armenia", order:15}).save();
-  }
-  let Demographics5aQuestionItem17 = await QuestionItems.findOne({ name: "Aruba"});
-  if (!Demographics5aQuestionItem17) {
-    Demographics5aQuestionItem17 = await QuestionItems.create({ name: "Aruba", order:16}).save();
-  }
-  let Demographics5aQuestionItem18 = await QuestionItems.findOne({ name: "Ashmoreand Cartier Islands"});
-  if (!Demographics5aQuestionItem18) {
-    Demographics5aQuestionItem18 = await QuestionItems.create({ name: "Ashmoreand Cartier Islands", order:17}).save();
-  }
-  let Demographics5aQuestionItem19 = await QuestionItems.findOne({ name: "Australia"});
-  if (!Demographics5aQuestionItem19) {
-    Demographics5aQuestionItem19 = await QuestionItems.create({ name: "Australia", order:18}).save();
-  }
-  let Demographics5aQuestionItem20 = await QuestionItems.findOne({ name: "Austria"});
-  if (!Demographics5aQuestionItem20) {
-    Demographics5aQuestionItem20 = await QuestionItems.create({ name: "Austria", order:19}).save();
-  }
-  let Demographics5aQuestionItem21 = await QuestionItems.findOne({ name: "Azerbaijan"});
-  if (!Demographics5aQuestionItem21) {
-    Demographics5aQuestionItem21 = await QuestionItems.create({ name: "Azerbaijan", order:20}).save();
-  }
-  let Demographics5aQuestionItem22 = await QuestionItems.findOne({ name: "Bahamas,The"});
-  if (!Demographics5aQuestionItem22) {
-    Demographics5aQuestionItem22 = await QuestionItems.create({ name: "Bahamas,The", order:21}).save();
-  }
-  let Demographics5aQuestionItem23 = await QuestionItems.findOne({ name: "Bahrain"});
-  if (!Demographics5aQuestionItem23) {
-    Demographics5aQuestionItem23 = await QuestionItems.create({ name: "Bahrain", order:22}).save();
-  }
-  let Demographics5aQuestionItem24 = await QuestionItems.findOne({ name: "Bangladesh"});
-  if (!Demographics5aQuestionItem24) {
-    Demographics5aQuestionItem24 = await QuestionItems.create({ name: "Bangladesh", order:23}).save();
-  }
-  let Demographics5aQuestionItem25 = await QuestionItems.findOne({ name: "Barbados"});
-  if (!Demographics5aQuestionItem25) {
-    Demographics5aQuestionItem25 = await QuestionItems.create({ name: "Barbados", order:24}).save();
-  }
-  let Demographics5aQuestionItem26 = await QuestionItems.findOne({ name: "Bassasda India"});
-  if (!Demographics5aQuestionItem26) {
-    Demographics5aQuestionItem26 = await QuestionItems.create({ name: "Bassasda India", order:25}).save();
-  }
-  let Demographics5aQuestionItem27 = await QuestionItems.findOne({ name: "Belarus"});
-  if (!Demographics5aQuestionItem27) {
-    Demographics5aQuestionItem27 = await QuestionItems.create({ name: "Belarus", order:26}).save();
-  }
-  let Demographics5aQuestionItem28 = await QuestionItems.findOne({ name: "Belgium"});
-  if (!Demographics5aQuestionItem28) {
-    Demographics5aQuestionItem28 = await QuestionItems.create({ name: "Belgium", order:27}).save();
-  }
-  let Demographics5aQuestionItem29 = await QuestionItems.findOne({ name: "Belize"});
-  if (!Demographics5aQuestionItem29) {
-    Demographics5aQuestionItem29 = await QuestionItems.create({ name: "Belize", order:28}).save();
-  }
-  let Demographics5aQuestionItem30 = await QuestionItems.findOne({ name: "Benin"});
-  if (!Demographics5aQuestionItem30) {
-    Demographics5aQuestionItem30 = await QuestionItems.create({ name: "Benin", order:29}).save();
-  }
-  let Demographics5aQuestionItem31 = await QuestionItems.findOne({ name: "Bermuda"});
-  if (!Demographics5aQuestionItem31) {
-    Demographics5aQuestionItem31 = await QuestionItems.create({ name: "Bermuda", order:30}).save();
-  }
-  let Demographics5aQuestionItem32 = await QuestionItems.findOne({ name: "Bhutan"});
-  if (!Demographics5aQuestionItem32) {
-    Demographics5aQuestionItem32 = await QuestionItems.create({ name: "Bhutan", order:31}).save();
-  }
-  let Demographics5aQuestionItem33 = await QuestionItems.findOne({ name: "Bolivia"});
-  if (!Demographics5aQuestionItem33) {
-    Demographics5aQuestionItem33 = await QuestionItems.create({ name: "Bolivia", order:32}).save();
-  }
-  let Demographics5aQuestionItem34 = await QuestionItems.findOne({ name: "Bosnia and Herzegovina"});
-  if (!Demographics5aQuestionItem34) {
-    Demographics5aQuestionItem34 = await QuestionItems.create({ name: "Bosnia and Herzegovina", order:33}).save();
-  }
-  let Demographics5aQuestionItem35 = await QuestionItems.findOne({ name: "Botswana"});
-  if (!Demographics5aQuestionItem35) {
-    Demographics5aQuestionItem35 = await QuestionItems.create({ name: "Botswana", order:34}).save();
-  }
-  let Demographics5aQuestionItem36 = await QuestionItems.findOne({ name: "Bouvet Island"});
-  if (!Demographics5aQuestionItem36) {
-    Demographics5aQuestionItem36 = await QuestionItems.create({ name: "Bouvet Island", order:35}).save();
-  }
-  let Demographics5aQuestionItem37 = await QuestionItems.findOne({ name: "Brazil"});
-  if (!Demographics5aQuestionItem37) {
-    Demographics5aQuestionItem37 = await QuestionItems.create({ name: "Brazil", order:36}).save();
-  }
-  let Demographics5aQuestionItem38 = await QuestionItems.findOne({ name: "British Indian Ocean Territory"});
-  if (!Demographics5aQuestionItem38) {
-    Demographics5aQuestionItem38 = await QuestionItems.create({ name: "British Indian Ocean Territory", order:37}).save();
-  }
-  let Demographics5aQuestionItem39 = await QuestionItems.findOne({ name: "British Virgin Islands"});
-  if (!Demographics5aQuestionItem39) {
-    Demographics5aQuestionItem39 = await QuestionItems.create({ name: "British Virgin Islands", order:38}).save();
-  }
-  let Demographics5aQuestionItem40 = await QuestionItems.findOne({ name: "Brunei"});
-  if (!Demographics5aQuestionItem40) {
-    Demographics5aQuestionItem40 = await QuestionItems.create({ name: "Brunei", order:39}).save();
-  }
-  let Demographics5aQuestionItem41 = await QuestionItems.findOne({ name: "Bulgaria"});
-  if (!Demographics5aQuestionItem41) {
-    Demographics5aQuestionItem41 = await QuestionItems.create({ name: "Bulgaria", order:40}).save();
-  }
-  let Demographics5aQuestionItem42 = await QuestionItems.findOne({ name: "Burkina Faso"});
-  if (!Demographics5aQuestionItem42) {
-    Demographics5aQuestionItem42 = await QuestionItems.create({ name: "Burkina Faso", order:41}).save();
-  }
-  let Demographics5aQuestionItem43 = await QuestionItems.findOne({ name: "Burma"});
-  if (!Demographics5aQuestionItem43) {
-    Demographics5aQuestionItem43 = await QuestionItems.create({ name: "Burma", order:42}).save();
-  }
-  let Demographics5aQuestionItem44 = await QuestionItems.findOne({ name: "Burundi"});
-  if (!Demographics5aQuestionItem44) {
-    Demographics5aQuestionItem44 = await QuestionItems.create({ name: "Burundi", order:43}).save();
-  }
-  let Demographics5aQuestionItem45 = await QuestionItems.findOne({ name: "Cambodia"});
-  if (!Demographics5aQuestionItem45) {
-    Demographics5aQuestionItem45 = await QuestionItems.create({ name: "Cambodia", order:44}).save();
-  }
-  let Demographics5aQuestionItem46 = await QuestionItems.findOne({ name: "Cameroon"});
-  if (!Demographics5aQuestionItem46) {
-    Demographics5aQuestionItem46 = await QuestionItems.create({ name: "Cameroon", order:45}).save();
-  }
-  let Demographics5aQuestionItem47 = await QuestionItems.findOne({ name: "Canada"});
-  if (!Demographics5aQuestionItem47) {
-    Demographics5aQuestionItem47 = await QuestionItems.create({ name: "Canada", order:46}).save();
-  }
-  let Demographics5aQuestionItem48 = await QuestionItems.findOne({ name: "Cape Verde"});
-  if (!Demographics5aQuestionItem48) {
-    Demographics5aQuestionItem48 = await QuestionItems.create({ name: "Cape Verde", order:47}).save();
-  }
-  let Demographics5aQuestionItem49 = await QuestionItems.findOne({ name: "Cayman Islands"});
-  if (!Demographics5aQuestionItem49) {
-    Demographics5aQuestionItem49 = await QuestionItems.create({ name: "Cayman Islands", order:48}).save();
-  }
-  let Demographics5aQuestionItem50 = await QuestionItems.findOne({ name: "Central African Republic"});
-  if (!Demographics5aQuestionItem50) {
-    Demographics5aQuestionItem50 = await QuestionItems.create({ name: "Central African Republic", order:49}).save();
-  }
-  let Demographics5aQuestionItem51 = await QuestionItems.findOne({ name: "Chad"});
-  if (!Demographics5aQuestionItem51) {
-    Demographics5aQuestionItem51 = await QuestionItems.create({ name: "Chad", order:50}).save();
-  }
-  let Demographics5aQuestionItem52 = await QuestionItems.findOne({ name: "Chile"});
-  if (!Demographics5aQuestionItem52) {
-    Demographics5aQuestionItem52 = await QuestionItems.create({ name: "Chile", order:51}).save();
-  }
-  let Demographics5aQuestionItem53 = await QuestionItems.findOne({ name: "China"});
-  if (!Demographics5aQuestionItem53) {
-    Demographics5aQuestionItem53 = await QuestionItems.create({ name: "China", order:52}).save();
-  }
-  let Demographics5aQuestionItem54 = await QuestionItems.findOne({ name: "Christmas Island"});
-  if (!Demographics5aQuestionItem54) {
-    Demographics5aQuestionItem54 = await QuestionItems.create({ name: "Christmas Island", order:53}).save();
-  }
-  let Demographics5aQuestionItem55 = await QuestionItems.findOne({ name: "Clipperton Island"});
-  if (!Demographics5aQuestionItem55) {
-    Demographics5aQuestionItem55 = await QuestionItems.create({ name: "Clipperton Island", order:54}).save();
-  }
-  let Demographics5aQuestionItem56 = await QuestionItems.findOne({ name: "Cocos (Keeling) Islands"});
-  if (!Demographics5aQuestionItem56) {
-    Demographics5aQuestionItem56 = await QuestionItems.create({ name: "Cocos (Keeling) Islands", order:55}).save();
-  }
-  let Demographics5aQuestionItem57 = await QuestionItems.findOne({ name: "Colombia"});
-  if (!Demographics5aQuestionItem57) {
-    Demographics5aQuestionItem57 = await QuestionItems.create({ name: "Colombia", order:56}).save();
-  }
-  let Demographics5aQuestionItem58 = await QuestionItems.findOne({ name: "Comoros"});
-  if (!Demographics5aQuestionItem58) {
-    Demographics5aQuestionItem58 = await QuestionItems.create({ name: "Comoros", order:57}).save();
-  }
-  let Demographics5aQuestionItem59 = await QuestionItems.findOne({ name: "Congo,Democratic Republic of the"});
-  if (!Demographics5aQuestionItem59) {
-    Demographics5aQuestionItem59 = await QuestionItems.create({ name: "Congo,Democratic Republic of the", order:58}).save();
-  }
-  let Demographics5aQuestionItem60 = await QuestionItems.findOne({ name: "Congo,Republic of the"});
-  if (!Demographics5aQuestionItem60) {
-    Demographics5aQuestionItem60 = await QuestionItems.create({ name: "Congo,Republic of the", order:59}).save();
-  }
-  let Demographics5aQuestionItem61 = await QuestionItems.findOne({ name: "CookIslands"});
-  if (!Demographics5aQuestionItem61) {
-    Demographics5aQuestionItem61 = await QuestionItems.create({ name: "CookIslands", order:60}).save();
-  }
-  let Demographics5aQuestionItem62 = await QuestionItems.findOne({ name: "CoralSea Islands"});
-  if (!Demographics5aQuestionItem62) {
-    Demographics5aQuestionItem62 = await QuestionItems.create({ name: "CoralSea Islands", order:61}).save();
-  }
-  let Demographics5aQuestionItem63 = await QuestionItems.findOne({ name: "CostaRica"});
-  if (!Demographics5aQuestionItem63) {
-    Demographics5aQuestionItem63 = await QuestionItems.create({ name: "CostaRica", order:62}).save();
-  }
-  let Demographics5aQuestionItem64 = await QuestionItems.findOne({ name: "Cote d'Ivoire"});
-  if (!Demographics5aQuestionItem64) {
-    Demographics5aQuestionItem64 = await QuestionItems.create({ name: "Cote d'Ivoire", order:63}).save();
-  }
-  let Demographics5aQuestionItem65 = await QuestionItems.findOne({ name: "Croatia"});
-  if (!Demographics5aQuestionItem65) {
-    Demographics5aQuestionItem65 = await QuestionItems.create({ name: "Croatia", order:64}).save();
-  }
-  let Demographics5aQuestionItem66 = await QuestionItems.findOne({ name: "Cuba"});
-  if (!Demographics5aQuestionItem66) {
-    Demographics5aQuestionItem66 = await QuestionItems.create({ name: "Cuba", order:65}).save();
-  }
-  let Demographics5aQuestionItem67 = await QuestionItems.findOne({ name: "Cyprus"});
-  if (!Demographics5aQuestionItem67) {
-    Demographics5aQuestionItem67 = await QuestionItems.create({ name: "Cyprus", order:66}).save();
-  }
-  let Demographics5aQuestionItem68 = await QuestionItems.findOne({ name: "Czech Republic"});
-  if (!Demographics5aQuestionItem68) {
-    Demographics5aQuestionItem68 = await QuestionItems.create({ name: "Czech Republic", order:67}).save();
-  }
-  let Demographics5aQuestionItem69 = await QuestionItems.findOne({ name: "Denmark"});
-  if (!Demographics5aQuestionItem69) {
-    Demographics5aQuestionItem69 = await QuestionItems.create({ name: "Denmark", order:68}).save();
-  }
-  let Demographics5aQuestionItem70 = await QuestionItems.findOne({ name: "Dhekelia"});
-  if (!Demographics5aQuestionItem70) {
-    Demographics5aQuestionItem70 = await QuestionItems.create({ name: "Dhekelia", order:69}).save();
-  }
-  let Demographics5aQuestionItem71 = await QuestionItems.findOne({ name: "Djibouti"});
-  if (!Demographics5aQuestionItem71) {
-    Demographics5aQuestionItem71 = await QuestionItems.create({ name: "Djibouti", order:70}).save();
-  }
-  let Demographics5aQuestionItem72 = await QuestionItems.findOne({ name: "Dominica"});
-  if (!Demographics5aQuestionItem72) {
-    Demographics5aQuestionItem72 = await QuestionItems.create({ name: "Dominica", order:71}).save();
-  }
-  let Demographics5aQuestionItem73 = await QuestionItems.findOne({ name: "Dominican Republic"});
-  if (!Demographics5aQuestionItem73) {
-    Demographics5aQuestionItem73 = await QuestionItems.create({ name: "Dominican Republic", order:72}).save();
-  }
-  let Demographics5aQuestionItem74 = await QuestionItems.findOne({ name: "Ecuador"});
-  if (!Demographics5aQuestionItem74) {
-    Demographics5aQuestionItem74 = await QuestionItems.create({ name: "Ecuador", order:73}).save();
-  }
-  let Demographics5aQuestionItem75 = await QuestionItems.findOne({ name: "Egypt"});
-  if (!Demographics5aQuestionItem75) {
-    Demographics5aQuestionItem75 = await QuestionItems.create({ name: "Egypt", order:74}).save();
-  }
-  let Demographics5aQuestionItem76 = await QuestionItems.findOne({ name: "El Salvador"});
-  if (!Demographics5aQuestionItem76) {
-    Demographics5aQuestionItem76 = await QuestionItems.create({ name: "El Salvador", order:75}).save();
-  }
-  let Demographics5aQuestionItem77 = await QuestionItems.findOne({ name: "Equatorial Guinea"});
-  if (!Demographics5aQuestionItem77) {
-    Demographics5aQuestionItem77 = await QuestionItems.create({ name: "Equatorial Guinea", order:76}).save();
-  }
-  let Demographics5aQuestionItem78 = await QuestionItems.findOne({ name: "Eritrea"});
-  if (!Demographics5aQuestionItem78) {
-    Demographics5aQuestionItem78 = await QuestionItems.create({ name: "Eritrea", order:77}).save();
-  }
-  let Demographics5aQuestionItem79 = await QuestionItems.findOne({ name: "Estonia"});
-  if (!Demographics5aQuestionItem79) {
-    Demographics5aQuestionItem79 = await QuestionItems.create({ name: "Estonia", order:78}).save();
-  }
-  let Demographics5aQuestionItem80 = await QuestionItems.findOne({ name: "Ethiopia"});
-  if (!Demographics5aQuestionItem80) {
-    Demographics5aQuestionItem80 = await QuestionItems.create({ name: "Ethiopia", order:79}).save();
-  }
-  let Demographics5aQuestionItem81 = await QuestionItems.findOne({ name: "Europa Island"});
-  if (!Demographics5aQuestionItem81) {
-    Demographics5aQuestionItem81 = await QuestionItems.create({ name: "Europa Island", order:80}).save();
-  }
-  let Demographics5aQuestionItem82 = await QuestionItems.findOne({ name: "Falkland Islands (Islas Malvinas)"});
-  if (!Demographics5aQuestionItem82) {
-    Demographics5aQuestionItem82 = await QuestionItems.create({ name: "Falkland Islands (Islas Malvinas)", order:81}).save();
-  }
-  let Demographics5aQuestionItem83 = await QuestionItems.findOne({ name: "Faroe Islands"});
-  if (!Demographics5aQuestionItem83) {
-    Demographics5aQuestionItem83 = await QuestionItems.create({ name: "Faroe Islands", order:82}).save();
-  }
-  let Demographics5aQuestionItem84 = await QuestionItems.findOne({ name: "Fiji"});
-  if (!Demographics5aQuestionItem84) {
-    Demographics5aQuestionItem84 = await QuestionItems.create({ name: "Fiji", order:83}).save();
-  }
-  let Demographics5aQuestionItem85 = await QuestionItems.findOne({ name: "Finland"});
-  if (!Demographics5aQuestionItem85) {
-    Demographics5aQuestionItem85 = await QuestionItems.create({ name: "Finland", order:84}).save();
-  }
-  let Demographics5aQuestionItem86 = await QuestionItems.findOne({ name: "France"});
-  if (!Demographics5aQuestionItem86) {
-    Demographics5aQuestionItem86 = await QuestionItems.create({ name: "France", order:85}).save();
-  }
-  let Demographics5aQuestionItem87 = await QuestionItems.findOne({ name: "French Guiana"});
-  if (!Demographics5aQuestionItem87) {
-    Demographics5aQuestionItem87 = await QuestionItems.create({ name: "French Guiana", order:86}).save();
-  }
-  let Demographics5aQuestionItem88 = await QuestionItems.findOne({ name: "French Polynesia"});
-  if (!Demographics5aQuestionItem88) {
-    Demographics5aQuestionItem88 = await QuestionItems.create({ name: "French Polynesia", order:87}).save();
-  }
-  let Demographics5aQuestionItem89 = await QuestionItems.findOne({ name: "French Southern and Antarctic Lands"});
-  if (!Demographics5aQuestionItem89) {
-    Demographics5aQuestionItem89 = await QuestionItems.create({ name: "French Southern and Antarctic Lands", order:88}).save();
-  }
-  let Demographics5aQuestionItem90 = await QuestionItems.findOne({ name: "Gabon"});
-  if (!Demographics5aQuestionItem90) {
-    Demographics5aQuestionItem90 = await QuestionItems.create({ name: "Gabon", order:89}).save();
-  }
-  let Demographics5aQuestionItem91 = await QuestionItems.findOne({ name: "Gambia,The"});
-  if (!Demographics5aQuestionItem91) {
-    Demographics5aQuestionItem91 = await QuestionItems.create({ name: "Gambia,The", order:90}).save();
-  }
-  let Demographics5aQuestionItem92 = await QuestionItems.findOne({ name: "Gaza Strip"});
-  if (!Demographics5aQuestionItem92) {
-    Demographics5aQuestionItem92 = await QuestionItems.create({ name: "Gaza Strip", order:91}).save();
-  }
-  let Demographics5aQuestionItem93 = await QuestionItems.findOne({ name: "Georgia"});
-  if (!Demographics5aQuestionItem93) {
-    Demographics5aQuestionItem93 = await QuestionItems.create({ name: "Georgia", order:92}).save();
-  }
-  let Demographics5aQuestionItem94 = await QuestionItems.findOne({ name: "Germany"});
-  if (!Demographics5aQuestionItem94) {
-    Demographics5aQuestionItem94 = await QuestionItems.create({ name: "Germany", order:93}).save();
-  }
-  let Demographics5aQuestionItem95 = await QuestionItems.findOne({ name: "Ghana"});
-  if (!Demographics5aQuestionItem95) {
-    Demographics5aQuestionItem95 = await QuestionItems.create({ name: "Ghana", order:94}).save();
-  }
-  let Demographics5aQuestionItem96 = await QuestionItems.findOne({ name: "Gibraltar"});
-  if (!Demographics5aQuestionItem96) {
-    Demographics5aQuestionItem96 = await QuestionItems.create({ name: "Gibraltar", order:95}).save();
-  }
-  let Demographics5aQuestionItem97 = await QuestionItems.findOne({ name: "Glorioso Islands"});
-  if (!Demographics5aQuestionItem97) {
-    Demographics5aQuestionItem97 = await QuestionItems.create({ name: "Glorioso Islands", order:96}).save();
-  }
-  let Demographics5aQuestionItem98 = await QuestionItems.findOne({ name: "Greece"});
-  if (!Demographics5aQuestionItem98) {
-    Demographics5aQuestionItem98 = await QuestionItems.create({ name: "Greece", order:97}).save();
-  }
-  let Demographics5aQuestionItem99 = await QuestionItems.findOne({ name: "Greenland"});
-  if (!Demographics5aQuestionItem99) {
-    Demographics5aQuestionItem99 = await QuestionItems.create({ name: "Greenland", order:98}).save();
-  }
-  let Demographics5aQuestionItem100 = await QuestionItems.findOne({ name: "Grenada"});
-  if (!Demographics5aQuestionItem100) {
-    Demographics5aQuestionItem100 = await QuestionItems.create({ name: "Grenada", order:99}).save();
-  }
-  let Demographics5aQuestionItem101 = await QuestionItems.findOne({ name: "Guadeloupe"});
-  if (!Demographics5aQuestionItem101) {
-    Demographics5aQuestionItem101 = await QuestionItems.create({ name: "Guadeloupe", order:100}).save();
-  }
-  let Demographics5aQuestionItem102 = await QuestionItems.findOne({ name: "Guam"});
-  if (!Demographics5aQuestionItem102) {
-    Demographics5aQuestionItem102 = await QuestionItems.create({ name: "Guam", order:101}).save();
-  }
-  let Demographics5aQuestionItem103 = await QuestionItems.findOne({ name: "Guatemala"});
-  if (!Demographics5aQuestionItem103) {
-    Demographics5aQuestionItem103 = await QuestionItems.create({ name: "Guatemala", order:102}).save();
-  }
-  let Demographics5aQuestionItem104 = await QuestionItems.findOne({ name: "Guernsey"});
-  if (!Demographics5aQuestionItem104) {
-    Demographics5aQuestionItem104 = await QuestionItems.create({ name: "Guernsey", order:103}).save();
-  }
-  let Demographics5aQuestionItem105 = await QuestionItems.findOne({ name: "Guinea"});
-  if (!Demographics5aQuestionItem105) {
-    Demographics5aQuestionItem105 = await QuestionItems.create({ name: "Guinea", order:104}).save();
-  }
-  let Demographics5aQuestionItem106 = await QuestionItems.findOne({ name: "Guinea-Bissau"});
-  if (!Demographics5aQuestionItem106) {
-    Demographics5aQuestionItem106 = await QuestionItems.create({ name: "Guinea-Bissau", order:105}).save();
-  }
-  let Demographics5aQuestionItem107 = await QuestionItems.findOne({ name: "Guyana"});
-  if (!Demographics5aQuestionItem107) {
-    Demographics5aQuestionItem107 = await QuestionItems.create({ name: "Guyana", order:106}).save();
-  }
-  let Demographics5aQuestionItem108 = await QuestionItems.findOne({ name: "Haiti"});
-  if (!Demographics5aQuestionItem108) {
-    Demographics5aQuestionItem108 = await QuestionItems.create({ name: "Haiti", order:107}).save();
-  }
-  let Demographics5aQuestionItem109 = await QuestionItems.findOne({ name: "Heard Island and McDonald Islands"});
-  if (!Demographics5aQuestionItem109) {
-    Demographics5aQuestionItem109 = await QuestionItems.create({ name: "Heard Island and McDonald Islands", order:108}).save();
-  }
-  let Demographics5aQuestionItem110 = await QuestionItems.findOne({ name: "Holy See (VaticanCity)"});
-  if (!Demographics5aQuestionItem110) {
-    Demographics5aQuestionItem110 = await QuestionItems.create({ name: "Holy See (VaticanCity)", order:109}).save();
-  }
-  let Demographics5aQuestionItem111 = await QuestionItems.findOne({ name: "Honduras"});
-  if (!Demographics5aQuestionItem111) {
-    Demographics5aQuestionItem111 = await QuestionItems.create({ name: "Honduras", order:110}).save();
-  }
-  let Demographics5aQuestionItem112 = await QuestionItems.findOne({ name: "HongKong"});
-  if (!Demographics5aQuestionItem112) {
-    Demographics5aQuestionItem112 = await QuestionItems.create({ name: "HongKong", order:111}).save();
-  }
-  let Demographics5aQuestionItem113 = await QuestionItems.findOne({ name: "Hungary"});
-  if (!Demographics5aQuestionItem113) {
-    Demographics5aQuestionItem113 = await QuestionItems.create({ name: "Hungary", order:112}).save();
-  }
-  let Demographics5aQuestionItem114 = await QuestionItems.findOne({ name: "Iceland"});
-  if (!Demographics5aQuestionItem114) {
-    Demographics5aQuestionItem114 = await QuestionItems.create({ name: "Iceland", order:113}).save();
-  }
-  let Demographics5aQuestionItem115 = await QuestionItems.findOne({ name: "India"});
-  if (!Demographics5aQuestionItem115) {
-    Demographics5aQuestionItem115 = await QuestionItems.create({ name: "India", order:114}).save();
-  }
-  let Demographics5aQuestionItem116 = await QuestionItems.findOne({ name: "Indonesia"});
-  if (!Demographics5aQuestionItem116) {
-    Demographics5aQuestionItem116 = await QuestionItems.create({ name: "Indonesia", order:115}).save();
-  }
-  let Demographics5aQuestionItem117 = await QuestionItems.findOne({ name: "Iran"});
-  if (!Demographics5aQuestionItem117) {
-    Demographics5aQuestionItem117 = await QuestionItems.create({ name: "Iran", order:116}).save();
-  }
-  let Demographics5aQuestionItem118 = await QuestionItems.findOne({ name: "Iraq"});
-  if (!Demographics5aQuestionItem118) {
-    Demographics5aQuestionItem118 = await QuestionItems.create({ name: "Iraq", order:117}).save();
-  }
-  let Demographics5aQuestionItem119 = await QuestionItems.findOne({ name: "Ireland"});
-  if (!Demographics5aQuestionItem119) {
-    Demographics5aQuestionItem119 = await QuestionItems.create({ name: "Ireland", order:118}).save();
-  }
-  let Demographics5aQuestionItem120 = await QuestionItems.findOne({ name: "Isle of Man"});
-  if (!Demographics5aQuestionItem120) {
-    Demographics5aQuestionItem120 = await QuestionItems.create({ name: "Isle of Man", order:119}).save();
-  }
-  let Demographics5aQuestionItem121 = await QuestionItems.findOne({ name: "Israel"});
-  if (!Demographics5aQuestionItem121) {
-    Demographics5aQuestionItem121 = await QuestionItems.create({ name: "Israel", order:120}).save();
-  }
-  let Demographics5aQuestionItem122 = await QuestionItems.findOne({ name: "Italy"});
-  if (!Demographics5aQuestionItem122) {
-    Demographics5aQuestionItem122 = await QuestionItems.create({ name: "Italy", order:121}).save();
-  }
-  let Demographics5aQuestionItem123 = await QuestionItems.findOne({ name: "Jamaica"});
-  if (!Demographics5aQuestionItem123) {
-    Demographics5aQuestionItem123 = await QuestionItems.create({ name: "Jamaica", order:122}).save();
-  }
-  let Demographics5aQuestionItem124 = await QuestionItems.findOne({ name: "Jan Mayen"});
-  if (!Demographics5aQuestionItem124) {
-    Demographics5aQuestionItem124 = await QuestionItems.create({ name: "Jan Mayen", order:123}).save();
-  }
-  let Demographics5aQuestionItem125 = await QuestionItems.findOne({ name: "Japan"});
-  if (!Demographics5aQuestionItem125) {
-    Demographics5aQuestionItem125 = await QuestionItems.create({ name: "Japan", order:124}).save();
-  }
-  let Demographics5aQuestionItem126 = await QuestionItems.findOne({ name: "Jersey"});
-  if (!Demographics5aQuestionItem126) {
-    Demographics5aQuestionItem126 = await QuestionItems.create({ name: "Jersey", order:125}).save();
-  }
-  let Demographics5aQuestionItem127 = await QuestionItems.findOne({ name: "Jordan"});
-  if (!Demographics5aQuestionItem127) {
-    Demographics5aQuestionItem127 = await QuestionItems.create({ name: "Jordan", order:126}).save();
-  }
-  let Demographics5aQuestionItem128 = await QuestionItems.findOne({ name: "Juande Nova Island"});
-  if (!Demographics5aQuestionItem128) {
-    Demographics5aQuestionItem128 = await QuestionItems.create({ name: "Juande Nova Island", order:127}).save();
-  }
-  let Demographics5aQuestionItem129 = await QuestionItems.findOne({ name: "Kazakhstan"});
-  if (!Demographics5aQuestionItem129) {
-    Demographics5aQuestionItem129 = await QuestionItems.create({ name: "Kazakhstan", order:128}).save();
-  }
-  let Demographics5aQuestionItem130 = await QuestionItems.findOne({ name: "Kenya"});
-  if (!Demographics5aQuestionItem130) {
-    Demographics5aQuestionItem130 = await QuestionItems.create({ name: "Kenya", order:129}).save();
-  }
-  let Demographics5aQuestionItem131 = await QuestionItems.findOne({ name: "Kiribati"});
-  if (!Demographics5aQuestionItem131) {
-    Demographics5aQuestionItem131 = await QuestionItems.create({ name: "Kiribati", order:130}).save();
-  }
-  let Demographics5aQuestionItem132 = await QuestionItems.findOne({ name: "Korea,North"});
-  if (!Demographics5aQuestionItem132) {
-    Demographics5aQuestionItem132 = await QuestionItems.create({ name: "Korea,North", order:131}).save();
-  }
-  let Demographics5aQuestionItem133 = await QuestionItems.findOne({ name: "Korea,South"});
-  if (!Demographics5aQuestionItem133) {
-    Demographics5aQuestionItem133 = await QuestionItems.create({ name: "Korea,South", order:132}).save();
-  }
-  let Demographics5aQuestionItem134 = await QuestionItems.findOne({ name: "Kuwait"});
-  if (!Demographics5aQuestionItem134) {
-    Demographics5aQuestionItem134 = await QuestionItems.create({ name: "Kuwait", order:133}).save();
-  }
-  let Demographics5aQuestionItem135 = await QuestionItems.findOne({ name: "Kyrgyzstan"});
-  if (!Demographics5aQuestionItem135) {
-    Demographics5aQuestionItem135 = await QuestionItems.create({ name: "Kyrgyzstan", order:134}).save();
-  }
-  let Demographics5aQuestionItem136 = await QuestionItems.findOne({ name: "Laos"});
-  if (!Demographics5aQuestionItem136) {
-    Demographics5aQuestionItem136 = await QuestionItems.create({ name: "Laos", order:135}).save();
-  }
-  let Demographics5aQuestionItem137 = await QuestionItems.findOne({ name: "Latvia"});
-  if (!Demographics5aQuestionItem137) {
-    Demographics5aQuestionItem137 = await QuestionItems.create({ name: "Latvia", order:136}).save();
-  }
-  let Demographics5aQuestionItem138 = await QuestionItems.findOne({ name: "Lebanon"});
-  if (!Demographics5aQuestionItem138) {
-    Demographics5aQuestionItem138 = await QuestionItems.create({ name: "Lebanon", order:137}).save();
-  }
-  let Demographics5aQuestionItem139 = await QuestionItems.findOne({ name: "Lesotho"});
-  if (!Demographics5aQuestionItem139) {
-    Demographics5aQuestionItem139 = await QuestionItems.create({ name: "Lesotho", order:138}).save();
-  }
-  let Demographics5aQuestionItem140 = await QuestionItems.findOne({ name: "Liberia"});
-  if (!Demographics5aQuestionItem140) {
-    Demographics5aQuestionItem140 = await QuestionItems.create({ name: "Liberia", order:139}).save();
-  }
-  let Demographics5aQuestionItem141 = await QuestionItems.findOne({ name: "Libya"});
-  if (!Demographics5aQuestionItem141) {
-    Demographics5aQuestionItem141 = await QuestionItems.create({ name: "Libya", order:140}).save();
-  }
-  let Demographics5aQuestionItem142 = await QuestionItems.findOne({ name: "Liechtenstein"});
-  if (!Demographics5aQuestionItem142) {
-    Demographics5aQuestionItem142 = await QuestionItems.create({ name: "Liechtenstein", order:141}).save();
-  }
-  let Demographics5aQuestionItem143 = await QuestionItems.findOne({ name: "Lithuania"});
-  if (!Demographics5aQuestionItem143) {
-    Demographics5aQuestionItem143 = await QuestionItems.create({ name: "Lithuania", order:142}).save();
-  }
-  let Demographics5aQuestionItem144 = await QuestionItems.findOne({ name: "Luxembourg"});
-  if (!Demographics5aQuestionItem144) {
-    Demographics5aQuestionItem144 = await QuestionItems.create({ name: "Luxembourg", order:143}).save();
-  }
-  let Demographics5aQuestionItem145 = await QuestionItems.findOne({ name: "Macau"});
-  if (!Demographics5aQuestionItem145) {
-    Demographics5aQuestionItem145 = await QuestionItems.create({ name: "Macau", order:144}).save();
-  }
-  let Demographics5aQuestionItem146 = await QuestionItems.findOne({ name: "Macedonia"});
-  if (!Demographics5aQuestionItem146) {
-    Demographics5aQuestionItem146 = await QuestionItems.create({ name: "Macedonia", order:145}).save();
-  }
-  let Demographics5aQuestionItem147 = await QuestionItems.findOne({ name: "Madagascar"});
-  if (!Demographics5aQuestionItem147) {
-    Demographics5aQuestionItem147 = await QuestionItems.create({ name: "Madagascar", order:146}).save();
-  }
-  let Demographics5aQuestionItem148 = await QuestionItems.findOne({ name: "Malawi"});
-  if (!Demographics5aQuestionItem148) {
-    Demographics5aQuestionItem148 = await QuestionItems.create({ name: "Malawi", order:147}).save();
-  }
-  let Demographics5aQuestionItem149 = await QuestionItems.findOne({ name: "Malaysia"});
-  if (!Demographics5aQuestionItem149) {
-    Demographics5aQuestionItem149 = await QuestionItems.create({ name: "Malaysia", order:148}).save();
-  }
-  let Demographics5aQuestionItem150 = await QuestionItems.findOne({ name: "Maldives"});
-  if (!Demographics5aQuestionItem150) {
-    Demographics5aQuestionItem150 = await QuestionItems.create({ name: "Maldives", order:149}).save();
-  }
-  let Demographics5aQuestionItem151 = await QuestionItems.findOne({ name: "Mali"});
-  if (!Demographics5aQuestionItem151) {
-    Demographics5aQuestionItem151 = await QuestionItems.create({ name: "Mali", order:150}).save();
-  }
-  let Demographics5aQuestionItem152 = await QuestionItems.findOne({ name: "Malta"});
-  if (!Demographics5aQuestionItem152) {
-    Demographics5aQuestionItem152 = await QuestionItems.create({ name: "Malta", order:151}).save();
-  }
-  let Demographics5aQuestionItem153 = await QuestionItems.findOne({ name: "Marshall Islands"});
-  if (!Demographics5aQuestionItem153) {
-    Demographics5aQuestionItem153 = await QuestionItems.create({ name: "Marshall Islands", order:152}).save();
-  }
-  let Demographics5aQuestionItem154 = await QuestionItems.findOne({ name: "Martinique"});
-  if (!Demographics5aQuestionItem154) {
-    Demographics5aQuestionItem154 = await QuestionItems.create({ name: "Martinique", order:153}).save();
-  }
-  let Demographics5aQuestionItem155 = await QuestionItems.findOne({ name: "Mauritania"});
-  if (!Demographics5aQuestionItem155) {
-    Demographics5aQuestionItem155 = await QuestionItems.create({ name: "Mauritania", order:154}).save();
-  }
-  let Demographics5aQuestionItem156 = await QuestionItems.findOne({ name: "Mauritius"});
-  if (!Demographics5aQuestionItem156) {
-    Demographics5aQuestionItem156 = await QuestionItems.create({ name: "Mauritius", order:155}).save();
-  }
-  let Demographics5aQuestionItem157 = await QuestionItems.findOne({ name: "Mayotte"});
-  if (!Demographics5aQuestionItem157) {
-    Demographics5aQuestionItem157 = await QuestionItems.create({ name: "Mayotte", order:156}).save();
-  }
-  let Demographics5aQuestionItem158 = await QuestionItems.findOne({ name: "Mexico"});
-  if (!Demographics5aQuestionItem158) {
-    Demographics5aQuestionItem158 = await QuestionItems.create({ name: "Mexico", order:157}).save();
-  }
-  let Demographics5aQuestionItem159 = await QuestionItems.findOne({ name: "Micronesia,Federated Stat esof"});
-  if (!Demographics5aQuestionItem159) {
-    Demographics5aQuestionItem159 = await QuestionItems.create({ name: "Micronesia,Federated Stat esof", order:158}).save();
-  }
-  let Demographics5aQuestionItem160 = await QuestionItems.findOne({ name: "Moldova"});
-  if (!Demographics5aQuestionItem160) {
-    Demographics5aQuestionItem160 = await QuestionItems.create({ name: "Moldova", order:159}).save();
-  }
-  let Demographics5aQuestionItem161 = await QuestionItems.findOne({ name: "Monaco"});
-  if (!Demographics5aQuestionItem161) {
-    Demographics5aQuestionItem161 = await QuestionItems.create({ name: "Monaco", order:160}).save();
-  }
-  let Demographics5aQuestionItem162 = await QuestionItems.findOne({ name: "Mongolia"});
-  if (!Demographics5aQuestionItem162) {
-    Demographics5aQuestionItem162 = await QuestionItems.create({ name: "Mongolia", order:161}).save();
-  }
-  let Demographics5aQuestionItem163 = await QuestionItems.findOne({ name: "Montserrat"});
-  if (!Demographics5aQuestionItem163) {
-    Demographics5aQuestionItem163 = await QuestionItems.create({ name: "Montserrat", order:162}).save();
-  }
-  let Demographics5aQuestionItem164 = await QuestionItems.findOne({ name: "Morocco"});
-  if (!Demographics5aQuestionItem164) {
-    Demographics5aQuestionItem164 = await QuestionItems.create({ name: "Morocco", order:163}).save();
-  }
-  let Demographics5aQuestionItem165 = await QuestionItems.findOne({ name: "Mozambique"});
-  if (!Demographics5aQuestionItem165) {
-    Demographics5aQuestionItem165 = await QuestionItems.create({ name: "Mozambique", order:164}).save();
-  }
-  let Demographics5aQuestionItem166 = await QuestionItems.findOne({ name: "Namibia"});
-  if (!Demographics5aQuestionItem166) {
-    Demographics5aQuestionItem166 = await QuestionItems.create({ name: "Namibia", order:165}).save();
-  }
-  let Demographics5aQuestionItem167 = await QuestionItems.findOne({ name: "Nauru"});
-  if (!Demographics5aQuestionItem167) {
-    Demographics5aQuestionItem167 = await QuestionItems.create({ name: "Nauru", order:166}).save();
-  }
-  let Demographics5aQuestionItem168 = await QuestionItems.findOne({ name: "Navassa Island"});
-  if (!Demographics5aQuestionItem168) {
-    Demographics5aQuestionItem168 = await QuestionItems.create({ name: "Navassa Island", order:167}).save();
-  }
-  let Demographics5aQuestionItem169 = await QuestionItems.findOne({ name: "Nepal"});
-  if (!Demographics5aQuestionItem169) {
-    Demographics5aQuestionItem169 = await QuestionItems.create({ name: "Nepal", order:168}).save();
-  }
-  let Demographics5aQuestionItem170 = await QuestionItems.findOne({ name: "Netherlands"});
-  if (!Demographics5aQuestionItem170) {
-    Demographics5aQuestionItem170 = await QuestionItems.create({ name: "Netherlands", order:169}).save();
-  }
-  let Demographics5aQuestionItem171 = await QuestionItems.findOne({ name: "Netherlands Antilles"});
-  if (!Demographics5aQuestionItem171) {
-    Demographics5aQuestionItem171 = await QuestionItems.create({ name: "Netherlands Antilles", order:170}).save();
-  }
-  let Demographics5aQuestionItem172 = await QuestionItems.findOne({ name: "New Caledonia"});
-  if (!Demographics5aQuestionItem172) {
-    Demographics5aQuestionItem172 = await QuestionItems.create({ name: "New Caledonia", order:171}).save();
-  }
-  let Demographics5aQuestionItem173 = await QuestionItems.findOne({ name: "New Zealand"});
-  if (!Demographics5aQuestionItem173) {
-    Demographics5aQuestionItem173 = await QuestionItems.create({ name: "New Zealand", order:172}).save();
-  }
-  let Demographics5aQuestionItem174 = await QuestionItems.findOne({ name: "Nicaragua"});
-  if (!Demographics5aQuestionItem174) {
-    Demographics5aQuestionItem174 = await QuestionItems.create({ name: "Nicaragua", order:173}).save();
-  }
-  let Demographics5aQuestionItem175 = await QuestionItems.findOne({ name: "Niger"});
-  if (!Demographics5aQuestionItem175) {
-    Demographics5aQuestionItem175 = await QuestionItems.create({ name: "Niger", order:174}).save();
-  }
-  let Demographics5aQuestionItem176 = await QuestionItems.findOne({ name: "Nigeria"});
-  if (!Demographics5aQuestionItem176) {
-    Demographics5aQuestionItem176 = await QuestionItems.create({ name: "Nigeria", order:175}).save();
-  }
-  let Demographics5aQuestionItem177 = await QuestionItems.findOne({ name: "Niue"});
-  if (!Demographics5aQuestionItem177) {
-    Demographics5aQuestionItem177 = await QuestionItems.create({ name: "Niue", order:176}).save();
-  }
-  let Demographics5aQuestionItem178 = await QuestionItems.findOne({ name: "Norfolk Island"});
-  if (!Demographics5aQuestionItem178) {
-    Demographics5aQuestionItem178 = await QuestionItems.create({ name: "Norfolk Island", order:177}).save();
-  }
-  let Demographics5aQuestionItem179 = await QuestionItems.findOne({ name: "Northern Mariana Islands"});
-  if (!Demographics5aQuestionItem179) {
-    Demographics5aQuestionItem179 = await QuestionItems.create({ name: "Northern Mariana Islands", order:178}).save();
-  }
-  let Demographics5aQuestionItem180 = await QuestionItems.findOne({ name: "Norway"});
-  if (!Demographics5aQuestionItem180) {
-    Demographics5aQuestionItem180 = await QuestionItems.create({ name: "Norway", order:179}).save();
-  }
-  let Demographics5aQuestionItem181 = await QuestionItems.findOne({ name: "Oman"});
-  if (!Demographics5aQuestionItem181) {
-    Demographics5aQuestionItem181 = await QuestionItems.create({ name: "Oman", order:180}).save();
-  }
-  let Demographics5aQuestionItem182 = await QuestionItems.findOne({ name: "Pakistan"});
-  if (!Demographics5aQuestionItem182) {
-    Demographics5aQuestionItem182 = await QuestionItems.create({ name: "Pakistan", order:181}).save();
-  }
-  let Demographics5aQuestionItem183 = await QuestionItems.findOne({ name: "Palau"});
-  if (!Demographics5aQuestionItem183) {
-    Demographics5aQuestionItem183 = await QuestionItems.create({ name: "Palau", order:182}).save();
-  }
-  let Demographics5aQuestionItem184 = await QuestionItems.findOne({ name: "Panama"});
-  if (!Demographics5aQuestionItem184) {
-    Demographics5aQuestionItem184 = await QuestionItems.create({ name: "Panama", order:183}).save();
-  }
-  let Demographics5aQuestionItem185 = await QuestionItems.findOne({ name: "Papua New Guinea"});
-  if (!Demographics5aQuestionItem185) {
-    Demographics5aQuestionItem185 = await QuestionItems.create({ name: "Papua New Guinea", order:184}).save();
-  }
-  let Demographics5aQuestionItem186 = await QuestionItems.findOne({ name: "Paracel Islands"});
-  if (!Demographics5aQuestionItem186) {
-    Demographics5aQuestionItem186 = await QuestionItems.create({ name: "Paracel Islands", order:185}).save();
-  }
-  let Demographics5aQuestionItem187 = await QuestionItems.findOne({ name: "Paraguay"});
-  if (!Demographics5aQuestionItem187) {
-    Demographics5aQuestionItem187 = await QuestionItems.create({ name: "Paraguay", order:186}).save();
-  }
-  let Demographics5aQuestionItem188 = await QuestionItems.findOne({ name: "Peru"});
-  if (!Demographics5aQuestionItem188) {
-    Demographics5aQuestionItem188 = await QuestionItems.create({ name: "Peru", order:187}).save();
-  }
-  let Demographics5aQuestionItem189 = await QuestionItems.findOne({ name: "Philippines"});
-  if (!Demographics5aQuestionItem189) {
-    Demographics5aQuestionItem189 = await QuestionItems.create({ name: "Philippines", order:188}).save();
-  }
-  let Demographics5aQuestionItem190 = await QuestionItems.findOne({ name: "Pitcairn Islands"});
-  if (!Demographics5aQuestionItem190) {
-    Demographics5aQuestionItem190 = await QuestionItems.create({ name: "Pitcairn Islands", order:189}).save();
-  }
-  let Demographics5aQuestionItem191 = await QuestionItems.findOne({ name: "Poland"});
-  if (!Demographics5aQuestionItem191) {
-    Demographics5aQuestionItem191 = await QuestionItems.create({ name: "Poland", order:190}).save();
-  }
-  let Demographics5aQuestionItem192 = await QuestionItems.findOne({ name: "Portugal"});
-  if (!Demographics5aQuestionItem192) {
-    Demographics5aQuestionItem192 = await QuestionItems.create({ name: "Portugal", order:191}).save();
-  }
-  let Demographics5aQuestionItem193 = await QuestionItems.findOne({ name: "PuertoRico"});
-  if (!Demographics5aQuestionItem193) {
-    Demographics5aQuestionItem193 = await QuestionItems.create({ name: "PuertoRico", order:192}).save();
-  }
-  let Demographics5aQuestionItem194 = await QuestionItems.findOne({ name: "Qatar"});
-  if (!Demographics5aQuestionItem194) {
-    Demographics5aQuestionItem194 = await QuestionItems.create({ name: "Qatar", order:193}).save();
-  }
-  let Demographics5aQuestionItem195 = await QuestionItems.findOne({ name: "Reunion"});
-  if (!Demographics5aQuestionItem195) {
-    Demographics5aQuestionItem195 = await QuestionItems.create({ name: "Reunion", order:194}).save();
-  }
-  let Demographics5aQuestionItem196 = await QuestionItems.findOne({ name: "Romania"});
-  if (!Demographics5aQuestionItem196) {
-    Demographics5aQuestionItem196 = await QuestionItems.create({ name: "Romania", order:195}).save();
-  }
-  let Demographics5aQuestionItem197 = await QuestionItems.findOne({ name: "Russia"});
-  if (!Demographics5aQuestionItem197) {
-    Demographics5aQuestionItem197 = await QuestionItems.create({ name: "Russia", order:196}).save();
-  }
-  let Demographics5aQuestionItem198 = await QuestionItems.findOne({ name: "Rwanda"});
-  if (!Demographics5aQuestionItem198) {
-    Demographics5aQuestionItem198 = await QuestionItems.create({ name: "Rwanda", order:197}).save();
-  }
-  let Demographics5aQuestionItem199 = await QuestionItems.findOne({ name: "SaintHelena"});
-  if (!Demographics5aQuestionItem199) {
-    Demographics5aQuestionItem199 = await QuestionItems.create({ name: "SaintHelena", order:198}).save();
-  }
-  let Demographics5aQuestionItem200 = await QuestionItems.findOne({ name: "Saint Kitts and Nevis"});
-  if (!Demographics5aQuestionItem200) {
-    Demographics5aQuestionItem200 = await QuestionItems.create({ name: "Saint Kitts and Nevis", order:199}).save();
-  }
-  let Demographics5aQuestionItem201 = await QuestionItems.findOne({ name: "Saint Lucia"});
-  if (!Demographics5aQuestionItem201) {
-    Demographics5aQuestionItem201 = await QuestionItems.create({ name: "Saint Lucia", order:200}).save();
-  }
-  let Demographics5aQuestionItem202 = await QuestionItems.findOne({ name: "Saint Pierre and Miquelon"});
-  if (!Demographics5aQuestionItem202) {
-    Demographics5aQuestionItem202 = await QuestionItems.create({ name: "Saint Pierre and Miquelon", order:201}).save();
-  }
-  let Demographics5aQuestionItem203 = await QuestionItems.findOne({ name: "Saint Vincent and the Grenadines"});
-  if (!Demographics5aQuestionItem203) {
-    Demographics5aQuestionItem203 = await QuestionItems.create({ name: "Saint Vincent and the Grenadines", order:202}).save();
-  }
-  let Demographics5aQuestionItem204 = await QuestionItems.findOne({ name: "Samoa"});
-  if (!Demographics5aQuestionItem204) {
-    Demographics5aQuestionItem204 = await QuestionItems.create({ name: "Samoa", order:203}).save();
-  }
-  let Demographics5aQuestionItem205 = await QuestionItems.findOne({ name: "SanMarino"});
-  if (!Demographics5aQuestionItem205) {
-    Demographics5aQuestionItem205 = await QuestionItems.create({ name: "SanMarino", order:204}).save();
-  }
-  let Demographics5aQuestionItem206 = await QuestionItems.findOne({ name: "Sao Tome and Principe"});
-  if (!Demographics5aQuestionItem206) {
-    Demographics5aQuestionItem206 = await QuestionItems.create({ name: "Sao Tome and Principe", order:205}).save();
-  }
-  let Demographics5aQuestionItem207 = await QuestionItems.findOne({ name: "Saudi Arabia"});
-  if (!Demographics5aQuestionItem207) {
-    Demographics5aQuestionItem207 = await QuestionItems.create({ name: "Saudi Arabia", order:206}).save();
-  }
-  let Demographics5aQuestionItem208 = await QuestionItems.findOne({ name: "Senegal"});
-  if (!Demographics5aQuestionItem208) {
-    Demographics5aQuestionItem208 = await QuestionItems.create({ name: "Senegal", order:207}).save();
-  }
-  let Demographics5aQuestionItem209 = await QuestionItems.findOne({ name: "Serbia and Montenegro"});
-  if (!Demographics5aQuestionItem209) {
-    Demographics5aQuestionItem209 = await QuestionItems.create({ name: "Serbia and Montenegro", order:208}).save();
-  }
-  let Demographics5aQuestionItem210 = await QuestionItems.findOne({ name: "Seychelles"});
-  if (!Demographics5aQuestionItem210) {
-    Demographics5aQuestionItem210 = await QuestionItems.create({ name: "Seychelles", order:209}).save();
-  }
-  let Demographics5aQuestionItem211 = await QuestionItems.findOne({ name: "Sierra Leone"});
-  if (!Demographics5aQuestionItem211) {
-    Demographics5aQuestionItem211 = await QuestionItems.create({ name: "Sierra Leone", order:210}).save();
-  }
-  let Demographics5aQuestionItem212 = await QuestionItems.findOne({ name: "Singapore"});
-  if (!Demographics5aQuestionItem212) {
-    Demographics5aQuestionItem212 = await QuestionItems.create({ name: "Singapore", order:211}).save();
-  }
-  let Demographics5aQuestionItem213 = await QuestionItems.findOne({ name: "Slovakia"});
-  if (!Demographics5aQuestionItem213) {
-    Demographics5aQuestionItem213 = await QuestionItems.create({ name: "Slovakia", order:212}).save();
-  }
-  let Demographics5aQuestionItem214 = await QuestionItems.findOne({ name: "Slovenia"});
-  if (!Demographics5aQuestionItem214) {
-    Demographics5aQuestionItem214 = await QuestionItems.create({ name: "Slovenia", order:213}).save();
-  }
-  let Demographics5aQuestionItem215 = await QuestionItems.findOne({ name: "Solomon Islands"});
-  if (!Demographics5aQuestionItem215) {
-    Demographics5aQuestionItem215 = await QuestionItems.create({ name: "Solomon Islands", order:214}).save();
-  }
-  let Demographics5aQuestionItem216 = await QuestionItems.findOne({ name: "Somalia"});
-  if (!Demographics5aQuestionItem216) {
-    Demographics5aQuestionItem216 = await QuestionItems.create({ name: "Somalia", order:215}).save();
-  }
-  let Demographics5aQuestionItem217 = await QuestionItems.findOne({ name: "SouthAfrica"});
-  if (!Demographics5aQuestionItem217) {
-    Demographics5aQuestionItem217 = await QuestionItems.create({ name: "SouthAfrica", order:216}).save();
-  }
-  let Demographics5aQuestionItem218 = await QuestionItems.findOne({ name: "South Georgia and the South Sandwich Islands"});
-  if (!Demographics5aQuestionItem218) {
-    Demographics5aQuestionItem218 = await QuestionItems.create({ name: "South Georgia and the South Sandwich Islands", order:217}).save();
-  }
-  let Demographics5aQuestionItem219 = await QuestionItems.findOne({ name: "Spain"});
-  if (!Demographics5aQuestionItem219) {
-    Demographics5aQuestionItem219 = await QuestionItems.create({ name: "Spain", order:218}).save();
-  }
-  let Demographics5aQuestionItem220 = await QuestionItems.findOne({ name: "Spratly Islands"});
-  if (!Demographics5aQuestionItem220) {
-    Demographics5aQuestionItem220 = await QuestionItems.create({ name: "Spratly Islands", order:219}).save();
-  }
-  let Demographics5aQuestionItem221 = await QuestionItems.findOne({ name: "SriLanka"});
-  if (!Demographics5aQuestionItem221) {
-    Demographics5aQuestionItem221 = await QuestionItems.create({ name: "SriLanka", order:220}).save();
-  }
-  let Demographics5aQuestionItem222 = await QuestionItems.findOne({ name: "Sudan"});
-  if (!Demographics5aQuestionItem222) {
-    Demographics5aQuestionItem222 = await QuestionItems.create({ name: "Sudan", order:221}).save();
-  }
-  let Demographics5aQuestionItem223 = await QuestionItems.findOne({ name: "Suriname"});
-  if (!Demographics5aQuestionItem223) {
-    Demographics5aQuestionItem223 = await QuestionItems.create({ name: "Suriname", order:222}).save();
-  }
-  let Demographics5aQuestionItem224 = await QuestionItems.findOne({ name: "Svalbard"});
-  if (!Demographics5aQuestionItem224) {
-    Demographics5aQuestionItem224 = await QuestionItems.create({ name: "Svalbard", order:223}).save();
-  }
-  let Demographics5aQuestionItem225 = await QuestionItems.findOne({ name: "Swaziland"});
-  if (!Demographics5aQuestionItem225) {
-    Demographics5aQuestionItem225 = await QuestionItems.create({ name: "Swaziland", order:224}).save();
-  }
-  let Demographics5aQuestionItem226 = await QuestionItems.findOne({ name: "Sweden"});
-  if (!Demographics5aQuestionItem226) {
-    Demographics5aQuestionItem226 = await QuestionItems.create({ name: "Sweden", order:225}).save();
-  }
-  let Demographics5aQuestionItem227 = await QuestionItems.findOne({ name: "Switzerland"});
-  if (!Demographics5aQuestionItem227) {
-    Demographics5aQuestionItem227 = await QuestionItems.create({ name: "Switzerland", order:226}).save();
-  }
-  let Demographics5aQuestionItem228 = await QuestionItems.findOne({ name: "Syria"});
-  if (!Demographics5aQuestionItem228) {
-    Demographics5aQuestionItem228 = await QuestionItems.create({ name: "Syria", order:227}).save();
-  }
-  let Demographics5aQuestionItem229 = await QuestionItems.findOne({ name: "Taiwan"});
-  if (!Demographics5aQuestionItem229) {
-    Demographics5aQuestionItem229 = await QuestionItems.create({ name: "Taiwan", order:228}).save();
-  }
-  let Demographics5aQuestionItem230 = await QuestionItems.findOne({ name: "Tajikistan"});
-  if (!Demographics5aQuestionItem230) {
-    Demographics5aQuestionItem230 = await QuestionItems.create({ name: "Tajikistan", order:229}).save();
-  }
-  let Demographics5aQuestionItem231 = await QuestionItems.findOne({ name: "Tanzania"});
-  if (!Demographics5aQuestionItem231) {
-    Demographics5aQuestionItem231 = await QuestionItems.create({ name: "Tanzania", order:230}).save();
-  }
-  let Demographics5aQuestionItem232 = await QuestionItems.findOne({ name: "Thailand"});
-  if (!Demographics5aQuestionItem232) {
-    Demographics5aQuestionItem232 = await QuestionItems.create({ name: "Thailand", order:231}).save();
-  }
-  let Demographics5aQuestionItem233 = await QuestionItems.findOne({ name: "Timor-Leste"});
-  if (!Demographics5aQuestionItem233) {
-    Demographics5aQuestionItem233 = await QuestionItems.create({ name: "Timor-Leste", order:232}).save();
-  }
-  let Demographics5aQuestionItem234 = await QuestionItems.findOne({ name: "Togo"});
-  if (!Demographics5aQuestionItem234) {
-    Demographics5aQuestionItem234 = await QuestionItems.create({ name: "Togo", order:233}).save();
-  }
-  let Demographics5aQuestionItem235 = await QuestionItems.findOne({ name: "Tokelau"});
-  if (!Demographics5aQuestionItem235) {
-    Demographics5aQuestionItem235 = await QuestionItems.create({ name: "Tokelau", order:234}).save();
-  }
-  let Demographics5aQuestionItem236 = await QuestionItems.findOne({ name: "Tonga"});
-  if (!Demographics5aQuestionItem236) {
-    Demographics5aQuestionItem236 = await QuestionItems.create({ name: "Tonga", order:235}).save();
-  }
-  let Demographics5aQuestionItem237 = await QuestionItems.findOne({ name: "Trinidad and Tobago"});
-  if (!Demographics5aQuestionItem237) {
-    Demographics5aQuestionItem237 = await QuestionItems.create({ name: "Trinidad and Tobago", order:236}).save();
-  }
-  let Demographics5aQuestionItem238 = await QuestionItems.findOne({ name: "Tromelin Island"});
-  if (!Demographics5aQuestionItem238) {
-    Demographics5aQuestionItem238 = await QuestionItems.create({ name: "Tromelin Island", order:237}).save();
-  }
-  let Demographics5aQuestionItem239 = await QuestionItems.findOne({ name: "Tunisia"});
-  if (!Demographics5aQuestionItem239) {
-    Demographics5aQuestionItem239 = await QuestionItems.create({ name: "Tunisia", order:238}).save();
-  }
-  let Demographics5aQuestionItem240 = await QuestionItems.findOne({ name: "Turkey"});
-  if (!Demographics5aQuestionItem240) {
-    Demographics5aQuestionItem240 = await QuestionItems.create({ name: "Turkey", order:239}).save();
-  }
-  let Demographics5aQuestionItem241 = await QuestionItems.findOne({ name: "Turkmenistan"});
-  if (!Demographics5aQuestionItem241) {
-    Demographics5aQuestionItem241 = await QuestionItems.create({ name: "Turkmenistan", order:240}).save();
-  }
-  let Demographics5aQuestionItem242 = await QuestionItems.findOne({ name: "Turksand Caicos Islands"});
-  if (!Demographics5aQuestionItem242) {
-    Demographics5aQuestionItem242 = await QuestionItems.create({ name: "Turksand Caicos Islands", order:241}).save();
-  }
-  let Demographics5aQuestionItem243 = await QuestionItems.findOne({ name: "Tuvalu"});
-  if (!Demographics5aQuestionItem243) {
-    Demographics5aQuestionItem243 = await QuestionItems.create({ name: "Tuvalu", order:242}).save();
-  }
-  let Demographics5aQuestionItem244 = await QuestionItems.findOne({ name: "Uganda"});
-  if (!Demographics5aQuestionItem244) {
-    Demographics5aQuestionItem244 = await QuestionItems.create({ name: "Uganda", order:243}).save();
-  }
-  let Demographics5aQuestionItem245 = await QuestionItems.findOne({ name: "Ukraine"});
-  if (!Demographics5aQuestionItem245) {
-    Demographics5aQuestionItem245 = await QuestionItems.create({ name: "Ukraine", order:244}).save();
-  }
-  let Demographics5aQuestionItem246 = await QuestionItems.findOne({ name: "United Arab Emirates"});
-  if (!Demographics5aQuestionItem246) {
-    Demographics5aQuestionItem246 = await QuestionItems.create({ name: "United Arab Emirates", order:245}).save();
-  }
-  let Demographics5aQuestionItem247 = await QuestionItems.findOne({ name: "United Kingdom"});
-  if (!Demographics5aQuestionItem247) {
-    Demographics5aQuestionItem247 = await QuestionItems.create({ name: "United Kingdom", order:246}).save();
-  }
-  let Demographics5aQuestionItem248 = await QuestionItems.findOne({ name: "Uruguay"});
-  if (!Demographics5aQuestionItem248) {
-    Demographics5aQuestionItem248 = await QuestionItems.create({ name: "Uruguay", order:247}).save();
-  }
-  let Demographics5aQuestionItem249 = await QuestionItems.findOne({ name: "Uzbekistan"});
-  if (!Demographics5aQuestionItem249) {
-    Demographics5aQuestionItem249 = await QuestionItems.create({ name: "Uzbekistan", order:248}).save();
-  }
-  let Demographics5aQuestionItem250 = await QuestionItems.findOne({ name: "Vanuatu"});
-  if (!Demographics5aQuestionItem250) {
-    Demographics5aQuestionItem250 = await QuestionItems.create({ name: "Vanuatu", order:249}).save();
-  }
-  let Demographics5aQuestionItem251 = await QuestionItems.findOne({ name: "Venezuela"});
-  if (!Demographics5aQuestionItem251) {
-    Demographics5aQuestionItem251 = await QuestionItems.create({ name: "Venezuela", order:250}).save();
-  }
-  let Demographics5aQuestionItem252 = await QuestionItems.findOne({ name: "Vietnam"});
-  if (!Demographics5aQuestionItem252) {
-    Demographics5aQuestionItem252 = await QuestionItems.create({ name: "Vietnam", order:251}).save();
-  }
-  let Demographics5aQuestionItem253 = await QuestionItems.findOne({ name: "Virgin Islands"});
-  if (!Demographics5aQuestionItem253) {
-    Demographics5aQuestionItem253 = await QuestionItems.create({ name: "Virgin Islands", order:252}).save();
-  }
-  let Demographics5aQuestionItem254 = await QuestionItems.findOne({ name: "Wake Island"});
-  if (!Demographics5aQuestionItem254) {
-    Demographics5aQuestionItem254 = await QuestionItems.create({ name: "Wake Island", order:253}).save();
-  }
-  let Demographics5aQuestionItem255 = await QuestionItems.findOne({ name: "Wallis and Futuna"});
-  if (!Demographics5aQuestionItem255) {
-    Demographics5aQuestionItem255 = await QuestionItems.create({ name: "Wallis and Futuna", order:254}).save();
-  }
-  let Demographics5aQuestionItem256 = await QuestionItems.findOne({ name: "West Bank"});
-  if (!Demographics5aQuestionItem256) {
-    Demographics5aQuestionItem256 = await QuestionItems.create({ name: "West Bank", order:255}).save();
-  }
-  let Demographics5aQuestionItem257 = await QuestionItems.findOne({ name: "Western Sahara"});
-  if (!Demographics5aQuestionItem257) {
-    Demographics5aQuestionItem257 = await QuestionItems.create({ name: "Western Sahara", order:256}).save();
-  }
-  let Demographics5aQuestionItem258 = await QuestionItems.findOne({ name: "Yemen"});
-  if (!Demographics5aQuestionItem258) {
-    Demographics5aQuestionItem258 = await QuestionItems.create({ name: "Yemen", order:257}).save();
-  }
-  let Demographics5aQuestionItem259 = await QuestionItems.findOne({ name: "Zambia"});
-  if (!Demographics5aQuestionItem259) {
-    Demographics5aQuestionItem259 = await QuestionItems.create({ name: "Zambia", order:258}).save();
-  }
-  let Demographics5aQuestionItem260 = await QuestionItems.findOne({ name: "Zimbabwe"});
-  if (!Demographics5aQuestionItem260) {
-    Demographics5aQuestionItem260 = await QuestionItems.create({ name: "Zimbabwe", order:259}).save();
-  }
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'category')
-    .of(Demographics5aQuestion)
-    .set(comboQuestionCategory);
-
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'subSection')
-    .of(Demographics5aQuestion)
-    .set(DemographicsSubSection);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem1);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem2);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem3);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem4);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem5);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem6);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem7);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem8);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem9);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem10);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem11);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem12);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem13);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem14);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem15);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem16);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem17);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem18);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem19);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem20);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem21);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem22);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem23);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem24);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem25);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem26);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem27);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem28);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem29);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem30);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem31);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem32);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem33);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem34);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem35);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem36);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem37);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem38);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem39);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem40);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem41);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem42);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem43);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem44);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem45);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem46);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem47);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem48);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem49);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem50);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem51);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem52);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem53);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem54);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem55);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem56);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem57);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem58);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem59);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem60);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem61);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem62);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem63);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem64);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem65);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem66);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem67);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem68);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem69);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem70);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem71);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem72);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem73);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem74);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem75);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem76);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem77);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem78);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem79);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem80);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem81);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem82);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem83);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem84);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem85);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem86);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem87);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem88);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem89);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem90);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem91);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem92);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem93);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem94);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem95);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem96);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem97);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem98);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem99);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem100);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem101);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem102);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem103);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem104);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem105);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem106);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem107);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem108);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem109);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem110);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem111);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem112);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem113);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem114);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem115);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem116);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem117);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem118);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem119);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem120);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem121);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem122);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem123);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem124);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem125);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem126);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem127);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem128);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem129);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem130);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem131);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem132);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem133);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem134);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem135);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem136);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem137);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem138);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem139);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem140);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem141);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem142);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem143);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem144);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem145);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem146);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem147);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem148);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem149);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem150);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem151);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem152);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem153);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem154);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem155);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem156);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem157);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem158);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem159);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem160);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem161);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem162);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem163);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem164);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem165);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem166);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem167);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem168);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem169);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem170);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem171);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem172);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem173);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem174);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem175);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem176);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem177);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem178);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem179);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem180);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem181);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem182);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem183);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem184);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem185);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem186);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem187);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem188);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem189);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem190);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem191);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem192);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem193);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem194);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem195);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem196);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem197);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem198);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem199);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem200);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem201);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem202);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem203);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem204);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem205);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem206);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem207);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem208);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem209);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem210);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem211);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem212);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem213);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem214);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem215);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem216);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem217);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem218);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem219);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem220);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem221);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem222);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem223);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem224);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem225);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem226);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem227);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem228);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem229);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem230);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem231);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem232);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem233);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem234);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem235);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem236);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem237);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem238);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem239);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem240);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem241);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem242);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem243);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem244);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem245);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem246);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem247);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem248);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem249);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem250);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem251);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem252);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem253);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem254);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem255);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem256);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem257);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem258);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem259);
-
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem260);
+  //
+  // let Demographics5aQuestionItem1 = await QuestionItems.findOne({ name: "Canada"});
+  // if (!Demographics5aQuestionItem1) {
+  //   Demographics5aQuestionItem1 = await QuestionItems.create({ name: "Canada", order:0}).save();
+  // }
+  // let Demographics5aQuestionItem2 = await QuestionItems.findOne({ name: "Cuba"});
+  // if (!Demographics5aQuestionItem2) {
+  //   Demographics5aQuestionItem2 = await QuestionItems.create({ name: "Cuba", order:1}).save();
+  // }
+  // let Demographics5aQuestionItem3 = await QuestionItems.findOne({ name: "Mexico"});
+  // if (!Demographics5aQuestionItem3) {
+  //   Demographics5aQuestionItem3 = await QuestionItems.create({ name: "Mexico", order:2}).save();
+  // }
+  // let Demographics5aQuestionItem4 = await QuestionItems.findOne({ name: "Puerto Rico"});
+  // if (!Demographics5aQuestionItem4) {
+  //   Demographics5aQuestionItem4 = await QuestionItems.create({ name: "Puerto Rico", order:3}).save();
+  // }
+  // let Demographics5aQuestionItem5 = await QuestionItems.findOne({ name: "Afghanistan"});
+  // if (!Demographics5aQuestionItem5) {
+  //   Demographics5aQuestionItem5 = await QuestionItems.create({ name: "Afghanistan", order:4}).save();
+  // }
+  // let Demographics5aQuestionItem6 = await QuestionItems.findOne({ name: "Akrotiri"});
+  // if (!Demographics5aQuestionItem6) {
+  //   Demographics5aQuestionItem6 = await QuestionItems.create({ name: "Akrotiri", order:5}).save();
+  // }
+  // let Demographics5aQuestionItem7 = await QuestionItems.findOne({ name: "Albania"});
+  // if (!Demographics5aQuestionItem7) {
+  //   Demographics5aQuestionItem7 = await QuestionItems.create({ name: "Albania", order:6}).save();
+  // }
+  // let Demographics5aQuestionItem8 = await QuestionItems.findOne({ name: "Algeria"});
+  // if (!Demographics5aQuestionItem8) {
+  //   Demographics5aQuestionItem8 = await QuestionItems.create({ name: "Algeria", order:7}).save();
+  // }
+  // let Demographics5aQuestionItem9 = await QuestionItems.findOne({ name: "American Samoa"});
+  // if (!Demographics5aQuestionItem9) {
+  //   Demographics5aQuestionItem9 = await QuestionItems.create({ name: "American Samoa", order:8}).save();
+  // }
+  // let Demographics5aQuestionItem10 = await QuestionItems.findOne({ name: "Andorra"});
+  // if (!Demographics5aQuestionItem10) {
+  //   Demographics5aQuestionItem10 = await QuestionItems.create({ name: "Andorra", order:9}).save();
+  // }
+  // let Demographics5aQuestionItem11 = await QuestionItems.findOne({ name: "Angola"});
+  // if (!Demographics5aQuestionItem11) {
+  //   Demographics5aQuestionItem11 = await QuestionItems.create({ name: "Angola", order:10}).save();
+  // }
+  // let Demographics5aQuestionItem12 = await QuestionItems.findOne({ name: "Anguilla"});
+  // if (!Demographics5aQuestionItem12) {
+  //   Demographics5aQuestionItem12 = await QuestionItems.create({ name: "Anguilla", order:11}).save();
+  // }
+  // let Demographics5aQuestionItem13 = await QuestionItems.findOne({ name: "Antarctica"});
+  // if (!Demographics5aQuestionItem13) {
+  //   Demographics5aQuestionItem13 = await QuestionItems.create({ name: "Antarctica", order:12}).save();
+  // }
+  // let Demographics5aQuestionItem14 = await QuestionItems.findOne({ name: "Antiguaand Barbuda"});
+  // if (!Demographics5aQuestionItem14) {
+  //   Demographics5aQuestionItem14 = await QuestionItems.create({ name: "Antiguaand Barbuda", order:13}).save();
+  // }
+  // let Demographics5aQuestionItem15 = await QuestionItems.findOne({ name: "Argentina"});
+  // if (!Demographics5aQuestionItem15) {
+  //   Demographics5aQuestionItem15 = await QuestionItems.create({ name: "Argentina", order:14}).save();
+  // }
+  // let Demographics5aQuestionItem16 = await QuestionItems.findOne({ name: "Armenia"});
+  // if (!Demographics5aQuestionItem16) {
+  //   Demographics5aQuestionItem16 = await QuestionItems.create({ name: "Armenia", order:15}).save();
+  // }
+  // let Demographics5aQuestionItem17 = await QuestionItems.findOne({ name: "Aruba"});
+  // if (!Demographics5aQuestionItem17) {
+  //   Demographics5aQuestionItem17 = await QuestionItems.create({ name: "Aruba", order:16}).save();
+  // }
+  // let Demographics5aQuestionItem18 = await QuestionItems.findOne({ name: "Ashmoreand Cartier Islands"});
+  // if (!Demographics5aQuestionItem18) {
+  //   Demographics5aQuestionItem18 = await QuestionItems.create({ name: "Ashmoreand Cartier Islands", order:17}).save();
+  // }
+  // let Demographics5aQuestionItem19 = await QuestionItems.findOne({ name: "Australia"});
+  // if (!Demographics5aQuestionItem19) {
+  //   Demographics5aQuestionItem19 = await QuestionItems.create({ name: "Australia", order:18}).save();
+  // }
+  // let Demographics5aQuestionItem20 = await QuestionItems.findOne({ name: "Austria"});
+  // if (!Demographics5aQuestionItem20) {
+  //   Demographics5aQuestionItem20 = await QuestionItems.create({ name: "Austria", order:19}).save();
+  // }
+  // let Demographics5aQuestionItem21 = await QuestionItems.findOne({ name: "Azerbaijan"});
+  // if (!Demographics5aQuestionItem21) {
+  //   Demographics5aQuestionItem21 = await QuestionItems.create({ name: "Azerbaijan", order:20}).save();
+  // }
+  // let Demographics5aQuestionItem22 = await QuestionItems.findOne({ name: "Bahamas,The"});
+  // if (!Demographics5aQuestionItem22) {
+  //   Demographics5aQuestionItem22 = await QuestionItems.create({ name: "Bahamas,The", order:21}).save();
+  // }
+  // let Demographics5aQuestionItem23 = await QuestionItems.findOne({ name: "Bahrain"});
+  // if (!Demographics5aQuestionItem23) {
+  //   Demographics5aQuestionItem23 = await QuestionItems.create({ name: "Bahrain", order:22}).save();
+  // }
+  // let Demographics5aQuestionItem24 = await QuestionItems.findOne({ name: "Bangladesh"});
+  // if (!Demographics5aQuestionItem24) {
+  //   Demographics5aQuestionItem24 = await QuestionItems.create({ name: "Bangladesh", order:23}).save();
+  // }
+  // let Demographics5aQuestionItem25 = await QuestionItems.findOne({ name: "Barbados"});
+  // if (!Demographics5aQuestionItem25) {
+  //   Demographics5aQuestionItem25 = await QuestionItems.create({ name: "Barbados", order:24}).save();
+  // }
+  // let Demographics5aQuestionItem26 = await QuestionItems.findOne({ name: "Bassasda India"});
+  // if (!Demographics5aQuestionItem26) {
+  //   Demographics5aQuestionItem26 = await QuestionItems.create({ name: "Bassasda India", order:25}).save();
+  // }
+  // let Demographics5aQuestionItem27 = await QuestionItems.findOne({ name: "Belarus"});
+  // if (!Demographics5aQuestionItem27) {
+  //   Demographics5aQuestionItem27 = await QuestionItems.create({ name: "Belarus", order:26}).save();
+  // }
+  // let Demographics5aQuestionItem28 = await QuestionItems.findOne({ name: "Belgium"});
+  // if (!Demographics5aQuestionItem28) {
+  //   Demographics5aQuestionItem28 = await QuestionItems.create({ name: "Belgium", order:27}).save();
+  // }
+  // let Demographics5aQuestionItem29 = await QuestionItems.findOne({ name: "Belize"});
+  // if (!Demographics5aQuestionItem29) {
+  //   Demographics5aQuestionItem29 = await QuestionItems.create({ name: "Belize", order:28}).save();
+  // }
+  // let Demographics5aQuestionItem30 = await QuestionItems.findOne({ name: "Benin"});
+  // if (!Demographics5aQuestionItem30) {
+  //   Demographics5aQuestionItem30 = await QuestionItems.create({ name: "Benin", order:29}).save();
+  // }
+  // let Demographics5aQuestionItem31 = await QuestionItems.findOne({ name: "Bermuda"});
+  // if (!Demographics5aQuestionItem31) {
+  //   Demographics5aQuestionItem31 = await QuestionItems.create({ name: "Bermuda", order:30}).save();
+  // }
+  // let Demographics5aQuestionItem32 = await QuestionItems.findOne({ name: "Bhutan"});
+  // if (!Demographics5aQuestionItem32) {
+  //   Demographics5aQuestionItem32 = await QuestionItems.create({ name: "Bhutan", order:31}).save();
+  // }
+  // let Demographics5aQuestionItem33 = await QuestionItems.findOne({ name: "Bolivia"});
+  // if (!Demographics5aQuestionItem33) {
+  //   Demographics5aQuestionItem33 = await QuestionItems.create({ name: "Bolivia", order:32}).save();
+  // }
+  // let Demographics5aQuestionItem34 = await QuestionItems.findOne({ name: "Bosnia and Herzegovina"});
+  // if (!Demographics5aQuestionItem34) {
+  //   Demographics5aQuestionItem34 = await QuestionItems.create({ name: "Bosnia and Herzegovina", order:33}).save();
+  // }
+  // let Demographics5aQuestionItem35 = await QuestionItems.findOne({ name: "Botswana"});
+  // if (!Demographics5aQuestionItem35) {
+  //   Demographics5aQuestionItem35 = await QuestionItems.create({ name: "Botswana", order:34}).save();
+  // }
+  // let Demographics5aQuestionItem36 = await QuestionItems.findOne({ name: "Bouvet Island"});
+  // if (!Demographics5aQuestionItem36) {
+  //   Demographics5aQuestionItem36 = await QuestionItems.create({ name: "Bouvet Island", order:35}).save();
+  // }
+  // let Demographics5aQuestionItem37 = await QuestionItems.findOne({ name: "Brazil"});
+  // if (!Demographics5aQuestionItem37) {
+  //   Demographics5aQuestionItem37 = await QuestionItems.create({ name: "Brazil", order:36}).save();
+  // }
+  // let Demographics5aQuestionItem38 = await QuestionItems.findOne({ name: "British Indian Ocean Territory"});
+  // if (!Demographics5aQuestionItem38) {
+  //   Demographics5aQuestionItem38 = await QuestionItems.create({ name: "British Indian Ocean Territory", order:37}).save();
+  // }
+  // let Demographics5aQuestionItem39 = await QuestionItems.findOne({ name: "British Virgin Islands"});
+  // if (!Demographics5aQuestionItem39) {
+  //   Demographics5aQuestionItem39 = await QuestionItems.create({ name: "British Virgin Islands", order:38}).save();
+  // }
+  // let Demographics5aQuestionItem40 = await QuestionItems.findOne({ name: "Brunei"});
+  // if (!Demographics5aQuestionItem40) {
+  //   Demographics5aQuestionItem40 = await QuestionItems.create({ name: "Brunei", order:39}).save();
+  // }
+  // let Demographics5aQuestionItem41 = await QuestionItems.findOne({ name: "Bulgaria"});
+  // if (!Demographics5aQuestionItem41) {
+  //   Demographics5aQuestionItem41 = await QuestionItems.create({ name: "Bulgaria", order:40}).save();
+  // }
+  // let Demographics5aQuestionItem42 = await QuestionItems.findOne({ name: "Burkina Faso"});
+  // if (!Demographics5aQuestionItem42) {
+  //   Demographics5aQuestionItem42 = await QuestionItems.create({ name: "Burkina Faso", order:41}).save();
+  // }
+  // let Demographics5aQuestionItem43 = await QuestionItems.findOne({ name: "Burma"});
+  // if (!Demographics5aQuestionItem43) {
+  //   Demographics5aQuestionItem43 = await QuestionItems.create({ name: "Burma", order:42}).save();
+  // }
+  // let Demographics5aQuestionItem44 = await QuestionItems.findOne({ name: "Burundi"});
+  // if (!Demographics5aQuestionItem44) {
+  //   Demographics5aQuestionItem44 = await QuestionItems.create({ name: "Burundi", order:43}).save();
+  // }
+  // let Demographics5aQuestionItem45 = await QuestionItems.findOne({ name: "Cambodia"});
+  // if (!Demographics5aQuestionItem45) {
+  //   Demographics5aQuestionItem45 = await QuestionItems.create({ name: "Cambodia", order:44}).save();
+  // }
+  // let Demographics5aQuestionItem46 = await QuestionItems.findOne({ name: "Cameroon"});
+  // if (!Demographics5aQuestionItem46) {
+  //   Demographics5aQuestionItem46 = await QuestionItems.create({ name: "Cameroon", order:45}).save();
+  // }
+  // let Demographics5aQuestionItem47 = await QuestionItems.findOne({ name: "Canada"});
+  // if (!Demographics5aQuestionItem47) {
+  //   Demographics5aQuestionItem47 = await QuestionItems.create({ name: "Canada", order:46}).save();
+  // }
+  // let Demographics5aQuestionItem48 = await QuestionItems.findOne({ name: "Cape Verde"});
+  // if (!Demographics5aQuestionItem48) {
+  //   Demographics5aQuestionItem48 = await QuestionItems.create({ name: "Cape Verde", order:47}).save();
+  // }
+  // let Demographics5aQuestionItem49 = await QuestionItems.findOne({ name: "Cayman Islands"});
+  // if (!Demographics5aQuestionItem49) {
+  //   Demographics5aQuestionItem49 = await QuestionItems.create({ name: "Cayman Islands", order:48}).save();
+  // }
+  // let Demographics5aQuestionItem50 = await QuestionItems.findOne({ name: "Central African Republic"});
+  // if (!Demographics5aQuestionItem50) {
+  //   Demographics5aQuestionItem50 = await QuestionItems.create({ name: "Central African Republic", order:49}).save();
+  // }
+  // let Demographics5aQuestionItem51 = await QuestionItems.findOne({ name: "Chad"});
+  // if (!Demographics5aQuestionItem51) {
+  //   Demographics5aQuestionItem51 = await QuestionItems.create({ name: "Chad", order:50}).save();
+  // }
+  // let Demographics5aQuestionItem52 = await QuestionItems.findOne({ name: "Chile"});
+  // if (!Demographics5aQuestionItem52) {
+  //   Demographics5aQuestionItem52 = await QuestionItems.create({ name: "Chile", order:51}).save();
+  // }
+  // let Demographics5aQuestionItem53 = await QuestionItems.findOne({ name: "China"});
+  // if (!Demographics5aQuestionItem53) {
+  //   Demographics5aQuestionItem53 = await QuestionItems.create({ name: "China", order:52}).save();
+  // }
+  // let Demographics5aQuestionItem54 = await QuestionItems.findOne({ name: "Christmas Island"});
+  // if (!Demographics5aQuestionItem54) {
+  //   Demographics5aQuestionItem54 = await QuestionItems.create({ name: "Christmas Island", order:53}).save();
+  // }
+  // let Demographics5aQuestionItem55 = await QuestionItems.findOne({ name: "Clipperton Island"});
+  // if (!Demographics5aQuestionItem55) {
+  //   Demographics5aQuestionItem55 = await QuestionItems.create({ name: "Clipperton Island", order:54}).save();
+  // }
+  // let Demographics5aQuestionItem56 = await QuestionItems.findOne({ name: "Cocos (Keeling) Islands"});
+  // if (!Demographics5aQuestionItem56) {
+  //   Demographics5aQuestionItem56 = await QuestionItems.create({ name: "Cocos (Keeling) Islands", order:55}).save();
+  // }
+  // let Demographics5aQuestionItem57 = await QuestionItems.findOne({ name: "Colombia"});
+  // if (!Demographics5aQuestionItem57) {
+  //   Demographics5aQuestionItem57 = await QuestionItems.create({ name: "Colombia", order:56}).save();
+  // }
+  // let Demographics5aQuestionItem58 = await QuestionItems.findOne({ name: "Comoros"});
+  // if (!Demographics5aQuestionItem58) {
+  //   Demographics5aQuestionItem58 = await QuestionItems.create({ name: "Comoros", order:57}).save();
+  // }
+  // let Demographics5aQuestionItem59 = await QuestionItems.findOne({ name: "Congo,Democratic Republic of the"});
+  // if (!Demographics5aQuestionItem59) {
+  //   Demographics5aQuestionItem59 = await QuestionItems.create({ name: "Congo,Democratic Republic of the", order:58}).save();
+  // }
+  // let Demographics5aQuestionItem60 = await QuestionItems.findOne({ name: "Congo,Republic of the"});
+  // if (!Demographics5aQuestionItem60) {
+  //   Demographics5aQuestionItem60 = await QuestionItems.create({ name: "Congo,Republic of the", order:59}).save();
+  // }
+  // let Demographics5aQuestionItem61 = await QuestionItems.findOne({ name: "CookIslands"});
+  // if (!Demographics5aQuestionItem61) {
+  //   Demographics5aQuestionItem61 = await QuestionItems.create({ name: "CookIslands", order:60}).save();
+  // }
+  // let Demographics5aQuestionItem62 = await QuestionItems.findOne({ name: "CoralSea Islands"});
+  // if (!Demographics5aQuestionItem62) {
+  //   Demographics5aQuestionItem62 = await QuestionItems.create({ name: "CoralSea Islands", order:61}).save();
+  // }
+  // let Demographics5aQuestionItem63 = await QuestionItems.findOne({ name: "CostaRica"});
+  // if (!Demographics5aQuestionItem63) {
+  //   Demographics5aQuestionItem63 = await QuestionItems.create({ name: "CostaRica", order:62}).save();
+  // }
+  // let Demographics5aQuestionItem64 = await QuestionItems.findOne({ name: "Cote d'Ivoire"});
+  // if (!Demographics5aQuestionItem64) {
+  //   Demographics5aQuestionItem64 = await QuestionItems.create({ name: "Cote d'Ivoire", order:63}).save();
+  // }
+  // let Demographics5aQuestionItem65 = await QuestionItems.findOne({ name: "Croatia"});
+  // if (!Demographics5aQuestionItem65) {
+  //   Demographics5aQuestionItem65 = await QuestionItems.create({ name: "Croatia", order:64}).save();
+  // }
+  // let Demographics5aQuestionItem66 = await QuestionItems.findOne({ name: "Cuba"});
+  // if (!Demographics5aQuestionItem66) {
+  //   Demographics5aQuestionItem66 = await QuestionItems.create({ name: "Cuba", order:65}).save();
+  // }
+  // let Demographics5aQuestionItem67 = await QuestionItems.findOne({ name: "Cyprus"});
+  // if (!Demographics5aQuestionItem67) {
+  //   Demographics5aQuestionItem67 = await QuestionItems.create({ name: "Cyprus", order:66}).save();
+  // }
+  // let Demographics5aQuestionItem68 = await QuestionItems.findOne({ name: "Czech Republic"});
+  // if (!Demographics5aQuestionItem68) {
+  //   Demographics5aQuestionItem68 = await QuestionItems.create({ name: "Czech Republic", order:67}).save();
+  // }
+  // let Demographics5aQuestionItem69 = await QuestionItems.findOne({ name: "Denmark"});
+  // if (!Demographics5aQuestionItem69) {
+  //   Demographics5aQuestionItem69 = await QuestionItems.create({ name: "Denmark", order:68}).save();
+  // }
+  // let Demographics5aQuestionItem70 = await QuestionItems.findOne({ name: "Dhekelia"});
+  // if (!Demographics5aQuestionItem70) {
+  //   Demographics5aQuestionItem70 = await QuestionItems.create({ name: "Dhekelia", order:69}).save();
+  // }
+  // let Demographics5aQuestionItem71 = await QuestionItems.findOne({ name: "Djibouti"});
+  // if (!Demographics5aQuestionItem71) {
+  //   Demographics5aQuestionItem71 = await QuestionItems.create({ name: "Djibouti", order:70}).save();
+  // }
+  // let Demographics5aQuestionItem72 = await QuestionItems.findOne({ name: "Dominica"});
+  // if (!Demographics5aQuestionItem72) {
+  //   Demographics5aQuestionItem72 = await QuestionItems.create({ name: "Dominica", order:71}).save();
+  // }
+  // let Demographics5aQuestionItem73 = await QuestionItems.findOne({ name: "Dominican Republic"});
+  // if (!Demographics5aQuestionItem73) {
+  //   Demographics5aQuestionItem73 = await QuestionItems.create({ name: "Dominican Republic", order:72}).save();
+  // }
+  // let Demographics5aQuestionItem74 = await QuestionItems.findOne({ name: "Ecuador"});
+  // if (!Demographics5aQuestionItem74) {
+  //   Demographics5aQuestionItem74 = await QuestionItems.create({ name: "Ecuador", order:73}).save();
+  // }
+  // let Demographics5aQuestionItem75 = await QuestionItems.findOne({ name: "Egypt"});
+  // if (!Demographics5aQuestionItem75) {
+  //   Demographics5aQuestionItem75 = await QuestionItems.create({ name: "Egypt", order:74}).save();
+  // }
+  // let Demographics5aQuestionItem76 = await QuestionItems.findOne({ name: "El Salvador"});
+  // if (!Demographics5aQuestionItem76) {
+  //   Demographics5aQuestionItem76 = await QuestionItems.create({ name: "El Salvador", order:75}).save();
+  // }
+  // let Demographics5aQuestionItem77 = await QuestionItems.findOne({ name: "Equatorial Guinea"});
+  // if (!Demographics5aQuestionItem77) {
+  //   Demographics5aQuestionItem77 = await QuestionItems.create({ name: "Equatorial Guinea", order:76}).save();
+  // }
+  // let Demographics5aQuestionItem78 = await QuestionItems.findOne({ name: "Eritrea"});
+  // if (!Demographics5aQuestionItem78) {
+  //   Demographics5aQuestionItem78 = await QuestionItems.create({ name: "Eritrea", order:77}).save();
+  // }
+  // let Demographics5aQuestionItem79 = await QuestionItems.findOne({ name: "Estonia"});
+  // if (!Demographics5aQuestionItem79) {
+  //   Demographics5aQuestionItem79 = await QuestionItems.create({ name: "Estonia", order:78}).save();
+  // }
+  // let Demographics5aQuestionItem80 = await QuestionItems.findOne({ name: "Ethiopia"});
+  // if (!Demographics5aQuestionItem80) {
+  //   Demographics5aQuestionItem80 = await QuestionItems.create({ name: "Ethiopia", order:79}).save();
+  // }
+  // let Demographics5aQuestionItem81 = await QuestionItems.findOne({ name: "Europa Island"});
+  // if (!Demographics5aQuestionItem81) {
+  //   Demographics5aQuestionItem81 = await QuestionItems.create({ name: "Europa Island", order:80}).save();
+  // }
+  // let Demographics5aQuestionItem82 = await QuestionItems.findOne({ name: "Falkland Islands (Islas Malvinas)"});
+  // if (!Demographics5aQuestionItem82) {
+  //   Demographics5aQuestionItem82 = await QuestionItems.create({ name: "Falkland Islands (Islas Malvinas)", order:81}).save();
+  // }
+  // let Demographics5aQuestionItem83 = await QuestionItems.findOne({ name: "Faroe Islands"});
+  // if (!Demographics5aQuestionItem83) {
+  //   Demographics5aQuestionItem83 = await QuestionItems.create({ name: "Faroe Islands", order:82}).save();
+  // }
+  // let Demographics5aQuestionItem84 = await QuestionItems.findOne({ name: "Fiji"});
+  // if (!Demographics5aQuestionItem84) {
+  //   Demographics5aQuestionItem84 = await QuestionItems.create({ name: "Fiji", order:83}).save();
+  // }
+  // let Demographics5aQuestionItem85 = await QuestionItems.findOne({ name: "Finland"});
+  // if (!Demographics5aQuestionItem85) {
+  //   Demographics5aQuestionItem85 = await QuestionItems.create({ name: "Finland", order:84}).save();
+  // }
+  // let Demographics5aQuestionItem86 = await QuestionItems.findOne({ name: "France"});
+  // if (!Demographics5aQuestionItem86) {
+  //   Demographics5aQuestionItem86 = await QuestionItems.create({ name: "France", order:85}).save();
+  // }
+  // let Demographics5aQuestionItem87 = await QuestionItems.findOne({ name: "French Guiana"});
+  // if (!Demographics5aQuestionItem87) {
+  //   Demographics5aQuestionItem87 = await QuestionItems.create({ name: "French Guiana", order:86}).save();
+  // }
+  // let Demographics5aQuestionItem88 = await QuestionItems.findOne({ name: "French Polynesia"});
+  // if (!Demographics5aQuestionItem88) {
+  //   Demographics5aQuestionItem88 = await QuestionItems.create({ name: "French Polynesia", order:87}).save();
+  // }
+  // let Demographics5aQuestionItem89 = await QuestionItems.findOne({ name: "French Southern and Antarctic Lands"});
+  // if (!Demographics5aQuestionItem89) {
+  //   Demographics5aQuestionItem89 = await QuestionItems.create({ name: "French Southern and Antarctic Lands", order:88}).save();
+  // }
+  // let Demographics5aQuestionItem90 = await QuestionItems.findOne({ name: "Gabon"});
+  // if (!Demographics5aQuestionItem90) {
+  //   Demographics5aQuestionItem90 = await QuestionItems.create({ name: "Gabon", order:89}).save();
+  // }
+  // let Demographics5aQuestionItem91 = await QuestionItems.findOne({ name: "Gambia,The"});
+  // if (!Demographics5aQuestionItem91) {
+  //   Demographics5aQuestionItem91 = await QuestionItems.create({ name: "Gambia,The", order:90}).save();
+  // }
+  // let Demographics5aQuestionItem92 = await QuestionItems.findOne({ name: "Gaza Strip"});
+  // if (!Demographics5aQuestionItem92) {
+  //   Demographics5aQuestionItem92 = await QuestionItems.create({ name: "Gaza Strip", order:91}).save();
+  // }
+  // let Demographics5aQuestionItem93 = await QuestionItems.findOne({ name: "Georgia"});
+  // if (!Demographics5aQuestionItem93) {
+  //   Demographics5aQuestionItem93 = await QuestionItems.create({ name: "Georgia", order:92}).save();
+  // }
+  // let Demographics5aQuestionItem94 = await QuestionItems.findOne({ name: "Germany"});
+  // if (!Demographics5aQuestionItem94) {
+  //   Demographics5aQuestionItem94 = await QuestionItems.create({ name: "Germany", order:93}).save();
+  // }
+  // let Demographics5aQuestionItem95 = await QuestionItems.findOne({ name: "Ghana"});
+  // if (!Demographics5aQuestionItem95) {
+  //   Demographics5aQuestionItem95 = await QuestionItems.create({ name: "Ghana", order:94}).save();
+  // }
+  // let Demographics5aQuestionItem96 = await QuestionItems.findOne({ name: "Gibraltar"});
+  // if (!Demographics5aQuestionItem96) {
+  //   Demographics5aQuestionItem96 = await QuestionItems.create({ name: "Gibraltar", order:95}).save();
+  // }
+  // let Demographics5aQuestionItem97 = await QuestionItems.findOne({ name: "Glorioso Islands"});
+  // if (!Demographics5aQuestionItem97) {
+  //   Demographics5aQuestionItem97 = await QuestionItems.create({ name: "Glorioso Islands", order:96}).save();
+  // }
+  // let Demographics5aQuestionItem98 = await QuestionItems.findOne({ name: "Greece"});
+  // if (!Demographics5aQuestionItem98) {
+  //   Demographics5aQuestionItem98 = await QuestionItems.create({ name: "Greece", order:97}).save();
+  // }
+  // let Demographics5aQuestionItem99 = await QuestionItems.findOne({ name: "Greenland"});
+  // if (!Demographics5aQuestionItem99) {
+  //   Demographics5aQuestionItem99 = await QuestionItems.create({ name: "Greenland", order:98}).save();
+  // }
+  // let Demographics5aQuestionItem100 = await QuestionItems.findOne({ name: "Grenada"});
+  // if (!Demographics5aQuestionItem100) {
+  //   Demographics5aQuestionItem100 = await QuestionItems.create({ name: "Grenada", order:99}).save();
+  // }
+  // let Demographics5aQuestionItem101 = await QuestionItems.findOne({ name: "Guadeloupe"});
+  // if (!Demographics5aQuestionItem101) {
+  //   Demographics5aQuestionItem101 = await QuestionItems.create({ name: "Guadeloupe", order:100}).save();
+  // }
+  // let Demographics5aQuestionItem102 = await QuestionItems.findOne({ name: "Guam"});
+  // if (!Demographics5aQuestionItem102) {
+  //   Demographics5aQuestionItem102 = await QuestionItems.create({ name: "Guam", order:101}).save();
+  // }
+  // let Demographics5aQuestionItem103 = await QuestionItems.findOne({ name: "Guatemala"});
+  // if (!Demographics5aQuestionItem103) {
+  //   Demographics5aQuestionItem103 = await QuestionItems.create({ name: "Guatemala", order:102}).save();
+  // }
+  // let Demographics5aQuestionItem104 = await QuestionItems.findOne({ name: "Guernsey"});
+  // if (!Demographics5aQuestionItem104) {
+  //   Demographics5aQuestionItem104 = await QuestionItems.create({ name: "Guernsey", order:103}).save();
+  // }
+  // let Demographics5aQuestionItem105 = await QuestionItems.findOne({ name: "Guinea"});
+  // if (!Demographics5aQuestionItem105) {
+  //   Demographics5aQuestionItem105 = await QuestionItems.create({ name: "Guinea", order:104}).save();
+  // }
+  // let Demographics5aQuestionItem106 = await QuestionItems.findOne({ name: "Guinea-Bissau"});
+  // if (!Demographics5aQuestionItem106) {
+  //   Demographics5aQuestionItem106 = await QuestionItems.create({ name: "Guinea-Bissau", order:105}).save();
+  // }
+  // let Demographics5aQuestionItem107 = await QuestionItems.findOne({ name: "Guyana"});
+  // if (!Demographics5aQuestionItem107) {
+  //   Demographics5aQuestionItem107 = await QuestionItems.create({ name: "Guyana", order:106}).save();
+  // }
+  // let Demographics5aQuestionItem108 = await QuestionItems.findOne({ name: "Haiti"});
+  // if (!Demographics5aQuestionItem108) {
+  //   Demographics5aQuestionItem108 = await QuestionItems.create({ name: "Haiti", order:107}).save();
+  // }
+  // let Demographics5aQuestionItem109 = await QuestionItems.findOne({ name: "Heard Island and McDonald Islands"});
+  // if (!Demographics5aQuestionItem109) {
+  //   Demographics5aQuestionItem109 = await QuestionItems.create({ name: "Heard Island and McDonald Islands", order:108}).save();
+  // }
+  // let Demographics5aQuestionItem110 = await QuestionItems.findOne({ name: "Holy See (VaticanCity)"});
+  // if (!Demographics5aQuestionItem110) {
+  //   Demographics5aQuestionItem110 = await QuestionItems.create({ name: "Holy See (VaticanCity)", order:109}).save();
+  // }
+  // let Demographics5aQuestionItem111 = await QuestionItems.findOne({ name: "Honduras"});
+  // if (!Demographics5aQuestionItem111) {
+  //   Demographics5aQuestionItem111 = await QuestionItems.create({ name: "Honduras", order:110}).save();
+  // }
+  // let Demographics5aQuestionItem112 = await QuestionItems.findOne({ name: "HongKong"});
+  // if (!Demographics5aQuestionItem112) {
+  //   Demographics5aQuestionItem112 = await QuestionItems.create({ name: "HongKong", order:111}).save();
+  // }
+  // let Demographics5aQuestionItem113 = await QuestionItems.findOne({ name: "Hungary"});
+  // if (!Demographics5aQuestionItem113) {
+  //   Demographics5aQuestionItem113 = await QuestionItems.create({ name: "Hungary", order:112}).save();
+  // }
+  // let Demographics5aQuestionItem114 = await QuestionItems.findOne({ name: "Iceland"});
+  // if (!Demographics5aQuestionItem114) {
+  //   Demographics5aQuestionItem114 = await QuestionItems.create({ name: "Iceland", order:113}).save();
+  // }
+  // let Demographics5aQuestionItem115 = await QuestionItems.findOne({ name: "India"});
+  // if (!Demographics5aQuestionItem115) {
+  //   Demographics5aQuestionItem115 = await QuestionItems.create({ name: "India", order:114}).save();
+  // }
+  // let Demographics5aQuestionItem116 = await QuestionItems.findOne({ name: "Indonesia"});
+  // if (!Demographics5aQuestionItem116) {
+  //   Demographics5aQuestionItem116 = await QuestionItems.create({ name: "Indonesia", order:115}).save();
+  // }
+  // let Demographics5aQuestionItem117 = await QuestionItems.findOne({ name: "Iran"});
+  // if (!Demographics5aQuestionItem117) {
+  //   Demographics5aQuestionItem117 = await QuestionItems.create({ name: "Iran", order:116}).save();
+  // }
+  // let Demographics5aQuestionItem118 = await QuestionItems.findOne({ name: "Iraq"});
+  // if (!Demographics5aQuestionItem118) {
+  //   Demographics5aQuestionItem118 = await QuestionItems.create({ name: "Iraq", order:117}).save();
+  // }
+  // let Demographics5aQuestionItem119 = await QuestionItems.findOne({ name: "Ireland"});
+  // if (!Demographics5aQuestionItem119) {
+  //   Demographics5aQuestionItem119 = await QuestionItems.create({ name: "Ireland", order:118}).save();
+  // }
+  // let Demographics5aQuestionItem120 = await QuestionItems.findOne({ name: "Isle of Man"});
+  // if (!Demographics5aQuestionItem120) {
+  //   Demographics5aQuestionItem120 = await QuestionItems.create({ name: "Isle of Man", order:119}).save();
+  // }
+  // let Demographics5aQuestionItem121 = await QuestionItems.findOne({ name: "Israel"});
+  // if (!Demographics5aQuestionItem121) {
+  //   Demographics5aQuestionItem121 = await QuestionItems.create({ name: "Israel", order:120}).save();
+  // }
+  // let Demographics5aQuestionItem122 = await QuestionItems.findOne({ name: "Italy"});
+  // if (!Demographics5aQuestionItem122) {
+  //   Demographics5aQuestionItem122 = await QuestionItems.create({ name: "Italy", order:121}).save();
+  // }
+  // let Demographics5aQuestionItem123 = await QuestionItems.findOne({ name: "Jamaica"});
+  // if (!Demographics5aQuestionItem123) {
+  //   Demographics5aQuestionItem123 = await QuestionItems.create({ name: "Jamaica", order:122}).save();
+  // }
+  // let Demographics5aQuestionItem124 = await QuestionItems.findOne({ name: "Jan Mayen"});
+  // if (!Demographics5aQuestionItem124) {
+  //   Demographics5aQuestionItem124 = await QuestionItems.create({ name: "Jan Mayen", order:123}).save();
+  // }
+  // let Demographics5aQuestionItem125 = await QuestionItems.findOne({ name: "Japan"});
+  // if (!Demographics5aQuestionItem125) {
+  //   Demographics5aQuestionItem125 = await QuestionItems.create({ name: "Japan", order:124}).save();
+  // }
+  // let Demographics5aQuestionItem126 = await QuestionItems.findOne({ name: "Jersey"});
+  // if (!Demographics5aQuestionItem126) {
+  //   Demographics5aQuestionItem126 = await QuestionItems.create({ name: "Jersey", order:125}).save();
+  // }
+  // let Demographics5aQuestionItem127 = await QuestionItems.findOne({ name: "Jordan"});
+  // if (!Demographics5aQuestionItem127) {
+  //   Demographics5aQuestionItem127 = await QuestionItems.create({ name: "Jordan", order:126}).save();
+  // }
+  // let Demographics5aQuestionItem128 = await QuestionItems.findOne({ name: "Juande Nova Island"});
+  // if (!Demographics5aQuestionItem128) {
+  //   Demographics5aQuestionItem128 = await QuestionItems.create({ name: "Juande Nova Island", order:127}).save();
+  // }
+  // let Demographics5aQuestionItem129 = await QuestionItems.findOne({ name: "Kazakhstan"});
+  // if (!Demographics5aQuestionItem129) {
+  //   Demographics5aQuestionItem129 = await QuestionItems.create({ name: "Kazakhstan", order:128}).save();
+  // }
+  // let Demographics5aQuestionItem130 = await QuestionItems.findOne({ name: "Kenya"});
+  // if (!Demographics5aQuestionItem130) {
+  //   Demographics5aQuestionItem130 = await QuestionItems.create({ name: "Kenya", order:129}).save();
+  // }
+  // let Demographics5aQuestionItem131 = await QuestionItems.findOne({ name: "Kiribati"});
+  // if (!Demographics5aQuestionItem131) {
+  //   Demographics5aQuestionItem131 = await QuestionItems.create({ name: "Kiribati", order:130}).save();
+  // }
+  // let Demographics5aQuestionItem132 = await QuestionItems.findOne({ name: "Korea,North"});
+  // if (!Demographics5aQuestionItem132) {
+  //   Demographics5aQuestionItem132 = await QuestionItems.create({ name: "Korea,North", order:131}).save();
+  // }
+  // let Demographics5aQuestionItem133 = await QuestionItems.findOne({ name: "Korea,South"});
+  // if (!Demographics5aQuestionItem133) {
+  //   Demographics5aQuestionItem133 = await QuestionItems.create({ name: "Korea,South", order:132}).save();
+  // }
+  // let Demographics5aQuestionItem134 = await QuestionItems.findOne({ name: "Kuwait"});
+  // if (!Demographics5aQuestionItem134) {
+  //   Demographics5aQuestionItem134 = await QuestionItems.create({ name: "Kuwait", order:133}).save();
+  // }
+  // let Demographics5aQuestionItem135 = await QuestionItems.findOne({ name: "Kyrgyzstan"});
+  // if (!Demographics5aQuestionItem135) {
+  //   Demographics5aQuestionItem135 = await QuestionItems.create({ name: "Kyrgyzstan", order:134}).save();
+  // }
+  // let Demographics5aQuestionItem136 = await QuestionItems.findOne({ name: "Laos"});
+  // if (!Demographics5aQuestionItem136) {
+  //   Demographics5aQuestionItem136 = await QuestionItems.create({ name: "Laos", order:135}).save();
+  // }
+  // let Demographics5aQuestionItem137 = await QuestionItems.findOne({ name: "Latvia"});
+  // if (!Demographics5aQuestionItem137) {
+  //   Demographics5aQuestionItem137 = await QuestionItems.create({ name: "Latvia", order:136}).save();
+  // }
+  // let Demographics5aQuestionItem138 = await QuestionItems.findOne({ name: "Lebanon"});
+  // if (!Demographics5aQuestionItem138) {
+  //   Demographics5aQuestionItem138 = await QuestionItems.create({ name: "Lebanon", order:137}).save();
+  // }
+  // let Demographics5aQuestionItem139 = await QuestionItems.findOne({ name: "Lesotho"});
+  // if (!Demographics5aQuestionItem139) {
+  //   Demographics5aQuestionItem139 = await QuestionItems.create({ name: "Lesotho", order:138}).save();
+  // }
+  // let Demographics5aQuestionItem140 = await QuestionItems.findOne({ name: "Liberia"});
+  // if (!Demographics5aQuestionItem140) {
+  //   Demographics5aQuestionItem140 = await QuestionItems.create({ name: "Liberia", order:139}).save();
+  // }
+  // let Demographics5aQuestionItem141 = await QuestionItems.findOne({ name: "Libya"});
+  // if (!Demographics5aQuestionItem141) {
+  //   Demographics5aQuestionItem141 = await QuestionItems.create({ name: "Libya", order:140}).save();
+  // }
+  // let Demographics5aQuestionItem142 = await QuestionItems.findOne({ name: "Liechtenstein"});
+  // if (!Demographics5aQuestionItem142) {
+  //   Demographics5aQuestionItem142 = await QuestionItems.create({ name: "Liechtenstein", order:141}).save();
+  // }
+  // let Demographics5aQuestionItem143 = await QuestionItems.findOne({ name: "Lithuania"});
+  // if (!Demographics5aQuestionItem143) {
+  //   Demographics5aQuestionItem143 = await QuestionItems.create({ name: "Lithuania", order:142}).save();
+  // }
+  // let Demographics5aQuestionItem144 = await QuestionItems.findOne({ name: "Luxembourg"});
+  // if (!Demographics5aQuestionItem144) {
+  //   Demographics5aQuestionItem144 = await QuestionItems.create({ name: "Luxembourg", order:143}).save();
+  // }
+  // let Demographics5aQuestionItem145 = await QuestionItems.findOne({ name: "Macau"});
+  // if (!Demographics5aQuestionItem145) {
+  //   Demographics5aQuestionItem145 = await QuestionItems.create({ name: "Macau", order:144}).save();
+  // }
+  // let Demographics5aQuestionItem146 = await QuestionItems.findOne({ name: "Macedonia"});
+  // if (!Demographics5aQuestionItem146) {
+  //   Demographics5aQuestionItem146 = await QuestionItems.create({ name: "Macedonia", order:145}).save();
+  // }
+  // let Demographics5aQuestionItem147 = await QuestionItems.findOne({ name: "Madagascar"});
+  // if (!Demographics5aQuestionItem147) {
+  //   Demographics5aQuestionItem147 = await QuestionItems.create({ name: "Madagascar", order:146}).save();
+  // }
+  // let Demographics5aQuestionItem148 = await QuestionItems.findOne({ name: "Malawi"});
+  // if (!Demographics5aQuestionItem148) {
+  //   Demographics5aQuestionItem148 = await QuestionItems.create({ name: "Malawi", order:147}).save();
+  // }
+  // let Demographics5aQuestionItem149 = await QuestionItems.findOne({ name: "Malaysia"});
+  // if (!Demographics5aQuestionItem149) {
+  //   Demographics5aQuestionItem149 = await QuestionItems.create({ name: "Malaysia", order:148}).save();
+  // }
+  // let Demographics5aQuestionItem150 = await QuestionItems.findOne({ name: "Maldives"});
+  // if (!Demographics5aQuestionItem150) {
+  //   Demographics5aQuestionItem150 = await QuestionItems.create({ name: "Maldives", order:149}).save();
+  // }
+  // let Demographics5aQuestionItem151 = await QuestionItems.findOne({ name: "Mali"});
+  // if (!Demographics5aQuestionItem151) {
+  //   Demographics5aQuestionItem151 = await QuestionItems.create({ name: "Mali", order:150}).save();
+  // }
+  // let Demographics5aQuestionItem152 = await QuestionItems.findOne({ name: "Malta"});
+  // if (!Demographics5aQuestionItem152) {
+  //   Demographics5aQuestionItem152 = await QuestionItems.create({ name: "Malta", order:151}).save();
+  // }
+  // let Demographics5aQuestionItem153 = await QuestionItems.findOne({ name: "Marshall Islands"});
+  // if (!Demographics5aQuestionItem153) {
+  //   Demographics5aQuestionItem153 = await QuestionItems.create({ name: "Marshall Islands", order:152}).save();
+  // }
+  // let Demographics5aQuestionItem154 = await QuestionItems.findOne({ name: "Martinique"});
+  // if (!Demographics5aQuestionItem154) {
+  //   Demographics5aQuestionItem154 = await QuestionItems.create({ name: "Martinique", order:153}).save();
+  // }
+  // let Demographics5aQuestionItem155 = await QuestionItems.findOne({ name: "Mauritania"});
+  // if (!Demographics5aQuestionItem155) {
+  //   Demographics5aQuestionItem155 = await QuestionItems.create({ name: "Mauritania", order:154}).save();
+  // }
+  // let Demographics5aQuestionItem156 = await QuestionItems.findOne({ name: "Mauritius"});
+  // if (!Demographics5aQuestionItem156) {
+  //   Demographics5aQuestionItem156 = await QuestionItems.create({ name: "Mauritius", order:155}).save();
+  // }
+  // let Demographics5aQuestionItem157 = await QuestionItems.findOne({ name: "Mayotte"});
+  // if (!Demographics5aQuestionItem157) {
+  //   Demographics5aQuestionItem157 = await QuestionItems.create({ name: "Mayotte", order:156}).save();
+  // }
+  // let Demographics5aQuestionItem158 = await QuestionItems.findOne({ name: "Mexico"});
+  // if (!Demographics5aQuestionItem158) {
+  //   Demographics5aQuestionItem158 = await QuestionItems.create({ name: "Mexico", order:157}).save();
+  // }
+  // let Demographics5aQuestionItem159 = await QuestionItems.findOne({ name: "Micronesia,Federated Stat esof"});
+  // if (!Demographics5aQuestionItem159) {
+  //   Demographics5aQuestionItem159 = await QuestionItems.create({ name: "Micronesia,Federated Stat esof", order:158}).save();
+  // }
+  // let Demographics5aQuestionItem160 = await QuestionItems.findOne({ name: "Moldova"});
+  // if (!Demographics5aQuestionItem160) {
+  //   Demographics5aQuestionItem160 = await QuestionItems.create({ name: "Moldova", order:159}).save();
+  // }
+  // let Demographics5aQuestionItem161 = await QuestionItems.findOne({ name: "Monaco"});
+  // if (!Demographics5aQuestionItem161) {
+  //   Demographics5aQuestionItem161 = await QuestionItems.create({ name: "Monaco", order:160}).save();
+  // }
+  // let Demographics5aQuestionItem162 = await QuestionItems.findOne({ name: "Mongolia"});
+  // if (!Demographics5aQuestionItem162) {
+  //   Demographics5aQuestionItem162 = await QuestionItems.create({ name: "Mongolia", order:161}).save();
+  // }
+  // let Demographics5aQuestionItem163 = await QuestionItems.findOne({ name: "Montserrat"});
+  // if (!Demographics5aQuestionItem163) {
+  //   Demographics5aQuestionItem163 = await QuestionItems.create({ name: "Montserrat", order:162}).save();
+  // }
+  // let Demographics5aQuestionItem164 = await QuestionItems.findOne({ name: "Morocco"});
+  // if (!Demographics5aQuestionItem164) {
+  //   Demographics5aQuestionItem164 = await QuestionItems.create({ name: "Morocco", order:163}).save();
+  // }
+  // let Demographics5aQuestionItem165 = await QuestionItems.findOne({ name: "Mozambique"});
+  // if (!Demographics5aQuestionItem165) {
+  //   Demographics5aQuestionItem165 = await QuestionItems.create({ name: "Mozambique", order:164}).save();
+  // }
+  // let Demographics5aQuestionItem166 = await QuestionItems.findOne({ name: "Namibia"});
+  // if (!Demographics5aQuestionItem166) {
+  //   Demographics5aQuestionItem166 = await QuestionItems.create({ name: "Namibia", order:165}).save();
+  // }
+  // let Demographics5aQuestionItem167 = await QuestionItems.findOne({ name: "Nauru"});
+  // if (!Demographics5aQuestionItem167) {
+  //   Demographics5aQuestionItem167 = await QuestionItems.create({ name: "Nauru", order:166}).save();
+  // }
+  // let Demographics5aQuestionItem168 = await QuestionItems.findOne({ name: "Navassa Island"});
+  // if (!Demographics5aQuestionItem168) {
+  //   Demographics5aQuestionItem168 = await QuestionItems.create({ name: "Navassa Island", order:167}).save();
+  // }
+  // let Demographics5aQuestionItem169 = await QuestionItems.findOne({ name: "Nepal"});
+  // if (!Demographics5aQuestionItem169) {
+  //   Demographics5aQuestionItem169 = await QuestionItems.create({ name: "Nepal", order:168}).save();
+  // }
+  // let Demographics5aQuestionItem170 = await QuestionItems.findOne({ name: "Netherlands"});
+  // if (!Demographics5aQuestionItem170) {
+  //   Demographics5aQuestionItem170 = await QuestionItems.create({ name: "Netherlands", order:169}).save();
+  // }
+  // let Demographics5aQuestionItem171 = await QuestionItems.findOne({ name: "Netherlands Antilles"});
+  // if (!Demographics5aQuestionItem171) {
+  //   Demographics5aQuestionItem171 = await QuestionItems.create({ name: "Netherlands Antilles", order:170}).save();
+  // }
+  // let Demographics5aQuestionItem172 = await QuestionItems.findOne({ name: "New Caledonia"});
+  // if (!Demographics5aQuestionItem172) {
+  //   Demographics5aQuestionItem172 = await QuestionItems.create({ name: "New Caledonia", order:171}).save();
+  // }
+  // let Demographics5aQuestionItem173 = await QuestionItems.findOne({ name: "New Zealand"});
+  // if (!Demographics5aQuestionItem173) {
+  //   Demographics5aQuestionItem173 = await QuestionItems.create({ name: "New Zealand", order:172}).save();
+  // }
+  // let Demographics5aQuestionItem174 = await QuestionItems.findOne({ name: "Nicaragua"});
+  // if (!Demographics5aQuestionItem174) {
+  //   Demographics5aQuestionItem174 = await QuestionItems.create({ name: "Nicaragua", order:173}).save();
+  // }
+  // let Demographics5aQuestionItem175 = await QuestionItems.findOne({ name: "Niger"});
+  // if (!Demographics5aQuestionItem175) {
+  //   Demographics5aQuestionItem175 = await QuestionItems.create({ name: "Niger", order:174}).save();
+  // }
+  // let Demographics5aQuestionItem176 = await QuestionItems.findOne({ name: "Nigeria"});
+  // if (!Demographics5aQuestionItem176) {
+  //   Demographics5aQuestionItem176 = await QuestionItems.create({ name: "Nigeria", order:175}).save();
+  // }
+  // let Demographics5aQuestionItem177 = await QuestionItems.findOne({ name: "Niue"});
+  // if (!Demographics5aQuestionItem177) {
+  //   Demographics5aQuestionItem177 = await QuestionItems.create({ name: "Niue", order:176}).save();
+  // }
+  // let Demographics5aQuestionItem178 = await QuestionItems.findOne({ name: "Norfolk Island"});
+  // if (!Demographics5aQuestionItem178) {
+  //   Demographics5aQuestionItem178 = await QuestionItems.create({ name: "Norfolk Island", order:177}).save();
+  // }
+  // let Demographics5aQuestionItem179 = await QuestionItems.findOne({ name: "Northern Mariana Islands"});
+  // if (!Demographics5aQuestionItem179) {
+  //   Demographics5aQuestionItem179 = await QuestionItems.create({ name: "Northern Mariana Islands", order:178}).save();
+  // }
+  // let Demographics5aQuestionItem180 = await QuestionItems.findOne({ name: "Norway"});
+  // if (!Demographics5aQuestionItem180) {
+  //   Demographics5aQuestionItem180 = await QuestionItems.create({ name: "Norway", order:179}).save();
+  // }
+  // let Demographics5aQuestionItem181 = await QuestionItems.findOne({ name: "Oman"});
+  // if (!Demographics5aQuestionItem181) {
+  //   Demographics5aQuestionItem181 = await QuestionItems.create({ name: "Oman", order:180}).save();
+  // }
+  // let Demographics5aQuestionItem182 = await QuestionItems.findOne({ name: "Pakistan"});
+  // if (!Demographics5aQuestionItem182) {
+  //   Demographics5aQuestionItem182 = await QuestionItems.create({ name: "Pakistan", order:181}).save();
+  // }
+  // let Demographics5aQuestionItem183 = await QuestionItems.findOne({ name: "Palau"});
+  // if (!Demographics5aQuestionItem183) {
+  //   Demographics5aQuestionItem183 = await QuestionItems.create({ name: "Palau", order:182}).save();
+  // }
+  // let Demographics5aQuestionItem184 = await QuestionItems.findOne({ name: "Panama"});
+  // if (!Demographics5aQuestionItem184) {
+  //   Demographics5aQuestionItem184 = await QuestionItems.create({ name: "Panama", order:183}).save();
+  // }
+  // let Demographics5aQuestionItem185 = await QuestionItems.findOne({ name: "Papua New Guinea"});
+  // if (!Demographics5aQuestionItem185) {
+  //   Demographics5aQuestionItem185 = await QuestionItems.create({ name: "Papua New Guinea", order:184}).save();
+  // }
+  // let Demographics5aQuestionItem186 = await QuestionItems.findOne({ name: "Paracel Islands"});
+  // if (!Demographics5aQuestionItem186) {
+  //   Demographics5aQuestionItem186 = await QuestionItems.create({ name: "Paracel Islands", order:185}).save();
+  // }
+  // let Demographics5aQuestionItem187 = await QuestionItems.findOne({ name: "Paraguay"});
+  // if (!Demographics5aQuestionItem187) {
+  //   Demographics5aQuestionItem187 = await QuestionItems.create({ name: "Paraguay", order:186}).save();
+  // }
+  // let Demographics5aQuestionItem188 = await QuestionItems.findOne({ name: "Peru"});
+  // if (!Demographics5aQuestionItem188) {
+  //   Demographics5aQuestionItem188 = await QuestionItems.create({ name: "Peru", order:187}).save();
+  // }
+  // let Demographics5aQuestionItem189 = await QuestionItems.findOne({ name: "Philippines"});
+  // if (!Demographics5aQuestionItem189) {
+  //   Demographics5aQuestionItem189 = await QuestionItems.create({ name: "Philippines", order:188}).save();
+  // }
+  // let Demographics5aQuestionItem190 = await QuestionItems.findOne({ name: "Pitcairn Islands"});
+  // if (!Demographics5aQuestionItem190) {
+  //   Demographics5aQuestionItem190 = await QuestionItems.create({ name: "Pitcairn Islands", order:189}).save();
+  // }
+  // let Demographics5aQuestionItem191 = await QuestionItems.findOne({ name: "Poland"});
+  // if (!Demographics5aQuestionItem191) {
+  //   Demographics5aQuestionItem191 = await QuestionItems.create({ name: "Poland", order:190}).save();
+  // }
+  // let Demographics5aQuestionItem192 = await QuestionItems.findOne({ name: "Portugal"});
+  // if (!Demographics5aQuestionItem192) {
+  //   Demographics5aQuestionItem192 = await QuestionItems.create({ name: "Portugal", order:191}).save();
+  // }
+  // let Demographics5aQuestionItem193 = await QuestionItems.findOne({ name: "PuertoRico"});
+  // if (!Demographics5aQuestionItem193) {
+  //   Demographics5aQuestionItem193 = await QuestionItems.create({ name: "PuertoRico", order:192}).save();
+  // }
+  // let Demographics5aQuestionItem194 = await QuestionItems.findOne({ name: "Qatar"});
+  // if (!Demographics5aQuestionItem194) {
+  //   Demographics5aQuestionItem194 = await QuestionItems.create({ name: "Qatar", order:193}).save();
+  // }
+  // let Demographics5aQuestionItem195 = await QuestionItems.findOne({ name: "Reunion"});
+  // if (!Demographics5aQuestionItem195) {
+  //   Demographics5aQuestionItem195 = await QuestionItems.create({ name: "Reunion", order:194}).save();
+  // }
+  // let Demographics5aQuestionItem196 = await QuestionItems.findOne({ name: "Romania"});
+  // if (!Demographics5aQuestionItem196) {
+  //   Demographics5aQuestionItem196 = await QuestionItems.create({ name: "Romania", order:195}).save();
+  // }
+  // let Demographics5aQuestionItem197 = await QuestionItems.findOne({ name: "Russia"});
+  // if (!Demographics5aQuestionItem197) {
+  //   Demographics5aQuestionItem197 = await QuestionItems.create({ name: "Russia", order:196}).save();
+  // }
+  // let Demographics5aQuestionItem198 = await QuestionItems.findOne({ name: "Rwanda"});
+  // if (!Demographics5aQuestionItem198) {
+  //   Demographics5aQuestionItem198 = await QuestionItems.create({ name: "Rwanda", order:197}).save();
+  // }
+  // let Demographics5aQuestionItem199 = await QuestionItems.findOne({ name: "SaintHelena"});
+  // if (!Demographics5aQuestionItem199) {
+  //   Demographics5aQuestionItem199 = await QuestionItems.create({ name: "SaintHelena", order:198}).save();
+  // }
+  // let Demographics5aQuestionItem200 = await QuestionItems.findOne({ name: "Saint Kitts and Nevis"});
+  // if (!Demographics5aQuestionItem200) {
+  //   Demographics5aQuestionItem200 = await QuestionItems.create({ name: "Saint Kitts and Nevis", order:199}).save();
+  // }
+  // let Demographics5aQuestionItem201 = await QuestionItems.findOne({ name: "Saint Lucia"});
+  // if (!Demographics5aQuestionItem201) {
+  //   Demographics5aQuestionItem201 = await QuestionItems.create({ name: "Saint Lucia", order:200}).save();
+  // }
+  // let Demographics5aQuestionItem202 = await QuestionItems.findOne({ name: "Saint Pierre and Miquelon"});
+  // if (!Demographics5aQuestionItem202) {
+  //   Demographics5aQuestionItem202 = await QuestionItems.create({ name: "Saint Pierre and Miquelon", order:201}).save();
+  // }
+  // let Demographics5aQuestionItem203 = await QuestionItems.findOne({ name: "Saint Vincent and the Grenadines"});
+  // if (!Demographics5aQuestionItem203) {
+  //   Demographics5aQuestionItem203 = await QuestionItems.create({ name: "Saint Vincent and the Grenadines", order:202}).save();
+  // }
+  // let Demographics5aQuestionItem204 = await QuestionItems.findOne({ name: "Samoa"});
+  // if (!Demographics5aQuestionItem204) {
+  //   Demographics5aQuestionItem204 = await QuestionItems.create({ name: "Samoa", order:203}).save();
+  // }
+  // let Demographics5aQuestionItem205 = await QuestionItems.findOne({ name: "SanMarino"});
+  // if (!Demographics5aQuestionItem205) {
+  //   Demographics5aQuestionItem205 = await QuestionItems.create({ name: "SanMarino", order:204}).save();
+  // }
+  // let Demographics5aQuestionItem206 = await QuestionItems.findOne({ name: "Sao Tome and Principe"});
+  // if (!Demographics5aQuestionItem206) {
+  //   Demographics5aQuestionItem206 = await QuestionItems.create({ name: "Sao Tome and Principe", order:205}).save();
+  // }
+  // let Demographics5aQuestionItem207 = await QuestionItems.findOne({ name: "Saudi Arabia"});
+  // if (!Demographics5aQuestionItem207) {
+  //   Demographics5aQuestionItem207 = await QuestionItems.create({ name: "Saudi Arabia", order:206}).save();
+  // }
+  // let Demographics5aQuestionItem208 = await QuestionItems.findOne({ name: "Senegal"});
+  // if (!Demographics5aQuestionItem208) {
+  //   Demographics5aQuestionItem208 = await QuestionItems.create({ name: "Senegal", order:207}).save();
+  // }
+  // let Demographics5aQuestionItem209 = await QuestionItems.findOne({ name: "Serbia and Montenegro"});
+  // if (!Demographics5aQuestionItem209) {
+  //   Demographics5aQuestionItem209 = await QuestionItems.create({ name: "Serbia and Montenegro", order:208}).save();
+  // }
+  // let Demographics5aQuestionItem210 = await QuestionItems.findOne({ name: "Seychelles"});
+  // if (!Demographics5aQuestionItem210) {
+  //   Demographics5aQuestionItem210 = await QuestionItems.create({ name: "Seychelles", order:209}).save();
+  // }
+  // let Demographics5aQuestionItem211 = await QuestionItems.findOne({ name: "Sierra Leone"});
+  // if (!Demographics5aQuestionItem211) {
+  //   Demographics5aQuestionItem211 = await QuestionItems.create({ name: "Sierra Leone", order:210}).save();
+  // }
+  // let Demographics5aQuestionItem212 = await QuestionItems.findOne({ name: "Singapore"});
+  // if (!Demographics5aQuestionItem212) {
+  //   Demographics5aQuestionItem212 = await QuestionItems.create({ name: "Singapore", order:211}).save();
+  // }
+  // let Demographics5aQuestionItem213 = await QuestionItems.findOne({ name: "Slovakia"});
+  // if (!Demographics5aQuestionItem213) {
+  //   Demographics5aQuestionItem213 = await QuestionItems.create({ name: "Slovakia", order:212}).save();
+  // }
+  // let Demographics5aQuestionItem214 = await QuestionItems.findOne({ name: "Slovenia"});
+  // if (!Demographics5aQuestionItem214) {
+  //   Demographics5aQuestionItem214 = await QuestionItems.create({ name: "Slovenia", order:213}).save();
+  // }
+  // let Demographics5aQuestionItem215 = await QuestionItems.findOne({ name: "Solomon Islands"});
+  // if (!Demographics5aQuestionItem215) {
+  //   Demographics5aQuestionItem215 = await QuestionItems.create({ name: "Solomon Islands", order:214}).save();
+  // }
+  // let Demographics5aQuestionItem216 = await QuestionItems.findOne({ name: "Somalia"});
+  // if (!Demographics5aQuestionItem216) {
+  //   Demographics5aQuestionItem216 = await QuestionItems.create({ name: "Somalia", order:215}).save();
+  // }
+  // let Demographics5aQuestionItem217 = await QuestionItems.findOne({ name: "SouthAfrica"});
+  // if (!Demographics5aQuestionItem217) {
+  //   Demographics5aQuestionItem217 = await QuestionItems.create({ name: "SouthAfrica", order:216}).save();
+  // }
+  // let Demographics5aQuestionItem218 = await QuestionItems.findOne({ name: "South Georgia and the South Sandwich Islands"});
+  // if (!Demographics5aQuestionItem218) {
+  //   Demographics5aQuestionItem218 = await QuestionItems.create({ name: "South Georgia and the South Sandwich Islands", order:217}).save();
+  // }
+  // let Demographics5aQuestionItem219 = await QuestionItems.findOne({ name: "Spain"});
+  // if (!Demographics5aQuestionItem219) {
+  //   Demographics5aQuestionItem219 = await QuestionItems.create({ name: "Spain", order:218}).save();
+  // }
+  // let Demographics5aQuestionItem220 = await QuestionItems.findOne({ name: "Spratly Islands"});
+  // if (!Demographics5aQuestionItem220) {
+  //   Demographics5aQuestionItem220 = await QuestionItems.create({ name: "Spratly Islands", order:219}).save();
+  // }
+  // let Demographics5aQuestionItem221 = await QuestionItems.findOne({ name: "SriLanka"});
+  // if (!Demographics5aQuestionItem221) {
+  //   Demographics5aQuestionItem221 = await QuestionItems.create({ name: "SriLanka", order:220}).save();
+  // }
+  // let Demographics5aQuestionItem222 = await QuestionItems.findOne({ name: "Sudan"});
+  // if (!Demographics5aQuestionItem222) {
+  //   Demographics5aQuestionItem222 = await QuestionItems.create({ name: "Sudan", order:221}).save();
+  // }
+  // let Demographics5aQuestionItem223 = await QuestionItems.findOne({ name: "Suriname"});
+  // if (!Demographics5aQuestionItem223) {
+  //   Demographics5aQuestionItem223 = await QuestionItems.create({ name: "Suriname", order:222}).save();
+  // }
+  // let Demographics5aQuestionItem224 = await QuestionItems.findOne({ name: "Svalbard"});
+  // if (!Demographics5aQuestionItem224) {
+  //   Demographics5aQuestionItem224 = await QuestionItems.create({ name: "Svalbard", order:223}).save();
+  // }
+  // let Demographics5aQuestionItem225 = await QuestionItems.findOne({ name: "Swaziland"});
+  // if (!Demographics5aQuestionItem225) {
+  //   Demographics5aQuestionItem225 = await QuestionItems.create({ name: "Swaziland", order:224}).save();
+  // }
+  // let Demographics5aQuestionItem226 = await QuestionItems.findOne({ name: "Sweden"});
+  // if (!Demographics5aQuestionItem226) {
+  //   Demographics5aQuestionItem226 = await QuestionItems.create({ name: "Sweden", order:225}).save();
+  // }
+  // let Demographics5aQuestionItem227 = await QuestionItems.findOne({ name: "Switzerland"});
+  // if (!Demographics5aQuestionItem227) {
+  //   Demographics5aQuestionItem227 = await QuestionItems.create({ name: "Switzerland", order:226}).save();
+  // }
+  // let Demographics5aQuestionItem228 = await QuestionItems.findOne({ name: "Syria"});
+  // if (!Demographics5aQuestionItem228) {
+  //   Demographics5aQuestionItem228 = await QuestionItems.create({ name: "Syria", order:227}).save();
+  // }
+  // let Demographics5aQuestionItem229 = await QuestionItems.findOne({ name: "Taiwan"});
+  // if (!Demographics5aQuestionItem229) {
+  //   Demographics5aQuestionItem229 = await QuestionItems.create({ name: "Taiwan", order:228}).save();
+  // }
+  // let Demographics5aQuestionItem230 = await QuestionItems.findOne({ name: "Tajikistan"});
+  // if (!Demographics5aQuestionItem230) {
+  //   Demographics5aQuestionItem230 = await QuestionItems.create({ name: "Tajikistan", order:229}).save();
+  // }
+  // let Demographics5aQuestionItem231 = await QuestionItems.findOne({ name: "Tanzania"});
+  // if (!Demographics5aQuestionItem231) {
+  //   Demographics5aQuestionItem231 = await QuestionItems.create({ name: "Tanzania", order:230}).save();
+  // }
+  // let Demographics5aQuestionItem232 = await QuestionItems.findOne({ name: "Thailand"});
+  // if (!Demographics5aQuestionItem232) {
+  //   Demographics5aQuestionItem232 = await QuestionItems.create({ name: "Thailand", order:231}).save();
+  // }
+  // let Demographics5aQuestionItem233 = await QuestionItems.findOne({ name: "Timor-Leste"});
+  // if (!Demographics5aQuestionItem233) {
+  //   Demographics5aQuestionItem233 = await QuestionItems.create({ name: "Timor-Leste", order:232}).save();
+  // }
+  // let Demographics5aQuestionItem234 = await QuestionItems.findOne({ name: "Togo"});
+  // if (!Demographics5aQuestionItem234) {
+  //   Demographics5aQuestionItem234 = await QuestionItems.create({ name: "Togo", order:233}).save();
+  // }
+  // let Demographics5aQuestionItem235 = await QuestionItems.findOne({ name: "Tokelau"});
+  // if (!Demographics5aQuestionItem235) {
+  //   Demographics5aQuestionItem235 = await QuestionItems.create({ name: "Tokelau", order:234}).save();
+  // }
+  // let Demographics5aQuestionItem236 = await QuestionItems.findOne({ name: "Tonga"});
+  // if (!Demographics5aQuestionItem236) {
+  //   Demographics5aQuestionItem236 = await QuestionItems.create({ name: "Tonga", order:235}).save();
+  // }
+  // let Demographics5aQuestionItem237 = await QuestionItems.findOne({ name: "Trinidad and Tobago"});
+  // if (!Demographics5aQuestionItem237) {
+  //   Demographics5aQuestionItem237 = await QuestionItems.create({ name: "Trinidad and Tobago", order:236}).save();
+  // }
+  // let Demographics5aQuestionItem238 = await QuestionItems.findOne({ name: "Tromelin Island"});
+  // if (!Demographics5aQuestionItem238) {
+  //   Demographics5aQuestionItem238 = await QuestionItems.create({ name: "Tromelin Island", order:237}).save();
+  // }
+  // let Demographics5aQuestionItem239 = await QuestionItems.findOne({ name: "Tunisia"});
+  // if (!Demographics5aQuestionItem239) {
+  //   Demographics5aQuestionItem239 = await QuestionItems.create({ name: "Tunisia", order:238}).save();
+  // }
+  // let Demographics5aQuestionItem240 = await QuestionItems.findOne({ name: "Turkey"});
+  // if (!Demographics5aQuestionItem240) {
+  //   Demographics5aQuestionItem240 = await QuestionItems.create({ name: "Turkey", order:239}).save();
+  // }
+  // let Demographics5aQuestionItem241 = await QuestionItems.findOne({ name: "Turkmenistan"});
+  // if (!Demographics5aQuestionItem241) {
+  //   Demographics5aQuestionItem241 = await QuestionItems.create({ name: "Turkmenistan", order:240}).save();
+  // }
+  // let Demographics5aQuestionItem242 = await QuestionItems.findOne({ name: "Turksand Caicos Islands"});
+  // if (!Demographics5aQuestionItem242) {
+  //   Demographics5aQuestionItem242 = await QuestionItems.create({ name: "Turksand Caicos Islands", order:241}).save();
+  // }
+  // let Demographics5aQuestionItem243 = await QuestionItems.findOne({ name: "Tuvalu"});
+  // if (!Demographics5aQuestionItem243) {
+  //   Demographics5aQuestionItem243 = await QuestionItems.create({ name: "Tuvalu", order:242}).save();
+  // }
+  // let Demographics5aQuestionItem244 = await QuestionItems.findOne({ name: "Uganda"});
+  // if (!Demographics5aQuestionItem244) {
+  //   Demographics5aQuestionItem244 = await QuestionItems.create({ name: "Uganda", order:243}).save();
+  // }
+  // let Demographics5aQuestionItem245 = await QuestionItems.findOne({ name: "Ukraine"});
+  // if (!Demographics5aQuestionItem245) {
+  //   Demographics5aQuestionItem245 = await QuestionItems.create({ name: "Ukraine", order:244}).save();
+  // }
+  // let Demographics5aQuestionItem246 = await QuestionItems.findOne({ name: "United Arab Emirates"});
+  // if (!Demographics5aQuestionItem246) {
+  //   Demographics5aQuestionItem246 = await QuestionItems.create({ name: "United Arab Emirates", order:245}).save();
+  // }
+  // let Demographics5aQuestionItem247 = await QuestionItems.findOne({ name: "United Kingdom"});
+  // if (!Demographics5aQuestionItem247) {
+  //   Demographics5aQuestionItem247 = await QuestionItems.create({ name: "United Kingdom", order:246}).save();
+  // }
+  // let Demographics5aQuestionItem248 = await QuestionItems.findOne({ name: "Uruguay"});
+  // if (!Demographics5aQuestionItem248) {
+  //   Demographics5aQuestionItem248 = await QuestionItems.create({ name: "Uruguay", order:247}).save();
+  // }
+  // let Demographics5aQuestionItem249 = await QuestionItems.findOne({ name: "Uzbekistan"});
+  // if (!Demographics5aQuestionItem249) {
+  //   Demographics5aQuestionItem249 = await QuestionItems.create({ name: "Uzbekistan", order:248}).save();
+  // }
+  // let Demographics5aQuestionItem250 = await QuestionItems.findOne({ name: "Vanuatu"});
+  // if (!Demographics5aQuestionItem250) {
+  //   Demographics5aQuestionItem250 = await QuestionItems.create({ name: "Vanuatu", order:249}).save();
+  // }
+  // let Demographics5aQuestionItem251 = await QuestionItems.findOne({ name: "Venezuela"});
+  // if (!Demographics5aQuestionItem251) {
+  //   Demographics5aQuestionItem251 = await QuestionItems.create({ name: "Venezuela", order:250}).save();
+  // }
+  // let Demographics5aQuestionItem252 = await QuestionItems.findOne({ name: "Vietnam"});
+  // if (!Demographics5aQuestionItem252) {
+  //   Demographics5aQuestionItem252 = await QuestionItems.create({ name: "Vietnam", order:251}).save();
+  // }
+  // let Demographics5aQuestionItem253 = await QuestionItems.findOne({ name: "Virgin Islands"});
+  // if (!Demographics5aQuestionItem253) {
+  //   Demographics5aQuestionItem253 = await QuestionItems.create({ name: "Virgin Islands", order:252}).save();
+  // }
+  // let Demographics5aQuestionItem254 = await QuestionItems.findOne({ name: "Wake Island"});
+  // if (!Demographics5aQuestionItem254) {
+  //   Demographics5aQuestionItem254 = await QuestionItems.create({ name: "Wake Island", order:253}).save();
+  // }
+  // let Demographics5aQuestionItem255 = await QuestionItems.findOne({ name: "Wallis and Futuna"});
+  // if (!Demographics5aQuestionItem255) {
+  //   Demographics5aQuestionItem255 = await QuestionItems.create({ name: "Wallis and Futuna", order:254}).save();
+  // }
+  // let Demographics5aQuestionItem256 = await QuestionItems.findOne({ name: "West Bank"});
+  // if (!Demographics5aQuestionItem256) {
+  //   Demographics5aQuestionItem256 = await QuestionItems.create({ name: "West Bank", order:255}).save();
+  // }
+  // let Demographics5aQuestionItem257 = await QuestionItems.findOne({ name: "Western Sahara"});
+  // if (!Demographics5aQuestionItem257) {
+  //   Demographics5aQuestionItem257 = await QuestionItems.create({ name: "Western Sahara", order:256}).save();
+  // }
+  // let Demographics5aQuestionItem258 = await QuestionItems.findOne({ name: "Yemen"});
+  // if (!Demographics5aQuestionItem258) {
+  //   Demographics5aQuestionItem258 = await QuestionItems.create({ name: "Yemen", order:257}).save();
+  // }
+  // let Demographics5aQuestionItem259 = await QuestionItems.findOne({ name: "Zambia"});
+  // if (!Demographics5aQuestionItem259) {
+  //   Demographics5aQuestionItem259 = await QuestionItems.create({ name: "Zambia", order:258}).save();
+  // }
+  // let Demographics5aQuestionItem260 = await QuestionItems.findOne({ name: "Zimbabwe"});
+  // if (!Demographics5aQuestionItem260) {
+  //   Demographics5aQuestionItem260 = await QuestionItems.create({ name: "Zimbabwe", order:259}).save();
+  // }
+  // await getConnection()
+  //   .createQueryBuilder()
+  //   .relation(Question, 'category')
+  //   .of(Demographics5aQuestion)
+  //   .set(comboQuestionCategory);
+  //
+  // await getConnection()
+  //   .createQueryBuilder()
+  //   .relation(Question, 'subSection')
+  //   .of(Demographics5aQuestion)
+  //   .set(DemographicsSubSection);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem1);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem2);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem3);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem4);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem5);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem6);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem7);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem8);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem9);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem10);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem11);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem12);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem13);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem14);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem15);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem16);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem17);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem18);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem19);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem20);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem21);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem22);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem23);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem24);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem25);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem26);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem27);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem28);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem29);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem30);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem31);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem32);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem33);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem34);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem35);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem36);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem37);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem38);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem39);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem40);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem41);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem42);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem43);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem44);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem45);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem46);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem47);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem48);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem49);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem50);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem51);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem52);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem53);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem54);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem55);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem56);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem57);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem58);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem59);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem60);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem61);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem62);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem63);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem64);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem65);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem66);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem67);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem68);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem69);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem70);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem71);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem72);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem73);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem74);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem75);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem76);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem77);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem78);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem79);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem80);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem81);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem82);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem83);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem84);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem85);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem86);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem87);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem88);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem89);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem90);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem91);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem92);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem93);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem94);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem95);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem96);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem97);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem98);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem99);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem100);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem101);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem102);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem103);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem104);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem105);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem106);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem107);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem108);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem109);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem110);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem111);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem112);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem113);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem114);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem115);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem116);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem117);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem118);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem119);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem120);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem121);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem122);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem123);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem124);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem125);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem126);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem127);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem128);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem129);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem130);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem131);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem132);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem133);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem134);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem135);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem136);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem137);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem138);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem139);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem140);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem141);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem142);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem143);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem144);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem145);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem146);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem147);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem148);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem149);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem150);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem151);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem152);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem153);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem154);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem155);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem156);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem157);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem158);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem159);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem160);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem161);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem162);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem163);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem164);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem165);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem166);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem167);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem168);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem169);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem170);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem171);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem172);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem173);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem174);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem175);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem176);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem177);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem178);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem179);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem180);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem181);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem182);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem183);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem184);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem185);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem186);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem187);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem188);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem189);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem190);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem191);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem192);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem193);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem194);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem195);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem196);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem197);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem198);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem199);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem200);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem201);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem202);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem203);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem204);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem205);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem206);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem207);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem208);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem209);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem210);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem211);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem212);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem213);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem214);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem215);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem216);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem217);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem218);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem219);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem220);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem221);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem222);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem223);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem224);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem225);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem226);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem227);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem228);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem229);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem230);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem231);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem232);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem233);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem234);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem235);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem236);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem237);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem238);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem239);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem240);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem241);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem242);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem243);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem244);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem245);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem246);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem247);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem248);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem249);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem250);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem251);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem252);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem253);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem254);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem255);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem256);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem257);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem258);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem259);
+  //
+  // await getConnection().createQueryBuilder().relation(Question, 'items').of(Demographics5aQuestion).add(Demographics5aQuestionItem260);
 
 
   let DemographicsSixthQuestion = await Question.findOne({ question: 'How many years have you lived in Florida?' });
