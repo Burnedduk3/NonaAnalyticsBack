@@ -54,17 +54,16 @@ export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
   async createUser(@Arg('UserData') data: CreateUser): Promise<SingleUserResponse> {
     try {
-      const { CognitoPoolId, email, firstLastname, firstName, phone, username } = data;
+      const { CognitoPoolId, email, name, phone, username } = data;
 
-      if (!CognitoPoolId || !email || !firstLastname || !firstName || !phone || !username) {
+      if (!CognitoPoolId || !email || !name || !phone || !username) {
         throw new Error('Unable to create user, missing information');
       }
 
       const newUser = await User.create({
         CognitoPoolId,
         email,
-        firstLastname,
-        firstName,
+        name,
         phone,
         username,
       }).save();
