@@ -20,7 +20,7 @@ import { getConnection } from 'typeorm';
 @Resolver(() => UserInteractionMutationsTypes)
 export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
-  async startForm(@Arg('userID') userId: number): Promise<SingleFormResponse> {
+  async startForm(@Arg('userID') userId: string): Promise<SingleFormResponse> {
     try {
       if (!userId) {
         throw new Error('unable to locate the specified user, id not provided');
