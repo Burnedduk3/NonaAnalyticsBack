@@ -20,7 +20,7 @@ import { getConnection } from 'typeorm';
 @Resolver(() => UserInteractionMutationsTypes)
 export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
-  async startForm(@Arg('userID') userId: number): Promise<SingleFormResponse> {
+  async startForm(@Arg('userID') userId: string): Promise<SingleFormResponse> {
     try {
       if (!userId) {
         throw new Error('unable to locate the specified user, id not provided');
@@ -54,18 +54,16 @@ export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
   async createUser(@Arg('UserData') data: CreateUser): Promise<SingleUserResponse> {
     try {
-      const { CognitoPoolId, email, firstLastname, firstName, password, phone, username } = data;
+      const { CognitoPoolId, email, name, phone, username } = data;
 
-      if (!CognitoPoolId || !email || !firstLastname || !firstName || !password || !phone || !username) {
+      if (!CognitoPoolId || !email || !name || !phone || !username) {
         throw new Error('Unable to create user, missing information');
       }
 
       const newUser = await User.create({
         CognitoPoolId,
         email,
-        firstLastname,
-        firstName,
-        password,
+        name,
         phone,
         username,
       }).save();

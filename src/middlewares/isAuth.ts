@@ -1,19 +1,21 @@
 import { Context } from '@interfaces/Context.types';
-import { jwtDecodeToken } from '@utils/jwt';
+import { CognitoJwtVerifier } from 'aws-cognito-jwt-verifier';
 import { MiddlewareFn } from 'type-graphql';
 
 export const isAuth: MiddlewareFn<Context> = async ({ context }, next) => {
   try {
     const accessTokenInHeader = context.req.headers.authorization;
     if (!accessTokenInHeader) throw new Error('No authenticated');
-    const accessToken = accessTokenInHeader.substr(7);
-    const accessTokenPayload = await jwtDecodeToken({ token: accessToken, type: 'access' });
-    if (typeof accessTokenPayload === 'string') throw new Error('access token no valid');
-    if (!accessTokenPayload.role) throw new Error('no role provided in token');
-    context.payload = { role: accessTokenPayload.role, username: accessTokenPayload.username };
+
+    const verify = new CognitoJwtVerifier();
+    const result = await verify.checkJwt(accessTokenInHeader, 'us-east-1', 'us-east-1_SqEmScTyR');
+    const data = JSON.parse(result)
+    if (!data.status || data.code === 401) {
+      throw new Error('token not valid');
+    }
+    context.payload = { ...result };
   } catch (e) {
-    if (e instanceof Error) throw new Error(e.message);
-    else throw new Error('Auth error');
+    throw new Error(e.message);
   }
   return next();
 };

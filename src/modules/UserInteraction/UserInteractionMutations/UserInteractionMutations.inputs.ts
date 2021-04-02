@@ -18,16 +18,10 @@ export class CreateUser {
   username: string;
 
   @Field({ nullable: false })
-  password: string;
-
-  @Field({ nullable: false })
   email: string;
 
   @Field({ nullable: false })
-  firstName: string;
-
-  @Field({ nullable: false })
-  firstLastname: string;
+  name: string;
 }
 
 @InputType({ description: 'Input for creating a response of a form' })

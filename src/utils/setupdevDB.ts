@@ -9124,6 +9124,7 @@ export const boilerplateData2 = async () => {
 
   await getConnection().createQueryBuilder().relation(Question, 'items').of(SelfCompassion12Question).add(SelfCompassion12QuestionItem6);
 
+
   let Pets1Question = await Question.findOne({ question: 'Do you have a pet?'});
   if (!Pets1Question){
     Pets1Question = await Question.create({
@@ -14503,6 +14504,5 @@ export const boilerplateData2 = async () => {
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem5);
 
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem6);
-
 
 };

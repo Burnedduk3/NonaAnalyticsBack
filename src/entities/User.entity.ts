@@ -39,15 +39,7 @@ export class User extends BaseEntity {
 
   @Field()
   @Column({ nullable: false })
-  firstName: string;
-
-  @Field()
-  @Column({ nullable: false })
-  firstLastname: string;
-
-  @Field()
-  @Column('bool', { default: false })
-  confirmed: boolean;
+  name: string;
 
   @Field()
   @UpdateDateColumn({ type: 'timestamp' })
