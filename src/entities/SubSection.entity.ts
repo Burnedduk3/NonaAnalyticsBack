@@ -22,7 +22,7 @@ export class SubSection extends BaseEntity {
   id: number;
 
   @Field()
-  @Column({ nullable: false, unique: true })
+  @Column({ nullable: false })
   name: string;
 
   @Field()

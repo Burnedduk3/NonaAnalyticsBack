@@ -20,11 +20,11 @@ export class Section extends BaseEntity {
   id: number;
 
   @Field()
-  @Column({ nullable: false, unique: true })
+  @Column({ nullable: false })
   name: string;
 
   @Field()
-  @Column({ nullable: false, unique: true })
+  @Column({ nullable: false })
   order: number;
 
   @Field()
