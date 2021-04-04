@@ -14,12 +14,14 @@ import {
   SingleFormResponse,
   SingleUserResponse,
 } from '@modules/UserInteraction/UserInteractionQueries/UserInteractionQueries.types';
-import { Arg, FieldResolver, Resolver } from 'type-graphql';
+import { Arg, FieldResolver, Resolver, UseMiddleware } from 'type-graphql';
 import { getConnection } from 'typeorm';
+import { isAuth } from '@middlewares/isAuth';
 
 @Resolver(() => UserInteractionMutationsTypes)
 export class UserInteractionMutationsResolver {
   @FieldResolver(() => UserInteractionMutationsTypes)
+  @UseMiddleware([isAuth])
   async startForm(@Arg('userID') userId: string): Promise<SingleFormResponse> {
     try {
       if (!userId) {
@@ -82,6 +84,7 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
+  @UseMiddleware([isAuth])
   async updateQuestionResponse(@Arg('updateResponse') data: UpdateResponse): Promise<SingleAnswerResponse> {
     try {
       const { newResponse, questionId } = data;
@@ -116,6 +119,7 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
+  @UseMiddleware([isAuth])
   async updateFormProgress(@Arg('UpdateProgress') data: UpdateFormInputs): Promise<SingleFormResponse> {
     try {
       const { formId, progress } = data;
@@ -152,6 +156,7 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
+  @UseMiddleware([isAuth])
   async updateFormConsent(@Arg('UpdateProgress') data: UpdateFormConsentInputs): Promise<SingleFormResponse> {
     try {
       const { formId } = data;
@@ -189,6 +194,7 @@ export class UserInteractionMutationsResolver {
   }
 
   @FieldResolver(() => UserInteractionMutationsTypes)
+  @UseMiddleware([isAuth])
   async createResponse(@Arg('createResponseInputs') data: CreateResponse): Promise<SingleAnswerResponse> {
     try {
       const { formId, questionId, response } = data;

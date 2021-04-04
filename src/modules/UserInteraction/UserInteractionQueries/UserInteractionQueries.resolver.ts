@@ -49,6 +49,7 @@ export class UserInteractionQueriesResolver {
       if (!userCognitoId) {
         throw new Error('No able to retrieve user forms');
       }
+
       const user = await User.findOne({
         relations: ['forms'],
         where: {

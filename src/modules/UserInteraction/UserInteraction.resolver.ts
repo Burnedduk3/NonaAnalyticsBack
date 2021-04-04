@@ -14,7 +14,6 @@ export class SettingUpFormResolver {
   }
 
   @Mutation(/* istanbul ignore next */ () => UserInteractionMutationsTypes)
-  @UseMiddleware([isAuth])
   @FieldResolver()
   UserInteractionMutation(): UserInteractionMutationsTypes {
     return new UserInteractionMutationsTypes();
