@@ -6,7 +6,7 @@ COPY . /usr/src/NonaAnalyticsBack
 
 WORKDIR /usr/src/NonaAnalyticsBack
 
-ENV CONFIG_ENVIROMENT=Production
+ENV CONFIG_ENVIROMENT="production"
 
 ENV CONFIG_SERVER_PORT=3500
 

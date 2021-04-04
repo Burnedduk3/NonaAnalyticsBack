@@ -8,7 +8,7 @@ const config: ConnectionOptions = {
   ssl: CONFIG_ENVIROMENT !== 'development' && {
     rejectUnauthorized: false,
   },
-  synchronize: true,
+  synchronize: CONFIG_ENVIROMENT === 'development',
   logging: CONFIG_ENVIROMENT === 'development',
   entities: [
     'src/entities/FormResponses.entity.ts',
