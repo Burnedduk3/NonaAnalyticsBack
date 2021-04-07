@@ -489,7 +489,7 @@ export const boilerplateData = async () => {
     DemographicsFifthQuestion = await Question.create({
       question: 'Were you born in the US or some other country?',
 
-      stack: 0,
+      stack: 1,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2117,7 +2117,7 @@ export const boilerplateData = async () => {
     DemographicsSixthQuestion = await Question.create({
       question: 'How many years have you lived in Florida?',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2146,7 +2146,7 @@ export const boilerplateData = async () => {
     DemographicsSeventhQuestion = await Question.create({
       question: 'Are you Hispanic/Latino?',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2175,7 +2175,7 @@ export const boilerplateData = async () => {
     DemographicsEighthQuestion = await Question.create({
       question: 'Select all that apply:',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2227,7 +2227,7 @@ export const boilerplateData = async () => {
     DemographicsNinthQuestion = await Question.create({
       question: 'With which racial groups do you identify? (Select all that apply.)',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2292,7 +2292,7 @@ export const boilerplateData = async () => {
   if (!DemographicsTenthQuestion){
     DemographicsTenthQuestion = await Question.create({
       question: 'Do you think of yourself as',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -2347,7 +2347,7 @@ export const boilerplateData = async () => {
     DemographicsEleventhQuestion = await Question.create({
       question: 'What is the highest level of education you completed?',
 
-      stack: 0,
+      stack: 3,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2423,7 +2423,7 @@ export const boilerplateData = async () => {
     DemographicsTwelfthQuestion = await Question.create({
       question: 'What is your marital status?',
 
-      stack: 0,
+      stack: 4,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2479,7 +2479,7 @@ export const boilerplateData = async () => {
     Demographics13Question = await Question.create({
       question: 'Are you currently living with someone in a marriage-like relationship? ',
 
-      stack: 0,
+      stack: 4,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2507,7 +2507,7 @@ export const boilerplateData = async () => {
     Demographics14Question = await Question.create({
       question: 'How many biological children do you have, not counting step or adopted children? ',
 
-      stack: 0,
+      stack: 4,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2536,7 +2536,7 @@ export const boilerplateData = async () => {
     Demographics15Question = await Question.create({
       question: 'Have you ever been diagnosed by a health professional with any of the following during pregnancy?',
 
-      stack: 0,
+      stack: 5,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2588,7 +2588,7 @@ export const boilerplateData = async () => {
     Demographics16Question = await Question.create({
       question: 'If yes to any of the above, did you ever obtain treatment?',
 
-      stack: 0,
+      stack: 6,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2616,7 +2616,7 @@ export const boilerplateData = async () => {
     Demographics17Question = await Question.create({
       question: 'Have you ever been diagnosed with postpartum depression?',
 
-      stack: 0,
+      stack: 6,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2644,7 +2644,7 @@ export const boilerplateData = async () => {
     Demographics18Question = await Question.create({
       question: 'Did you ever obtain treatment for postpartum depression?',
 
-      stack: 0,
+      stack: 6,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2672,7 +2672,7 @@ export const boilerplateData = async () => {
     Demographics19Question = await Question.create({
       question: 'How many step-children or adoptive children do you have?',
 
-      stack: 0,
+      stack: 5,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2702,7 +2702,7 @@ export const boilerplateData = async () => {
     Demographics20Question = await Question.create({
       question: 'How many children aged 0 to 17 live with you?',
 
-      stack: 0,
+      stack: 5,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2731,7 +2731,7 @@ export const boilerplateData = async () => {
     Demographics21Question = await Question.create({
       question: 'What is your employment status?  Please select all that apply.',
 
-      stack: 0,
+      stack: 7,
 
       stackPhrase: 'Whatever phrase',
 
@@ -2798,7 +2798,7 @@ export const boilerplateData = async () => {
     Demographics22Question = await Question.create({
       question: 'For all members living in your household, what is the combined annual income (the total pre-tax income from all sources earned in the past year)?',
 
-      stack: 0,
+      stack: 7,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3112,7 +3112,7 @@ export const boilerplateData = async () => {
     YourHealth3Question = await Question.create({
       question: 'CARDIOVASCULAR DISORDERS',
 
-      stack: 0,
+      stack: 1,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3169,7 +3169,7 @@ export const boilerplateData = async () => {
     YourHealth4Question = await Question.create({
       question: 'JOINT OR BONE DISORDERS',
 
-      stack: 0,
+      stack: 1,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3217,7 +3217,7 @@ export const boilerplateData = async () => {
     YourHealth5Question = await Question.create({
       question: 'RESPIRATORY DISORDERS',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3270,7 +3270,7 @@ export const boilerplateData = async () => {
     YourHealth6Question = await Question.create({
       question: 'CANCERS',
 
-      stack: 0,
+      stack: 2,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3358,7 +3358,7 @@ export const boilerplateData = async () => {
     YourHealth7Question = await Question.create({
       question: 'OTHER DISORDERS',
 
-      stack: 0,
+      stack: 3,
 
       stackPhrase: 'Whatever phrase',
 
@@ -3459,7 +3459,7 @@ export const boilerplateData = async () => {
   if (!YourHealth8Question){
     YourHealth8Question = await Question.create({
       question: 'Using a 0-10 scale where 0 means “no energy” and 10 means “full of energy,” what number best describes how much energy you usually have during the day? (You can use any number between 0 and 10 to answer.)',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -3548,7 +3548,7 @@ export const boilerplateData = async () => {
   if (!YourHealth9Question){
     YourHealth9Question = await Question.create({
       question: 'Your home management (e.g., cleaning, repairs, cooking, shopping)?  ',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -3637,7 +3637,7 @@ export const boilerplateData = async () => {
   if (!YourHealth10Question){
     YourHealth10Question = await Question.create({
       question: 'Your ability to work?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -3726,7 +3726,7 @@ export const boilerplateData = async () => {
   if (!YourHealth11Question){
     YourHealth11Question = await Question.create({
       question: 'The speed or quality of your work?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -3815,7 +3815,7 @@ export const boilerplateData = async () => {
   if (!YourHealth12Question){
     YourHealth12Question = await Question.create({
       question: 'Your social life?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -3904,7 +3904,7 @@ export const boilerplateData = async () => {
   if (!YourHealth13Question){
     YourHealth13Question = await Question.create({
       question: 'Your close personal relationships?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -3993,7 +3993,7 @@ export const boilerplateData = async () => {
   if (!YourHealth14Question){
     YourHealth14Question = await Question.create({
       question: 'About how many days out of 30 in the past month were you totally unable to work or carry out your other usual activities because of problems with your health?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -4016,7 +4016,7 @@ export const boilerplateData = async () => {
   if (!YourHealth15Question){
     YourHealth15Question = await Question.create({
       question: 'About how many days out of 30 in the past month were you able to work but you had to cut back on how long you worked, your amount of work, or how carefully you worked because of problems with your health?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -4367,7 +4367,7 @@ export const boilerplateData = async () => {
   if (!Screenings2Question){
     Screenings2Question = await Question.create({
       question: 'Do you get the Influenza (Flu) Vaccine annually?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -4408,7 +4408,7 @@ export const boilerplateData = async () => {
   if (!Screenings3Question){
     Screenings3Question = await Question.create({
       question: 'Have you received a COVID-19 vaccine?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 8,
@@ -4430,7 +4430,7 @@ export const boilerplateData = async () => {
   if (!Screenings4Question){
     Screenings4Question = await Question.create({
       question: 'How likely are you to get the COVID-19 vaccine when it becomes available to you?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -4484,7 +4484,7 @@ export const boilerplateData = async () => {
   if (!Screenings5Question){
     Screenings5Question = await Question.create({
       question: 'Have you ever delayed having your child get a vaccine for reasons other than illness or allergy?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -4525,7 +4525,7 @@ export const boilerplateData = async () => {
   if (!Screenings6Question){
     Screenings6Question = await Question.create({
       question: 'Have you ever decided not to have your child get a vaccine for reasons other than illness or allergy? ',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -4566,7 +4566,7 @@ export const boilerplateData = async () => {
   if (!Screenings7Question){
     Screenings7Question = await Question.create({
       question: 'Including yourself, please select all the people age 45 or below in your immediate family that have been vaccinated against HPV. Mark all that apply.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -4631,7 +4631,7 @@ export const boilerplateData = async () => {
   if (!Screenings8Question){
     Screenings8Question = await Question.create({
       question: 'A blood stool test is a test that may use a special kit at home to determine whether the stool contains blood. Have you ever had this test using a home kit?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -4672,7 +4672,7 @@ export const boilerplateData = async () => {
   if (!Screenings9Question){
     Screenings9Question = await Question.create({
       question: 'How long has it been since you had your last blood stool test using a home kit?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -4731,7 +4731,7 @@ export const boilerplateData = async () => {
   if (!Screenings10Question){
     Screenings10Question = await Question.create({
       question: 'Sigmoidoscopy and colonoscopy are exams in which a tube is inserted in the rectum to view the colon for signs of cancer or other health problems. Have you ever had either of these exams?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 15,
@@ -4790,7 +4790,7 @@ export const boilerplateData = async () => {
   if (!Screenings9aQuestion){
     Screenings9aQuestion = await Question.create({
       question: 'When was your MOST RECENT sigmoidoscopy?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 16,
@@ -4855,7 +4855,7 @@ export const boilerplateData = async () => {
   if (!Screenings9bQuestion){
     Screenings9bQuestion = await Question.create({
       question: 'When was your MOST RECENT colonoscopy',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 17,
@@ -4920,7 +4920,7 @@ export const boilerplateData = async () => {
   if (!Screenings11Question){
     Screenings11Question = await Question.create({
       question: 'Annually, do you have a digital rectal exam (DRE) and/or prostate specific antigen (PSA) test?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 18,
@@ -4961,7 +4961,7 @@ export const boilerplateData = async () => {
   if (!Screenings12Question){
     Screenings12Question = await Question.create({
       question: 'A mammogram is an x-ray of each breast to look for breast cancer. Have you ever had a mammogram? [Female over the age of 40]',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 19,
@@ -5008,7 +5008,7 @@ export const boilerplateData = async () => {
   if (!Screenings13Question){
     Screenings13Question = await Question.create({
       question: 'A pap smear test (pap smear) is a test that is done by your doctor to check your cervix for cells that are not normal and could eventually cause cervical cancer. Have you ever had a Pap test? ',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 20,
@@ -5055,7 +5055,7 @@ export const boilerplateData = async () => {
   if (!Screenings13aQuestion){
     Screenings13aQuestion = await Question.create({
       question: 'Do you have the pap test annually? ',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 21,
@@ -5333,7 +5333,7 @@ export const boilerplateData = async () => {
   if (!Healthcare5Question){
     Healthcare5Question = await Question.create({
       question: 'Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, and/or government plans such as Medicare, Medicaid, or Indian Health Service?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -5374,7 +5374,7 @@ export const boilerplateData = async () => {
   if (!Healthcare6Question){
     Healthcare6Question = await Question.create({
       question: 'What is the primary source of your health care coverage?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -5530,7 +5530,7 @@ export const boilerplateData = async () => {
   if (!Utilization4Question){
     Utilization4Question = await Question.create({
       question: 'Do you take birth control?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 3,
@@ -5553,7 +5553,7 @@ export const boilerplateData = async () => {
   if (!Utilization5Question){
     Utilization5Question = await Question.create({
       question: 'Have you been prescribed opioid medication or placed on opioid therapy for a temporary (short term) condition in the past 24 months? Note: Opioid medications include OxyContin, hydrocodone, methadone, Demerol, Percocet, Hydromorphone',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 4,
@@ -5575,7 +5575,7 @@ export const boilerplateData = async () => {
   if (!Utilization6Question){
     Utilization6Question = await Question.create({
       question: 'Have you been prescribed benzodiazepines or placed on benzodiazepine therapy for a temporary (short term) condition in the past 24 months? Note: Benzodiazepine medications include midazolam, alprazolam, diazepam',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 5,
@@ -5597,7 +5597,7 @@ export const boilerplateData = async () => {
   if (!Utilization7Question){
     Utilization7Question = await Question.create({
       question: 'Do you take vitamins or dietary supplements on a daily basis? ',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 6,
@@ -5619,7 +5619,7 @@ export const boilerplateData = async () => {
   if (!Utilization8Question){
     Utilization8Question = await Question.create({
       question: 'Take the medication at the exact time of day you’re told?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -5673,7 +5673,7 @@ export const boilerplateData = async () => {
   if (!Utilization9Question){
     Utilization9Question = await Question.create({
       question: 'Take the medication for exactly the number of days you’re told',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -5726,7 +5726,7 @@ export const boilerplateData = async () => {
   if (!Utilization10Question){
     Utilization10Question = await Question.create({
       question: 'Forget to take a dose?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -5779,7 +5779,7 @@ export const boilerplateData = async () => {
   if (!Utilization11Question){
     Utilization11Question = await Question.create({
       question: 'Stop taking it when you feel better even if the doctor told you to continue until the medication ran out?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -6045,7 +6045,7 @@ export const boilerplateData = async () => {
   if (!OralHealth4Question){
     OralHealth4Question = await Question.create({
       question: 'How many times per day do you usually brush your teeth?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -6121,7 +6121,7 @@ export const boilerplateData = async () => {
   if (!OralHealth6Question){
     OralHealth6Question = await Question.create({
       question: 'On the days you use them, how; ALL OTHERS: How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -6143,7 +6143,7 @@ export const boilerplateData = async () => {
   if (!OralHealth7Question){
     OralHealth7Question = await Question.create({
       question: 'On the days you use it, how; ALL OTHERS: How many times a day do you usually use mouthwash or mouth rinse?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -6165,7 +6165,7 @@ export const boilerplateData = async () => {
   if (!OralHealth8Question){
     OralHealth8Question = await Question.create({
       question: 'Do you have a regular dentist or regular practice you usually go to for oral health?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -6206,7 +6206,7 @@ export const boilerplateData = async () => {
   if (!OralHealth9Question){
     OralHealth9Question = await Question.create({
       question: 'How often do you get a cleaning?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -6391,7 +6391,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors5Question){
     HealthBehaviors5Question = await Question.create({
       question: 'Have you EVER used any tobacco product other than regular cigarettes and E-cigarettes (such as a regular cigar or cigarillo, a regular pipe filled with tobacco, a water pipe or hookah pipe filled with tobacco, smokeless or dissolvable tobacco) EVEN ONE TIME?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 4,
@@ -6413,7 +6413,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors6Question){
     HealthBehaviors6Question = await Question.create({
       question: 'Do you now use any tobacco product other than regular cigarettes and E-cigarettes every day, some days, or not at all?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -6454,7 +6454,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors7Question){
     HealthBehaviors7Question = await Question.create({
       question: 'Have you EVER used E-cigarettes EVEN ONE TIME?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 6,
@@ -6476,7 +6476,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors8Question){
     HealthBehaviors8Question = await Question.create({
       question: 'Do you now use E-cigarettes every day, some days, or not at all?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -6517,7 +6517,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors9Question){
     HealthBehaviors9Question = await Question.create({
       question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -6576,7 +6576,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors10Question){
     HealthBehaviors10Question = await Question.create({
       question: 'On the days you drink, about how many drinks do you usually have? One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot (1.5 ounces) of liquor.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -6598,7 +6598,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors11Question){
     HealthBehaviors11Question = await Question.create({
       question: 'Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks (men) or 4 or more drinks (women) on a single occasion?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -6620,7 +6620,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors12Question){
     HealthBehaviors12Question = await Question.create({
       question: 'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -6679,7 +6679,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors13Question){
     HealthBehaviors13Question = await Question.create({
       question: 'Avoid the sun by staying in the shade?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -6732,7 +6732,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors14Question){
     HealthBehaviors14Question = await Question.create({
       question: 'Wear protective clothing (e.g., wide-brimmed hat, long-sleeved shirt)?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -6785,7 +6785,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors15Question){
     HealthBehaviors15Question = await Question.create({
       question: 'Use sunscreen, lotions, or foundations SPF 15 or higher?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -6838,7 +6838,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors16Question){
     HealthBehaviors16Question = await Question.create({
       question: 'How many times in the past 12 months have you used a tanning bed or booth?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 15,
@@ -6861,7 +6861,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors17Question){
     HealthBehaviors17Question = await Question.create({
       question: 'Have you ever seen a dermatologist or other healthcare provider for a skin exam to look for skin cancer or other abnormalities?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 16,
@@ -6884,7 +6884,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors18Question){
     HealthBehaviors18Question = await Question.create({
       question: 'When was your MOST RECENT skin exam?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 17,
@@ -6949,7 +6949,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors19Question){
     HealthBehaviors19Question = await Question.create({
       question: 'How many times in the past 12 months have you used a tanning bed or booth?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 18,
@@ -6971,7 +6971,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors20Question){
     HealthBehaviors20Question = await Question.create({
       question: 'How much time did you usually spend doing vigorous physical activities on one of those days?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 19,
@@ -6993,7 +6993,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors21Question){
     HealthBehaviors21Question = await Question.create({
       question: 'During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 20,
@@ -7015,7 +7015,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors22Question){
     HealthBehaviors22Question = await Question.create({
       question: 'How much time did you usually spend doing moderate physical activities on one of those days?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 21,
@@ -7037,7 +7037,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors23Question){
     HealthBehaviors23Question = await Question.create({
       question: 'During the last 7 days, on how many days did you walk for at least 10 minutes at a time?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 22,
@@ -7059,7 +7059,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors24Question){
     HealthBehaviors24Question = await Question.create({
       question: 'How much time did you usually spend walking on one of those days?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 23,
@@ -7081,7 +7081,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors25Question){
     HealthBehaviors25Question = await Question.create({
       question: 'During the last 7 days, how much time did you spend sitting on a week day?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 24,
@@ -7103,7 +7103,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors26Question){
     HealthBehaviors26Question = await Question.create({
       question: 'Which of the following describes how you do your exercise?',
-      stack: 0,
+      stack: 8,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 25,
@@ -7168,7 +7168,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors27Question){
     HealthBehaviors27Question = await Question.create({
       question: 'How many days per week do you perform muscle strengthening exercises, such as body weight exercises or resistance training?',
-      stack: 0,
+      stack: 8,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 26,
@@ -7190,7 +7190,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors28Question){
     HealthBehaviors28Question = await Question.create({
       question: 'On average, about how many cups of bottled or tap water do you drink each day? (8 oz. of water is equal to one cup. One standard 16 oz. bottle of water equals 2 cups.)',
-      stack: 0,
+      stack: 9,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 27,
@@ -7237,7 +7237,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors29Question){
     HealthBehaviors29Question = await Question.create({
       question: 'During the past 7 days, how many times did you drink 100% fruit juices such as orange juice, apple juice, or grape juice? (Do not count punch, Kool-Aid, sports drinks, or other fruit-flavored drinks.)',
-      stack: 0,
+      stack: 9,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 28,
@@ -7302,7 +7302,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors30Question){
     HealthBehaviors30Question = await Question.create({
       question: 'During the past 7 days, how many times did you eat fruit? (Do not count fruit juice.)',
-      stack: 0,
+      stack: 10,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 29,
@@ -7367,7 +7367,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors31Question){
     HealthBehaviors31Question = await Question.create({
       question: 'During the past 7 days, how many times did you eat green salad, potatoes, carrots, or other vegetables? (Do not count french fries, fried potatoes, or potato chips.)',
-      stack: 0,
+      stack: 10,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 30,
@@ -7432,7 +7432,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors32Question){
     HealthBehaviors32Question = await Question.create({
       question: 'During the past 7 days, on how many days did you eat breakfast?',
-      stack: 0,
+      stack: 10,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 31,
@@ -7503,7 +7503,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors33Question){
     HealthBehaviors33Question = await Question.create({
       question: 'During the past 7 days, how many times did you eat from a fast food restaurant, including carry out or delivery?',
-      stack: 0,
+      stack: 11,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 32,
@@ -7568,7 +7568,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors34Question){
     HealthBehaviors34Question = await Question.create({
       question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of soda or pop, such as Coke, Pepsi, or Sprite? (Do not count diet soda or diet pop.) ',
-      stack: 0,
+      stack: 11,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 33,
@@ -7633,7 +7633,7 @@ export const boilerplateData = async () => {
   if (!HealthBehaviors35Question){
     HealthBehaviors35Question = await Question.create({
       question: 'During the past 7 days, how many times did you drink a can, bottle, or glass of a sports drink such as Gatorade or Powerade? (Do not count low-calorie sports drinks such as Propel or G2.)',
-      stack: 0,
+      stack: 12,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 34,
@@ -7787,7 +7787,7 @@ export const boilerplateData = async () => {
   if (!TimeUse5Question){
     TimeUse5Question = await Question.create({
       question: 'Face to face time with friends or neighbors?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -7809,7 +7809,7 @@ export const boilerplateData = async () => {
   if (!TimeUse6Question){
     TimeUse6Question = await Question.create({
       question: 'Time using technology (e.g., on social media, texting, email, watching TV, on the phone)?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Numerical',
       order: 5,
@@ -7831,7 +7831,7 @@ export const boilerplateData = async () => {
   if (!TimeUse7Question){
     TimeUse7Question = await Question.create({
       question: 'Time spent not using technology (e.g., reading, exercising, relaxing)?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -8042,7 +8042,7 @@ export const boilerplateData = async () => {
   if (!LowMood5Question){
     LowMood5Question = await Question.create({
       question: ' Earlier in the interview you mentioned that a health professional once diagnosed you with depression. About how old were you the very first time you had problems with depression for at least one month? (Your best estimate is fine if you cannot remember your exact age.)',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -8064,7 +8064,7 @@ export const boilerplateData = async () => {
   if (!LowMood6Question){
     LowMood6Question = await Question.create({
       question: 'About how many years in your life did you have problems with depression or low mood for at least one month?  (Your best estimate is fine if you cannot remember the exact number.)',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -8227,7 +8227,7 @@ export const boilerplateData2 = async () => {
   if (!LowMood7Question){
     LowMood7Question = await Question.create({
       question: 'About how many months out of the past 24 months (in the past 2 years) did you have problems with depression or low mood?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -8250,7 +8250,7 @@ export const boilerplateData2 = async () => {
   if (!LowMood8Question){
     LowMood8Question = await Question.create({
       question: 'Have you ever done something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 7,
@@ -8272,7 +8272,7 @@ export const boilerplateData2 = async () => {
   if (!LowMood9Question){
     LowMood9Question = await Question.create({
       question: 'During the last 12 months, how many times did you do something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -8331,7 +8331,7 @@ export const boilerplateData2 = async () => {
   if (!LowMood10Question){
     LowMood10Question = await Question.create({
       question: 'How many separate times in the past 12 months have you had thoughts of killing yourself?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -8656,7 +8656,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion5Question){
     SelfCompassion5Question = await Question.create({
       question: 'I try to see my failings as part of the human condition.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -8715,7 +8715,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion6Question){
     SelfCompassion6Question = await Question.create({
       question: 'When I’m going through a very hard time, I give myself the caring and tenderness I need.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -8774,7 +8774,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion7Question){
     SelfCompassion7Question = await Question.create({
       question: 'When something upsets me I try to keep my emotions in balance.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -8833,7 +8833,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion8Question){
     SelfCompassion8Question = await Question.create({
       question: 'When I fail at something that’s important to me, I tend to feel alone in my failure.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -8892,7 +8892,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion9Question){
     SelfCompassion9Question = await Question.create({
       question: 'When I’m feeling down I tend to obsess and fixate on everything that’s wrong.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -8951,7 +8951,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion10Question){
     SelfCompassion10Question = await Question.create({
       question: 'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -9010,7 +9010,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion11Question){
     SelfCompassion11Question = await Question.create({
       question: 'I’m disapproving and judgmental about my own flaws and inadequacies.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -9069,7 +9069,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion12Question){
     SelfCompassion12Question = await Question.create({
       question: 'I’m intolerant and impatient towards those aspects of my personality I don’t like.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -9209,7 +9209,7 @@ export const boilerplateData2 = async () => {
   if (!Pets3Question){
     Pets3Question = await Question.create({
       question: 'I do not really like animals.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 2,
@@ -9262,7 +9262,7 @@ export const boilerplateData2 = async () => {
   if (!Pets4Question){
     Pets4Question = await Question.create({
       question: 'I spend time every day playing with my pet.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -9315,7 +9315,7 @@ export const boilerplateData2 = async () => {
   if (!Pets5Question){
     Pets5Question = await Question.create({
       question: 'I have sometimes talked to my pet and understood what he/she was trying to tell me.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -9368,7 +9368,7 @@ export const boilerplateData2 = async () => {
   if (!Pets6Question){
     Pets6Question = await Question.create({
       question: 'I love pets.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -9421,7 +9421,7 @@ export const boilerplateData2 = async () => {
   if (!Pets7Question){
     Pets7Question = await Question.create({
       question: 'I talk to my pet quite a lot.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -9474,7 +9474,7 @@ export const boilerplateData2 = async () => {
   if (!Pets8Question){
     Pets8Question = await Question.create({
       question: 'My pet makes me feel happy.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -9527,7 +9527,7 @@ export const boilerplateData2 = async () => {
   if (!Pets9Question){
     Pets9Question = await Question.create({
       question: 'I consider my pet to be a friend.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -9580,7 +9580,7 @@ export const boilerplateData2 = async () => {
   if (!Pets10Question){
     Pets10Question = await Question.create({
       question: 'My pet knows when I’m upset and tries to comfort me.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -9633,7 +9633,7 @@ export const boilerplateData2 = async () => {
   if (!Pets11Question){
     Pets11Question = await Question.create({
       question: 'There are times I’d be lonely without my pet.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -9774,7 +9774,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful5Question){
     Stressful5Question = await Question.create({
       question: 'You were involved in a motor vehicle accident while you were driving (regardless of who was responsible)',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 4,
@@ -9796,7 +9796,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful6Question){
     Stressful6Question = await Question.create({
       question: 'Any serious legal problem',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 5,
@@ -9818,7 +9818,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful7Question){
     Stressful7Question = await Question.create({
       question: 'Any other very stressful event',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'Yes/No',
       order: 6,
@@ -9841,7 +9841,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful8Question){
     Stressful8Question = await Question.create({
       question: 'Briefly, what happened?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -9863,7 +9863,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful9Question){
     Stressful9Question = await Question.create({
       question: 'Your financial situation',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -9916,7 +9916,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful10Question){
     Stressful10Question = await Question.create({
       question: 'Your career',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -9969,7 +9969,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful11Question){
     Stressful11Question = await Question.create({
       question: 'Your health',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -10022,7 +10022,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful12Question){
     Stressful12Question = await Question.create({
       question: 'Your friendships',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -10075,7 +10075,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful13Question){
     Stressful13Question = await Question.create({
       question: 'Your love life',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -10128,7 +10128,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful14Question){
     Stressful14Question = await Question.create({
       question: 'Your relationship with your family',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -10181,7 +10181,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful15Question){
     Stressful15Question = await Question.create({
       question: 'The health of your loved ones',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -10234,7 +10234,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful16Question){
     Stressful16Question = await Question.create({
       question: 'Other problems of your loved ones',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 15,
@@ -10287,7 +10287,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful17Question){
     Stressful17Question = await Question.create({
       question: 'Your life overall',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 16,
@@ -10340,7 +10340,7 @@ export const boilerplateData2 = async () => {
   if (!Stressful18Question){
     Stressful18Question = await Question.create({
       question: 'Briefly, what happened?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 17,
@@ -10539,7 +10539,7 @@ export const boilerplateData2 = async () => {
   if (!Discrimination4Question){
     Discrimination4Question = await Question.create({
       question: 'People act as if they think you are not smart.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -10598,7 +10598,7 @@ export const boilerplateData2 = async () => {
   if (!Discrimination5Question){
     Discrimination5Question = await Question.create({
       question: 'You are threatened or harassed.',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -10701,7 +10701,7 @@ export const boilerplateData2 = async () => {
   if (!Employment3aQuestion){
     Employment3aQuestion = await Question.create({
       question: 'About how many hours a week did you typically work before you went on leave?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 2,
@@ -10723,7 +10723,7 @@ export const boilerplateData2 = async () => {
   if (!Employment3bQuestion){
     Employment3bQuestion = await Question.create({
       question: 'About how many hours do you typically work a week?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -10745,7 +10745,7 @@ export const boilerplateData2 = async () => {
   if (!Employment4Question){
     Employment4Question = await Question.create({
       question: 'What hours do you typically work?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -10792,7 +10792,7 @@ export const boilerplateData2 = async () => {
   if (!Employment5Question){
     Employment5Question = await Question.create({
       question: 'How many hours do you typically work per day?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -10845,7 +10845,7 @@ export const boilerplateData2 = async () => {
   if (!Employment6Question){
     Employment6Question = await Question.create({
       question: 'In the past 4 weeks, about how many hours per week did you miss from work because of problems with your health? Include hours you missed on sick days, times you went in late, left early, etc., because of problems with your health. (If it varied, give your best estimate of an average.)',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -10867,7 +10867,7 @@ export const boilerplateData2 = async () => {
   if (!Employment7Question){
     Employment7Question = await Question.create({
       question: 'In the past 4 weeks, about how many hours per week did you miss from work because of any other reason, such as vacation or holidays? (If it varied, give your best estimate of an average.)',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -10889,7 +10889,7 @@ export const boilerplateData2 = async () => {
   if (!Employment8Question){
     Employment8Question = await Question.create({
       question: 'In the past 4 weeks, how many hours per week did you actually work? (If it varied, give your best estimate of an average.)',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -10955,7 +10955,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet3Question){
     SocialNet3Question = await Question.create({
       question: 'How many hours in a typical month do you spend socializing in person (either visiting each other in your homes or going out together) with any friends or relatives that do not live with you?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 2,
@@ -10977,7 +10977,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet4Question){
     SocialNet4Question = await Question.create({
       question: 'In a typical month, how many different friends or relatives do you socialize with in person?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -10999,7 +10999,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet5Question){
     SocialNet5Question = await Question.create({
       question: 'How much could you rely on them for help if you had a serious problem?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -11047,7 +11047,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet6Question){
     SocialNet6Question = await Question.create({
       question: 'How much could you open up to them if you needed to talk about your problems?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -11094,7 +11094,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet7Question){
     SocialNet7Question = await Question.create({
       question: 'How much do they make too many demands on you?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -11141,7 +11141,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNet8Question){
     SocialNet8Question = await Question.create({
       question: 'How much do they argue with you?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -11400,7 +11400,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood5Question){
     Neighborhood5Question = await Question.create({
       question: 'Do you know by name?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -11422,7 +11422,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood6Question){
     Neighborhood6Question = await Question.create({
       question: 'Do you ever have a conversation with?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -11445,7 +11445,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood7Question){
     Neighborhood7Question = await Question.create({
       question: 'Do you consider to be your friends?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -11467,7 +11467,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood8Question){
     Neighborhood8Question = await Question.create({
       question: 'Do you get together with socially?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -11489,7 +11489,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood9Question){
     Neighborhood9Question = await Question.create({
       question: 'Do you feel close enough to that you would ask them for help if you needed it?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -11512,7 +11512,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood10Question){
     Neighborhood10Question = await Question.create({
       question: 'Drug or alcohol abuse is a problem in my community.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -11565,7 +11565,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood11Question){
     Neighborhood11Question = await Question.create({
       question: 'We have great parks and recreational facilities.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -11618,7 +11618,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood12Question){
     Neighborhood12Question = await Question.create({
       question: 'Public transportation is readily available to me if I need it.',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -11671,7 +11671,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood13Question){
     Neighborhood13Question = await Question.create({
       question: 'There are plenty of jobs available for those who want them.',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -11724,7 +11724,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood14Question){
     Neighborhood14Question = await Question.create({
       question: 'Crime in my area is a serious problem.',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -11777,7 +11777,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood15Question){
     Neighborhood15Question = await Question.create({
       question: 'Air pollution is a problem in my community.',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -11830,7 +11830,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood16Question){
     Neighborhood16Question = await Question.create({
       question: 'I feel safe in my neighborhood.',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 15,
@@ -11883,7 +11883,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood17Question){
     Neighborhood17Question = await Question.create({
       question: 'There are affordable places to live in my neighborhood.',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 16,
@@ -11936,7 +11936,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood18Question){
     Neighborhood18Question = await Question.create({
       question: 'The quality of health care in my neighborhood is good.',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 17,
@@ -11989,7 +11989,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood19Question){
     Neighborhood19Question = await Question.create({
       question: 'There are good sidewalks for walking safely.',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 18,
@@ -12042,7 +12042,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood20Question){
     Neighborhood20Question = await Question.create({
       question: 'I am able to get healthy food easily.',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 19,
@@ -12095,7 +12095,7 @@ export const boilerplateData2 = async () => {
   if (!Neighborhood21Question){
     Neighborhood21Question = await Question.create({
       question: 'I am able to find affordable, high quality childcare in my neighborhood.',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 20,
@@ -12360,7 +12360,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness5Question){
     Religiousness5Question = await Question.create({
       question: 'To what extent do you find meaning in life?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -12413,7 +12413,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness6Question){
     Religiousness6Question = await Question.create({
       question: 'To what extent does taking care of other people provide meaning of life for you?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -12466,7 +12466,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness7Question){
     Religiousness7Question = await Question.create({
       question: 'To what extent do you feel your life has a purpose?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -12519,7 +12519,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness8Question){
     Religiousness8Question = await Question.create({
       question: 'To what extent do you feel you are here for a reason?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -12572,7 +12572,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness9Question){
     Religiousness9Question = await Question.create({
       question: 'To what extent do you feel inner spiritual strength?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -12625,7 +12625,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness10Question){
     Religiousness10Question = await Question.create({
       question: 'To what extent can you find spiritual strength in difficult times?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -12678,7 +12678,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness11Question){
     Religiousness11Question = await Question.create({
       question: 'To what extent does faith contribute to your well-being?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -12731,7 +12731,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness12Question){
     Religiousness12Question = await Question.create({
       question: 'To what extent does faith give you comfort in daily life?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
@@ -12784,7 +12784,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness13Question){
     Religiousness13Question = await Question.create({
       question: 'To what extent does faith give you strength in daily life?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 12,
@@ -12837,7 +12837,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness14Question){
     Religiousness14Question = await Question.create({
       question: 'To what extent do you feel spiritually touched by beauty?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 13,
@@ -12890,7 +12890,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness15Question){
     Religiousness15Question = await Question.create({
       question: 'To what extent do you have feelings of inspiration / excitement in your life?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 14,
@@ -12943,7 +12943,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness16Question){
     Religiousness16Question = await Question.create({
       question: 'To what extent are you grateful for the things in nature that you can enjoy?',
-      stack: 0,
+      stack: 3,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 15,
@@ -12996,7 +12996,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness17Question){
     Religiousness17Question = await Question.create({
       question: 'How hopeful do you feel?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 16,
@@ -13049,7 +13049,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness18Question){
     Religiousness18Question = await Question.create({
       question: 'To what extent are you hopeful about your life?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 17,
@@ -13102,7 +13102,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness19Question){
     Religiousness19Question = await Question.create({
       question: 'To what extent are you able to experience awe from your surroundings? (e.g. nature, art, music)',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 18,
@@ -13155,7 +13155,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness20Question){
     Religiousness20Question = await Question.create({
       question: 'To what extent do you feel any connection between your mind, body and soul?',
-      stack: 0,
+      stack: 4,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 19,
@@ -13208,7 +13208,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness21Question){
     Religiousness21Question = await Question.create({
       question: 'To what extent do you feel the way you live is consistent with what you feel and think?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 20,
@@ -13261,7 +13261,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness22Question){
     Religiousness22Question = await Question.create({
       question: 'How much do your beliefs help you to create coherence between what you do, think and feel?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 21,
@@ -13314,7 +13314,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness23Question){
     Religiousness23Question = await Question.create({
       question: 'How much does spiritual strength help you to live better?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 22,
@@ -13367,7 +13367,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness24Question){
     Religiousness24Question = await Question.create({
       question: 'To what extent does your spiritual strength help you to feel happy in life?',
-      stack: 0,
+      stack: 5,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 23,
@@ -13420,7 +13420,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness25Question){
     Religiousness25Question = await Question.create({
       question: 'To what extent do you feel peaceful within yourself?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 24,
@@ -13473,7 +13473,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness26Question){
     Religiousness26Question = await Question.create({
       question: 'To what extent do you have inner peace?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 25,
@@ -13526,7 +13526,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness27Question){
     Religiousness27Question = await Question.create({
       question: 'How much are you able to feel peaceful when you need to?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 26,
@@ -13579,7 +13579,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness28Question){
     Religiousness28Question = await Question.create({
       question: 'To what extent do you feel a sense of harmony in your life?',
-      stack: 0,
+      stack: 6,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 27,
@@ -13632,7 +13632,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness29Question){
     Religiousness29Question = await Question.create({
       question: 'To what extent does being optimistic improve your quality of life?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 28,
@@ -13685,7 +13685,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness30Question){
     Religiousness30Question = await Question.create({
       question: 'How able are you to remain optimistic in times of uncertainty?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 29,
@@ -13738,7 +13738,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness31Question){
     Religiousness31Question = await Question.create({
       question: 'To what extent does faith help you to enjoy life?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 30,
@@ -13791,7 +13791,7 @@ export const boilerplateData2 = async () => {
   if (!Religiousness32Question){
     Religiousness32Question = await Question.create({
       question: 'How satisfied are you that you have a balance between mind, body and soul?',
-      stack: 0,
+      stack: 7,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 31,
@@ -13978,7 +13978,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep4Question){
     Sleep4Question = await Question.create({
       question: 'Get enough sleep to feel rested upon waking in the morning? ',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 3,
@@ -14037,7 +14037,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep5Question){
     Sleep5Question = await Question.create({
       question: 'Awaken short of breath or with a headache? ',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 4,
@@ -14096,7 +14096,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep6Question){
     Sleep6Question = await Question.create({
       question: 'Feel drowsy or sleepy during the day?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 5,
@@ -14155,7 +14155,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep7Question){
     Sleep7Question = await Question.create({
       question: 'Have trouble falling asleep?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 6,
@@ -14214,7 +14214,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep8Question){
     Sleep8Question = await Question.create({
       question: 'Awaken during your sleep time and have trouble falling asleep again?',
-      stack: 0,
+      stack: 1,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 7,
@@ -14273,7 +14273,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep9Question){
     Sleep9Question = await Question.create({
       question: 'Have trouble staying awake during the day? ',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 8,
@@ -14332,7 +14332,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep10Question){
     Sleep10Question = await Question.create({
       question: 'Snore during your sleep?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 9,
@@ -14391,7 +14391,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep11Question){
     Sleep11Question = await Question.create({
       question: 'Take naps (5 minutes or longer) during the day?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 10,
@@ -14450,7 +14450,7 @@ export const boilerplateData2 = async () => {
   if (!Sleep12Question){
     Sleep12Question = await Question.create({
       question: 'Get the amount of sleep you needed?',
-      stack: 0,
+      stack: 2,
       stackPhrase: 'Whatever phrase',
       placeHolder: 'NONE',
       order: 11,
