@@ -2208,7 +2208,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(DemographicsEighthQuestion)
-    .set(multiselectionQuestionCategory);
+    .set(comboQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
