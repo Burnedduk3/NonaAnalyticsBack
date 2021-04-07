@@ -4,7 +4,7 @@ import { CONFIG_DATABASE_URL, CONFIG_ENVIROMENT } from './variables';
 const config: ConnectionOptions = {
   name: 'default',
   type: 'postgres',
-  url: "postgres://LifeProjectUser:GcRBWSd4zT2r26pW@terraform-20210401174332229800000001.c4kx0bmqhjaj.us-east-1.rds.amazonaws.com:5432/prodLifeProjectDatabase",
+  url: CONFIG_DATABASE_URL,
   ssl: CONFIG_ENVIROMENT !== 'development' && {
     rejectUnauthorized: false,
   },
