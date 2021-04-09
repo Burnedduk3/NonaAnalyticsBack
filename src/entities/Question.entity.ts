@@ -86,7 +86,7 @@ export class Question extends BaseEntity {
   category: Category;
 
   // ManyToOne
-  @Field(() => SubSection, { nullable: false })
+  @Field(() => SubSection, { nullable: true })
   @ManyToOne(() => SubSection, (subSection) => subSection.questions)
   subSection: SubSection;
 }

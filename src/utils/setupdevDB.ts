@@ -1622,6 +1622,9 @@ export const boilerplateData = async () => {
     QOL3Item5 = await QuestionItems.create({ name: 'Much better than others like you', order: 5 }).save();
   }
 
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL3Question)
+    .set(QOLSubSection);
+
   await getConnection().createQueryBuilder().relation(Question, 'category').of(QOL3Question)
     .set(comboQuestionCategory);
 
@@ -1659,11 +1662,11 @@ export const boilerplateData = async () => {
     .of(YourHealth1Question)
     .set(openQuestionCategory);
 
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'subSection')
-    .of(YourHealth1Question)
-    .set(YourHealthSubSection);
+    await getConnection()
+      .createQueryBuilder()
+      .relation(Question, 'subSection')
+      .of(YourHealth1Question)
+      .set(YourHealthSubSection);
 
   let YourHealth2Question = await Question.findOne({ question: 'How much do you weigh?' });
   if (!YourHealth2Question) {
@@ -1736,7 +1739,7 @@ export const boilerplateData = async () => {
   if (!cardioDisItem5) {
     cardioDisItem5 = await QuestionItems.create({ name: 'Any other cardiovascular disease', order: 4 }).save();
   }
-  const cardioDisItem6 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 5 }).save();
+  const cardioDisItem6 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 5 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1792,7 +1795,7 @@ export const boilerplateData = async () => {
   if (!jointBoneDisItem3) {
     jointBoneDisItem3 = await QuestionItems.create({ name: 'Osteoporosis', order: 2 }).save();
   }
-  const jointBoneDisItem4 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 3 }).save();
+  const jointBoneDisItem4 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 3 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1852,7 +1855,7 @@ export const boilerplateData = async () => {
     respDisItem4 = await QuestionItems.create({ name: 'Any other respiratory disease', order: 3 }).save();
   }
 
-  const respDisItem5 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 4 }).save();
+  const respDisItem5 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 4 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1939,7 +1942,7 @@ export const boilerplateData = async () => {
     cancersItem11 = await QuestionItems.create({ name: 'Other', order: 10 }).save();
   }
 
-  const cancersItem12 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 11 }).save();
+  const cancersItem12 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 11 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -2060,7 +2063,7 @@ export const boilerplateData = async () => {
   }
   let otherdisItem14 = await QuestionItems.findOne({ name: 'None of these apply' });
   if (!otherdisItem14) {
-    otherdisItem14 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 13 }).save();
+    otherdisItem14 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 13 }).save();
   }
 
   await getConnection()
@@ -2114,7 +2117,7 @@ export const boilerplateData = async () => {
         'Using a 0-10 scale where 0 means “no energy” and 10 means “full of energy,” what number best describes how much energy you usually have during the day? (You can use any number between 0 and 10 to answer.)',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '8',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -2249,7 +2252,7 @@ export const boilerplateData = async () => {
       question: 'Your home management (e.g., cleaning, repairs, cooking, shopping)?  ',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -2382,7 +2385,7 @@ export const boilerplateData = async () => {
       question: 'Your ability to work?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -2515,7 +2518,7 @@ export const boilerplateData = async () => {
       question: 'The speed or quality of your work?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -2648,7 +2651,7 @@ export const boilerplateData = async () => {
       question: 'Your social life?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -2781,7 +2784,7 @@ export const boilerplateData = async () => {
       question: 'Your close personal relationships?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3036,7 +3039,7 @@ export const boilerplateData = async () => {
         'Pneumococcal Vaccine (participants 65 and older and/or diabetes, cancer, heart, lung, or immune disease)',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3103,7 +3106,7 @@ export const boilerplateData = async () => {
       question: 'Tetanus /Diphtheria/Pertussis Vaccine (Tdap or Tp)',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3170,7 +3173,7 @@ export const boilerplateData = async () => {
       question: 'Varicella Zoster Vaccine (for Shingles) (Participants 50 and older)',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3234,7 +3237,7 @@ export const boilerplateData = async () => {
       question: 'Hepatitis A',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3298,7 +3301,7 @@ export const boilerplateData = async () => {
       question: 'Hepatitis B',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3362,7 +3365,7 @@ export const boilerplateData = async () => {
       question: 'Meningococcal (Meningitis)',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3504,7 +3507,7 @@ export const boilerplateData = async () => {
       question: 'How likely are you to get the COVID-19 vaccine when it becomes available to you?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3580,7 +3583,7 @@ export const boilerplateData = async () => {
       question: 'Have you ever delayed having your child get a vaccine for reasons other than illness or allergy?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3693,7 +3696,7 @@ export const boilerplateData = async () => {
         'Including yourself, please select all the people age 45 or below in your immediate family that have been vaccinated against HPV. Mark all that apply.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3793,7 +3796,7 @@ export const boilerplateData = async () => {
         'A blood stool test is a test that may use a special kit at home to determine whether the stool contains blood. Have you ever had this test using a home kit?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3848,7 +3851,7 @@ export const boilerplateData = async () => {
       question: 'How long has it been since you had your last blood stool test using a home kit?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -3955,7 +3958,7 @@ export const boilerplateData = async () => {
         'Sigmoidoscopy and colonoscopy are exams in which a tube is inserted in the rectum to view the colon for signs of cancer or other health problems. Have you ever had either of these exams?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4043,7 +4046,7 @@ export const boilerplateData = async () => {
       question: 'When was your MOST RECENT sigmoidoscopy?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4161,7 +4164,7 @@ export const boilerplateData = async () => {
       question: 'When was your MOST RECENT colonoscopy',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4281,7 +4284,7 @@ export const boilerplateData = async () => {
       question: 'Annually, do you have a digital rectal exam (DRE) and/or prostate specific antigen (PSA) test?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 18,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4338,7 +4341,7 @@ export const boilerplateData = async () => {
         'A mammogram is an x-ray of each breast to look for breast cancer. Have you ever had a mammogram? [Female over the age of 40]',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 19,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4405,7 +4408,7 @@ export const boilerplateData = async () => {
         'A pap smear test (pap smear) is a test that is done by your doctor to check your cervix for cells that are not normal and could eventually cause cervical cancer. Have you ever had a Pap test? ',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 20,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4468,7 +4471,7 @@ export const boilerplateData = async () => {
       question: 'Do you have the pap test annually? ',
       stack: 8,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 21,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4515,7 +4518,7 @@ export const boilerplateData = async () => {
         'Overall, how confident are you that you could get advice or information about health or medical topics if you needed it? ',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4612,7 +4615,7 @@ export const boilerplateData = async () => {
         'Which place do you go most often when you are sick or need professional advice about your health? Mark only one',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4719,7 +4722,7 @@ export const boilerplateData = async () => {
         'Was there a time in the past 12 months when you needed medical care but did not get the care you needed?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4784,7 +4787,7 @@ export const boilerplateData = async () => {
       question: 'What is the main reason you didn’t get the medical care you needed? Mark only one',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4879,7 +4882,7 @@ export const boilerplateData = async () => {
         'Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, and/or government plans such as Medicare, Medicaid, or Indian Health Service?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -4934,7 +4937,7 @@ export const boilerplateData = async () => {
       question: 'What is the primary source of your health care coverage?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5063,7 +5066,7 @@ export const boilerplateData = async () => {
       question: 'Do you have a regular doctor or regular practice you usually go to for health care?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5126,7 +5129,7 @@ export const boilerplateData = async () => {
         'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5150,7 +5153,7 @@ export const boilerplateData = async () => {
       question: 'How many different prescription medications do you take in a typical day for chronic health problems?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5420,7 +5423,7 @@ export const boilerplateData = async () => {
       question: 'Forget to take a dose?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5497,7 +5500,7 @@ export const boilerplateData = async () => {
         'Stop taking it when you feel better even if the doctor told you to continue until the medication ran out?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5570,7 +5573,7 @@ export const boilerplateData = async () => {
       question: 'Brush your teeth? ',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5677,7 +5680,7 @@ export const boilerplateData = async () => {
         'Use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5780,7 +5783,7 @@ export const boilerplateData = async () => {
       question: 'Use mouthwash or mouth rinse?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5885,7 +5888,7 @@ export const boilerplateData = async () => {
       question: 'How many times per day do you usually brush your teeth?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 3,
       inputConfirmation: 'Numerical',
     }).save();
@@ -5911,7 +5914,7 @@ export const boilerplateData = async () => {
         'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem? ',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6007,7 +6010,7 @@ export const boilerplateData = async () => {
         'On the days you use them, how; ALL OTHERS: How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 5,
       inputConfirmation: 'Numerical',
     }).save();
@@ -6033,7 +6036,7 @@ export const boilerplateData = async () => {
         'On the days you use it, how; ALL OTHERS: How many times a day do you usually use mouthwash or mouth rinse?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 6,
       inputConfirmation: 'Numerical',
     }).save();
@@ -6057,7 +6060,7 @@ export const boilerplateData = async () => {
       question: 'Do you have a regular dentist or regular practice you usually go to for oral health?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6116,7 +6119,7 @@ export const boilerplateData = async () => {
       question: 'How often do you get a cleaning?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6241,7 +6244,7 @@ export const boilerplateData = async () => {
       question: 'Do you now smoke cigarettes every day, some days, or not at all?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6294,7 +6297,7 @@ export const boilerplateData = async () => {
       question: 'How long have you smoked cigarettes?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6387,7 +6390,7 @@ export const boilerplateData = async () => {
         'Do you now use any tobacco product other than regular cigarettes and E-cigarettes every day, some days, or not at all?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6464,7 +6467,7 @@ export const boilerplateData = async () => {
       question: 'Do you now use E-cigarettes every day, some days, or not at all?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6521,7 +6524,7 @@ export const boilerplateData = async () => {
         'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6608,7 +6611,7 @@ export const boilerplateData = async () => {
         'On the days you drink, about how many drinks do you usually have? One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot (1.5 ounces) of liquor.',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '1',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6634,7 +6637,7 @@ export const boilerplateData = async () => {
         'Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks (men) or 4 or more drinks (women) on a single occasion?',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6660,7 +6663,7 @@ export const boilerplateData = async () => {
         'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6818,7 +6821,7 @@ export const boilerplateData = async () => {
       question: 'Wear protective clothing (e.g., wide-brimmed hat, long-sleeved shirt)?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 13,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6893,7 +6896,7 @@ export const boilerplateData = async () => {
       question: 'Use sunscreen, lotions, or foundations SPF 15 or higher?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 14,
       inputConfirmation: 'Alpha',
     }).save();
@@ -6968,7 +6971,7 @@ export const boilerplateData = async () => {
       question: 'How many times in the past 12 months have you used a tanning bed or booth?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '5',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7016,7 +7019,7 @@ export const boilerplateData = async () => {
       question: 'When was your MOST RECENT skin exam?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7136,7 +7139,7 @@ export const boilerplateData = async () => {
       question: 'How many times in the past 12 months have you used a tanning bed or booth?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 18,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7160,7 +7163,7 @@ export const boilerplateData = async () => {
       question: 'How much time did you usually spend doing vigorous physical activities on one of those days?',
       stack: 8,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '10',
       order: 19,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7186,7 +7189,7 @@ export const boilerplateData = async () => {
         'During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.',
       stack: 8,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 20,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7210,7 +7213,7 @@ export const boilerplateData = async () => {
       question: 'How much time did you usually spend doing moderate physical activities on one of those days?',
       stack: 8,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 21,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7234,7 +7237,7 @@ export const boilerplateData = async () => {
       question: 'During the last 7 days, on how many days did you walk for at least 10 minutes at a time?',
       stack: 9,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 22,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7258,7 +7261,7 @@ export const boilerplateData = async () => {
       question: 'How much time did you usually spend walking on one of those days?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 23,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7282,7 +7285,7 @@ export const boilerplateData = async () => {
       question: 'During the last 7 days, how much time did you spend sitting on a week day?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 24,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7306,7 +7309,7 @@ export const boilerplateData = async () => {
       question: 'Which of the following describes how you do your exercise?',
       stack: 9,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 25,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7431,7 +7434,7 @@ export const boilerplateData = async () => {
         'How many days per week do you perform muscle strengthening exercises, such as body weight exercises or resistance training?',
       stack: 10,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 26,
       inputConfirmation: 'Numerical',
     }).save();
@@ -7457,7 +7460,7 @@ export const boilerplateData = async () => {
         'On average, about how many cups of bottled or tap water do you drink each day? (8 oz. of water is equal to one cup. One standard 16 oz. bottle of water equals 2 cups.)',
       stack: 10,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 27,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7524,7 +7527,7 @@ export const boilerplateData = async () => {
         'During the past 7 days, how many times did you drink 100% fruit juices such as orange juice, apple juice, or grape juice? (Do not count punch, Kool-Aid, sports drinks, or other fruit-flavored drinks.)',
       stack: 10,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 28,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7630,7 +7633,7 @@ export const boilerplateData = async () => {
       question: 'During the past 7 days, how many times did you eat fruit? (Do not count fruit juice.)',
       stack: 11,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 29,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7738,7 +7741,7 @@ export const boilerplateData = async () => {
         'During the past 7 days, how many times did you eat green salad, potatoes, carrots, or other vegetables? (Do not count french fries, fried potatoes, or potato chips.)',
       stack: 11,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 30,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7844,7 +7847,7 @@ export const boilerplateData = async () => {
       question: 'During the past 7 days, on how many days did you eat breakfast?',
       stack: 11,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 31,
       inputConfirmation: 'Alpha',
     }).save();
@@ -7951,7 +7954,7 @@ export const boilerplateData = async () => {
         'During the past 7 days, how many times did you eat from a fast food restaurant, including carry out or delivery?',
       stack: 12,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 32,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8059,7 +8062,7 @@ export const boilerplateData = async () => {
         'During the past 7 days, how many times did you drink a can, bottle, or glass of soda or pop, such as Coke, Pepsi, or Sprite? (Do not count diet soda or diet pop.) ',
       stack: 12,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 33,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8167,7 +8170,7 @@ export const boilerplateData = async () => {
         'During the past 7 days, how many times did you drink a can, bottle, or glass of a sports drink such as Gatorade or Powerade? (Do not count low-calorie sports drinks such as Propel or G2.)',
       stack: 12,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 34,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8271,7 +8274,7 @@ export const boilerplateData = async () => {
       question: 'Work, school, housework, or childcare?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '1',
       order: 0,
       inputConfirmation: 'Numerical',
     }).save();
@@ -8295,7 +8298,7 @@ export const boilerplateData = async () => {
       question: 'Volunteer work or meetings of voluntary groups (e.g., religious, political, civic, social, etc.)?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '1',
       order: 1,
       inputConfirmation: 'Numerical',
     }).save();
@@ -8317,7 +8320,7 @@ export const boilerplateData = async () => {
       question: 'Time available for relaxation, exercise, or leisure?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 2,
       inputConfirmation: 'Numerical',
     }).save();
@@ -8339,7 +8342,7 @@ export const boilerplateData = async () => {
       question: 'Face to face time with your close loved ones?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 3,
       inputConfirmation: 'Numerical',
     }).save();
@@ -8361,7 +8364,7 @@ export const boilerplateData = async () => {
       question: 'Face to face time with friends or neighbors?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 4,
       inputConfirmation: 'Numerical',
     }).save();
@@ -8385,9 +8388,9 @@ export const boilerplateData = async () => {
       question: 'Time using technology (e.g., on social media, texting, email, watching TV, on the phone)?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'Numerical',
+      placeHolder: '2',
       order: 5,
-      inputConfirmation: 'Alpha',
+      inputConfirmation: 'Numeric',
     }).save();
   }
   await getConnection()
@@ -8409,7 +8412,7 @@ export const boilerplateData = async () => {
       question: 'Time spent not using technology (e.g., reading, exercising, relaxing)?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8494,7 +8497,7 @@ export const boilerplateData = async () => {
       question: 'Feeling down, depressed, or hopeless',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8557,7 +8560,7 @@ export const boilerplateData = async () => {
       question: 'Feeling nervous, anxious, or on edge',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8620,7 +8623,7 @@ export const boilerplateData = async () => {
       question: 'Not being able to stop or control worrying',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8687,7 +8690,7 @@ export const boilerplateData = async () => {
         ' Earlier in the interview you mentioned that a health professional once diagnosed you with depression. About how old were you the very first time you had problems with depression for at least one month? (Your best estimate is fine if you cannot remember your exact age.)',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8713,7 +8716,7 @@ export const boilerplateData = async () => {
         'About how many years in your life did you have problems with depression or low mood for at least one month?  (Your best estimate is fine if you cannot remember the exact number.)',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8863,7 +8866,7 @@ export const boilerplateData2 = async () => {
         'About how many months out of the past 24 months (in the past 2 years) did you have problems with depression or low mood?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -8915,7 +8918,7 @@ export const boilerplateData2 = async () => {
         'During the last 12 months, how many times did you do something to purposely hurt or injure yourself without wanting to die such as cutting, burning, or bruising yourself on purpose?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9000,7 +9003,7 @@ export const boilerplateData2 = async () => {
       question: 'How many separate times in the past 12 months have you had thoughts of killing yourself?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9135,7 +9138,7 @@ export const boilerplateData2 = async () => {
       question: 'When I fail at something important to me I become consumed by feelings of inadequacy.',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9220,7 +9223,7 @@ export const boilerplateData2 = async () => {
       question: 'I try to be understanding and patient towards those aspects of my personality I don’t like.',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9305,7 +9308,7 @@ export const boilerplateData2 = async () => {
       question: 'When something painful happens I try to take a balanced view of the situation.',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9390,7 +9393,7 @@ export const boilerplateData2 = async () => {
       question: 'When I’m feeling down, I tend to feel like most other people are probably happier than I am.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9475,7 +9478,7 @@ export const boilerplateData2 = async () => {
       question: 'I try to see my failings as part of the human condition.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9560,7 +9563,7 @@ export const boilerplateData2 = async () => {
       question: 'When I’m going through a very hard time, I give myself the caring and tenderness I need.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9645,7 +9648,7 @@ export const boilerplateData2 = async () => {
       question: 'When something upsets me I try to keep my emotions in balance.',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9730,7 +9733,7 @@ export const boilerplateData2 = async () => {
       question: 'When I fail at something that’s important to me, I tend to feel alone in my failure.',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9815,7 +9818,7 @@ export const boilerplateData2 = async () => {
       question: 'When I’m feeling down I tend to obsess and fixate on everything that’s wrong.',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9902,7 +9905,7 @@ export const boilerplateData2 = async () => {
         'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -9987,7 +9990,7 @@ export const boilerplateData2 = async () => {
       question: 'I’m disapproving and judgmental about my own flaws and inadequacies.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10072,7 +10075,7 @@ export const boilerplateData2 = async () => {
       question: 'I’m intolerant and impatient towards those aspects of my personality I don’t like.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10173,7 +10176,7 @@ export const boilerplateData2 = async () => {
       question: 'What type of pet(s) do you have? (check all that apply)',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10235,7 +10238,7 @@ export const boilerplateData2 = async () => {
       question: 'I do not really like animals.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10290,7 +10293,7 @@ export const boilerplateData2 = async () => {
       question: 'I spend time every day playing with my pet.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10347,7 +10350,7 @@ export const boilerplateData2 = async () => {
       question: 'I have sometimes talked to my pet and understood what he/she was trying to tell me.',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10402,7 +10405,7 @@ export const boilerplateData2 = async () => {
       question: 'I love pets.',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10457,7 +10460,7 @@ export const boilerplateData2 = async () => {
       question: 'I talk to my pet quite a lot.',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10512,7 +10515,7 @@ export const boilerplateData2 = async () => {
       question: 'My pet makes me feel happy.',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10567,7 +10570,7 @@ export const boilerplateData2 = async () => {
       question: 'I consider my pet to be a friend.',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10622,7 +10625,7 @@ export const boilerplateData2 = async () => {
       question: 'My pet knows when I’m upset and tries to comfort me.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10677,7 +10680,7 @@ export const boilerplateData2 = async () => {
       question: 'There are times I’d be lonely without my pet.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -10894,7 +10897,7 @@ export const boilerplateData2 = async () => {
       question: 'Briefly, what happened?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11062,7 +11065,7 @@ export const boilerplateData2 = async () => {
       question: 'Your health',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11135,7 +11138,7 @@ export const boilerplateData2 = async () => {
       question: 'Your friendships',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11208,7 +11211,7 @@ export const boilerplateData2 = async () => {
       question: 'Your love life',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11354,7 +11357,7 @@ export const boilerplateData2 = async () => {
       question: 'The health of your loved ones',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 14,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11500,7 +11503,7 @@ export const boilerplateData2 = async () => {
       question: 'Your life overall',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 16,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11573,7 +11576,7 @@ export const boilerplateData2 = async () => {
       question: 'Briefly, what happened?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 17,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11682,7 +11685,7 @@ export const boilerplateData2 = async () => {
       question: 'You receive poorer services than other people at restaurants and stores.',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11765,7 +11768,7 @@ export const boilerplateData2 = async () => {
       question: 'People act as if they are afraid of you.',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11848,7 +11851,7 @@ export const boilerplateData2 = async () => {
       question: 'People act as if they think you are not smart.',
       stack: 1,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -11931,7 +11934,7 @@ export const boilerplateData2 = async () => {
       question: 'You are threatened or harassed.',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12014,7 +12017,7 @@ export const boilerplateData2 = async () => {
       question: 'How long is your commute to work? ',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 0,
       inputConfirmation: 'Numerical',
     }).save();
@@ -12036,7 +12039,7 @@ export const boilerplateData2 = async () => {
       question: 'How long is your commute home?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '5',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12060,7 +12063,7 @@ export const boilerplateData2 = async () => {
       question: 'About how many hours a week did you typically work before you went on leave?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12082,7 +12085,7 @@ export const boilerplateData2 = async () => {
       question: 'About how many hours do you typically work a week?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '2',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12104,7 +12107,7 @@ export const boilerplateData2 = async () => {
       question: 'What hours do you typically work?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12178,7 +12181,7 @@ export const boilerplateData2 = async () => {
       question: 'How many hours do you typically work per day?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12255,7 +12258,7 @@ export const boilerplateData2 = async () => {
         'In the past 4 weeks, about how many hours per week did you miss from work because of problems with your health? Include hours you missed on sick days, times you went in late, left early, etc., because of problems with your health. (If it varied, give your best estimate of an average.)',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12281,7 +12284,7 @@ export const boilerplateData2 = async () => {
         'In the past 4 weeks, about how many hours per week did you miss from work because of any other reason, such as vacation or holidays? (If it varied, give your best estimate of an average.)',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '5',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12307,7 +12310,7 @@ export const boilerplateData2 = async () => {
         'In the past 4 weeks, how many hours per week did you actually work? (If it varied, give your best estimate of an average.)',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12333,7 +12336,7 @@ export const boilerplateData2 = async () => {
         'The next few questions are about all your friends and relatives. How many hours in a typical week do you spend socializing on social media, texting, emailing, writing, or talking on the phone with any friends or relatives that do not live with you. ',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12359,7 +12362,7 @@ export const boilerplateData2 = async () => {
         'In a typical week, how many different friends or relatives do you interact with on social media, text, email, write to, or talk to on the phone with?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12385,7 +12388,7 @@ export const boilerplateData2 = async () => {
         'How many hours in a typical month do you spend socializing in person (either visiting each other in your homes or going out together) with any friends or relatives that do not live with you?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12409,7 +12412,7 @@ export const boilerplateData2 = async () => {
       question: 'In a typical month, how many different friends or relatives do you socialize with in person?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12433,7 +12436,7 @@ export const boilerplateData2 = async () => {
       question: 'How much could you rely on them for help if you had a serious problem?',
       stack: 2,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12498,7 +12501,7 @@ export const boilerplateData2 = async () => {
       question: 'How much could you open up to them if you needed to talk about your problems?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12561,7 +12564,7 @@ export const boilerplateData2 = async () => {
       question: 'How much do they make too many demands on you?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12624,7 +12627,7 @@ export const boilerplateData2 = async () => {
       question: 'How much do they argue with you?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12687,7 +12690,7 @@ export const boilerplateData2 = async () => {
       question: 'Are friendly',
       stack: 0,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12760,7 +12763,7 @@ export const boilerplateData2 = async () => {
       question: 'Can be trusted',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12833,7 +12836,7 @@ export const boilerplateData2 = async () => {
       question: 'Share the same values',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12906,7 +12909,7 @@ export const boilerplateData2 = async () => {
       question: 'Are willing to help eachother',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -12979,7 +12982,7 @@ export const boilerplateData2 = async () => {
       question: 'Do you know by name?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '6',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13001,7 +13004,7 @@ export const boilerplateData2 = async () => {
       question: 'Do you ever have a conversation with?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '4',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13166,7 +13169,7 @@ export const boilerplateData2 = async () => {
       question: 'We have great parks and recreational facilities.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13241,7 +13244,7 @@ export const boilerplateData2 = async () => {
       question: 'Public transportation is readily available to me if I need it.',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13316,7 +13319,7 @@ export const boilerplateData2 = async () => {
       question: 'There are plenty of jobs available for those who want them.',
       stack: 5,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13389,7 +13392,7 @@ export const boilerplateData2 = async () => {
       question: 'Crime in my area is a serious problem.',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 13,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13462,7 +13465,7 @@ export const boilerplateData2 = async () => {
       question: 'Air pollution is a problem in my community.',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 14,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13535,7 +13538,7 @@ export const boilerplateData2 = async () => {
       question: 'I feel safe in my neighborhood.',
       stack: 6,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 15,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13610,7 +13613,7 @@ export const boilerplateData2 = async () => {
       question: 'There are affordable places to live in my neighborhood.',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 16,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13685,7 +13688,7 @@ export const boilerplateData2 = async () => {
       question: 'The quality of health care in my neighborhood is good.',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 17,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13758,7 +13761,7 @@ export const boilerplateData2 = async () => {
       question: 'There are good sidewalks for walking safely.',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 18,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13831,7 +13834,7 @@ export const boilerplateData2 = async () => {
       question: 'I am able to get healthy food easily.',
       stack: 7,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 19,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13906,7 +13909,7 @@ export const boilerplateData2 = async () => {
       question: 'I am able to find affordable, high quality childcare in my neighborhood.',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 20,
       inputConfirmation: 'Alpha',
     }).save();
@@ -13979,7 +13982,7 @@ export const boilerplateData2 = async () => {
       question: 'get through hard times?',
       stack: 0,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14052,7 +14055,7 @@ export const boilerplateData2 = async () => {
       question: 'To help you to tolerate stress?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14127,7 +14130,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does any connection to a spiritual being help you to understand others?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14202,7 +14205,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does any connection to a spiritual being provide you with comfort / reassurance?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14275,7 +14278,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you find meaning in life?',
       stack: 1,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14350,7 +14353,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does taking care of other people provide meaning of life for you?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14425,7 +14428,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel your life has a purpose?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14500,7 +14503,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel you are here for a reason?',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14575,7 +14578,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel inner spiritual strength?',
       stack: 2,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14650,7 +14653,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent can you find spiritual strength in difficult times?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14725,7 +14728,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does faith contribute to your well-being?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14800,7 +14803,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does faith give you comfort in daily life?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14875,7 +14878,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does faith give you strength in daily life?',
       stack: 3,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
     }).save();
@@ -14950,7 +14953,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel spiritually touched by beauty?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 13,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15025,7 +15028,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you have feelings of inspiration / excitement in your life?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 14,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15100,7 +15103,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent are you grateful for the things in nature that you can enjoy?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 15,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15173,7 +15176,7 @@ export const boilerplateData2 = async () => {
       question: 'How hopeful do you feel?',
       stack: 4,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 16,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15246,7 +15249,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent are you hopeful about your life?',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 17,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15321,7 +15324,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent are you able to experience awe from your surroundings? (e.g. nature, art, music)',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 18,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15396,7 +15399,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel any connection between your mind, body and soul?',
       stack: 4,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 19,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15471,7 +15474,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel the way you live is consistent with what you feel and think?',
       stack: 5,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 20,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15546,7 +15549,7 @@ export const boilerplateData2 = async () => {
       question: 'How much do your beliefs help you to create coherence between what you do, think and feel?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 21,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15621,7 +15624,7 @@ export const boilerplateData2 = async () => {
       question: 'How much does spiritual strength help you to live better?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 22,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15696,7 +15699,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does your spiritual strength help you to feel happy in life?',
       stack: 5,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 23,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15771,7 +15774,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel peaceful within yourself?',
       stack: 6,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 24,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15844,7 +15847,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you have inner peace?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 25,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15919,7 +15922,7 @@ export const boilerplateData2 = async () => {
       question: 'How much are you able to feel peaceful when you need to?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 26,
       inputConfirmation: 'Alpha',
     }).save();
@@ -15994,7 +15997,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent do you feel a sense of harmony in your life?',
       stack: 6,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 27,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16069,7 +16072,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does being optimistic improve your quality of life?',
       stack: 7,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 28,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16144,7 +16147,7 @@ export const boilerplateData2 = async () => {
       question: 'How able are you to remain optimistic in times of uncertainty?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 29,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16219,7 +16222,7 @@ export const boilerplateData2 = async () => {
       question: 'To what extent does faith help you to enjoy life?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 30,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16294,7 +16297,7 @@ export const boilerplateData2 = async () => {
       question: 'How satisfied are you that you have a balance between mind, body and soul?',
       stack: 7,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 31,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16369,7 +16372,7 @@ export const boilerplateData2 = async () => {
       question: 'How long did it usually take for you to fall asleep during the past 4 weeks?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16426,7 +16429,7 @@ export const boilerplateData2 = async () => {
       question: 'On the average, how many hours did you sleep each night during the past 4 weeks?',
       stack: 0,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '3',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16448,7 +16451,7 @@ export const boilerplateData2 = async () => {
         'Feel that your sleep was not quiet (moving restlessly, feeling tense, speaking, etc., while sleeping)?',
       stack: 1,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16512,7 +16515,7 @@ export const boilerplateData2 = async () => {
       question: 'Get enough sleep to feel rested upon waking in the morning? ',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16574,7 +16577,7 @@ export const boilerplateData2 = async () => {
       question: 'Awaken short of breath or with a headache? ',
       stack: 1,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16636,7 +16639,7 @@ export const boilerplateData2 = async () => {
       question: 'Feel drowsy or sleepy during the day?',
       stack: 2,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16698,7 +16701,7 @@ export const boilerplateData2 = async () => {
       question: 'Have trouble falling asleep?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16762,7 +16765,7 @@ export const boilerplateData2 = async () => {
       question: 'Awaken during your sleep time and have trouble falling asleep again?',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16824,7 +16827,7 @@ export const boilerplateData2 = async () => {
       question: 'Have trouble staying awake during the day? ',
       stack: 2,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16886,7 +16889,7 @@ export const boilerplateData2 = async () => {
       question: 'Snore during your sleep?',
       stack: 3,
       stackPhrase: 'Please choose the one more related to you:',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
     }).save();
@@ -16948,7 +16951,7 @@ export const boilerplateData2 = async () => {
       question: 'Take naps (5 minutes or longer) during the day?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 10,
       inputConfirmation: 'Alpha',
     }).save();
@@ -17010,7 +17013,7 @@ export const boilerplateData2 = async () => {
       question: 'Get the amount of sleep you needed?',
       stack: 3,
       stackPhrase: '',
-      placeHolder: 'NONE',
+      placeHolder: '',
       order: 11,
       inputConfirmation: 'Alpha',
     }).save();
