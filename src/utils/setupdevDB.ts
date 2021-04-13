@@ -14,6 +14,10 @@ export const boilerplateData = async () => {
     comboQuestionCategory = await Category.create({ name: 'Combo' }).save();
   }
 
+  let multiLadderQuestionCategory = await Category.findOne({ name: 'MultiLadder' });
+  if (!multiLadderQuestionCategory) {
+    multiLadderQuestionCategory = await Category.create({ name: 'MultiLadder' }).save();
+  }
   let openQuestionCategory = await Category.findOne({ name: 'Open' });
   if (!openQuestionCategory) {
     openQuestionCategory = await Category.create({ name: 'Open' }).save();
