@@ -1479,7 +1479,7 @@ export const boilerplateData = async () => {
 
       stack: 0,
 
-      stackPhrase: 'Please select the option that is most close to you:',
+      stackPhrase: 'How would you rate each of the following:',
 
       placeHolder: 'Excellent',
 
@@ -1513,7 +1513,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(QOL1Question)
-    .set(radiogroupQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL1Question)
     .set(QOLSubSection);
@@ -1570,7 +1570,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(QOL2Question)
-    .set(radiogroupQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL2Question)
     .set(QOLSubSection);
@@ -2255,7 +2255,7 @@ export const boilerplateData = async () => {
     YourHealth9Question = await Question.create({
       question: 'Your home management (e.g., cleaning, repairs, cooking, shopping)?  ',
       stack: 5,
-      stackPhrase: '',
+      stackPhrase: 'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
       placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
@@ -2309,7 +2309,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(YourHealth9Question)
-    .set(ladderQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -2442,7 +2442,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(YourHealth10Question)
-    .set(ladderQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -2575,7 +2575,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(YourHealth11Question)
-    .set(ladderQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -2708,7 +2708,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(YourHealth12Question)
-    .set(ladderQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -2841,7 +2841,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(YourHealth13Question)
-    .set(ladderQuestionCategory);
+    .set(multiLadderQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
