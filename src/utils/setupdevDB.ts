@@ -1513,7 +1513,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(QOL1Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL1Question)
     .set(QOLSubSection);
@@ -1570,7 +1570,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(QOL2Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL2Question)
     .set(QOLSubSection);
@@ -1743,7 +1743,7 @@ export const boilerplateData = async () => {
   if (!cardioDisItem5) {
     cardioDisItem5 = await QuestionItems.create({ name: 'Any other cardiovascular disease', order: 4 }).save();
   }
-  const cardioDisItem6 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 5 }).save();
+  const cardioDisItem6 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 5 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1799,7 +1799,7 @@ export const boilerplateData = async () => {
   if (!jointBoneDisItem3) {
     jointBoneDisItem3 = await QuestionItems.create({ name: 'Osteoporosis', order: 2 }).save();
   }
-  const jointBoneDisItem4 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 3 }).save();
+  const jointBoneDisItem4 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 3 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1859,7 +1859,7 @@ export const boilerplateData = async () => {
     respDisItem4 = await QuestionItems.create({ name: 'Any other respiratory disease', order: 3 }).save();
   }
 
-  const respDisItem5 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 4 }).save();
+  const respDisItem5 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 4 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -1946,7 +1946,7 @@ export const boilerplateData = async () => {
     cancersItem11 = await QuestionItems.create({ name: 'Other', order: 10 }).save();
   }
 
-  const cancersItem12 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 11 }).save();
+  const cancersItem12 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 11 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -2067,7 +2067,7 @@ export const boilerplateData = async () => {
   }
   let otherdisItem14 = await QuestionItems.findOne({ name: 'None of these apply' });
   if (!otherdisItem14) {
-    otherdisItem14 = await QuestionItems.create({ name: ' OF THESE APPLY', order: 13 }).save();
+    otherdisItem14 = await QuestionItems.create({ name: 'NONE OF THESE APPLY', order: 13 }).save();
   }
 
   await getConnection()
@@ -2654,7 +2654,7 @@ export const boilerplateData = async () => {
     YourHealth12Question = await Question.create({
       question: 'Your social life?',
       stack: 6,
-      stackPhrase: '',
+      stackPhrase: 'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -5308,7 +5308,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Utilization8Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -5383,7 +5383,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Utilization9Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -5456,7 +5456,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Utilization10Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -5533,7 +5533,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Utilization11Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -5785,7 +5785,7 @@ export const boilerplateData = async () => {
   if (!OralHealth3Question) {
     OralHealth3Question = await Question.create({
       question: 'Use mouthwash or mouth rinse?',
-      stack: 1,
+      stack: 0,
       stackPhrase: '',
       placeHolder: '',
       order: 2,
@@ -6779,7 +6779,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(HealthBehaviors13Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -6854,7 +6854,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(HealthBehaviors14Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -6929,7 +6929,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(HealthBehaviors15Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -8463,7 +8463,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(LowMood1Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -8526,7 +8526,7 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(LowMood2Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -9145,8 +9145,7 @@ export const boilerplateData2 = async () => {
     SelfCompassion1Question = await Question.create({
       question: 'When I fail at something important to me I become consumed by feelings of inadequacy.',
       stack: 0,
-      stackPhrase: '[FOR ITEMS S1 TO S12, USE THE FOLLOWING 5-POINT SCALE]\n' +
-          'Almost Never = 1, 2, 3, 4, 5=Almost Always\n',
+      stackPhrase: 'Almost Never = 1, 2, 3, 4, 5=Almost Always',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -9401,7 +9400,7 @@ export const boilerplateData2 = async () => {
     SelfCompassion4Question = await Question.create({
       question: 'When I’m feeling down, I tend to feel like most other people are probably happier than I am.',
       stack: 1,
-      stackPhrase: '',
+      stackPhrase: 'Almost Never = 1, 2, 3, 4, 5=Almost Always',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -9656,7 +9655,7 @@ export const boilerplateData2 = async () => {
     SelfCompassion7Question = await Question.create({
       question: 'When something upsets me I try to keep my emotions in balance.',
       stack: 2,
-      stackPhrase: '',
+      stackPhrase: 'Almost Never = 1, 2, 3, 4, 5=Almost Always',
       placeHolder: '',
       order: 6,
       inputConfirmation: 'Alpha',
@@ -9825,7 +9824,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion9Question) {
     SelfCompassion9Question = await Question.create({
       question: 'When I’m feeling down I tend to obsess and fixate on everything that’s wrong.',
-      stack: 3,
+      stack: 2,
       stackPhrase: '',
       placeHolder: '',
       order: 8,
@@ -9906,16 +9905,16 @@ export const boilerplateData2 = async () => {
 
   let SelfCompassion10Question = await Question.findOne({
     question:
-      'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.',
+      'When I feel inadequate in some way, I try to remind myself that feelings of inadequacy are shared by most people.',
   });
   if (!SelfCompassion10Question) {
     SelfCompassion10Question = await Question.create({
       question:
-        'When I feel inadequate in some way, I try to remind myself that feelings of inadequacyare shared by most people.',
+        'When I feel inadequate in some way, I try to remind myself that feelings of inadequacy are shared by most people.',
       stack: 3,
-      stackPhrase: '',
+      stackPhrase: 'Almost Never = 1, 2, 3, 4, 5=Almost Always',
       placeHolder: '',
-      order: 9,
+      order: 8,
       inputConfirmation: 'Alpha',
     }).save();
   }
@@ -9997,10 +9996,10 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion11Question) {
     SelfCompassion11Question = await Question.create({
       question: 'I’m disapproving and judgmental about my own flaws and inadequacies.',
-      stack: 4,
+      stack: 3,
       stackPhrase: '',
       placeHolder: '',
-      order: 10,
+      order: 9,
       inputConfirmation: 'Alpha',
     }).save();
   }
@@ -10082,7 +10081,7 @@ export const boilerplateData2 = async () => {
   if (!SelfCompassion12Question) {
     SelfCompassion12Question = await Question.create({
       question: 'I’m intolerant and impatient towards those aspects of my personality I don’t like.',
-      stack: 4,
+      stack: 3,
       stackPhrase: '',
       placeHolder: '',
       order: 11,
@@ -10246,8 +10245,7 @@ export const boilerplateData2 = async () => {
     Pets3Question = await Question.create({
       question: 'I do not really like animals.',
       stack: 1,
-      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements.  1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree\n' +
-          '[5-POINT SCALE TO BE USED FOR M3 TO M11]\n',
+      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements.  1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
@@ -10359,7 +10357,7 @@ export const boilerplateData2 = async () => {
     Pets5Question = await Question.create({
       question: 'I have sometimes talked to my pet and understood what he/she was trying to tell me.',
       stack: 2,
-      stackPhrase: '',
+      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
@@ -10524,7 +10522,7 @@ export const boilerplateData2 = async () => {
     Pets8Question = await Question.create({
       question: 'My pet makes me feel happy.',
       stack: 3,
-      stackPhrase: '',
+      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
@@ -10634,7 +10632,7 @@ export const boilerplateData2 = async () => {
     Pets10Question = await Question.create({
       question: 'My pet knows when I’m upset and tries to comfort me.',
       stack: 4,
-      stackPhrase: '',
+      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
@@ -10958,7 +10956,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful9Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11031,7 +11029,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful10Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11104,7 +11102,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful11Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11177,7 +11175,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful12Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11250,7 +11248,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful13Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11293,7 +11291,7 @@ export const boilerplateData2 = async () => {
     Stressful14Question = await Question.create({
       question: 'Your relationship with your family',
       stack: 3,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'How much stress did you have over the past 24 months in each of the following areas of your life?',
       placeHolder: '',
       order: 13,
       inputConfirmation: 'Alpha',
@@ -11323,7 +11321,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful14Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11396,7 +11394,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful15Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11469,7 +11467,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful16Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11542,7 +11540,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Stressful17Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11643,7 +11641,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Discrimination1Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11728,7 +11726,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Discrimination2Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11811,7 +11809,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Discrimination3Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11860,7 +11858,7 @@ export const boilerplateData2 = async () => {
     Discrimination4Question = await Question.create({
       question: 'People act as if they think you are not smart.',
       stack: 1,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'In your day to day life, how often do any of the following things happen to you:',
       placeHolder: '',
       order: 3,
       inputConfirmation: 'Alpha',
@@ -11894,7 +11892,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Discrimination4Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -11977,7 +11975,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Discrimination5Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12471,7 +12469,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(SocialNet5Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12536,7 +12534,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(SocialNet6Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12599,7 +12597,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(SocialNet7Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12662,7 +12660,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(SocialNet8Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12729,7 +12727,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood1Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12802,7 +12800,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood2Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12875,7 +12873,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood3Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -12948,7 +12946,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood4Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13135,7 +13133,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood10Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13208,7 +13206,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood11Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13283,7 +13281,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood12Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13328,7 +13326,7 @@ export const boilerplateData2 = async () => {
     Neighborhood13Question = await Question.create({
       question: 'There are plenty of jobs available for those who want them.',
       stack: 5,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
@@ -13358,7 +13356,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood13Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13431,7 +13429,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood14Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13504,7 +13502,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood15Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13547,7 +13545,7 @@ export const boilerplateData2 = async () => {
     Neighborhood16Question = await Question.create({
       question: 'I feel safe in my neighborhood.',
       stack: 6,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 15,
       inputConfirmation: 'Alpha',
@@ -13577,7 +13575,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood16Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13652,7 +13650,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood17Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13727,7 +13725,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood18Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13800,7 +13798,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood19Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13843,7 +13841,7 @@ export const boilerplateData2 = async () => {
     Neighborhood20Question = await Question.create({
       question: 'I am able to get healthy food easily.',
       stack: 7,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 19,
       inputConfirmation: 'Alpha',
@@ -13873,7 +13871,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood20Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -13948,7 +13946,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Neighborhood21Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14021,7 +14019,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness1Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14094,7 +14092,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness2Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14169,7 +14167,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness3Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14244,7 +14242,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness4Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14287,7 +14285,7 @@ export const boilerplateData2 = async () => {
     Religiousness5Question = await Question.create({
       question: 'To what extent do you find meaning in life?',
       stack: 1,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
@@ -14317,7 +14315,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness5Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14392,7 +14390,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness6Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14467,7 +14465,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness7Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14542,7 +14540,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness8Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14587,7 +14585,7 @@ export const boilerplateData2 = async () => {
     Religiousness9Question = await Question.create({
       question: 'To what extent do you feel inner spiritual strength?',
       stack: 2,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
@@ -14617,7 +14615,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness9Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14692,7 +14690,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness10Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14767,7 +14765,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness11Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14842,7 +14840,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness12Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14887,7 +14885,7 @@ export const boilerplateData2 = async () => {
     Religiousness13Question = await Question.create({
       question: 'To what extent does faith give you strength in daily life?',
       stack: 3,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
@@ -14917,7 +14915,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness13Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -14992,7 +14990,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness14Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15031,11 +15029,11 @@ export const boilerplateData2 = async () => {
     .add(Religiousness14QuestionItem5);
 
   let Religiousness15Question = await Question.findOne({
-    question: 'To what extent do you have feelings of inspiration / excitement in your life?',
+    question: 'To what extent do you have feelings of inspiration or excitement in your life?',
   });
   if (!Religiousness15Question) {
     Religiousness15Question = await Question.create({
-      question: 'To what extent do you have feelings of inspiration / excitement in your life?',
+      question: 'To what extent do you have feelings of inspiration or excitement in your life?',
       stack: 3,
       stackPhrase: '',
       placeHolder: '',
@@ -15067,7 +15065,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness15Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15142,7 +15140,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness16Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15185,7 +15183,7 @@ export const boilerplateData2 = async () => {
     Religiousness17Question = await Question.create({
       question: 'How hopeful do you feel?',
       stack: 4,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 16,
       inputConfirmation: 'Alpha',
@@ -15215,7 +15213,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness17Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15288,7 +15286,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness18Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15363,7 +15361,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness19Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15438,7 +15436,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness20Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15483,7 +15481,7 @@ export const boilerplateData2 = async () => {
     Religiousness21Question = await Question.create({
       question: 'To what extent do you feel the way you live is consistent with what you feel and think?',
       stack: 5,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 20,
       inputConfirmation: 'Alpha',
@@ -15513,7 +15511,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness21Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15588,7 +15586,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness22Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15663,7 +15661,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness23Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15738,7 +15736,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness24Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15783,7 +15781,7 @@ export const boilerplateData2 = async () => {
     Religiousness25Question = await Question.create({
       question: 'To what extent do you feel peaceful within yourself?',
       stack: 6,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 24,
       inputConfirmation: 'Alpha',
@@ -15813,7 +15811,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness25Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15886,7 +15884,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness26Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -15961,7 +15959,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness27Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16036,7 +16034,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness28Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16081,7 +16079,7 @@ export const boilerplateData2 = async () => {
     Religiousness29Question = await Question.create({
       question: 'To what extent does being optimistic improve your quality of life?',
       stack: 7,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 28,
       inputConfirmation: 'Alpha',
@@ -16111,7 +16109,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness29Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16186,7 +16184,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness30Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16261,7 +16259,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness31Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16336,7 +16334,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Religiousness32Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection()
     .createQueryBuilder()
@@ -16494,7 +16492,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep3Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep3Question)
     .set(SleepSubSection);
@@ -16558,7 +16556,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep4Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep4Question)
     .set(SleepSubSection);
@@ -16620,7 +16618,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep5Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep5Question)
     .set(SleepSubSection);
@@ -16648,7 +16646,7 @@ export const boilerplateData2 = async () => {
     Sleep6Question = await Question.create({
       question: 'Feel drowsy or sleepy during the day?',
       stack: 2,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'How often during the past 4 weeks did you',
       placeHolder: '',
       order: 5,
       inputConfirmation: 'Alpha',
@@ -16682,7 +16680,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep6Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep6Question)
     .set(SleepSubSection);
@@ -16744,7 +16742,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep7Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep7Question)
     .set(SleepSubSection);
@@ -16808,7 +16806,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep8Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep8Question)
     .set(SleepSubSection);
@@ -16870,7 +16868,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep9Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep9Question)
     .set(SleepSubSection);
@@ -16898,7 +16896,7 @@ export const boilerplateData2 = async () => {
     Sleep10Question = await Question.create({
       question: 'Snore during your sleep?',
       stack: 3,
-      stackPhrase: 'Please choose the one more related to you:',
+      stackPhrase: 'How often during the past 4 weeks did you',
       placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
@@ -16932,7 +16930,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep10Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep10Question)
     .set(SleepSubSection);
@@ -16994,7 +16992,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep11Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep11Question)
     .set(SleepSubSection);
@@ -17056,7 +17054,7 @@ export const boilerplateData2 = async () => {
     .createQueryBuilder()
     .relation(Question, 'category')
     .of(Sleep12Question)
-    .set(multiLadderQuestionCategory);
+    .set(radiogroupQuestionCategory);
 
   await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep12Question)
     .set(SleepSubSection);
