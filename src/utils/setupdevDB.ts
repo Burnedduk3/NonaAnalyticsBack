@@ -75,8 +75,7 @@ export const boilerplateData = async () => {
   if (!QOLSubSection) {
     QOLSubSection = await SubSection.create({ name: 'Quality of Life', order: 1 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(QOLSubSection)
-    .set(HealthSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(QOLSubSection).set(HealthSection);
 
   let YourHealthSubSection = await SubSection.findOne({ name: 'Your Health' });
   if (!YourHealthSubSection) {
@@ -130,8 +129,7 @@ export const boilerplateData = async () => {
   if (!OralHealthSubSection) {
     OralHealthSubSection = await SubSection.create({ name: 'Oral health', order: 0 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(OralHealthSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(OralHealthSubSection).set(MoodSection);
 
   let HealthBehaviorsSubSection = await SubSection.findOne({ name: 'Health Behaviors' });
   if (!HealthBehaviorsSubSection) {
@@ -147,15 +145,13 @@ export const boilerplateData = async () => {
   if (!TimeUseSubSection) {
     TimeUseSubSection = await SubSection.create({ name: 'Time Use', order: 2 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(TimeUseSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(TimeUseSubSection).set(MoodSection);
 
   let LowMoodSubSection = await SubSection.findOne({ name: 'Low Mood and Anxiety' });
   if (!LowMoodSubSection) {
     LowMoodSubSection = await SubSection.create({ name: 'Low Mood and Anxiety', order: 3 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(LowMoodSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(LowMoodSubSection).set(MoodSection);
 
   let SelfCompassionSubSection = await SubSection.findOne({ name: 'Self-Compassion' });
   if (!SelfCompassionSubSection) {
@@ -426,7 +422,6 @@ export const boilerplateData = async () => {
     .relation(Question, 'subSection')
     .of(DemographicsThirdQuestion)
     .set(DemographicsSubSection);
-
 
   await getConnection()
     .createQueryBuilder()
@@ -768,7 +763,6 @@ export const boilerplateData = async () => {
     .of(DemographicsTenthQuestion)
     .set(DemographicsSubSection);
 
-
   await getConnection()
     .createQueryBuilder()
     .relation(Question, 'items')
@@ -1086,36 +1080,6 @@ export const boilerplateData = async () => {
     .of(Demographics15Question)
     .add(l10bQuestionItem4);
 
-  let Demographics16Question = await Question.findOne({
-    question: 'If yes to any of the above, did you ever obtain treatment?',
-  });
-  if (!Demographics16Question) {
-    Demographics16Question = await Question.create({
-      question: 'If yes to any of the above, did you ever obtain treatment?',
-
-      stack: 9,
-
-      stackPhrase: '',
-
-      placeHolder: '',
-
-      order: 3,
-
-      inputConfirmation: 'Alpha',
-    }).save();
-  }
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'category')
-    .of(Demographics16Question)
-    .set(yesnoQuestionCategory);
-
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'subSection')
-    .of(Demographics16Question)
-    .set(DemographicsSubSection);
-
   let Demographics17Question = await Question.findOne({
     question: 'Have you ever been diagnosed with postpartum depression?',
   });
@@ -1174,6 +1138,36 @@ export const boilerplateData = async () => {
     .createQueryBuilder()
     .relation(Question, 'subSection')
     .of(Demographics18Question)
+    .set(DemographicsSubSection);
+
+  let Demographics16Question = await Question.findOne({
+    question: 'If yes to any of the above, did you ever obtain treatment?',
+  });
+  if (!Demographics16Question) {
+    Demographics16Question = await Question.create({
+      question: 'If yes to any of the above, did you ever obtain treatment?',
+
+      stack: 9,
+
+      stackPhrase: '',
+
+      placeHolder: '',
+
+      order: 3,
+
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(Demographics16Question)
+    .set(yesnoQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(Demographics16Question)
     .set(DemographicsSubSection);
 
   let Demographics19Question = await Question.findOne({
@@ -1415,7 +1409,6 @@ export const boilerplateData = async () => {
     .of(Demographics22Question)
     .set(DemographicsSubSection);
 
-
   await getConnection()
     .createQueryBuilder()
     .relation(Question, 'items')
@@ -1515,19 +1508,13 @@ export const boilerplateData = async () => {
     .of(QOL1Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL1Question)
-    .set(QOLSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL1Question).set(QOLSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question)
-    .add(QOL1Item1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question)
-    .add(QOL1Item2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question)
-    .add(QOL1Item3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question)
-    .add(QOL1Item4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question)
-    .add(QOL1Item5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question).add(QOL1Item1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question).add(QOL1Item2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question).add(QOL1Item3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question).add(QOL1Item4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL1Question).add(QOL1Item5);
 
   let QOL2Question = await Question.findOne({ question: 'Your health in general?' });
   if (!QOL2Question) {
@@ -1572,19 +1559,13 @@ export const boilerplateData = async () => {
     .of(QOL2Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL2Question)
-    .set(QOLSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL2Question).set(QOLSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question)
-    .add(QOL2Item1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question)
-    .add(QOL2Item2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question)
-    .add(QOL2Item3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question)
-    .add(QOL2Item4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question)
-    .add(QOL2Item5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question).add(QOL2Item1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question).add(QOL2Item2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question).add(QOL2Item3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question).add(QOL2Item4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL2Question).add(QOL2Item5);
 
   let QOL3Question = await Question.findOne({
     question: 'Compared to others like you, how would you rate your own health?',
@@ -1626,22 +1607,15 @@ export const boilerplateData = async () => {
     QOL3Item5 = await QuestionItems.create({ name: 'Much better than others like you', order: 5 }).save();
   }
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL3Question)
-    .set(QOLSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(QOL3Question).set(QOLSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'category').of(QOL3Question)
-    .set(comboQuestionCategory);
+  await getConnection().createQueryBuilder().relation(Question, 'category').of(QOL3Question).set(comboQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question)
-    .add(QOL3Item1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question)
-    .add(QOL3Item2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question)
-    .add(QOL3Item3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question)
-    .add(QOL3Item4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question)
-    .add(QOL3Item5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question).add(QOL3Item1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question).add(QOL3Item2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question).add(QOL3Item3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question).add(QOL3Item4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(QOL3Question).add(QOL3Item5);
 
   let YourHealth1Question = await Question.findOne({ question: 'How tall are you to the nearest inch?' });
   if (!YourHealth1Question) {
@@ -1757,18 +1731,12 @@ export const boilerplateData = async () => {
     .of(YourHealth3Question)
     .set(YourHealthSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem5);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question)
-    .add(cardioDisItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth3Question).add(cardioDisItem6);
 
   let YourHealth4Question = await Question.findOne({ question: 'JOINT OR BONE DISORDERS' });
   if (!YourHealth4Question) {
@@ -1813,14 +1781,10 @@ export const boilerplateData = async () => {
     .of(YourHealth4Question)
     .set(YourHealthSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question)
-    .add(jointBoneDisItem1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question)
-    .add(jointBoneDisItem2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question)
-    .add(jointBoneDisItem3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question)
-    .add(jointBoneDisItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question).add(jointBoneDisItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question).add(jointBoneDisItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question).add(jointBoneDisItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth4Question).add(jointBoneDisItem4);
 
   let YourHealth5Question = await Question.findOne({ question: 'RESPIRATORY DISORDERS' });
   if (!YourHealth5Question) {
@@ -1873,16 +1837,11 @@ export const boilerplateData = async () => {
     .of(YourHealth5Question)
     .set(YourHealthSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question)
-    .add(respDisItem1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question)
-    .add(respDisItem2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question)
-    .add(respDisItem3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question)
-    .add(respDisItem4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question)
-    .add(respDisItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question).add(respDisItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question).add(respDisItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question).add(respDisItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question).add(respDisItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth5Question).add(respDisItem5);
 
   let YourHealth6Question = await Question.findOne({ question: 'CANCERS' });
   if (!YourHealth6Question) {
@@ -1960,30 +1919,18 @@ export const boilerplateData = async () => {
     .of(YourHealth6Question)
     .set(YourHealthSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem5);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem6);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem7);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem8);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem9);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem10);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem11);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question)
-    .add(cancersItem12);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem7);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem8);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem9);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem10);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem11);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth6Question).add(cancersItem12);
 
   let YourHealth7Question = await Question.findOne({ question: 'OTHER DISORDERS' });
   if (!YourHealth7Question) {
@@ -2082,34 +2029,20 @@ export const boilerplateData = async () => {
     .of(YourHealth7Question)
     .set(YourHealthSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem1);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem2);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem3);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem4);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem5);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem6);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem7);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem8);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem9);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem10);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem11);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem12);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem13);
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question)
-    .add(otherdisItem14);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem7);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem8);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem9);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem10);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem11);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem12);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem13);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(YourHealth7Question).add(otherdisItem14);
 
   let YourHealth8Question = await Question.findOne({
     question:
@@ -2255,7 +2188,8 @@ export const boilerplateData = async () => {
     YourHealth9Question = await Question.create({
       question: 'Your home management (e.g., cleaning, repairs, cooking, shopping)?  ',
       stack: 5,
-      stackPhrase: 'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
+      stackPhrase:
+        'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
       placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
@@ -2654,7 +2588,8 @@ export const boilerplateData = async () => {
     YourHealth12Question = await Question.create({
       question: 'Your social life?',
       stack: 6,
-      stackPhrase: 'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
+      stackPhrase:
+        'The next questions are about the effects of all your health problems taken together. Using a 0-to-10 scale where 0 means “no interference” and 10 means “very severe interference,” what number best describes how much problems with your physical or mental health have interfered with each of the following areas of your life over the past 30 days? (You can use any number between 0 and 10 to answer.)',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -3007,13 +2942,11 @@ export const boilerplateData = async () => {
     .of(Screenings1aQuestion)
     .set(ScreeningsSubSection);
 
-
   await getConnection()
     .createQueryBuilder()
     .relation(Question, 'items')
     .of(Screenings1aQuestion)
     .add(Screenings1aQuestionItem1);
-
 
   await getConnection()
     .createQueryBuilder()
@@ -3076,7 +3009,6 @@ export const boilerplateData = async () => {
     .relation(Question, 'subSection')
     .of(Screenings1bQuestion)
     .set(ScreeningsSubSection);
-
 
   await getConnection()
     .createQueryBuilder()
@@ -3143,7 +3075,6 @@ export const boilerplateData = async () => {
     .relation(Question, 'subSection')
     .of(Screenings1cQuestion)
     .set(ScreeningsSubSection);
-
 
   await getConnection()
     .createQueryBuilder()
@@ -5131,9 +5062,9 @@ export const boilerplateData = async () => {
     Utilization2Question = await Question.create({
       question:
         'About how many times have you seen a medical doctor or other health care professional in the past 24 months (2 years) either for a periodic health examination or for treatment of a health problem?',
-      stack: 0,
+      stack: 1,
       stackPhrase: '',
-      placeHolder: '',
+      placeHolder: '1',
       order: 1,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5155,9 +5086,9 @@ export const boilerplateData = async () => {
   if (!Utilization3Question) {
     Utilization3Question = await Question.create({
       question: 'How many different prescription medications do you take in a typical day for chronic health problems?',
-      stack: 0,
+      stack: 1,
       stackPhrase: '',
-      placeHolder: '',
+      placeHolder: '4',
       order: 2,
       inputConfirmation: 'Alpha',
     }).save();
@@ -5177,7 +5108,7 @@ export const boilerplateData = async () => {
   if (!Utilization4Question) {
     Utilization4Question = await Question.create({
       question: 'Do you take birth control?',
-      stack: 1,
+      stack: 2,
       stackPhrase: '',
       placeHolder: 'Yes/No',
       order: 0,
@@ -5203,7 +5134,7 @@ export const boilerplateData = async () => {
     Utilization5Question = await Question.create({
       question:
         'Have you been prescribed opioid medication or placed on opioid therapy for a temporary (short term) condition in the past 24 months? Note: Opioid medications include OxyContin, hydrocodone, methadone, Demerol, Percocet, Hydromorphone',
-      stack: 1,
+      stack: 2,
       stackPhrase: '',
       placeHolder: 'Yes/No',
       order: 1,
@@ -5229,7 +5160,7 @@ export const boilerplateData = async () => {
     Utilization6Question = await Question.create({
       question:
         'Have you been prescribed benzodiazepines or placed on benzodiazepine therapy for a temporary (short term) condition in the past 24 months? Note: Benzodiazepine medications include midazolam, alprazolam, diazepam',
-      stack: 2,
+      stack: 3,
       stackPhrase: '',
       placeHolder: 'Yes/No',
       order: 0,
@@ -5253,7 +5184,7 @@ export const boilerplateData = async () => {
   if (!Utilization7Question) {
     Utilization7Question = await Question.create({
       question: 'Do you take vitamins or dietary supplements on a daily basis? ',
-      stack: 2,
+      stack: 3,
       stackPhrase: '',
       placeHolder: 'Yes/No',
       order: 1,
@@ -5277,8 +5208,9 @@ export const boilerplateData = async () => {
   if (!Utilization8Question) {
     Utilization8Question = await Question.create({
       question: 'Take the medication at the exact time of day you’re told?',
-      stack: 3,
-      stackPhrase: 'When you get a prescription from a health care provider, how often do you do each of the following things?',
+      stack: 4,
+      stackPhrase:
+        'When you get a prescription from a health care provider, how often do you do each of the following things?',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -5352,7 +5284,7 @@ export const boilerplateData = async () => {
   if (!Utilization9Question) {
     Utilization9Question = await Question.create({
       question: 'Take the medication for exactly the number of days you’re told',
-      stack: 3,
+      stack: 4,
       stackPhrase: '',
       placeHolder: '',
       order: 1,
@@ -5425,7 +5357,7 @@ export const boilerplateData = async () => {
   if (!Utilization10Question) {
     Utilization10Question = await Question.create({
       question: 'Forget to take a dose?',
-      stack: 3,
+      stack: 4,
       stackPhrase: '',
       placeHolder: '',
       order: 3,
@@ -5502,7 +5434,7 @@ export const boilerplateData = async () => {
     Utilization11Question = await Question.create({
       question:
         'Stop taking it when you feel better even if the doctor told you to continue until the medication ran out?',
-      stack: 3,
+      stack: 4,
       stackPhrase: '',
       placeHolder: '',
       order: 4,
@@ -6006,12 +5938,12 @@ export const boilerplateData = async () => {
 
   let OralHealth6Question = await Question.findOne({
     question:
-      'On the days you use them, how; ALL OTHERS: How] many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
+      'How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
   });
   if (!OralHealth6Question) {
     OralHealth6Question = await Question.create({
       question:
-        'On the days you use them, how; ALL OTHERS: How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
+        'How many times a day do you usually use dental floss or some other device (e.g., special brushes, picks, sticks, or a water pick) to clean between your teeth?',
       stack: 2,
       stackPhrase: '',
       placeHolder: '3',
@@ -8783,8 +8715,7 @@ export const boilerplateData2 = async () => {
   if (!LowMoodSubSection) {
     LowMoodSubSection = await SubSection.create({ name: 'Low Mood and Anxiety', order: 3 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(LowMoodSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(LowMoodSubSection).set(MoodSection);
 
   let SelfCompassionSubSection = await SubSection.findOne({ name: 'Self-Compassion' });
   if (!SelfCompassionSubSection) {
@@ -8800,15 +8731,13 @@ export const boilerplateData2 = async () => {
   if (!PetsSubSection) {
     PetsSubSection = await SubSection.create({ name: 'Pets', order: 5 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(PetsSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(PetsSubSection).set(MoodSection);
 
   let StressfulSubSection = await SubSection.findOne({ name: 'Stressful Life Experiences' });
   if (!StressfulSubSection) {
     StressfulSubSection = await SubSection.create({ name: 'Stressful Life Experiences', order: 6 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(StressfulSubSection)
-    .set(MoodSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(StressfulSubSection).set(MoodSection);
 
   let DiscriminationSubSection = await SubSection.findOne({ name: 'Everyday Discrimination' });
   if (!DiscriminationSubSection) {
@@ -8834,8 +8763,7 @@ export const boilerplateData2 = async () => {
   if (!SocialNetSubSection) {
     SocialNetSubSection = await SubSection.create({ name: 'Social Networks', order: 2 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(SocialNetSubSection)
-    .set(SocialSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(SocialNetSubSection).set(SocialSection);
 
   let NeighborhoodSubSection = await SubSection.findOne({ name: 'Your Neighborhood' });
   if (!NeighborhoodSubSection) {
@@ -8861,8 +8789,7 @@ export const boilerplateData2 = async () => {
   if (!SleepSubSection) {
     SleepSubSection = await SubSection.create({ name: 'Sleep Quality Index', order: 5 }).save();
   }
-  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(SleepSubSection)
-    .set(SocialSection);
+  await getConnection().createQueryBuilder().relation(SubSection, 'section').of(SleepSubSection).set(SocialSection);
 
   let LowMood7Question = await Question.findOne({
     question:
@@ -10176,8 +10103,7 @@ export const boilerplateData2 = async () => {
     .relation(Question, 'category')
     .of(Pets1Question)
     .set(yesnoQuestionCategory);
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets1Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets1Question).set(PetsSubSection);
   let Pets2Question = await Question.findOne({ question: 'What type of pet(s) do you have? (check all that apply)' });
   if (!Pets2Question) {
     Pets2Question = await Question.create({
@@ -10219,33 +10145,27 @@ export const boilerplateData2 = async () => {
     .of(Pets2Question)
     .set(multiselectionQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets2Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets2Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question)
-    .add(Pets2QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets2Question).add(Pets2QuestionItem6);
 
   let Pets3Question = await Question.findOne({ question: 'I do not really like animals.' });
   if (!Pets3Question) {
     Pets3Question = await Question.create({
       question: 'I do not really like animals.',
       stack: 1,
-      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements.  1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
+      stackPhrase:
+        'Use the following 5-point scale to indicate how much you agree or disagree with the following statements.  1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 2,
       inputConfirmation: 'Alpha',
@@ -10277,23 +10197,17 @@ export const boilerplateData2 = async () => {
     .of(Pets3Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets3Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets3Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question)
-    .add(Pets3QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question).add(Pets3QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question)
-    .add(Pets3QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question).add(Pets3QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question)
-    .add(Pets3QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question).add(Pets3QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question)
-    .add(Pets3QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question).add(Pets3QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question)
-    .add(Pets3QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets3Question).add(Pets3QuestionItem5);
 
   let Pets4Question = await Question.findOne({ question: 'I spend time every day playing with my pet.' });
   if (!Pets4Question) {
@@ -10332,23 +10246,17 @@ export const boilerplateData2 = async () => {
     .of(Pets4Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets4Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets4Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question)
-    .add(Pets4QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question).add(Pets4QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question)
-    .add(Pets4QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question).add(Pets4QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question)
-    .add(Pets4QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question).add(Pets4QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question)
-    .add(Pets4QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question).add(Pets4QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question)
-    .add(Pets4QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets4Question).add(Pets4QuestionItem5);
 
   let Pets5Question = await Question.findOne({
     question: 'I have sometimes talked to my pet and understood what he/she was trying to tell me.',
@@ -10357,7 +10265,8 @@ export const boilerplateData2 = async () => {
     Pets5Question = await Question.create({
       question: 'I have sometimes talked to my pet and understood what he/she was trying to tell me.',
       stack: 2,
-      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
+      stackPhrase:
+        'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
@@ -10389,23 +10298,17 @@ export const boilerplateData2 = async () => {
     .of(Pets5Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets5Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets5Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question)
-    .add(Pets5QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question).add(Pets5QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question)
-    .add(Pets5QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question).add(Pets5QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question)
-    .add(Pets5QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question).add(Pets5QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question)
-    .add(Pets5QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question).add(Pets5QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question)
-    .add(Pets5QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets5Question).add(Pets5QuestionItem5);
 
   let Pets6Question = await Question.findOne({ question: 'I love pets.' });
   if (!Pets6Question) {
@@ -10444,23 +10347,17 @@ export const boilerplateData2 = async () => {
     .of(Pets6Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets6Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets6Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question)
-    .add(Pets6QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question).add(Pets6QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question)
-    .add(Pets6QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question).add(Pets6QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question)
-    .add(Pets6QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question).add(Pets6QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question)
-    .add(Pets6QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question).add(Pets6QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question)
-    .add(Pets6QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets6Question).add(Pets6QuestionItem5);
 
   let Pets7Question = await Question.findOne({ question: 'I talk to my pet quite a lot.' });
   if (!Pets7Question) {
@@ -10499,30 +10396,25 @@ export const boilerplateData2 = async () => {
     .of(Pets7Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets7Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets7Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question)
-    .add(Pets7QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question).add(Pets7QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question)
-    .add(Pets7QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question).add(Pets7QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question)
-    .add(Pets7QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question).add(Pets7QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question)
-    .add(Pets7QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question).add(Pets7QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question)
-    .add(Pets7QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets7Question).add(Pets7QuestionItem5);
 
   let Pets8Question = await Question.findOne({ question: 'My pet makes me feel happy.' });
   if (!Pets8Question) {
     Pets8Question = await Question.create({
       question: 'My pet makes me feel happy.',
       stack: 3,
-      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
+      stackPhrase:
+        'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 7,
       inputConfirmation: 'Alpha',
@@ -10554,23 +10446,17 @@ export const boilerplateData2 = async () => {
     .of(Pets8Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets8Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets8Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question)
-    .add(Pets8QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question).add(Pets8QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question)
-    .add(Pets8QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question).add(Pets8QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question)
-    .add(Pets8QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question).add(Pets8QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question)
-    .add(Pets8QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question).add(Pets8QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question)
-    .add(Pets8QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets8Question).add(Pets8QuestionItem5);
 
   let Pets9Question = await Question.findOne({ question: 'I consider my pet to be a friend.' });
   if (!Pets9Question) {
@@ -10609,30 +10495,25 @@ export const boilerplateData2 = async () => {
     .of(Pets9Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets9Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets9Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question)
-    .add(Pets9QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question).add(Pets9QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question)
-    .add(Pets9QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question).add(Pets9QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question)
-    .add(Pets9QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question).add(Pets9QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question)
-    .add(Pets9QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question).add(Pets9QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question)
-    .add(Pets9QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets9Question).add(Pets9QuestionItem5);
 
   let Pets10Question = await Question.findOne({ question: 'My pet knows when I’m upset and tries to comfort me.' });
   if (!Pets10Question) {
     Pets10Question = await Question.create({
       question: 'My pet knows when I’m upset and tries to comfort me.',
       stack: 4,
-      stackPhrase: 'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
+      stackPhrase:
+        'Use the following 5-point scale to indicate how much you agree or disagree with the following statements. 1 = Strongly agree, 2 = Agree, 3 = Not Sure, 4 = Disagree, 5 = Strongly disagree',
       placeHolder: '',
       order: 9,
       inputConfirmation: 'Alpha',
@@ -10664,23 +10545,17 @@ export const boilerplateData2 = async () => {
     .of(Pets10Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets10Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets10Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question)
-    .add(Pets10QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question).add(Pets10QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question)
-    .add(Pets10QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question).add(Pets10QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question)
-    .add(Pets10QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question).add(Pets10QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question)
-    .add(Pets10QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question).add(Pets10QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question)
-    .add(Pets10QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets10Question).add(Pets10QuestionItem5);
 
   let Pets11Question = await Question.findOne({ question: 'There are times I’d be lonely without my pet.' });
   if (!Pets11Question) {
@@ -10719,23 +10594,17 @@ export const boilerplateData2 = async () => {
     .of(Pets11Question)
     .set(multiLadderQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets11Question)
-    .set(PetsSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Pets11Question).set(PetsSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question)
-    .add(Pets11QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question).add(Pets11QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question)
-    .add(Pets11QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question).add(Pets11QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question)
-    .add(Pets11QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question).add(Pets11QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question)
-    .add(Pets11QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question).add(Pets11QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question)
-    .add(Pets11QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Pets11Question).add(Pets11QuestionItem5);
 
   let Stressful1Question = await Question.findOne({
     question: 'A life-threatening illness or injury of a very close friend or close family member',
@@ -12697,7 +12566,8 @@ export const boilerplateData2 = async () => {
     Neighborhood1Question = await Question.create({
       question: 'Are friendly',
       stack: 0,
-      stackPhrase: 'The next questions are about your neighborhood. How much do you agree or disagree with each of the following statements about people in your neighborhood?',
+      stackPhrase:
+        'The next questions are about your neighborhood. How much do you agree or disagree with each of the following statements about people in your neighborhood?',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -13103,7 +12973,8 @@ export const boilerplateData2 = async () => {
     Neighborhood10Question = await Question.create({
       question: 'Drug or alcohol abuse is a problem in my community.',
       stack: 4,
-      stackPhrase: 'Please answer these questions thinking about your neighborhood or community.  Do you agree or disagree with these statements? ',
+      stackPhrase:
+        'Please answer these questions thinking about your neighborhood or community.  Do you agree or disagree with these statements? ',
       placeHolder: '7',
       order: 9,
       inputConfirmation: 'Alpha',
@@ -13326,7 +13197,8 @@ export const boilerplateData2 = async () => {
     Neighborhood13Question = await Question.create({
       question: 'There are plenty of jobs available for those who want them.',
       stack: 5,
-      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
+      stackPhrase:
+        'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
@@ -13545,7 +13417,8 @@ export const boilerplateData2 = async () => {
     Neighborhood16Question = await Question.create({
       question: 'I feel safe in my neighborhood.',
       stack: 6,
-      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
+      stackPhrase:
+        'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 15,
       inputConfirmation: 'Alpha',
@@ -13841,7 +13714,8 @@ export const boilerplateData2 = async () => {
     Neighborhood20Question = await Question.create({
       question: 'I am able to get healthy food easily.',
       stack: 7,
-      stackPhrase: 'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
+      stackPhrase:
+        'Please answer these questions thinking about your neighborhood or community. Do you agree or disagree with these statements?',
       placeHolder: '',
       order: 19,
       inputConfirmation: 'Alpha',
@@ -13989,7 +13863,8 @@ export const boilerplateData2 = async () => {
     Religiousness1Question = await Question.create({
       question: 'get through hard times?',
       stack: 0,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks. ',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks. ',
       placeHolder: '',
       order: 0,
       inputConfirmation: 'Alpha',
@@ -14285,7 +14160,8 @@ export const boilerplateData2 = async () => {
     Religiousness5Question = await Question.create({
       question: 'To what extent do you find meaning in life?',
       stack: 1,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 4,
       inputConfirmation: 'Alpha',
@@ -14585,7 +14461,8 @@ export const boilerplateData2 = async () => {
     Religiousness9Question = await Question.create({
       question: 'To what extent do you feel inner spiritual strength?',
       stack: 2,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 8,
       inputConfirmation: 'Alpha',
@@ -14885,7 +14762,8 @@ export const boilerplateData2 = async () => {
     Religiousness13Question = await Question.create({
       question: 'To what extent does faith give you strength in daily life?',
       stack: 3,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 12,
       inputConfirmation: 'Alpha',
@@ -15183,7 +15061,8 @@ export const boilerplateData2 = async () => {
     Religiousness17Question = await Question.create({
       question: 'How hopeful do you feel?',
       stack: 4,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 16,
       inputConfirmation: 'Alpha',
@@ -15481,7 +15360,8 @@ export const boilerplateData2 = async () => {
     Religiousness21Question = await Question.create({
       question: 'To what extent do you feel the way you live is consistent with what you feel and think?',
       stack: 5,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 20,
       inputConfirmation: 'Alpha',
@@ -15781,7 +15661,8 @@ export const boilerplateData2 = async () => {
     Religiousness25Question = await Question.create({
       question: 'To what extent do you feel peaceful within yourself?',
       stack: 6,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 24,
       inputConfirmation: 'Alpha',
@@ -16079,7 +15960,8 @@ export const boilerplateData2 = async () => {
     Religiousness29Question = await Question.create({
       question: 'To what extent does being optimistic improve your quality of life?',
       stack: 7,
-      stackPhrase: 'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
+      stackPhrase:
+        'The following questions ask how your beliefs have affected different aspects of your quality of life in the past two weeks. For example, one question asks "To what extent do you feel connected with your mind body and soul?" If you have experienced this very much, click "very much". If you have not experienced this at all, click "Not at all". Questions refer to the last two weeks.',
       placeHolder: '',
       order: 28,
       inputConfirmation: 'Alpha',
@@ -16411,23 +16293,17 @@ export const boilerplateData2 = async () => {
     .of(Sleep1Question)
     .set(comboQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep1Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep1Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question)
-    .add(Sleep1QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question).add(Sleep1QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question)
-    .add(Sleep1QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question).add(Sleep1QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question)
-    .add(Sleep1QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question).add(Sleep1QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question)
-    .add(Sleep1QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question).add(Sleep1QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question)
-    .add(Sleep1QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep1Question).add(Sleep1QuestionItem5);
 
   let Sleep2Question = await Question.findOne({
     question: 'On the average, how many hours did you sleep each night during the past 4 weeks?',
@@ -16447,8 +16323,7 @@ export const boilerplateData2 = async () => {
     .relation(Question, 'category')
     .of(Sleep2Question)
     .set(openQuestionCategory);
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep2Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep2Question).set(SleepSubSection);
 
   let Sleep3Question = await Question.findOne({
     question: 'Feel that your sleep was not quiet (moving restlessly, feeling tense, speaking, etc., while sleeping)?',
@@ -16494,26 +16369,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep3Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep3Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep3Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question)
-    .add(Sleep3QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep3Question).add(Sleep3QuestionItem6);
 
   let Sleep4Question = await Question.findOne({
     question: 'Get enough sleep to feel rested upon waking in the morning? ',
@@ -16558,26 +16426,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep4Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep4Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep4Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question)
-    .add(Sleep4QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep4Question).add(Sleep4QuestionItem6);
 
   let Sleep5Question = await Question.findOne({ question: 'Awaken short of breath or with a headache? ' });
   if (!Sleep5Question) {
@@ -16620,26 +16481,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep5Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep5Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep5Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question)
-    .add(Sleep5QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep5Question).add(Sleep5QuestionItem6);
 
   let Sleep6Question = await Question.findOne({ question: 'Feel drowsy or sleepy during the day?' });
   if (!Sleep6Question) {
@@ -16682,26 +16536,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep6Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep6Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep6Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question)
-    .add(Sleep6QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep6Question).add(Sleep6QuestionItem6);
 
   let Sleep7Question = await Question.findOne({ question: 'Have trouble falling asleep?' });
   if (!Sleep7Question) {
@@ -16744,26 +16591,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep7Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep7Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep7Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question)
-    .add(Sleep7QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep7Question).add(Sleep7QuestionItem6);
 
   let Sleep8Question = await Question.findOne({
     question: 'Awaken during your sleep time and have trouble falling asleep again?',
@@ -16808,26 +16648,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep8Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep8Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep8Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question)
-    .add(Sleep8QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep8Question).add(Sleep8QuestionItem6);
 
   let Sleep9Question = await Question.findOne({ question: 'Have trouble staying awake during the day? ' });
   if (!Sleep9Question) {
@@ -16870,26 +16703,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep9Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep9Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep9Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question)
-    .add(Sleep9QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep9Question).add(Sleep9QuestionItem6);
 
   let Sleep10Question = await Question.findOne({ question: 'Snore during your sleep?' });
   if (!Sleep10Question) {
@@ -16932,26 +16758,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep10Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep10Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep10Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question)
-    .add(Sleep10QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep10Question).add(Sleep10QuestionItem6);
 
   let Sleep11Question = await Question.findOne({ question: 'Take naps (5 minutes or longer) during the day?' });
   if (!Sleep11Question) {
@@ -16994,26 +16813,19 @@ export const boilerplateData2 = async () => {
     .of(Sleep11Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep11Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep11Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question)
-    .add(Sleep11QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep11Question).add(Sleep11QuestionItem6);
 
   let Sleep12Question = await Question.findOne({ question: 'Get the amount of sleep you needed?' });
   if (!Sleep12Question) {
@@ -17056,24 +16868,17 @@ export const boilerplateData2 = async () => {
     .of(Sleep12Question)
     .set(radiogroupQuestionCategory);
 
-  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep12Question)
-    .set(SleepSubSection);
+  await getConnection().createQueryBuilder().relation(Question, 'subSection').of(Sleep12Question).set(SleepSubSection);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem1);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem1);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem2);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem2);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem3);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem3);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem4);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem4);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem5);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem5);
 
-  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question)
-    .add(Sleep12QuestionItem6);
+  await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem6);
 };

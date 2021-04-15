@@ -1,4 +1,4 @@
-import { CONFIG_TEST_DATABASE_URL } from './../config/variables';
+import { CONFIG_DATABASE_URL } from '@config/variables';
 import dotEnv from 'dotenv';
 import { Connection, createConnection } from 'typeorm';
 
@@ -11,7 +11,7 @@ export const testConn = async (drop: boolean = false): Promise<Connection> => {
     client = await createConnection({
       name: 'default',
       type: 'postgres',
-      url: CONFIG_TEST_DATABASE_URL,
+      url: CONFIG_DATABASE_URL,
       ssl: false,
       synchronize: drop,
       dropSchema: drop,
