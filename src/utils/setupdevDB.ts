@@ -6465,30 +6465,14 @@ export const boilerplateData = async () => {
       inputConfirmation: 'Alpha',
     }).save();
   }
-  let HealthBehaviors9QuestionItem1 = await QuestionItems.findOne({ name: 'Never' });
-  if (!HealthBehaviors9QuestionItem1) {
-    HealthBehaviors9QuestionItem1 = await QuestionItems.create({ name: 'Never', order: 0 }).save();
-  }
-  let HealthBehaviors9QuestionItem2 = await QuestionItems.findOne({ name: 'Less than one day a week' });
-  if (!HealthBehaviors9QuestionItem2) {
-    HealthBehaviors9QuestionItem2 = await QuestionItems.create({ name: 'Less than one day a week', order: 1 }).save();
-  }
-  let HealthBehaviors9QuestionItem3 = await QuestionItems.findOne({ name: '1-2 days a week' });
-  if (!HealthBehaviors9QuestionItem3) {
-    HealthBehaviors9QuestionItem3 = await QuestionItems.create({ name: '1-2 days a week', order: 2 }).save();
-  }
-  let HealthBehaviors9QuestionItem4 = await QuestionItems.findOne({ name: '3-4 days a week' });
-  if (!HealthBehaviors9QuestionItem4) {
-    HealthBehaviors9QuestionItem4 = await QuestionItems.create({ name: '3-4 days a week', order: 3 }).save();
-  }
-  let HealthBehaviors9QuestionItem5 = await QuestionItems.findOne({ name: '5-6 days a week' });
-  if (!HealthBehaviors9QuestionItem5) {
-    HealthBehaviors9QuestionItem5 = await QuestionItems.create({ name: '5-6 days a week', order: 4 }).save();
-  }
-  let HealthBehaviors9QuestionItem6 = await QuestionItems.findOne({ name: 'Every day' });
-  if (!HealthBehaviors9QuestionItem6) {
-    HealthBehaviors9QuestionItem6 = await QuestionItems.create({ name: 'Every day', order: 5 }).save();
-  }
+
+    let HealthBehaviors9QuestionItem1 = await QuestionItems.create({ name: 'Never', order: 0 }).save();
+    let HealthBehaviors9QuestionItem2 = await QuestionItems.create({ name: 'Less than one day a week', order: 1 }).save();
+    let HealthBehaviors9QuestionItem3 = await QuestionItems.create({ name: '1-2 days a week', order: 2 }).save();
+    let HealthBehaviors9QuestionItem4 = await QuestionItems.create({ name: '3-4 days a week', order: 3 }).save();
+    let HealthBehaviors9QuestionItem5 = await QuestionItems.create({ name: '5-6 days a week', order: 4 }).save();
+    let HealthBehaviors9QuestionItem6 = await QuestionItems.create({ name: 'Every day', order: 5 }).save();
+
   await getConnection()
     .createQueryBuilder()
     .relation(Question, 'category')
@@ -6591,12 +6575,12 @@ export const boilerplateData = async () => {
 
   let HealthBehaviors12Question = await Question.findOne({
     question:
-      'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
+      'What happens to your skin when you’re out in the sun repeatedly for a long time without sunscreen, lotions, or protective foundations?',
   });
   if (!HealthBehaviors12Question) {
     HealthBehaviors12Question = await Question.create({
       question:
-        'How many days a week do you usually have a drink containing alcohol (beer, wine, liquor, or mixed drink)?',
+        'What happens to your skin when you’re out in the sun repeatedly for a long time without sunscreen, lotions, or protective foundations?',
       stack: 4,
       stackPhrase: '',
       placeHolder: '',
