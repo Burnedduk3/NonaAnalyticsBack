@@ -529,13 +529,13 @@ export const boilerplateData = async () => {
     DemographicsSixthQuestion = await Question.create({
       question: 'How many years have you lived in Florida?',
 
-      stack: 2,
+      stack: 1,
 
       stackPhrase: '',
 
       placeHolder: '0',
 
-      order: 0,
+      order: 1,
 
       inputConfirmation: 'Numerical',
     }).save();
