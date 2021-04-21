@@ -642,11 +642,6 @@ export const boilerplateData = async () => {
     .relation(Question, 'items')
     .of(DemographicsEighthQuestion)
     .add(hispanicQuestionItem4);
-  await getConnection()
-    .createQueryBuilder()
-    .relation(Question, 'items')
-    .of(DemographicsEighthQuestion)
-    .add(hispanicQuestionItem5);
 
   let DemographicsNinthQuestion = await Question.findOne({ question: 'With which racial groups do you identify?' });
   if (!DemographicsNinthQuestion) {
