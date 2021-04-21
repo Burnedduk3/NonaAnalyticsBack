@@ -123,7 +123,7 @@ export class UserInteractionMutationsResolver {
   async updateFormProgress(@Arg('UpdateProgress') data: UpdateFormInputs): Promise<SingleFormResponse> {
     try {
       const { formId, progress } = data;
-      if (!formId || !progress) {
+      if (!formId || !(progress >= 0)) {
         throw new Error('Unable to process the query, missing data');
       }
       const form = await Form.findOne(formId);
@@ -157,7 +157,7 @@ export class UserInteractionMutationsResolver {
 
   @FieldResolver(() => UserInteractionMutationsTypes)
   @UseMiddleware([isAuth])
-  async updateFormConsent(@Arg('UpdateProgress') data: UpdateFormConsentInputs): Promise<SingleFormResponse> {
+  async updateFormConsent(@Arg('UpdateConsent') data: UpdateFormConsentInputs): Promise<SingleFormResponse> {
     try {
       const { formId } = data;
       if (!formId) {
