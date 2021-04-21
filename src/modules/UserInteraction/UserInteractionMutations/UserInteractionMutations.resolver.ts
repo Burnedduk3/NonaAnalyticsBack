@@ -141,7 +141,6 @@ export class UserInteractionMutationsResolver {
         .execute();
       form.percentage = progress;
 
-
       return {
         error: false,
         message: '',

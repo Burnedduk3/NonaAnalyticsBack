@@ -583,11 +583,11 @@ export const boilerplateData = async () => {
     .set(DemographicsSubSection);
 
   let DemographicsEighthQuestion = await Question.findOne({
-    question: 'Select your Hispanic/Latin race or N/A if none apply:',
+    question: 'Select your Hispanic/Latin race:',
   });
   if (!DemographicsEighthQuestion) {
     DemographicsEighthQuestion = await Question.create({
-      question: 'Select your Hispanic/Latin race or N/A if none apply:',
+      question: 'Select your Hispanic/Latin race:',
 
       stack: 2,
 
@@ -605,10 +605,10 @@ export const boilerplateData = async () => {
     name: 'Mexican/Mexican-American/Chicano',
     order: 1,
   }).save();
+
   const hispanicQuestionItem2 = await QuestionItems.create({ name: 'Puerto Rican', order: 2 }).save();
   const hispanicQuestionItem3 = await QuestionItems.create({ name: 'Cuban', order: 3 }).save();
   const hispanicQuestionItem4 = await QuestionItems.create({ name: 'Other', order: 4 }).save();
-  const hispanicQuestionItem5 = await QuestionItems.create({ name: 'N/A', order: 5 }).save();
 
   await getConnection()
     .createQueryBuilder()
