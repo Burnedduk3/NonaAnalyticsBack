@@ -6461,12 +6461,15 @@ export const boilerplateData = async () => {
     }).save();
   }
 
-    let HealthBehaviors9QuestionItem1 = await QuestionItems.create({ name: 'Never', order: 0 }).save();
-    let HealthBehaviors9QuestionItem2 = await QuestionItems.create({ name: 'Less than one day a week', order: 1 }).save();
-    let HealthBehaviors9QuestionItem3 = await QuestionItems.create({ name: '1-2 days a week', order: 2 }).save();
-    let HealthBehaviors9QuestionItem4 = await QuestionItems.create({ name: '3-4 days a week', order: 3 }).save();
-    let HealthBehaviors9QuestionItem5 = await QuestionItems.create({ name: '5-6 days a week', order: 4 }).save();
-    let HealthBehaviors9QuestionItem6 = await QuestionItems.create({ name: 'Every day', order: 5 }).save();
+  const HealthBehaviors9QuestionItem1 = await QuestionItems.create({ name: 'Never', order: 0 }).save();
+  const HealthBehaviors9QuestionItem2 = await QuestionItems.create({
+    name: 'Less than one day a week',
+    order: 1,
+  }).save();
+  const HealthBehaviors9QuestionItem3 = await QuestionItems.create({ name: '1-2 days a week', order: 2 }).save();
+  const HealthBehaviors9QuestionItem4 = await QuestionItems.create({ name: '3-4 days a week', order: 3 }).save();
+  const HealthBehaviors9QuestionItem5 = await QuestionItems.create({ name: '5-6 days a week', order: 4 }).save();
+  const HealthBehaviors9QuestionItem6 = await QuestionItems.create({ name: 'Every day', order: 5 }).save();
 
   await getConnection()
     .createQueryBuilder()
@@ -16860,4 +16863,360 @@ export const boilerplateData2 = async () => {
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem5);
 
   await getConnection().createQueryBuilder().relation(Question, 'items').of(Sleep12Question).add(Sleep12QuestionItem6);
+
+  await countryQuestion();
+};
+
+const countryQuestion = async () => {
+  let comboQuestionCategory = await Category.findOne({ name: 'Combo' });
+  if (!comboQuestionCategory) {
+    comboQuestionCategory = await Category.create({ name: 'Combo' }).save();
+  }
+
+  let DemographicsSubSection = await SubSection.findOne({ name: 'Demographics' });
+  if (!DemographicsSubSection) {
+    DemographicsSubSection = await SubSection.create({ name: 'Demographics', order: 0 }).save();
+  }
+
+  let DemographicsStateQuestion = await Question.findOne({ question: 'In what State?' });
+  if (!DemographicsStateQuestion) {
+    DemographicsStateQuestion = await Question.create({
+      question: 'In what State?',
+      stack: 1,
+      stackPhrase: '',
+      placeHolder: '',
+      order: 1,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+
+  const states = [
+    'Alabama',
+    'Alaska',
+    'American Samoa',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'District of Columbia',
+    'Federated States of Micronesia',
+    'Florida',
+    'Georgia',
+    'Guam',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Marshall Islands',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Northern Mariana Islands',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Palau',
+    'Pennsylvania',
+    'Puerto Rico',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virgin Island',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',
+  ];
+
+  let counter = 0;
+  for (const state of states) {
+    counter += 1;
+    let stateItem = await QuestionItems.findOne({ name: state });
+    if (!stateItem) {
+      stateItem = await QuestionItems.create({ name: state, order: counter }).save();
+    }
+    await getConnection().createQueryBuilder().relation(Question, 'items').of(DemographicsStateQuestion).add(stateItem);
+  }
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(DemographicsStateQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(DemographicsStateQuestion)
+    .set(DemographicsSubSection);
+
+  let DemographicsCountryQuestion = await Question.findOne({ question: 'In what Country' });
+  if (!DemographicsCountryQuestion) {
+    DemographicsCountryQuestion = await Question.create({
+      question: 'In what State?',
+      stack: 1,
+      stackPhrase: '',
+      placeHolder: '',
+      order: 2,
+      inputConfirmation: 'Alpha',
+    }).save();
+  }
+
+  const countries = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Anguilla',
+    'Antigua &; Barbuda',
+    'Argentina',
+    'Armenia',
+    'Aruba',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bermuda',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia &; Herzegovina',
+    'Botswana',
+    'Brazil',
+    'British Virgin Islands',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Cape Verde',
+    'Cayman Islands',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombia',
+    'Congo',
+    'Cook Islands',
+    'Costa Rica',
+    'Cote D Ivoire',
+    'Croatia',
+    'Cruise Ship',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Estonia',
+    'Ethiopia',
+    'Falkland Islands',
+    'Faroe Islands',
+    'Fiji',
+    'Finland',
+    'France',
+    'French Polynesia',
+    'French West Indies',
+    'Gabon',
+    'Gambia',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Gibraltar',
+    'Greece',
+    'Greenland',
+    'Grenada',
+    'Guam',
+    'Guatemala',
+    'Guernsey',
+    'Guinea',
+    'Guinea Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hong Kong',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Isle of Man',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jersey',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kuwait',
+    'Kyrgyz Republic',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macau',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Montenegro',
+    'Montserrat',
+    'Morocco',
+    'Mozambique',
+    'Namibia',
+    'Nepal',
+    'Netherlands',
+    'Netherlands Antilles',
+    'New Caledonia',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palestine',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Puerto Rico',
+    'Qatar',
+    'Reunion',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Pierre &; Miquelon',
+    'Samoa',
+    'San Marino',
+    'Satellite',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'South Africa',
+    'South Korea',
+    'Spain',
+    'Sri Lanka',
+    'St Kitts &; Nevis',
+    'St Lucia',
+    'St Vincent',
+    'St. Lucia',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    "Timor L'Este",
+    'Togo',
+    'Tonga',
+    'Trinidad &; Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Turks &; Caicos',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'Uruguay',
+    'Uzbekistan',
+    'Venezuela',
+    'Vietnam',
+    'Virgin Islands (US)',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe',
+  ];
+
+  counter = 0;
+  for (const country of countries) {
+    counter += 1;
+    let countryItem = await QuestionItems.findOne({ name: country });
+    if (!countryItem) {
+      countryItem = await QuestionItems.create({ name: country, order: counter }).save();
+    }
+    await getConnection()
+      .createQueryBuilder()
+      .relation(Question, 'items')
+      .of(DemographicsCountryQuestion)
+      .add(countryItem);
+  }
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'category')
+    .of(DemographicsCountryQuestion)
+    .set(comboQuestionCategory);
+
+  await getConnection()
+    .createQueryBuilder()
+    .relation(Question, 'subSection')
+    .of(DemographicsCountryQuestion)
+    .set(DemographicsSubSection);
 };
