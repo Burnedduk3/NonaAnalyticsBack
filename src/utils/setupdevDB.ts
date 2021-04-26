@@ -16974,10 +16974,10 @@ const countryQuestion = async () => {
     .of(DemographicsStateQuestion)
     .set(DemographicsSubSection);
 
-  let DemographicsCountryQuestion = await Question.findOne({ question: 'In what Country' });
+  let DemographicsCountryQuestion = await Question.findOne({ question: 'In what Country?' });
   if (!DemographicsCountryQuestion) {
     DemographicsCountryQuestion = await Question.create({
-      question: 'In what State?',
+      question: 'In what Country?',
       stack: 1,
       stackPhrase: '',
       placeHolder: '',
