@@ -7,7 +7,7 @@ import { isAuth } from '@middlewares/isAuth';
 @Resolver(/* istanbul ignore next */ () => SettingUpFormTypes)
 export class SettingUpFormResolver {
   @Query(/* istanbul ignore next */ () => SettingUpFormQueriesTypes)
-  @UseMiddleware([isAuth])
+  //@UseMiddleware([isAuth])
   @FieldResolver()
   SettingUpFormQueries(): SettingUpFormQueriesTypes {
     return new SettingUpFormQueriesTypes();

@@ -1252,31 +1252,51 @@ export const boilerplateData = async () => {
   if (!employmentQuestionItem2) {
     employmentQuestionItem2 = await QuestionItems.create({ name: 'Part-time employment', order: 1 }).save();
   }
-  let employmentQuestionItem3 = await QuestionItems.findOne({ name: 'Student' });
+  let employmentQuestionItem3 = await QuestionItems.findOne({ name: 'Self-employed' });
   if (!employmentQuestionItem3) {
-    employmentQuestionItem3 = await QuestionItems.create({ name: 'Student', order: 2 }).save();
+    employmentQuestionItem3 = await QuestionItems.create({ name: 'Self-employed', order: 2 }).save();
   }
-  let employmentQuestionItem4 = await QuestionItems.findOne({ name: 'Unemployed and currently looking for work' });
+  let employmentQuestionItem4 = await QuestionItems.findOne({ name: 'On maternity leave' });
   if (!employmentQuestionItem4) {
-    employmentQuestionItem4 = await QuestionItems.create({
-      name: 'Unemployed and currently looking for work',
-      order: 3,
-    }).save();
+    employmentQuestionItem4 = await QuestionItems.create({ name: 'On maternity leave', order: 3 }).save();
   }
-  let employmentQuestionItem5 = await QuestionItems.findOne({ name: 'Unemployed and not currently looking for work' });
+  let employmentQuestionItem5 = await QuestionItems.findOne({ name: 'On illness leave' });
   if (!employmentQuestionItem5) {
-    employmentQuestionItem5 = await QuestionItems.create({
-      name: 'Unemployed and not currently looking for work',
-      order: 4,
+    employmentQuestionItem5 = await QuestionItems.create({ name: 'On illness leave', order: 4 }).save();
+  }
+  let employmentQuestionItem6 = await QuestionItems.findOne({ name: 'Temporarily laid off' });
+  if (!employmentQuestionItem6) {
+    employmentQuestionItem6 = await QuestionItems.create({ name: 'Temporarily laid off', order: 5 }).save();
+  }
+  let employmentQuestionItem7 = await QuestionItems.findOne({ name: 'Student' });
+  if (!employmentQuestionItem7) {
+    employmentQuestionItem7 = await QuestionItems.create({ name: 'Student', order: 6}).save();
+  }
+  let employmentQuestionItem8 = await QuestionItems.findOne({ name: 'Unemployed and currently looking for work' });
+  if (!employmentQuestionItem8) {
+    employmentQuestionItem8 = await QuestionItems.create({
+      name: 'Unemployed and currently looking for work',
+      order: 7,
     }).save();
   }
-  let employmentQuestionItem6 = await QuestionItems.findOne({ name: 'Retired' });
-  if (!employmentQuestionItem6) {
-    employmentQuestionItem6 = await QuestionItems.create({ name: 'Retired', order: 5 }).save();
+  let employmentQuestionItem9 = await QuestionItems.findOne({ name: 'Unemployed and not currently looking for work' });
+  if (!employmentQuestionItem9) {
+    employmentQuestionItem9 = await QuestionItems.create({
+      name: 'Unemployed and not currently looking for work',
+      order: 8,
+    }).save();
   }
-  let employmentQuestionItem7 = await QuestionItems.findOne({ name: 'Unable to work' });
-  if (!employmentQuestionItem7) {
-    employmentQuestionItem7 = await QuestionItems.create({ name: 'Unable to work', order: 6 }).save();
+  let employmentQuestionItem10 = await QuestionItems.findOne({ name: 'Home-maker' });
+  if (!employmentQuestionItem10) {
+    employmentQuestionItem10 = await QuestionItems.create({ name: 'Home-maker', order: 9 }).save();
+  }
+  let employmentQuestionItem11 = await QuestionItems.findOne({ name: 'Retired' });
+  if (!employmentQuestionItem11) {
+    employmentQuestionItem11 = await QuestionItems.create({ name: 'Retired', order: 10 }).save();
+  }
+  let employmentQuestionItem12 = await QuestionItems.findOne({ name: 'Unable to work' });
+  if (!employmentQuestionItem12) {
+    employmentQuestionItem12 = await QuestionItems.create({ name: 'Unable to work', order: 11 }).save();
   }
 
   await getConnection()
