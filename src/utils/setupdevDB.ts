@@ -535,7 +535,7 @@ export const boilerplateData = async () => {
 
       placeHolder: '0',
 
-      order: 1,
+      order: 3,
 
       inputConfirmation: 'Numerical',
     }).save();
@@ -16898,7 +16898,7 @@ const countryQuestion = async () => {
     DemographicsSubSection = await SubSection.create({ name: 'Demographics', order: 0 }).save();
   }
 
-  let DemographicsStateQuestion = await Question.findOne({ question: 'In what State?' });
+  let DemographicsStateQuestion = await Question.findOne({ question: 'In what state where you born?' });
   if (!DemographicsStateQuestion) {
     DemographicsStateQuestion = await Question.create({
       question: 'In what State?',
@@ -16994,14 +16994,14 @@ const countryQuestion = async () => {
     .of(DemographicsStateQuestion)
     .set(DemographicsSubSection);
 
-  let DemographicsCountryQuestion = await Question.findOne({ question: 'In what Country?' });
+  let DemographicsCountryQuestion = await Question.findOne({ question: 'In what country where you born?' });
   if (!DemographicsCountryQuestion) {
     DemographicsCountryQuestion = await Question.create({
       question: 'In what Country?',
       stack: 1,
       stackPhrase: '',
       placeHolder: '',
-      order: 2,
+      order: 1,
       inputConfirmation: 'Alpha',
     }).save();
   }

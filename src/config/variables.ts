@@ -8,10 +8,10 @@ export const CONFIG_SERVER_PORT = process.env.PORT || 3500;
 
 // Database
 export const CONFIG_DATABASE_URL =
-  process.env.DATABASE_URL || 'postgres://postgres:yosoyjcpa@localhost:5433/LakeNonaTest';
+  process.env.DATABASE_URL || 'postgres://postgres:Patipuna1@localhost:5432/test';
 
 export const CONFIG_TEST_DATABASE_URL =
-  process.env.TESTDATABASE_URL || 'postgres://postgres:yosoyjcpa@localhost:5433/LakeNonaTest';
+  process.env.TESTDATABASE_URL || 'postgres://postgres:Patipuna1@localhost:5432/test';
 
 // encription secretWord
 export const CONFIG_BCRYPT_SALT_ROUNDS: number = process.env.CONFIG_BCRYPT_SALT_ROUNDS
