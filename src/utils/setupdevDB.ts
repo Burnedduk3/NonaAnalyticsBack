@@ -16901,7 +16901,7 @@ const countryQuestion = async () => {
   let DemographicsStateQuestion = await Question.findOne({ question: 'In what state where you born?' });
   if (!DemographicsStateQuestion) {
     DemographicsStateQuestion = await Question.create({
-      question: 'In what State?',
+      question: 'In what state where you born?',
       stack: 1,
       stackPhrase: '',
       placeHolder: '',
@@ -16997,7 +16997,7 @@ const countryQuestion = async () => {
   let DemographicsCountryQuestion = await Question.findOne({ question: 'In what country where you born?' });
   if (!DemographicsCountryQuestion) {
     DemographicsCountryQuestion = await Question.create({
-      question: 'In what Country?',
+      question: 'In what country where you born?',
       stack: 1,
       stackPhrase: '',
       placeHolder: '',
