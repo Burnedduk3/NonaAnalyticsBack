@@ -39,7 +39,7 @@ export class SingleAnswerResponse {
   error: boolean;
   @Field()
   message: string | '';
-  @Field()
+  @Field({ nullable: true })
   data?: FormResponses;
 }
 
